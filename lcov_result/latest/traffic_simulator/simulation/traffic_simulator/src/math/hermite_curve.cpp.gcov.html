@@ -1,0 +1,449 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - lcov.total.filtered - simulation/traffic_simulator/src/math/hermite_curve.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">simulation/traffic_simulator/src/math</a> - hermite_curve.cpp<span style="font-size: 80%;"> (source / <a href="hermite_curve.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">lcov.total.filtered</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">166</td>
+            <td class="headerCovTableEntry">210</td>
+            <td class="headerCovTableEntryMed">79.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2021-09-13 07:17:41</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntryMed">82.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+            | Branches:
+            <span class="coverLegendCov">+</span> taken
+            <span class="coverLegendNoCov">-</span> not taken
+            <span class="coverLegendNoCov">#</span> not executed
+</td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">93</td>
+            <td class="headerCovTableEntry">178</td>
+            <td class="headerCovTableEntryLo">52.2 %</td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : // Copyright 2015-2020 Tier IV, Inc. All rights reserved.</a>
+<a name="2"><span class="lineNum">       2 </span>                :            : //</a>
+<a name="3"><span class="lineNum">       3 </span>                :            : // Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</a>
+<a name="4"><span class="lineNum">       4 </span>                :            : // you may not use this file except in compliance with the License.</a>
+<a name="5"><span class="lineNum">       5 </span>                :            : // You may obtain a copy of the License at</a>
+<a name="6"><span class="lineNum">       6 </span>                :            : //</a>
+<a name="7"><span class="lineNum">       7 </span>                :            : //     http://www.apache.org/licenses/LICENSE-2.0</a>
+<a name="8"><span class="lineNum">       8 </span>                :            : //</a>
+<a name="9"><span class="lineNum">       9 </span>                :            : // Unless required by applicable law or agreed to in writing, software</a>
+<a name="10"><span class="lineNum">      10 </span>                :            : // distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</a>
+<a name="11"><span class="lineNum">      11 </span>                :            : // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</a>
+<a name="12"><span class="lineNum">      12 </span>                :            : // See the License for the specific language governing permissions and</a>
+<a name="13"><span class="lineNum">      13 </span>                :            : // limitations under the License.</a>
+<a name="14"><span class="lineNum">      14 </span>                :            : </a>
+<a name="15"><span class="lineNum">      15 </span>                :            : #include &lt;algorithm&gt;</a>
+<a name="16"><span class="lineNum">      16 </span>                :            : #include &lt;cmath&gt;</a>
+<a name="17"><span class="lineNum">      17 </span>                :            : #include &lt;iostream&gt;</a>
+<a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;limits&gt;</a>
+<a name="19"><span class="lineNum">      19 </span>                :            : #include &lt;rclcpp/rclcpp.hpp&gt;</a>
+<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;traffic_simulator/math/hermite_curve.hpp&gt;</a>
+<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;vector&gt;</a>
+<a name="22"><span class="lineNum">      22 </span>                :            : </a>
+<a name="23"><span class="lineNum">      23 </span>                :            : namespace traffic_simulator</a>
+<a name="24"><span class="lineNum">      24 </span>                :            : {</a>
+<a name="25"><span class="lineNum">      25 </span>                :            : namespace math</a>
+<a name="26"><span class="lineNum">      26 </span>                :            : {</a>
+<a name="27"><span class="lineNum">      27 </span>                :<span class="lineCov">         23 : HermiteCurve::HermiteCurve(</span></a>
+<a name="28"><span class="lineNum">      28 </span>                :            :   double ax, double bx, double cx, double dx, double ay, double by, double cy, double dy, double az,</a>
+<a name="29"><span class="lineNum">      29 </span>                :<span class="lineCov">         23 :   double bz, double cz, double dz)</span></a>
+<a name="30"><span class="lineNum">      30 </span>                :            : : ax_(ax),</a>
+<a name="31"><span class="lineNum">      31 </span>                :            :   bx_(bx),</a>
+<a name="32"><span class="lineNum">      32 </span>                :            :   cx_(cx),</a>
+<a name="33"><span class="lineNum">      33 </span>                :            :   dx_(dx),</a>
+<a name="34"><span class="lineNum">      34 </span>                :            :   ay_(ay),</a>
+<a name="35"><span class="lineNum">      35 </span>                :            :   by_(by),</a>
+<a name="36"><span class="lineNum">      36 </span>                :            :   cy_(cy),</a>
+<a name="37"><span class="lineNum">      37 </span>                :            :   dy_(dy),</a>
+<a name="38"><span class="lineNum">      38 </span>                :            :   az_(az),</a>
+<a name="39"><span class="lineNum">      39 </span>                :            :   bz_(bz),</a>
+<a name="40"><span class="lineNum">      40 </span>                :            :   cz_(cz),</a>
+<a name="41"><span class="lineNum">      41 </span>                :            :   dz_(dz),</a>
+<a name="42"><span class="lineNum">      42 </span>                :<span class="lineCov">         23 :   length_(getLength(100))</span></a>
+<a name="43"><span class="lineNum">      43 </span>                :            : {</a>
+<a name="44"><span class="lineNum">      44 </span>                :<span class="lineCov">         23 : }</span></a>
+<a name="45"><span class="lineNum">      45 </span>                :            : </a>
+<a name="46"><span class="lineNum">      46 </span>                :<span class="lineCov">          1 : HermiteCurve::HermiteCurve(</span></a>
+<a name="47"><span class="lineNum">      47 </span>                :            :   geometry_msgs::msg::Pose start_pose, geometry_msgs::msg::Pose goal_pose,</a>
+<a name="48"><span class="lineNum">      48 </span>                :<span class="lineCov">          1 :   geometry_msgs::msg::Vector3 start_vec, geometry_msgs::msg::Vector3 goal_vec)</span></a>
+<a name="49"><span class="lineNum">      49 </span>                :            : {</a>
+<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">          1 :   ax_ = 2 * start_pose.position.x - 2 * goal_pose.position.x + start_vec.x + goal_vec.x;</span></a>
+<a name="51"><span class="lineNum">      51 </span>                :<span class="lineCov">          1 :   bx_ = -3 * start_pose.position.x + 3 * goal_pose.position.x - 2 * start_vec.x - goal_vec.x;</span></a>
+<a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">          1 :   cx_ = start_vec.x;</span></a>
+<a name="53"><span class="lineNum">      53 </span>                :<span class="lineCov">          1 :   dx_ = start_pose.position.x;</span></a>
+<a name="54"><span class="lineNum">      54 </span>                :            : </a>
+<a name="55"><span class="lineNum">      55 </span>                :<span class="lineCov">          1 :   ay_ = 2 * start_pose.position.y - 2 * goal_pose.position.y + start_vec.y + goal_vec.y;</span></a>
+<a name="56"><span class="lineNum">      56 </span>                :<span class="lineCov">          1 :   by_ = -3 * start_pose.position.y + 3 * goal_pose.position.y - 2 * start_vec.y - goal_vec.y;</span></a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineCov">          1 :   cy_ = start_vec.y;</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :<span class="lineCov">          1 :   dy_ = start_pose.position.y;</span></a>
+<a name="59"><span class="lineNum">      59 </span>                :            : </a>
+<a name="60"><span class="lineNum">      60 </span>                :<span class="lineCov">          1 :   az_ = 2 * start_pose.position.z - 2 * goal_pose.position.z + start_vec.z + goal_vec.z;</span></a>
+<a name="61"><span class="lineNum">      61 </span>                :<span class="lineCov">          1 :   bz_ = -3 * start_pose.position.z + 3 * goal_pose.position.z - 2 * start_vec.z - goal_vec.z;</span></a>
+<a name="62"><span class="lineNum">      62 </span>                :<span class="lineCov">          1 :   cz_ = start_vec.z;</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">          1 :   dz_ = start_pose.position.z;</span></a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineCov">          1 :   length_ = getLength(100);</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :            : </a>
+<a name="67"><span class="lineNum">      67 </span>                :<span class="lineCov">        854 : double HermiteCurve::getSquaredDistanceIn2D(</span></a>
+<a name="68"><span class="lineNum">      68 </span>                :            :   geometry_msgs::msg::Point point, double s, bool autoscale) const</a>
+<a name="69"><span class="lineNum">      69 </span>                :            : {</a>
+<a name="70"><span class="lineNum">      70 </span>        [<span class="branchCov" title="Branch 0 was taken 854 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        854 :   const auto point_on_curve = getPoint(s, autoscale);</span></a>
+<a name="71"><span class="lineNum">      71 </span>                :<span class="lineCov">        854 :   double x_term = std::pow(point.x - point_on_curve.x, 2);</span></a>
+<a name="72"><span class="lineNum">      72 </span>                :<span class="lineCov">        854 :   double y_term = std::pow(point.y - point_on_curve.y, 2);</span></a>
+<a name="73"><span class="lineNum">      73 </span>                :<span class="lineCov">        854 :   double ret = x_term + y_term;</span></a>
+<a name="74"><span class="lineNum">      74 </span>                :<span class="lineCov">        854 :   return ret;</span></a>
+<a name="75"><span class="lineNum">      75 </span>                :            : }</a>
+<a name="76"><span class="lineNum">      76 </span>                :            : </a>
+<a name="77"><span class="lineNum">      77 </span>                :<span class="lineCov">        193 : double HermiteCurve::getNewtonMethodStepSize(</span></a>
+<a name="78"><span class="lineNum">      78 </span>                :            :   geometry_msgs::msg::Point point, double s /*, bool autoscale*/) const</a>
+<a name="79"><span class="lineNum">      79 </span>                :            : {</a>
+<a name="80"><span class="lineNum">      80 </span>                :            :   /*</a>
+<a name="81"><span class="lineNum">      81 </span>                :            :   if (autoscale) {</a>
+<a name="82"><span class="lineNum">      82 </span>                :            :     s = s / getLength();</a>
+<a name="83"><span class="lineNum">      83 </span>                :            :   }</a>
+<a name="84"><span class="lineNum">      84 </span>                :            :   */</a>
+<a name="85"><span class="lineNum">      85 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :   const auto point_on_curve = getPoint(s, false /*autoscale*/);</span></a>
+<a name="86"><span class="lineNum">      86 </span>                :<span class="lineCov">        193 :   double s2 = std::pow(s, 2);</span></a>
+<a name="87"><span class="lineNum">      87 </span>                :<span class="lineCov">        193 :   double x_term_diff = 2 * (point.x - point_on_curve.x) * (-3 * ax_ * s2 - 2 * bx_ * s - cx_);</span></a>
+<a name="88"><span class="lineNum">      88 </span>                :<span class="lineCov">        193 :   double y_term_diff = 2 * (point.y - point_on_curve.y) * (-3 * ay_ * s2 - 2 * by_ * s - cy_);</span></a>
+<a name="89"><span class="lineNum">      89 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :   double ret = getSquaredDistanceIn2D(point, s, false /*autoscale*/) / (x_term_diff + y_term_diff);</span></a>
+<a name="90"><span class="lineNum">      90 </span>                :<span class="lineCov">        193 :   return ret;</span></a>
+<a name="91"><span class="lineNum">      91 </span>                :            : }</a>
+<a name="92"><span class="lineNum">      92 </span>                :            : </a>
+<a name="93"><span class="lineNum">      93 </span>                :<span class="lineCov">          5 : boost::optional&lt;double&gt; HermiteCurve::getCollisionPointIn2D(</span></a>
+<a name="94"><span class="lineNum">      94 </span>                :            :   const std::vector&lt;geometry_msgs::msg::Point&gt; &amp; polygon, bool search_backward,</a>
+<a name="95"><span class="lineNum">      95 </span>                :            :   bool close_start_end) const</a>
+<a name="96"><span class="lineNum">      96 </span>                :            : {</a>
+<a name="97"><span class="lineNum">      97 </span>                :<span class="lineCov">          5 :   size_t n = polygon.size();</span></a>
+<a name="98"><span class="lineNum">      98 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          5 :   if (n &lt;= 1) {</span></a>
+<a name="99"><span class="lineNum">      99 </span>                :<span class="lineCov">          2 :     return boost::none;</span></a>
+<a name="100"><span class="lineNum">     100 </span>                :            :   }</a>
+<a name="101"><span class="lineNum">     101 </span>                :<span class="lineCov">          6 :   std::vector&lt;double&gt; s_values;</span></a>
+<a name="102"><span class="lineNum">     102 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          6 :   for (size_t i = 0; i &lt; (n - 1); i++) {</span></a>
+<a name="103"><span class="lineNum">     103 </span>                :<span class="lineCov">          3 :     const auto p0 = polygon[i];</span></a>
+<a name="104"><span class="lineNum">     104 </span>                :<span class="lineCov">          3 :     const auto p1 = polygon[i + 1];</span></a>
+<a name="105"><span class="lineNum">     105 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     auto s = getCollisionPointIn2D(p0, p1, search_backward);</span></a>
+<a name="106"><span class="lineNum">     106 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          3 :     if (s) {</span></a>
+<a name="107"><span class="lineNum">     107 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :       s_values.emplace_back(s.get());</span></a>
+<a name="108"><span class="lineNum">     108 </span>                :            :     }</a>
+<a name="109"><span class="lineNum">     109 </span>                :            :   }</a>
+<a name="110"><span class="lineNum">     110 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   if (close_start_end) {</span></a>
+<a name="111"><span class="lineNum">     111 </span>                :<span class="lineCov">          3 :     const auto p0 = polygon[n - 1];</span></a>
+<a name="112"><span class="lineNum">     112 </span>                :<span class="lineCov">          3 :     const auto p1 = polygon[0];</span></a>
+<a name="113"><span class="lineNum">     113 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     auto s = getCollisionPointIn2D(p0, p1, search_backward);</span></a>
+<a name="114"><span class="lineNum">     114 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          3 :     if (s) {</span></a>
+<a name="115"><span class="lineNum">     115 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :       s_values.emplace_back(s.get());</span></a>
+<a name="116"><span class="lineNum">     116 </span>                :            :     }</a>
+<a name="117"><span class="lineNum">     117 </span>                :            :   }</a>
+<a name="118"><span class="lineNum">     118 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          3 :   if (s_values.empty()) {</span></a>
+<a name="119"><span class="lineNum">     119 </span>                :<span class="lineCov">          1 :     return boost::none;</span></a>
+<a name="120"><span class="lineNum">     120 </span>                :            :   }</a>
+<a name="121"><span class="lineNum">     121 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          2 :   if (search_backward) {</span></a>
+<a name="122"><span class="lineNum">     122 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :     return *std::max_element(s_values.begin(), s_values.end());</span></a>
+<a name="123"><span class="lineNum">     123 </span>                :            :   }</a>
+<a name="124"><span class="lineNum">     124 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :   return *std::min_element(s_values.begin(), s_values.end());</span></a>
+<a name="125"><span class="lineNum">     125 </span>                :            : }</a>
+<a name="126"><span class="lineNum">     126 </span>                :            : </a>
+<a name="127"><span class="lineNum">     127 </span>                :<span class="lineCov">         11 : boost::optional&lt;double&gt; HermiteCurve::getCollisionPointIn2D(</span></a>
+<a name="128"><span class="lineNum">     128 </span>                :            :   const geometry_msgs::msg::Point &amp; point0, const geometry_msgs::msg::Point &amp; point1,</a>
+<a name="129"><span class="lineNum">     129 </span>                :            :   bool search_backward) const</a>
+<a name="130"><span class="lineNum">     130 </span>                :            : {</a>
+<a name="131"><span class="lineNum">     131 </span>                :<span class="lineCov">         22 :   std::vector&lt;double&gt; s_values;</span></a>
+<a name="132"><span class="lineNum">     132 </span>                :<span class="lineCov">         11 :   double fx = point0.x;</span></a>
+<a name="133"><span class="lineNum">     133 </span>                :<span class="lineCov">         11 :   double ex = (point1.x - point0.x);</span></a>
+<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">         11 :   double fy = point0.y;</span></a>
+<a name="135"><span class="lineNum">     135 </span>                :<span class="lineCov">         11 :   double ey = (point1.y - point0.y);</span></a>
+<a name="136"><span class="lineNum">     136 </span>                :<span class="lineCov">         11 :   double a = ay_ * ex - ax_ * ey;</span></a>
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">         11 :   double b = by_ * ex - bx_ * ey;</span></a>
+<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">         11 :   double c = cy_ * ex - cx_ * ey;</span></a>
+<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">         11 :   double d = dy_ * ex - dx_ * ey - ex * fy + ey * fx;</span></a>
+<a name="140"><span class="lineNum">     140 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         22 :   auto solutions = solver_.solveCubicEquation(a, b, c, d);</span></a>
+<a name="141"><span class="lineNum">     141 </span>        [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         19 :   for (const auto solution : solutions) {</span></a>
+<a name="142"><span class="lineNum">     142 </span>        [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          8 :     double x = solver_.cubicFunction(ax_, bx_, cx_, dx_, solution);</span></a>
+<a name="143"><span class="lineNum">     143 </span>                :<span class="lineCov">          8 :     double tx = (x - point0.x) / (point1.x - point0.x);</span></a>
+<a name="144"><span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          8 :     double y = solver_.cubicFunction(ay_, by_, cy_, dy_, solution);</span></a>
+<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">          8 :     double ty = (y - point0.y) / (point1.y - point0.y);</span></a>
+<a name="146"><span class="lineNum">     146 </span>  [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 8 times"> + </span>]:<span class="lineCov">          8 :     if (0 &gt; tx || tx &gt; 1) {</span></a>
+<a name="147"><span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :       continue;</span></a>
+<a name="148"><span class="lineNum">     148 </span>                :            :     }</a>
+<a name="149"><span class="lineNum">     149 </span>  [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 8 times"> + </span>]:<span class="lineCov">          8 :     if (0 &gt; ty || ty &gt; 1) {</span></a>
+<a name="150"><span class="lineNum">     150 </span>                :<span class="lineNoCov">          0 :       continue;</span></a>
+<a name="151"><span class="lineNum">     151 </span>                :            :     }</a>
+<a name="152"><span class="lineNum">     152 </span>  [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 8 times"> + </span>]:<span class="lineCov">          8 :     if (0 &gt; solution || solution &gt; 1) {</span></a>
+<a name="153"><span class="lineNum">     153 </span>                :<span class="lineNoCov">          0 :       continue;</span></a>
+<a name="154"><span class="lineNum">     154 </span>                :            :     }</a>
+<a name="155"><span class="lineNum">     155 </span>        [<span class="branchCov" title="Branch 0 was taken 8 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          8 :     s_values.emplace_back(solution);</span></a>
+<a name="156"><span class="lineNum">     156 </span>                :            :   }</a>
+<a name="157"><span class="lineNum">     157 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 8 times"> + </span>]:<span class="lineCov">         11 :   if (s_values.empty()) {</span></a>
+<a name="158"><span class="lineNum">     158 </span>                :<span class="lineCov">          3 :     return boost::none;</span></a>
+<a name="159"><span class="lineNum">     159 </span>                :            :   }</a>
+<a name="160"><span class="lineNum">     160 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          8 :   if (search_backward) {</span></a>
+<a name="161"><span class="lineNum">     161 </span>  [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          3 :     return *std::max_element(s_values.begin(), s_values.end());</span></a>
+<a name="162"><span class="lineNum">     162 </span>                :            :   }</a>
+<a name="163"><span class="lineNum">     163 </span>  [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :   return *std::min_element(s_values.begin(), s_values.end());</span></a>
+<a name="164"><span class="lineNum">     164 </span>                :            : }</a>
+<a name="165"><span class="lineNum">     165 </span>                :            : </a>
+<a name="166"><span class="lineNum">     166 </span>                :<span class="lineCov">         15 : boost::optional&lt;double&gt; HermiteCurve::getSValue(</span></a>
+<a name="167"><span class="lineNum">     167 </span>                :            :   geometry_msgs::msg::Point point, double threshold_distance, unsigned int initial_resolution,</a>
+<a name="168"><span class="lineNum">     168 </span>                :            :   unsigned int max_iteration, double tolerance, bool autoscale) const</a>
+<a name="169"><span class="lineNum">     169 </span>                :            : {</a>
+<a name="170"><span class="lineNum">     170 </span>                :<span class="lineCov">         15 :   double step_size = static_cast&lt;double&gt;(1.0) / static_cast&lt;double&gt;(initial_resolution);</span></a>
+<a name="171"><span class="lineNum">     171 </span>                :<span class="lineCov">         15 :   double ret = 0.0;</span></a>
+<a name="172"><span class="lineNum">     172 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         30 :   std::vector&lt;double&gt; initial_value_candidates(initial_resolution);</span></a>
+<a name="173"><span class="lineNum">     173 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         30 :   std::vector&lt;double&gt; initial_errors(initial_resolution);</span></a>
+<a name="174"><span class="lineNum">     174 </span>        [<span class="branchCov" title="Branch 0 was taken 450 times"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">        465 :   for (unsigned int i = 0; i &lt; initial_resolution; i++) {</span></a>
+<a name="175"><span class="lineNum">     175 </span>                :<span class="lineCov">        450 :     initial_value_candidates[i] = (0.5 + static_cast&lt;double&gt;(i)) * step_size;</span></a>
+<a name="176"><span class="lineNum">     176 </span>        [<span class="branchCov" title="Branch 0 was taken 450 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        450 :     initial_errors[i] = std::fabs(getSquaredDistanceIn2D(point, initial_value_candidates[i]));</span></a>
+<a name="177"><span class="lineNum">     177 </span>                :            :   }</a>
+<a name="178"><span class="lineNum">     178 </span>                :            :   std::vector&lt;double&gt;::iterator iter =</a>
+<a name="179"><span class="lineNum">     179 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         15 :     std::min_element(initial_errors.begin(), initial_errors.end());</span></a>
+<a name="180"><span class="lineNum">     180 </span>        [<span class="branchCov" title="Branch 0 was taken 15 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         15 :   size_t index = std::distance(initial_errors.begin(), iter);</span></a>
+<a name="181"><span class="lineNum">     181 </span>                :<span class="lineCov">         15 :   ret = initial_value_candidates[index];</span></a>
+<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">         30 :   std::vector&lt;double&gt; errors;</span></a>
+<a name="183"><span class="lineNum">     183 </span>                :<span class="lineCov">         30 :   std::vector&lt;double&gt; s_values;</span></a>
+<a name="184"><span class="lineNum">     184 </span>        [<span class="branchCov" title="Branch 0 was taken 205 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">        208 :   for (unsigned i = 0; i &lt; max_iteration; i++) {</span></a>
+<a name="185"><span class="lineNum">     185 </span>        [<span class="branchCov" title="Branch 0 was taken 205 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        205 :     double error = getSquaredDistanceIn2D(point, ret);</span></a>
+<a name="186"><span class="lineNum">     186 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 193 times"> + </span>]:<span class="lineCov">        205 :     if (std::fabs(error) &lt; (tolerance * tolerance)) {</span></a>
+<a name="187"><span class="lineNum">     187 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         12 :       return ret;</span></a>
+<a name="188"><span class="lineNum">     188 </span>                :            :     }</a>
+<a name="189"><span class="lineNum">     189 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :     s_values.push_back(ret);</span></a>
+<a name="190"><span class="lineNum">     190 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :     errors.push_back(error);</span></a>
+<a name="191"><span class="lineNum">     191 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :     ret = ret - getNewtonMethodStepSize(point, ret);</span></a>
+<a name="192"><span class="lineNum">     192 </span>                :            :   }</a>
+<a name="193"><span class="lineNum">     193 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   std::vector&lt;double&gt;::iterator min_iter = std::min_element(errors.begin(), errors.end());</span></a>
+<a name="194"><span class="lineNum">     194 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   double min_error = *std::min_element(errors.begin(), errors.end());</span></a>
+<a name="195"><span class="lineNum">     195 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :   if (min_error &gt; (threshold_distance * threshold_distance)) {</span></a>
+<a name="196"><span class="lineNum">     196 </span>                :<span class="lineNoCov">          0 :     return boost::none;</span></a>
+<a name="197"><span class="lineNum">     197 </span>                :            :   }</a>
+<a name="198"><span class="lineNum">     198 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   size_t value_index = std::distance(errors.begin(), min_iter);</span></a>
+<a name="199"><span class="lineNum">     199 </span>                :<span class="lineCov">          3 :   ret = s_values[value_index];</span></a>
+<a name="200"><span class="lineNum">     200 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   if (ret &lt; 0) {</span></a>
+<a name="201"><span class="lineNum">     201 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     double error = getSquaredDistanceIn2D(point, 0, false);</span></a>
+<a name="202"><span class="lineNum">     202 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     if (error &lt; (threshold_distance * threshold_distance)) {</span></a>
+<a name="203"><span class="lineNum">     203 </span>                :<span class="lineCov">          3 :       ret = 0;</span></a>
+<a name="204"><span class="lineNum">     204 </span>                :            :     } else {</a>
+<a name="205"><span class="lineNum">     205 </span>                :<span class="lineNoCov">          0 :       return boost::none;</span></a>
+<a name="206"><span class="lineNum">     206 </span>                :            :     }</a>
+<a name="207"><span class="lineNum">     207 </span>                :            :   }</a>
+<a name="208"><span class="lineNum">     208 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :   if (ret &gt; 1) {</span></a>
+<a name="209"><span class="lineNum">     209 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     double error = getSquaredDistanceIn2D(point, 0, false);</span></a>
+<a name="210"><span class="lineNum">     210 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (error &lt; (threshold_distance * threshold_distance)) {</span></a>
+<a name="211"><span class="lineNum">     211 </span>                :<span class="lineNoCov">          0 :       ret = 1;</span></a>
+<a name="212"><span class="lineNum">     212 </span>                :            :     } else {</a>
+<a name="213"><span class="lineNum">     213 </span>                :<span class="lineNoCov">          0 :       return boost::none;</span></a>
+<a name="214"><span class="lineNum">     214 </span>                :            :     }</a>
+<a name="215"><span class="lineNum">     215 </span>                :            :   }</a>
+<a name="216"><span class="lineNum">     216 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   if (autoscale) {</span></a>
+<a name="217"><span class="lineNum">     217 </span>                :<span class="lineCov">          3 :     ret = ret * getLength();</span></a>
+<a name="218"><span class="lineNum">     218 </span>                :            :   }</a>
+<a name="219"><span class="lineNum">     219 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   return ret;</span></a>
+<a name="220"><span class="lineNum">     220 </span>                :            : }</a>
+<a name="221"><span class="lineNum">     221 </span>                :            : </a>
+<a name="222"><span class="lineNum">     222 </span>                :<span class="lineNoCov">          0 : const std::vector&lt;geometry_msgs::msg::Point&gt; HermiteCurve::getTrajectory(</span></a>
+<a name="223"><span class="lineNum">     223 </span>                :            :   double start_s, double end_s, double resolution, bool autoscale) const</a>
+<a name="224"><span class="lineNum">     224 </span>                :            : {</a>
+<a name="225"><span class="lineNum">     225 </span>                :<span class="lineNoCov">          0 :   resolution = std::fabs(resolution);</span></a>
+<a name="226"><span class="lineNum">     226 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (start_s &lt;= end_s) {</span></a>
+<a name="227"><span class="lineNum">     227 </span>                :<span class="lineNoCov">          0 :     std::vector&lt;geometry_msgs::msg::Point&gt; ret;</span></a>
+<a name="228"><span class="lineNum">     228 </span>                :<span class="lineNoCov">          0 :     double s = start_s;</span></a>
+<a name="229"><span class="lineNum">     229 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     while (s &lt;= end_s) {</span></a>
+<a name="230"><span class="lineNum">     230 </span>                :<span class="lineNoCov">          0 :       s = s + resolution;</span></a>
+<a name="231"><span class="lineNum">     231 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       ret.emplace_back(getPoint(s, autoscale));</span></a>
+<a name="232"><span class="lineNum">     232 </span>                :            :     }</a>
+<a name="233"><span class="lineNum">     233 </span>                :<span class="lineNoCov">          0 :     return ret;</span></a>
+<a name="234"><span class="lineNum">     234 </span>                :            :   } else {</a>
+<a name="235"><span class="lineNum">     235 </span>                :<span class="lineNoCov">          0 :     std::vector&lt;geometry_msgs::msg::Point&gt; ret;</span></a>
+<a name="236"><span class="lineNum">     236 </span>                :<span class="lineNoCov">          0 :     double s = start_s;</span></a>
+<a name="237"><span class="lineNum">     237 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     while (s &gt;= end_s) {</span></a>
+<a name="238"><span class="lineNum">     238 </span>                :<span class="lineNoCov">          0 :       s = s - resolution;</span></a>
+<a name="239"><span class="lineNum">     239 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       ret.emplace_back(getPoint(s, autoscale));</span></a>
+<a name="240"><span class="lineNum">     240 </span>                :            :     }</a>
+<a name="241"><span class="lineNum">     241 </span>                :<span class="lineNoCov">          0 :     return ret;</span></a>
+<a name="242"><span class="lineNum">     242 </span>                :            :   }</a>
+<a name="243"><span class="lineNum">     243 </span>                :            : }</a>
+<a name="244"><span class="lineNum">     244 </span>                :            : </a>
+<a name="245"><span class="lineNum">     245 </span>                :<span class="lineCov">         24 : std::vector&lt;geometry_msgs::msg::Point&gt; HermiteCurve::getTrajectory(size_t num_points) const</span></a>
+<a name="246"><span class="lineNum">     246 </span>                :            : {</a>
+<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">         24 :   std::vector&lt;geometry_msgs::msg::Point&gt; ret;</span></a>
+<a name="248"><span class="lineNum">     248 </span>        [<span class="branchCov" title="Branch 0 was taken 2424 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">       2448 :   for (size_t i = 0; i &lt;= num_points; i++) {</span></a>
+<a name="249"><span class="lineNum">     249 </span>                :<span class="lineCov">       2424 :     double t = static_cast&lt;double&gt;(i) / 100.0;</span></a>
+<a name="250"><span class="lineNum">     250 </span>  [<span class="branchCov" title="Branch 0 was taken 2424 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2424 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2424 :     ret.emplace_back(getPoint(t, false));</span></a>
+<a name="251"><span class="lineNum">     251 </span>                :            :   }</a>
+<a name="252"><span class="lineNum">     252 </span>                :<span class="lineCov">         24 :   return ret;</span></a>
+<a name="253"><span class="lineNum">     253 </span>                :            : }</a>
+<a name="254"><span class="lineNum">     254 </span>                :            : </a>
+<a name="255"><span class="lineNum">     255 </span>                :<span class="lineNoCov">          0 : const geometry_msgs::msg::Vector3 HermiteCurve::getNormalVector(double s, bool autoscale) const</span></a>
+<a name="256"><span class="lineNum">     256 </span>                :            : {</a>
+<a name="257"><span class="lineNum">     257 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (autoscale) {</span></a>
+<a name="258"><span class="lineNum">     258 </span>                :<span class="lineNoCov">          0 :     s = s / getLength();</span></a>
+<a name="259"><span class="lineNum">     259 </span>                :            :   }</a>
+<a name="260"><span class="lineNum">     260 </span>                :<span class="lineNoCov">          0 :   geometry_msgs::msg::Vector3 vec;</span></a>
+<a name="261"><span class="lineNum">     261 </span>                :<span class="lineNoCov">          0 :   vec.x = 3 * ay_ * s * s + 2 * by_ * s + cy_;</span></a>
+<a name="262"><span class="lineNum">     262 </span>                :<span class="lineNoCov">          0 :   vec.y = (3 * ax_ * s * s + 2 * bx_ * s + cx_) * -1;</span></a>
+<a name="263"><span class="lineNum">     263 </span>                :<span class="lineNoCov">          0 :   return vec;</span></a>
+<a name="264"><span class="lineNum">     264 </span>                :            : }</a>
+<a name="265"><span class="lineNum">     265 </span>                :            : </a>
+<a name="266"><span class="lineNum">     266 </span>                :<span class="lineCov">          1 : const geometry_msgs::msg::Vector3 HermiteCurve::getTangentVector(double s, bool autoscale) const</span></a>
+<a name="267"><span class="lineNum">     267 </span>                :            : {</a>
+<a name="268"><span class="lineNum">     268 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :   if (autoscale) {</span></a>
+<a name="269"><span class="lineNum">     269 </span>                :<span class="lineNoCov">          0 :     s = s / getLength();</span></a>
+<a name="270"><span class="lineNum">     270 </span>                :            :   }</a>
+<a name="271"><span class="lineNum">     271 </span>                :<span class="lineCov">          1 :   geometry_msgs::msg::Vector3 vec;</span></a>
+<a name="272"><span class="lineNum">     272 </span>                :<span class="lineCov">          1 :   vec.x = 3 * ax_ * s * s + 2 * bx_ * s + cx_;</span></a>
+<a name="273"><span class="lineNum">     273 </span>                :<span class="lineCov">          1 :   vec.y = 3 * ay_ * s * s + 2 * by_ * s + cy_;</span></a>
+<a name="274"><span class="lineNum">     274 </span>                :<span class="lineCov">          1 :   vec.z = 3 * az_ * s * s + 2 * bz_ * s + cz_;</span></a>
+<a name="275"><span class="lineNum">     275 </span>                :<span class="lineCov">          1 :   return vec;</span></a>
+<a name="276"><span class="lineNum">     276 </span>                :            : }</a>
+<a name="277"><span class="lineNum">     277 </span>                :            : </a>
+<a name="278"><span class="lineNum">     278 </span>                :<span class="lineNoCov">          0 : const geometry_msgs::msg::Pose HermiteCurve::getPose(double s, bool autoscale) const</span></a>
+<a name="279"><span class="lineNum">     279 </span>                :            : {</a>
+<a name="280"><span class="lineNum">     280 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (autoscale) {</span></a>
+<a name="281"><span class="lineNum">     281 </span>                :<span class="lineNoCov">          0 :     s = s / getLength();</span></a>
+<a name="282"><span class="lineNum">     282 </span>                :            :   }</a>
+<a name="283"><span class="lineNum">     283 </span>                :<span class="lineNoCov">          0 :   geometry_msgs::msg::Pose pose;</span></a>
+<a name="284"><span class="lineNum">     284 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   geometry_msgs::msg::Vector3 tangent_vec = getTangentVector(s, false);</span></a>
+<a name="285"><span class="lineNum">     285 </span>                :<span class="lineNoCov">          0 :   geometry_msgs::msg::Vector3 rpy;</span></a>
+<a name="286"><span class="lineNum">     286 </span>                :<span class="lineNoCov">          0 :   rpy.x = 0.0;</span></a>
+<a name="287"><span class="lineNum">     287 </span>                :<span class="lineNoCov">          0 :   rpy.y = 0.0;</span></a>
+<a name="288"><span class="lineNum">     288 </span>                :<span class="lineNoCov">          0 :   rpy.z = std::atan2(tangent_vec.y, tangent_vec.x);</span></a>
+<a name="289"><span class="lineNum">     289 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   pose.orientation = quaternion_operation::convertEulerAngleToQuaternion(rpy);</span></a>
+<a name="290"><span class="lineNum">     290 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   pose.position = getPoint(s);</span></a>
+<a name="291"><span class="lineNum">     291 </span>                :<span class="lineNoCov">          0 :   return pose;</span></a>
+<a name="292"><span class="lineNum">     292 </span>                :            : }</a>
+<a name="293"><span class="lineNum">     293 </span>                :            : </a>
+<a name="294"><span class="lineNum">     294 </span>                :<span class="lineCov">        275 : double HermiteCurve::get2DCurvature(double s, bool autoscale) const</span></a>
+<a name="295"><span class="lineNum">     295 </span>                :            : {</a>
+<a name="296"><span class="lineNum">     296 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 264 times"> + </span>]:<span class="lineCov">        275 :   if (autoscale) {</span></a>
+<a name="297"><span class="lineNum">     297 </span>                :<span class="lineCov">         11 :     s = s / getLength();</span></a>
+<a name="298"><span class="lineNum">     298 </span>                :            :   }</a>
+<a name="299"><span class="lineNum">     299 </span>                :<span class="lineCov">        275 :   double s2 = s * s;</span></a>
+<a name="300"><span class="lineNum">     300 </span>                :<span class="lineCov">        275 :   double x_dot = 3 * ax_ * s2 + 2 * bx_ * s + cx_;</span></a>
+<a name="301"><span class="lineNum">     301 </span>                :<span class="lineCov">        275 :   double x_dot_dot = 6 * ax_ * s + 2 * bx_;</span></a>
+<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">        275 :   double y_dot = 3 * ay_ * s2 + 2 * by_ * s + cy_;</span></a>
+<a name="303"><span class="lineNum">     303 </span>                :<span class="lineCov">        275 :   double y_dot_dot = 6 * ay_ * s + 2 * by_;</span></a>
+<a name="304"><span class="lineNum">     304 </span>                :<span class="lineCov">        275 :   return (x_dot * y_dot_dot - x_dot_dot * y_dot) / std::pow(x_dot * x_dot + y_dot * y_dot, 1.5);</span></a>
+<a name="305"><span class="lineNum">     305 </span>                :            : }</a>
+<a name="306"><span class="lineNum">     306 </span>                :            : </a>
+<a name="307"><span class="lineNum">     307 </span>                :<span class="lineCov">         24 : std::pair&lt;double, double&gt; HermiteCurve::get2DMinMaxCurvatureValue() const</span></a>
+<a name="308"><span class="lineNum">     308 </span>                :            : {</a>
+<a name="309"><span class="lineNum">     309 </span>                :<span class="lineCov">         24 :   std::pair&lt;double, double&gt; ret;</span></a>
+<a name="310"><span class="lineNum">     310 </span>                :<span class="lineCov">         24 :   std::vector&lt;double&gt; curvatures;</span></a>
+<a name="311"><span class="lineNum">     311 </span>                :            :   /**</a>
+<a name="312"><span class="lineNum">     312 </span>                :            :    * @brief 0.1 is a sampling resolution of the curvature</a>
+<a name="313"><span class="lineNum">     313 </span>                :            :    */</a>
+<a name="314"><span class="lineNum">     314 </span>        [<span class="branchCov" title="Branch 0 was taken 264 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">        288 :   for (double s = 0; s &lt;= 1; s = s + 0.1) {</span></a>
+<a name="315"><span class="lineNum">     315 </span>        [<span class="branchCov" title="Branch 0 was taken 264 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        264 :     double curvature = get2DCurvature(s);</span></a>
+<a name="316"><span class="lineNum">     316 </span>        [<span class="branchCov" title="Branch 0 was taken 264 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        264 :     curvatures.push_back(curvature);</span></a>
+<a name="317"><span class="lineNum">     317 </span>                :            :   }</a>
+<a name="318"><span class="lineNum">     318 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :   ret.first = *std::min_element(curvatures.begin(), curvatures.end());</span></a>
+<a name="319"><span class="lineNum">     319 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :   ret.second = *std::max_element(curvatures.begin(), curvatures.end());</span></a>
+<a name="320"><span class="lineNum">     320 </span>                :<span class="lineCov">         48 :   return ret;</span></a>
+<a name="321"><span class="lineNum">     321 </span>                :            : }</a>
+<a name="322"><span class="lineNum">     322 </span>                :            : </a>
+<a name="323"><span class="lineNum">     323 </span>                :<span class="lineCov">         24 : double HermiteCurve::getMaximum2DCurvature() const</span></a>
+<a name="324"><span class="lineNum">     324 </span>                :            : {</a>
+<a name="325"><span class="lineNum">     325 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :   const auto values = get2DMinMaxCurvatureValue();</span></a>
+<a name="326"><span class="lineNum">     326 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         24 :   if (std::fabs(values.first) &gt; std::fabs(values.second)) {</span></a>
+<a name="327"><span class="lineNum">     327 </span>                :<span class="lineCov">          6 :     return values.first;</span></a>
+<a name="328"><span class="lineNum">     328 </span>                :            :   }</a>
+<a name="329"><span class="lineNum">     329 </span>                :<span class="lineCov">         18 :   return values.second;</span></a>
+<a name="330"><span class="lineNum">     330 </span>                :            : }</a>
+<a name="331"><span class="lineNum">     331 </span>                :            : </a>
+<a name="332"><span class="lineNum">     332 </span>                :<span class="lineCov">         24 : double HermiteCurve::getLength(size_t num_points) const</span></a>
+<a name="333"><span class="lineNum">     333 </span>                :            : {</a>
+<a name="334"><span class="lineNum">     334 </span>        [<span class="branchCov" title="Branch 0 was taken 24 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         24 :   auto trajectory = getTrajectory(num_points);</span></a>
+<a name="335"><span class="lineNum">     335 </span>                :<span class="lineCov">         24 :   double ret = 0.0;</span></a>
+<a name="336"><span class="lineNum">     336 </span>        [<span class="branchCov" title="Branch 0 was taken 2400 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span>]:<span class="lineCov">       2424 :   for (size_t i = 0; i &lt; trajectory.size() - 1; i++) {</span></a>
+<a name="337"><span class="lineNum">     337 </span>                :<span class="lineCov">       2400 :     ret = ret + std::sqrt(</span></a>
+<a name="338"><span class="lineNum">     338 </span>                :<span class="lineCov">       2400 :                   std::pow(trajectory[i + 1].x - trajectory[i].x, 2) +</span></a>
+<a name="339"><span class="lineNum">     339 </span>                :<span class="lineCov">       2400 :                   std::pow(trajectory[i + 1].y - trajectory[i].y, 2) +</span></a>
+<a name="340"><span class="lineNum">     340 </span>                :<span class="lineCov">       2400 :                   std::pow(trajectory[i + 1].z - trajectory[i].z, 2));</span></a>
+<a name="341"><span class="lineNum">     341 </span>                :            :   }</a>
+<a name="342"><span class="lineNum">     342 </span>                :<span class="lineCov">         48 :   return ret;</span></a>
+<a name="343"><span class="lineNum">     343 </span>                :            : }</a>
+<a name="344"><span class="lineNum">     344 </span>                :            : </a>
+<a name="345"><span class="lineNum">     345 </span>                :<span class="lineCov">       3527 : const geometry_msgs::msg::Point HermiteCurve::getPoint(double s, bool autoscale) const</span></a>
+<a name="346"><span class="lineNum">     346 </span>                :            : {</a>
+<a name="347"><span class="lineNum">     347 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 3515 times"> + </span>]:<span class="lineCov">       3527 :   if (autoscale) {</span></a>
+<a name="348"><span class="lineNum">     348 </span>                :<span class="lineCov">         12 :     s = s / getLength();</span></a>
+<a name="349"><span class="lineNum">     349 </span>                :            :   }</a>
+<a name="350"><span class="lineNum">     350 </span>                :<span class="lineCov">       3527 :   geometry_msgs::msg::Point p;</span></a>
+<a name="351"><span class="lineNum">     351 </span>                :<span class="lineCov">       3527 :   p.x = ax_ * std::pow(s, 3) + bx_ * std::pow(s, 2) + cx_ * s + dx_;</span></a>
+<a name="352"><span class="lineNum">     352 </span>                :<span class="lineCov">       3527 :   p.y = ay_ * std::pow(s, 3) + by_ * std::pow(s, 2) + cy_ * s + dy_;</span></a>
+<a name="353"><span class="lineNum">     353 </span>                :<span class="lineCov">       3527 :   p.z = az_ * std::pow(s, 3) + bz_ * std::pow(s, 2) + cz_ * s + dz_;</span></a>
+<a name="354"><span class="lineNum">     354 </span>                :<span class="lineCov">       3527 :   return p;</span></a>
+<a name="355"><span class="lineNum">     355 </span>                :            : }</a>
+<a name="356"><span class="lineNum">     356 </span>                :            : }  // namespace math</a>
+<a name="357"><span class="lineNum">     357 </span>                :            : }  // namespace traffic_simulator</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
