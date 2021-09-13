@@ -1,0 +1,74 @@
+name: Generate report
+
+on:
+  schedule:
+    - cron: "0 19 * * 0" # run at 4 AM JST on Sundays
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    container: osrf/ros:galactic-desktop
+    env:
+      TARGET_REPO: "tier4/scenario_simulator_v2"
+      ARTIFACTS_DIR: data
+      BASE_URL: "https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/"
+      TITLE: "tier4/scenario_simulator_v2"
+      ROS_DISTRO: "galactic"
+
+    steps:
+    - name: Clone target repo
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ env.TARGET_REPO }}
+
+    - name: Clone dependency packages
+      run: |
+        vcs import . < dependency_${{ env.ROS_DISTRO }}.repos
+        apt-get -y update
+        apt-get install -y python3-pip
+        rosdep update
+        rosdep install -y --from-paths . --ignore-src --rosdistro ${{ env.ROS_DISTRO }}
+
+    - name: Clone this repo
+      uses: actions/checkout@v2
+      with:
+        path: metrics_config_dir
+
+    - name: Clone data branch in this repo
+      uses: actions/checkout@v2
+      with:
+        ref: data
+        path: ${{ env.ARTIFACTS_DIR }}
+
+    - id: metrics-reporter
+      uses: tier4/ros-metrics-reporter@main
+      with:
+        artifacts-dir: ${{ env.ARTIFACTS_DIR }}
+        base-url: ${{ env.BASE_URL }}
+        title: ${{ env.TITLE }}
+        ros-distro: ${{ env.ROS_DISTRO }}
+        CCN: "20"
+        CCN-recommendation: "10"
+        nloc: "200"
+        nloc-recommendation: "50"
+        arguments: "6"
+        arguments-recommendation: "6"
+
+    - name: Push artifacts
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ env.ARTIFACTS_DIR }}
+        publish_branch: data
+
+    - name: Deploy public to gh-pages (main branch only)
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: public
