@@ -29,6 +29,7 @@ jobs:
       run: |
         vcs import . < dependency_${{ env.ROS_DISTRO }}.repos
         apt-get -y update
+        apt-get install -y python3-pip
         rosdep update
         rosdep install -y --from-paths . --ignore-src --rosdistro ${{ env.ROS_DISTRO }}
 
