@@ -57,8 +57,6 @@ jobs:
         nloc-recommendation: "50"
         arguments: "6"
         arguments-recommendation: "6"
-        codechecker-config-path: "metrics_config_dir/codechecker-config.json"
-        codechecker-skip-list: "metrics_config_dir/codechecker-skip-list.txt"
 
     - name: Push artifacts
       if: github.ref == 'refs/heads/main'
