@@ -221,11 +221,11 @@ var browserCompatible
       <table id="statistics">
         <tr>
           <td>Number of processed plist files</td>
-          <td>48</td>
+          <td>136</td>
         </tr>
         <tr>
           <td>Number of analyzer reports</td>
-          <td>188</td>
+          <td>1715</td>
         </tr>
       </table>
       <h1>Checker statistics</h1>
@@ -237,9 +237,41 @@ var browserCompatible
         </tr>
         
                   <tr>
+                    <td>bugprone-branch-clone</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>3</td>
+                  </tr>
+                
+                  <tr>
+                    <td>bugprone-exception-escape</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>bugprone-macro-parentheses</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
+                    </td>
+                    <td>194</td>
+                  </tr>
+                
+                  <tr>
                     <td>bugprone-misplaced-widening-cast</td>
                     <td class="severity" severity="high">
                       <i class="severity-high" title="high"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>bugprone-parent-virtual-call</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
                     </td>
                     <td>1</td>
                   </tr>
@@ -258,14 +290,6 @@ var browserCompatible
                       <i class="severity-high" title="high"></i>
                     </td>
                     <td>22</td>
-                  </tr>
-                
-                  <tr>
-                    <td>cert-err09-cpp</td>
-                    <td class="severity" severity="high">
-                      <i class="severity-high" title="high"></i>
-                    </td>
-                    <td>1</td>
                   </tr>
                 
                   <tr>
@@ -289,7 +313,7 @@ var browserCompatible
                     <td class="severity" severity="medium">
                       <i class="severity-medium" title="medium"></i>
                     </td>
-                    <td>6</td>
+                    <td>8</td>
                   </tr>
                 
                   <tr>
@@ -337,7 +361,7 @@ var browserCompatible
                     <td class="severity" severity="medium">
                       <i class="severity-medium" title="medium"></i>
                     </td>
-                    <td>2</td>
+                    <td>1</td>
                   </tr>
                 
                   <tr>
@@ -373,11 +397,123 @@ var browserCompatible
                   </tr>
                 
                   <tr>
+                    <td>cppcoreguidelines-avoid-non-const-global-variables</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>41</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-c-copy-assignment-signature</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-init-variables</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
+                    </td>
+                    <td>18</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-interfaces-global-init</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-macro-usage</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>149</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-narrowing-conversions</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
+                    </td>
+                    <td>50</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-no-malloc</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-pro-bounds-pointer-arithmetic</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>6</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-pro-type-member-init</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>23</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-pro-type-reinterpret-cast</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>2</td>
+                  </tr>
+                
+                  <tr>
+                    <td>cppcoreguidelines-slicing</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
                     <td>cppcoreguidelines-special-member-functions</td>
                     <td class="severity" severity="low">
                       <i class="severity-low" title="low"></i>
                     </td>
-                    <td>38</td>
+                    <td>40</td>
+                  </tr>
+                
+                  <tr>
+                    <td>google-explicit-constructor</td>
+                    <td class="severity" severity="medium">
+                      <i class="severity-medium" title="medium"></i>
+                    </td>
+                    <td>39</td>
+                  </tr>
+                
+                  <tr>
+                    <td>hicpp-exception-baseclass</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>2</td>
+                  </tr>
+                
+                  <tr>
+                    <td>hicpp-multiway-paths-covered</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>2</td>
                   </tr>
                 
                   <tr>
@@ -389,6 +525,22 @@ var browserCompatible
                   </tr>
                 
                   <tr>
+                    <td>misc-no-recursion</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>5</td>
+                  </tr>
+                
+                  <tr>
+                    <td>misc-throw-by-value-catch-by-reference</td>
+                    <td class="severity" severity="high">
+                      <i class="severity-high" title="high"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
                     <td>misc-unconventional-assign-operator</td>
                     <td class="severity" severity="medium">
                       <i class="severity-medium" title="medium"></i>
@@ -397,11 +549,283 @@ var browserCompatible
                   </tr>
                 
                   <tr>
+                    <td>misc-unused-parameters</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>misc-unused-using-decls</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-avoid-c-arrays</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>18</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-concat-nested-namespaces</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>43</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-deprecated-headers</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>7</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-loop-convert</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>25</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-pass-by-value</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>56</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-unary-static-assert</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>44</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-auto</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>13</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-default-member-init</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>5</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-emplace</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>2</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-equals-default</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>12</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-equals-delete</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>2</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-nodiscard</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>220</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-noexcept</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>4</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-nullptr</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>3</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-override</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>23</td>
+                  </tr>
+                
+                  <tr>
+                    <td>modernize-use-using</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>2</td>
+                  </tr>
+                
+                  <tr>
+                    <td>performance-for-range-copy</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>33</td>
+                  </tr>
+                
+                  <tr>
+                    <td>performance-inefficient-string-concatenation</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>performance-inefficient-vector-operation</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>4</td>
+                  </tr>
+                
+                  <tr>
                     <td>performance-no-automatic-move</td>
                     <td class="severity" severity="low">
                       <i class="severity-low" title="low"></i>
                     </td>
                     <td>6</td>
+                  </tr>
+                
+                  <tr>
+                    <td>performance-unnecessary-copy-initialization</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>3</td>
+                  </tr>
+                
+                  <tr>
+                    <td>performance-unnecessary-value-param</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>111</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-const-return-type</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>94</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-convert-member-functions-to-static</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>21</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-else-after-return</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>113</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-inconsistent-declaration-parameter-name</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>10</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-isolate-declaration</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>39</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-make-member-function-const</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>9</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-redundant-declaration</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>1</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-redundant-string-init</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>3</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-static-accessed-through-instance</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>53</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-string-compare</td>
+                    <td class="severity" severity="low">
+                      <i class="severity-low" title="low"></i>
+                    </td>
+                    <td>5</td>
+                  </tr>
+                
+                  <tr>
+                    <td>readability-use-anyofallof</td>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>3</td>
                   </tr>
                 
       </table>
@@ -430,14 +854,21 @@ var browserCompatible
                     <td class="severity" severity="medium">
                       <i class="severity-medium" title="medium"></i>
                     </td>
-                    <td>113</td>
+                    <td>418</td>
                   </tr>
                 
                   <tr>
                     <td class="severity" severity="low">
                       <i class="severity-low" title="low"></i>
                     </td>
-                    <td>44</td>
+                    <td>860</td>
+                  </tr>
+                
+                  <tr>
+                    <td class="severity" severity="style">
+                      <i class="severity-style" title="style"></i>
+                    </td>
+                    <td>406</td>
                   </tr>
                 
       </table>
