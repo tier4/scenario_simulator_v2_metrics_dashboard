@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">13</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:12:45</td>
+            <td class="headerValue">2021-09-19 19:52:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">4</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -127,22 +127,24 @@
 <a name="48"><span class="lineNum">      48 </span>                :            : </a>
 <a name="49"><span class="lineNum">      49 </span>                :<span class="lineNoCov">          0 :   static constexpr auto accomplished() noexcept { return true; }</span></a>
 <a name="50"><span class="lineNum">      50 </span>                :            : </a>
-<a name="51"><span class="lineNum">      51 </span>                :<span class="lineNoCov">          0 :   auto evaluate()</span></a>
+<a name="51"><span class="lineNum">      51 </span>                :<span class="lineNoCov">          0 :   auto run() -&gt; void</span></a>
 <a name="52"><span class="lineNum">      52 </span>                :            :   try {</a>
 <a name="53"><span class="lineNum">      53 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     const auto target = localScope().findElement(parameter_ref);</span></a>
 <a name="54"><span class="lineNum">      54 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (rule.is&lt;ParameterAddValueRule&gt;()) {</span></a>
-<a name="55"><span class="lineNum">      55 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return rule.as&lt;ParameterAddValueRule&gt;()(target);</span></a>
+<a name="55"><span class="lineNum">      55 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       rule.as&lt;ParameterAddValueRule&gt;()(target);</span></a>
 <a name="56"><span class="lineNum">      56 </span>                :            :     } else {</a>
-<a name="57"><span class="lineNum">      57 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return rule.as&lt;ParameterMultiplyByValueRule&gt;()(target);</span></a>
+<a name="57"><span class="lineNum">      57 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       rule.as&lt;ParameterMultiplyByValueRule&gt;()(target);</span></a>
 <a name="58"><span class="lineNum">      58 </span>                :            :     }</a>
 <a name="59"><span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :   } catch (const std::out_of_range &amp;) {</span></a>
 <a name="60"><span class="lineNum">      60 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineNoCov">          0 :     throw SemanticError(&quot;No such parameter &quot;, std::quoted(parameter_ref));</span></a>
-<a name="61"><span class="lineNum">      61 </span>                :            :   }</a>
-<a name="62"><span class="lineNum">      62 </span>                :            : };</a>
-<a name="63"><span class="lineNum">      63 </span>                :            : }  // namespace syntax</a>
-<a name="64"><span class="lineNum">      64 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="65"><span class="lineNum">      65 </span>                :            : </a>
-<a name="66"><span class="lineNum">      66 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__PARAMETER_MODIFY_ACTION_HPP_</a>
+<a name="61"><span class="lineNum">      61 </span>                :<span class="lineNoCov">          0 :   }</span></a>
+<a name="62"><span class="lineNum">      62 </span>                :            : </a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :   static auto start() noexcept -&gt; void {}</span></a>
+<a name="64"><span class="lineNum">      64 </span>                :            : };</a>
+<a name="65"><span class="lineNum">      65 </span>                :            : }  // namespace syntax</a>
+<a name="66"><span class="lineNum">      66 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="67"><span class="lineNum">      67 </span>                :            : </a>
+<a name="68"><span class="lineNum">      68 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__PARAMETER_MODIFY_ACTION_HPP_</a>
 </pre>
       </td>
     </tr>

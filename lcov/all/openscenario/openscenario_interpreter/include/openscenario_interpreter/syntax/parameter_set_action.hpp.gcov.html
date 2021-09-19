@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">16</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:12:27</td>
+            <td class="headerValue">2021-09-19 19:52:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">10</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -57,7 +57,7 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">36</td>
+            <td class="headerCovTableEntry">38</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -127,7 +127,7 @@
 <a name="48"><span class="lineNum">      48 </span>                :            : </a>
 <a name="49"><span class="lineNum">      49 </span>                :<span class="lineNoCov">          0 :   static constexpr auto accomplished() noexcept { return true; }</span></a>
 <a name="50"><span class="lineNum">      50 </span>                :            : </a>
-<a name="51"><span class="lineNum">      51 </span>                :<span class="lineNoCov">          0 :   auto evaluate() const noexcept(false)</span></a>
+<a name="51"><span class="lineNum">      51 </span>                :<span class="lineNoCov">          0 :   auto run() const -&gt; void</span></a>
 <a name="52"><span class="lineNum">      52 </span>                :            :   {</a>
 <a name="53"><span class="lineNum">      53 </span>                :            :     // clang-format off</a>
 <a name="54"><span class="lineNum">      54 </span>                :            :     static const std::unordered_map&lt;</a>
@@ -147,13 +147,13 @@
 <span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 23 was not executed"> # </span>]
 <a name="64"><span class="lineNum">      64 </span>                :            :     // clang-format on</a>
 <a name="65"><span class="lineNum">      65 </span>                :            : </a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :     const auto parameter = findElement(parameter_ref);</span></a>
+<a name="66"><span class="lineNum">      66 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     const auto parameter = findElement(parameter_ref);</span></a>
 <a name="67"><span class="lineNum">      67 </span>                :            : </a>
 <a name="68"><span class="lineNum">      68 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     overloads.at(parameter.type())(parameter, value);</span></a>
 <span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="69"><span class="lineNum">      69 </span>                :            : </a>
-<a name="70"><span class="lineNum">      70 </span>                :<span class="lineNoCov">          0 :     return parameter;</span></a>
-<a name="71"><span class="lineNum">      71 </span>                :            :   }</a>
+<a name="69"><span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :   }</span></a>
+<a name="70"><span class="lineNum">      70 </span>                :            : </a>
+<a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :   static auto start() noexcept -&gt; void {}</span></a>
 <a name="72"><span class="lineNum">      72 </span>                :            : };</a>
 <a name="73"><span class="lineNum">      73 </span>                :            : }  // namespace syntax</a>
 <a name="74"><span class="lineNum">      74 </span>                :            : }  // namespace openscenario_interpreter</a>

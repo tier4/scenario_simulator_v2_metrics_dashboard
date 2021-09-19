@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">13</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:12:45</td>
+            <td class="headerValue">2021-09-19 19:52:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">7</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -135,7 +135,7 @@
 <a name="55"><span class="lineNum">      55 </span>                :            : </a>
 <a name="56"><span class="lineNum">      56 </span>                :<span class="lineNoCov">          0 :   static constexpr auto endsImmediately() noexcept { return true; };</span></a>
 <a name="57"><span class="lineNum">      57 </span>                :            : </a>
-<a name="58"><span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 :   auto start()</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 :   auto run()</span></a>
 <a name="59"><span class="lineNum">      59 </span>                :            :   {</a>
 <a name="60"><span class="lineNum">      60 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (const auto &amp; actor : actors) {</span></a>
 <a name="61"><span class="lineNum">      61 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       applyAssignRouteAction(</span></a>
@@ -143,11 +143,13 @@
 <a name="63"><span class="lineNum">      63 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                  route_or_catalog_reference.as&lt;const Route&gt;()));</span></a>
 <a name="64"><span class="lineNum">      64 </span>                :            :     }</a>
 <a name="65"><span class="lineNum">      65 </span>                :<span class="lineNoCov">          0 :   }</span></a>
-<a name="66"><span class="lineNum">      66 </span>                :            : };</a>
-<a name="67"><span class="lineNum">      67 </span>                :            : }  // namespace syntax</a>
-<a name="68"><span class="lineNum">      68 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="69"><span class="lineNum">      69 </span>                :            : </a>
-<a name="70"><span class="lineNum">      70 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__ASSIGN_ROUTE_ACTION_HPP_</a>
+<a name="66"><span class="lineNum">      66 </span>                :            : </a>
+<a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :   static constexpr auto start() -&gt; void { static_assert(endsImmediately(), &quot;&quot;); }</span></a>
+<a name="68"><span class="lineNum">      68 </span>                :            : };</a>
+<a name="69"><span class="lineNum">      69 </span>                :            : }  // namespace syntax</a>
+<a name="70"><span class="lineNum">      70 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="71"><span class="lineNum">      71 </span>                :            : </a>
+<a name="72"><span class="lineNum">      72 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__ASSIGN_ROUTE_ACTION_HPP_</a>
 </pre>
       </td>
     </tr>

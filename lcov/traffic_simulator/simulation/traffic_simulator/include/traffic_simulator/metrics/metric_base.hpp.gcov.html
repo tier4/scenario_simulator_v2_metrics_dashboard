@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:13:08</td>
+            <td class="headerValue">2021-09-19 19:53:02</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -117,7 +117,7 @@
 <a name="39"><span class="lineNum">      39 </span>                :            :   void activate();</a>
 <a name="40"><span class="lineNum">      40 </span>                :            :   virtual nlohmann::json toJson() = 0;</a>
 <a name="41"><span class="lineNum">      41 </span>                :            :   nlohmann::json toBaseJson();</a>
-<a name="42"><span class="lineNum">      42 </span>                :            :   void setEntityManager(</a>
+<a name="42"><span class="lineNum">      42 </span>                :            :   virtual void setEntityManager(</a>
 <a name="43"><span class="lineNum">      43 </span>                :            :     std::shared_ptr&lt;traffic_simulator::entity::EntityManager&gt; entity_manager_ptr);</a>
 <a name="44"><span class="lineNum">      44 </span>                :            :   const std::string metrics_type;</a>
 <a name="45"><span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 :   MetricLifecycle getLifecycle() { return lifecycle_; }</span></a>

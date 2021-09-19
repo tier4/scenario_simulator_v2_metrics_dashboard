@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:12:45</td>
+            <td class="headerValue">2021-09-19 19:52:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -145,13 +145,13 @@
 <a name="66"><span class="lineNum">      66 </span>                :            :     }</a>
 <a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :   }</span></a>
 <a name="68"><span class="lineNum">      68 </span>                :            : </a>
-<a name="69"><span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :   bool isEgo() &amp;</span></a>
+<a name="69"><span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :   bool isEgo() const &amp;</span></a>
 <a name="70"><span class="lineNum">      70 </span>                :            :   {</a>
 <a name="71"><span class="lineNum">      71 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (is&lt;Unspecified&gt;()) {</span></a>
 <a name="72"><span class="lineNum">      72 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       static auto controller = DefaultController();</span></a>
-<a name="73"><span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :       return controller[&quot;isEgo&quot;];</span></a>
+<a name="73"><span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :       return bool(controller[&quot;isEgo&quot;]);</span></a>
 <a name="74"><span class="lineNum">      74 </span>                :            :     } else {</a>
-<a name="75"><span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 :       return as&lt;Controller&gt;()[&quot;isEgo&quot;];</span></a>
+<a name="75"><span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 :       return bool(as&lt;Controller&gt;()[&quot;isEgo&quot;]);</span></a>
 <a name="76"><span class="lineNum">      76 </span>                :            :     }</a>
 <a name="77"><span class="lineNum">      77 </span>                :            :   }</a>
 <a name="78"><span class="lineNum">      78 </span>                :            : </a>
@@ -164,7 +164,7 @@
 <a name="85"><span class="lineNum">      85 </span>                :            :       }</a>
 <a name="86"><span class="lineNum">      86 </span>                :<span class="lineNoCov">          0 :       return controller;</span></a>
 <a name="87"><span class="lineNum">      87 </span>                :            :     } else {</a>
-<a name="88"><span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :       return as&lt;Controller&gt;();</span></a>
+<a name="88"><span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :       return openscenario_msgs::msg::DriverModel(as&lt;Controller&gt;());</span></a>
 <a name="89"><span class="lineNum">      89 </span>                :            :     }</a>
 <a name="90"><span class="lineNum">      90 </span>                :            :   }</a>
 <a name="91"><span class="lineNum">      91 </span>                :            : };</a>

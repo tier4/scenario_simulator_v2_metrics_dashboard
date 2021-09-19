@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">6</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:12:27</td>
+            <td class="headerValue">2021-09-19 19:52:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">10</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -57,7 +57,7 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">46</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -114,31 +114,49 @@
 <a name="36"><span class="lineNum">      36 </span>                :            :  * &lt;/xsd:complexType&gt;</a>
 <a name="37"><span class="lineNum">      37 </span>                :            :  *</a>
 <a name="38"><span class="lineNum">      38 </span>                :            :  * -------------------------------------------------------------------------- */</a>
-<a name="39"><span class="lineNum">      39 </span>                :            : </a>
-<a name="40"><span class="lineNum">      40 </span>                :            : struct ParameterAction : public Element</a>
-<a name="41"><span class="lineNum">      41 </span>                :            : {</a>
-<a name="42"><span class="lineNum">      42 </span>                :            :   template &lt;typename Node, typename Scope&gt;</a>
-<a name="43"><span class="lineNum">      43 </span>                :<span class="lineNoCov">          0 :   explicit ParameterAction(const Node &amp; parent, Scope &amp; outer_scope)</span></a>
-<a name="44"><span class="lineNum">      44 </span>                :            :   // clang-format off</a>
-<a name="45"><span class="lineNum">      45 </span>                :            :   : Element(</a>
-<a name="46"><span class="lineNum">      46 </span>                :            :       choice(parent,</a>
-<a name="47"><span class="lineNum">      47 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         std::make_pair(   &quot;SetAction&quot;, [&amp;](auto &amp;&amp; node) { return make&lt;   ParameterSetAction&gt;(node, outer_scope, readAttribute&lt;String&gt;(&quot;parameterRef&quot;, parent, outer_scope)); }),</span></a>
+<a name="39"><span class="lineNum">      39 </span>                :            : struct ParameterAction : public Element</a>
+<a name="40"><span class="lineNum">      40 </span>                :            : {</a>
+<a name="41"><span class="lineNum">      41 </span>                :            :   template &lt;typename Node, typename Scope&gt;</a>
+<a name="42"><span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :   explicit ParameterAction(const Node &amp; parent, Scope &amp; outer_scope)</span></a>
+<a name="43"><span class="lineNum">      43 </span>                :            :   // clang-format off</a>
+<a name="44"><span class="lineNum">      44 </span>                :            :   : Element(</a>
+<a name="45"><span class="lineNum">      45 </span>                :            :       choice(parent,</a>
+<a name="46"><span class="lineNum">      46 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         std::make_pair(   &quot;SetAction&quot;, [&amp;](auto &amp;&amp; node) { return make&lt;   ParameterSetAction&gt;(node, outer_scope, readAttribute&lt;String&gt;(&quot;parameterRef&quot;, parent, outer_scope)); }),</span></a>
 <span class="lineNum">         </span>   <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
-<a name="48"><span class="lineNum">      48 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         std::make_pair(&quot;ModifyAction&quot;, [&amp;](auto &amp;&amp; node) { return make&lt;ParameterModifyAction&gt;(node, outer_scope, readAttribute&lt;String&gt;(&quot;parameterRef&quot;, parent, outer_scope)); })))</span></a>
+<a name="47"><span class="lineNum">      47 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         std::make_pair(&quot;ModifyAction&quot;, [&amp;](auto &amp;&amp; node) { return make&lt;ParameterModifyAction&gt;(node, outer_scope, readAttribute&lt;String&gt;(&quot;parameterRef&quot;, parent, outer_scope)); })))</span></a>
 <span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
 <span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
-<a name="49"><span class="lineNum">      49 </span>                :            :   // clang-format on</a>
-<a name="50"><span class="lineNum">      50 </span>                :            :   {</a>
-<a name="51"><span class="lineNum">      51 </span>                :<span class="lineNoCov">          0 :   }</span></a>
-<a name="52"><span class="lineNum">      52 </span>                :            : </a>
-<a name="53"><span class="lineNum">      53 </span>                :<span class="lineNoCov">          0 :   static auto endsImmediately() -&gt; bool { return true; }</span></a>
-<a name="54"><span class="lineNum">      54 </span>                :            : };</a>
+<a name="48"><span class="lineNum">      48 </span>                :            :   // clang-format on</a>
+<a name="49"><span class="lineNum">      49 </span>                :            :   {</a>
+<a name="50"><span class="lineNum">      50 </span>                :<span class="lineNoCov">          0 :   }</span></a>
+<a name="51"><span class="lineNum">      51 </span>                :            : </a>
+<a name="52"><span class="lineNum">      52 </span>                :<span class="lineNoCov">          0 :   static auto endsImmediately() -&gt; bool { return true; }</span></a>
+<a name="53"><span class="lineNum">      53 </span>                :            : </a>
+<a name="54"><span class="lineNum">      54 </span>                :            :   auto run() -&gt; void;</a>
 <a name="55"><span class="lineNum">      55 </span>                :            : </a>
-<a name="56"><span class="lineNum">      56 </span>                :            : #undef ELEMENT</a>
-<a name="57"><span class="lineNum">      57 </span>                :            : }  // namespace syntax</a>
-<a name="58"><span class="lineNum">      58 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="59"><span class="lineNum">      59 </span>                :            : </a>
-<a name="60"><span class="lineNum">      60 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__PARAMETER_ACTION_HPP_</a>
+<a name="56"><span class="lineNum">      56 </span>                :            :   auto start() -&gt; void;</a>
+<a name="57"><span class="lineNum">      57 </span>                :            : };</a>
+<a name="58"><span class="lineNum">      58 </span>                :            : </a>
+<a name="59"><span class="lineNum">      59 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 : DEFINE_LAZY_VISITOR(</span></a>
+<span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
+<span class="lineNum">         </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span><span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span> 
+<span class="lineNum">         </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span><span class="branchNoExec" title="Branch 15 was not executed"> # </span><span class="branchNoExec" title="Branch 16 was not executed"> # </span><span class="branchNoExec" title="Branch 17 was not executed"> # </span><span class="branchNoExec" title="Branch 18 was not executed"> # </span> 
+<span class="lineNum">         </span><span class="branchNoExec" title="Branch 19 was not executed"> # </span><span class="branchNoExec" title="Branch 20 was not executed"> # </span><span class="branchNoExec" title="Branch 21 was not executed"> # </span><span class="branchNoExec" title="Branch 22 was not executed"> # </span><span class="branchNoExec" title="Branch 23 was not executed"> # </span> 
+<span class="lineNum">         </span>   <span class="branchNoExec" title="Branch 24 was not executed"> # </span><span class="branchNoExec" title="Branch 25 was not executed"> # </span><span class="branchNoExec" title="Branch 26 was not executed"> # </span><span class="branchNoExec" title="Branch 27 was not executed"> # </span>]
+<a name="60"><span class="lineNum">      60 </span>                :            :   ParameterAction,</a>
+<a name="61"><span class="lineNum">      61 </span>                :            :   CASE(ParameterSetAction),     //</a>
+<a name="62"><span class="lineNum">      62 </span>                :            :   CASE(ParameterModifyAction),  //</a>
+<a name="63"><span class="lineNum">      63 </span>                :            : );</a>
+<a name="64"><span class="lineNum">      64 </span>                :            : </a>
+<a name="65"><span class="lineNum">      65 </span>                :            : DEFINE_LAZY_VISITOR(</a>
+<a name="66"><span class="lineNum">      66 </span>                :            :   const ParameterAction,</a>
+<a name="67"><span class="lineNum">      67 </span>                :            :   CASE(ParameterSetAction),     //</a>
+<a name="68"><span class="lineNum">      68 </span>                :            :   CASE(ParameterModifyAction),  //</a>
+<a name="69"><span class="lineNum">      69 </span>                :            : );</a>
+<a name="70"><span class="lineNum">      70 </span>                :            : }  // namespace syntax</a>
+<a name="71"><span class="lineNum">      71 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="72"><span class="lineNum">      72 </span>                :            : </a>
+<a name="73"><span class="lineNum">      73 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__PARAMETER_ACTION_HPP_</a>
 </pre>
       </td>
     </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:13:08</td>
+            <td class="headerValue">2021-09-19 19:53:02</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -267,96 +267,97 @@
 <a name="189"><span class="lineNum">     189 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(engage);</a>
 <a name="190"><span class="lineNum">     190 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(entityExists);</a>
 <a name="191"><span class="lineNum">     191 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getBoundingBoxDistance);</a>
-<a name="192"><span class="lineNum">     192 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEntityNames);</a>
+<a name="192"><span class="lineNum">     192 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getCurrentAction);</a>
 <a name="193"><span class="lineNum">     193 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEgoName);</a>
-<a name="194"><span class="lineNum">     194 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLinearJerk);</a>
-<a name="195"><span class="lineNum">     195 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLongitudinalDistance);</a>
-<a name="196"><span class="lineNum">     196 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   FORWARD_TO_ENTITY_MANAGER(getRelativePose);</span></a>
-<a name="197"><span class="lineNum">     197 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getStandStillDuration);</a>
-<a name="198"><span class="lineNum">     198 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightArrow);</a>
-<a name="199"><span class="lineNum">     199 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightColor);</a>
-<a name="200"><span class="lineNum">     200 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getVehicleCommand);</a>
-<a name="201"><span class="lineNum">     201 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(isInLanelet);</a>
-<a name="202"><span class="lineNum">     202 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(ready);</a>
-<a name="203"><span class="lineNum">     203 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAcquirePosition);</a>
-<a name="204"><span class="lineNum">     204 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAssignRoute);</a>
-<a name="205"><span class="lineNum">     205 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestWalkStraight);</a>
-<a name="206"><span class="lineNum">     206 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setDriverModel);</a>
-<a name="207"><span class="lineNum">     207 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTargetSpeed);</a>
-<a name="208"><span class="lineNum">     208 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrow);</a>
-<a name="209"><span class="lineNum">     209 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrowPhase);</a>
-<a name="210"><span class="lineNum">     210 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColor);</a>
-<a name="211"><span class="lineNum">     211 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColorPhase);</a>
-<a name="212"><span class="lineNum">     212 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toLaneletPose);</a>
-<a name="213"><span class="lineNum">     213 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toMapPose);</a>
-<a name="214"><span class="lineNum">     214 </span>                :            : </a>
-<a name="215"><span class="lineNum">     215 </span>                :            : #undef FORWARD_TO_ENTITY_MANAGER</a>
-<a name="216"><span class="lineNum">     216 </span>                :            : </a>
-<a name="217"><span class="lineNum">     217 </span>                :            : private:</a>
-<a name="218"><span class="lineNum">     218 </span>                :            :   bool updateSensorFrame();</a>
-<a name="219"><span class="lineNum">     219 </span>                :            :   bool updateEntityStatusInSim();</a>
-<a name="220"><span class="lineNum">     220 </span>                :            : </a>
-<a name="221"><span class="lineNum">     221 </span>                :            :   template &lt;typename Parameters&gt;</a>
-<a name="222"><span class="lineNum">     222 </span>                :            :   bool spawn(</a>
-<a name="223"><span class="lineNum">     223 </span>                :            :     const bool is_ego, const Parameters &amp; parameters,</a>
-<a name="224"><span class="lineNum">     224 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; status)</a>
-<a name="225"><span class="lineNum">     225 </span>                :            :   {</a>
-<a name="226"><span class="lineNum">     226 </span>                :            :     return spawn(is_ego, parameters.toXml(), status);</a>
-<a name="227"><span class="lineNum">     227 </span>                :            :   }</a>
-<a name="228"><span class="lineNum">     228 </span>                :            : </a>
-<a name="229"><span class="lineNum">     229 </span>                :            :   const Configuration configuration;</a>
-<a name="230"><span class="lineNum">     230 </span>                :            : </a>
-<a name="231"><span class="lineNum">     231 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::entity::EntityManager&gt; entity_manager_ptr_;</a>
-<a name="232"><span class="lineNum">     232 </span>                :            : </a>
-<a name="233"><span class="lineNum">     233 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::traffic::TrafficController&gt; traffic_controller_ptr_;</a>
-<a name="234"><span class="lineNum">     234 </span>                :            : </a>
-<a name="235"><span class="lineNum">     235 </span>                :            :   metrics::MetricsManager metrics_manager_;</a>
-<a name="236"><span class="lineNum">     236 </span>                :            : </a>
-<a name="237"><span class="lineNum">     237 </span>                :            :   const rclcpp::Publisher&lt;rosgraph_msgs::msg::Clock&gt;::SharedPtr clock_pub_;</a>
-<a name="238"><span class="lineNum">     238 </span>                :            : </a>
-<a name="239"><span class="lineNum">     239 </span>                :            :   traffic_simulator::SimulationClock clock_;</a>
-<a name="240"><span class="lineNum">     240 </span>                :            : </a>
-<a name="241"><span class="lineNum">     241 </span>                :            :   zeromq::Client&lt;</a>
-<a name="242"><span class="lineNum">     242 </span>                :            :     simulation_api_schema::InitializeRequest, simulation_api_schema::InitializeResponse&gt;</a>
-<a name="243"><span class="lineNum">     243 </span>                :            :     initialize_client_;</a>
-<a name="244"><span class="lineNum">     244 </span>                :            :   zeromq::Client&lt;</a>
-<a name="245"><span class="lineNum">     245 </span>                :            :     simulation_api_schema::UpdateFrameRequest, simulation_api_schema::UpdateFrameResponse&gt;</a>
-<a name="246"><span class="lineNum">     246 </span>                :            :     update_frame_client_;</a>
-<a name="247"><span class="lineNum">     247 </span>                :            :   zeromq::Client&lt;</a>
-<a name="248"><span class="lineNum">     248 </span>                :            :     simulation_api_schema::UpdateSensorFrameRequest,</a>
-<a name="249"><span class="lineNum">     249 </span>                :            :     simulation_api_schema::UpdateSensorFrameResponse&gt;</a>
-<a name="250"><span class="lineNum">     250 </span>                :            :     update_sensor_frame_client_;</a>
-<a name="251"><span class="lineNum">     251 </span>                :            :   zeromq::Client&lt;</a>
-<a name="252"><span class="lineNum">     252 </span>                :            :     simulation_api_schema::SpawnVehicleEntityRequest,</a>
-<a name="253"><span class="lineNum">     253 </span>                :            :     simulation_api_schema::SpawnVehicleEntityResponse&gt;</a>
-<a name="254"><span class="lineNum">     254 </span>                :            :     spawn_vehicle_entity_client_;</a>
-<a name="255"><span class="lineNum">     255 </span>                :            :   zeromq::Client&lt;</a>
-<a name="256"><span class="lineNum">     256 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityRequest,</a>
-<a name="257"><span class="lineNum">     257 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityResponse&gt;</a>
-<a name="258"><span class="lineNum">     258 </span>                :            :     spawn_pedestrian_entity_client_;</a>
-<a name="259"><span class="lineNum">     259 </span>                :            :   zeromq::Client&lt;</a>
-<a name="260"><span class="lineNum">     260 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityRequest,</a>
-<a name="261"><span class="lineNum">     261 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityResponse&gt;</a>
-<a name="262"><span class="lineNum">     262 </span>                :            :     spawn_misc_object_entity_client_;</a>
-<a name="263"><span class="lineNum">     263 </span>                :            :   zeromq::Client&lt;</a>
-<a name="264"><span class="lineNum">     264 </span>                :            :     simulation_api_schema::DespawnEntityRequest, simulation_api_schema::DespawnEntityResponse&gt;</a>
-<a name="265"><span class="lineNum">     265 </span>                :            :     despawn_entity_client_;</a>
-<a name="266"><span class="lineNum">     266 </span>                :            :   zeromq::Client&lt;</a>
-<a name="267"><span class="lineNum">     267 </span>                :            :     simulation_api_schema::UpdateEntityStatusRequest,</a>
-<a name="268"><span class="lineNum">     268 </span>                :            :     simulation_api_schema::UpdateEntityStatusResponse&gt;</a>
-<a name="269"><span class="lineNum">     269 </span>                :            :     update_entity_status_client_;</a>
-<a name="270"><span class="lineNum">     270 </span>                :            :   zeromq::Client&lt;</a>
-<a name="271"><span class="lineNum">     271 </span>                :            :     simulation_api_schema::AttachLidarSensorRequest,</a>
-<a name="272"><span class="lineNum">     272 </span>                :            :     simulation_api_schema::AttachLidarSensorResponse&gt;</a>
-<a name="273"><span class="lineNum">     273 </span>                :            :     attach_lidar_sensor_client_;</a>
-<a name="274"><span class="lineNum">     274 </span>                :            :   zeromq::Client&lt;</a>
-<a name="275"><span class="lineNum">     275 </span>                :            :     simulation_api_schema::AttachDetectionSensorRequest,</a>
-<a name="276"><span class="lineNum">     276 </span>                :            :     simulation_api_schema::AttachDetectionSensorResponse&gt;</a>
-<a name="277"><span class="lineNum">     277 </span>                :            :     attach_detection_sensor_client_;</a>
-<a name="278"><span class="lineNum">     278 </span>                :            : };</a>
-<a name="279"><span class="lineNum">     279 </span>                :            : }  // namespace traffic_simulator</a>
-<a name="280"><span class="lineNum">     280 </span>                :            : </a>
-<a name="281"><span class="lineNum">     281 </span>                :            : #endif  // TRAFFIC_SIMULATOR__API__API_HPP_</a>
+<a name="194"><span class="lineNum">     194 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEntityNames);</a>
+<a name="195"><span class="lineNum">     195 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLinearJerk);</a>
+<a name="196"><span class="lineNum">     196 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLongitudinalDistance);</a>
+<a name="197"><span class="lineNum">     197 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   FORWARD_TO_ENTITY_MANAGER(getRelativePose);</span></a>
+<a name="198"><span class="lineNum">     198 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getStandStillDuration);</a>
+<a name="199"><span class="lineNum">     199 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightArrow);</a>
+<a name="200"><span class="lineNum">     200 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightColor);</a>
+<a name="201"><span class="lineNum">     201 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getVehicleCommand);</a>
+<a name="202"><span class="lineNum">     202 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(isInLanelet);</a>
+<a name="203"><span class="lineNum">     203 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(ready);</a>
+<a name="204"><span class="lineNum">     204 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAcquirePosition);</a>
+<a name="205"><span class="lineNum">     205 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAssignRoute);</a>
+<a name="206"><span class="lineNum">     206 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestWalkStraight);</a>
+<a name="207"><span class="lineNum">     207 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setDriverModel);</a>
+<a name="208"><span class="lineNum">     208 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTargetSpeed);</a>
+<a name="209"><span class="lineNum">     209 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrow);</a>
+<a name="210"><span class="lineNum">     210 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrowPhase);</a>
+<a name="211"><span class="lineNum">     211 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColor);</a>
+<a name="212"><span class="lineNum">     212 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColorPhase);</a>
+<a name="213"><span class="lineNum">     213 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toLaneletPose);</a>
+<a name="214"><span class="lineNum">     214 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toMapPose);</a>
+<a name="215"><span class="lineNum">     215 </span>                :            : </a>
+<a name="216"><span class="lineNum">     216 </span>                :            : #undef FORWARD_TO_ENTITY_MANAGER</a>
+<a name="217"><span class="lineNum">     217 </span>                :            : </a>
+<a name="218"><span class="lineNum">     218 </span>                :            : private:</a>
+<a name="219"><span class="lineNum">     219 </span>                :            :   bool updateSensorFrame();</a>
+<a name="220"><span class="lineNum">     220 </span>                :            :   bool updateEntityStatusInSim();</a>
+<a name="221"><span class="lineNum">     221 </span>                :            : </a>
+<a name="222"><span class="lineNum">     222 </span>                :            :   template &lt;typename Parameters&gt;</a>
+<a name="223"><span class="lineNum">     223 </span>                :            :   bool spawn(</a>
+<a name="224"><span class="lineNum">     224 </span>                :            :     const bool is_ego, const Parameters &amp; parameters,</a>
+<a name="225"><span class="lineNum">     225 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; status)</a>
+<a name="226"><span class="lineNum">     226 </span>                :            :   {</a>
+<a name="227"><span class="lineNum">     227 </span>                :            :     return spawn(is_ego, parameters.toXml(), status);</a>
+<a name="228"><span class="lineNum">     228 </span>                :            :   }</a>
+<a name="229"><span class="lineNum">     229 </span>                :            : </a>
+<a name="230"><span class="lineNum">     230 </span>                :            :   const Configuration configuration;</a>
+<a name="231"><span class="lineNum">     231 </span>                :            : </a>
+<a name="232"><span class="lineNum">     232 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::entity::EntityManager&gt; entity_manager_ptr_;</a>
+<a name="233"><span class="lineNum">     233 </span>                :            : </a>
+<a name="234"><span class="lineNum">     234 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::traffic::TrafficController&gt; traffic_controller_ptr_;</a>
+<a name="235"><span class="lineNum">     235 </span>                :            : </a>
+<a name="236"><span class="lineNum">     236 </span>                :            :   metrics::MetricsManager metrics_manager_;</a>
+<a name="237"><span class="lineNum">     237 </span>                :            : </a>
+<a name="238"><span class="lineNum">     238 </span>                :            :   const rclcpp::Publisher&lt;rosgraph_msgs::msg::Clock&gt;::SharedPtr clock_pub_;</a>
+<a name="239"><span class="lineNum">     239 </span>                :            : </a>
+<a name="240"><span class="lineNum">     240 </span>                :            :   traffic_simulator::SimulationClock clock_;</a>
+<a name="241"><span class="lineNum">     241 </span>                :            : </a>
+<a name="242"><span class="lineNum">     242 </span>                :            :   zeromq::Client&lt;</a>
+<a name="243"><span class="lineNum">     243 </span>                :            :     simulation_api_schema::InitializeRequest, simulation_api_schema::InitializeResponse&gt;</a>
+<a name="244"><span class="lineNum">     244 </span>                :            :     initialize_client_;</a>
+<a name="245"><span class="lineNum">     245 </span>                :            :   zeromq::Client&lt;</a>
+<a name="246"><span class="lineNum">     246 </span>                :            :     simulation_api_schema::UpdateFrameRequest, simulation_api_schema::UpdateFrameResponse&gt;</a>
+<a name="247"><span class="lineNum">     247 </span>                :            :     update_frame_client_;</a>
+<a name="248"><span class="lineNum">     248 </span>                :            :   zeromq::Client&lt;</a>
+<a name="249"><span class="lineNum">     249 </span>                :            :     simulation_api_schema::UpdateSensorFrameRequest,</a>
+<a name="250"><span class="lineNum">     250 </span>                :            :     simulation_api_schema::UpdateSensorFrameResponse&gt;</a>
+<a name="251"><span class="lineNum">     251 </span>                :            :     update_sensor_frame_client_;</a>
+<a name="252"><span class="lineNum">     252 </span>                :            :   zeromq::Client&lt;</a>
+<a name="253"><span class="lineNum">     253 </span>                :            :     simulation_api_schema::SpawnVehicleEntityRequest,</a>
+<a name="254"><span class="lineNum">     254 </span>                :            :     simulation_api_schema::SpawnVehicleEntityResponse&gt;</a>
+<a name="255"><span class="lineNum">     255 </span>                :            :     spawn_vehicle_entity_client_;</a>
+<a name="256"><span class="lineNum">     256 </span>                :            :   zeromq::Client&lt;</a>
+<a name="257"><span class="lineNum">     257 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityRequest,</a>
+<a name="258"><span class="lineNum">     258 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityResponse&gt;</a>
+<a name="259"><span class="lineNum">     259 </span>                :            :     spawn_pedestrian_entity_client_;</a>
+<a name="260"><span class="lineNum">     260 </span>                :            :   zeromq::Client&lt;</a>
+<a name="261"><span class="lineNum">     261 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityRequest,</a>
+<a name="262"><span class="lineNum">     262 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityResponse&gt;</a>
+<a name="263"><span class="lineNum">     263 </span>                :            :     spawn_misc_object_entity_client_;</a>
+<a name="264"><span class="lineNum">     264 </span>                :            :   zeromq::Client&lt;</a>
+<a name="265"><span class="lineNum">     265 </span>                :            :     simulation_api_schema::DespawnEntityRequest, simulation_api_schema::DespawnEntityResponse&gt;</a>
+<a name="266"><span class="lineNum">     266 </span>                :            :     despawn_entity_client_;</a>
+<a name="267"><span class="lineNum">     267 </span>                :            :   zeromq::Client&lt;</a>
+<a name="268"><span class="lineNum">     268 </span>                :            :     simulation_api_schema::UpdateEntityStatusRequest,</a>
+<a name="269"><span class="lineNum">     269 </span>                :            :     simulation_api_schema::UpdateEntityStatusResponse&gt;</a>
+<a name="270"><span class="lineNum">     270 </span>                :            :     update_entity_status_client_;</a>
+<a name="271"><span class="lineNum">     271 </span>                :            :   zeromq::Client&lt;</a>
+<a name="272"><span class="lineNum">     272 </span>                :            :     simulation_api_schema::AttachLidarSensorRequest,</a>
+<a name="273"><span class="lineNum">     273 </span>                :            :     simulation_api_schema::AttachLidarSensorResponse&gt;</a>
+<a name="274"><span class="lineNum">     274 </span>                :            :     attach_lidar_sensor_client_;</a>
+<a name="275"><span class="lineNum">     275 </span>                :            :   zeromq::Client&lt;</a>
+<a name="276"><span class="lineNum">     276 </span>                :            :     simulation_api_schema::AttachDetectionSensorRequest,</a>
+<a name="277"><span class="lineNum">     277 </span>                :            :     simulation_api_schema::AttachDetectionSensorResponse&gt;</a>
+<a name="278"><span class="lineNum">     278 </span>                :            :     attach_detection_sensor_client_;</a>
+<a name="279"><span class="lineNum">     279 </span>                :            : };</a>
+<a name="280"><span class="lineNum">     280 </span>                :            : }  // namespace traffic_simulator</a>
+<a name="281"><span class="lineNum">     281 </span>                :            : </a>
+<a name="282"><span class="lineNum">     282 </span>                :            : #endif  // TRAFFIC_SIMULATOR__API__API_HPP_</a>
 </pre>
       </td>
     </tr>

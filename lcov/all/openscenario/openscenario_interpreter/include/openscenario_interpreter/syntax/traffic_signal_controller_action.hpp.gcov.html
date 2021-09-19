@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">13</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-14 07:12:27</td>
+            <td class="headerValue">2021-09-19 19:52:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -142,26 +142,27 @@
 <a name="63"><span class="lineNum">      63 </span>                :            : </a>
 <a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :   static auto accomplished() noexcept -&gt; bool { return true; }</span></a>
 <a name="65"><span class="lineNum">      65 </span>                :            : </a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :   auto start()</span></a>
-<a name="67"><span class="lineNum">      67 </span>                :            :   {</a>
-<a name="68"><span class="lineNum">      68 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     auto found = localScope().findElement(traffic_signal_controller_ref);</span></a>
-<a name="69"><span class="lineNum">      69 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     if (found and found.is&lt;TrafficSignalController&gt;()) {</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :   static auto endsImmediately() noexcept -&gt; bool { return true; }</span></a>
+<a name="67"><span class="lineNum">      67 </span>                :            : </a>
+<a name="68"><span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :   auto run() -&gt; void</span></a>
+<a name="69"><span class="lineNum">      69 </span>                :            :   {</a>
+<a name="70"><span class="lineNum">      70 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     auto found = localScope().findElement(traffic_signal_controller_ref);</span></a>
+<a name="71"><span class="lineNum">      71 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     if (found and found.is&lt;TrafficSignalController&gt;()) {</span></a>
 <span class="lineNum">         </span>   <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
-<a name="70"><span class="lineNum">      70 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       found.as&lt;TrafficSignalController&gt;().changePhaseByName(phase);</span></a>
-<a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :       return unspecified;</span></a>
-<a name="72"><span class="lineNum">      72 </span>                :            :     } else {</a>
-<a name="73"><span class="lineNum">      73 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       THROW_SYNTAX_ERROR(</span></a>
-<a name="74"><span class="lineNum">      74 </span>                :            :         &quot;TrafficSignalController &quot;, std::quoted(traffic_signal_controller_ref),</a>
-<a name="75"><span class="lineNum">      75 </span>                :            :         &quot; is not declared in this scope&quot;);</a>
-<a name="76"><span class="lineNum">      76 </span>                :            :     }</a>
-<a name="77"><span class="lineNum">      77 </span>                :            :   }</a>
-<a name="78"><span class="lineNum">      78 </span>                :            : </a>
-<a name="79"><span class="lineNum">      79 </span>                :<span class="lineNoCov">          0 :   static auto endsImmediately() -&gt; bool { return true; }</span></a>
-<a name="80"><span class="lineNum">      80 </span>                :            : };</a>
-<a name="81"><span class="lineNum">      81 </span>                :            : }  // namespace syntax</a>
-<a name="82"><span class="lineNum">      82 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="83"><span class="lineNum">      83 </span>                :            : </a>
-<a name="84"><span class="lineNum">      84 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__TRAFFIC_SIGNAL_CONTROLLER_ACTION_HPP_</a>
+<a name="72"><span class="lineNum">      72 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       found.as&lt;TrafficSignalController&gt;().changePhaseByName(phase);</span></a>
+<a name="73"><span class="lineNum">      73 </span>                :            :     } else {</a>
+<a name="74"><span class="lineNum">      74 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       THROW_SYNTAX_ERROR(</span></a>
+<a name="75"><span class="lineNum">      75 </span>                :            :         &quot;TrafficSignalController &quot;, std::quoted(traffic_signal_controller_ref),</a>
+<a name="76"><span class="lineNum">      76 </span>                :            :         &quot; is not declared in this scope&quot;);</a>
+<a name="77"><span class="lineNum">      77 </span>                :            :     }</a>
+<a name="78"><span class="lineNum">      78 </span>                :<span class="lineNoCov">          0 :   }</span></a>
+<a name="79"><span class="lineNum">      79 </span>                :            : </a>
+<a name="80"><span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 :   static auto start() noexcept -&gt; void {}</span></a>
+<a name="81"><span class="lineNum">      81 </span>                :            : };</a>
+<a name="82"><span class="lineNum">      82 </span>                :            : }  // namespace syntax</a>
+<a name="83"><span class="lineNum">      83 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="84"><span class="lineNum">      84 </span>                :            : </a>
+<a name="85"><span class="lineNum">      85 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__TRAFFIC_SIGNAL_CONTROLLER_ACTION_HPP_</a>
 </pre>
       </td>
     </tr>
