@@ -16,7 +16,6 @@ jobs:
       TARGET_REPO: "tier4/scenario_simulator_v2"
       ARTIFACTS_DIR: data
       BASE_URL: "https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/"
-      TITLE: "tier4/scenario_simulator_v2"
       ROS_DISTRO: "galactic"
 
     steps:
@@ -49,7 +48,7 @@ jobs:
       with:
         artifacts-dir: ${{ env.ARTIFACTS_DIR }}
         base-url: ${{ env.BASE_URL }}
-        title: ${{ env.TITLE }}
+        title: ${{ env.TARGET_REPO }}
         ros-distro: ${{ env.ROS_DISTRO }}
         CCN: "20"
         CCN-recommendation: "10"
@@ -59,6 +58,7 @@ jobs:
         arguments-recommendation: "6"
         codechecker-config-path: "metrics_config_dir/codechecker-config.json"
         codechecker-skip-list: "metrics_config_dir/codechecker-skip-list.txt"
+        target-repository: ${{ env.TARGET_REPO }}
 
     - name: Push artifacts
       if: github.ref == 'refs/heads/main'
