@@ -16,7 +16,6 @@ jobs:
       TARGET_REPO: "tier4/scenario_simulator_v2"
       ARTIFACTS_DIR: data
       BASE_URL: "https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/"
-      TARGET_REPO: "tier4/scenario_simulator_v2"
       ROS_DISTRO: "galactic"
 
     steps:
