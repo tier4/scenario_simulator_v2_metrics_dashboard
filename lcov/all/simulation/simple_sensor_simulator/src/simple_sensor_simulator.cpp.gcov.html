@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">126</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">92</td>
+            <td class="headerCovTableEntry">131</td>
+            <td class="headerCovTableEntryLo">70.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:53:53</td>
+            <td class="headerValue">2021-09-28 11:49:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryLo">73.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">224</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">85</td>
+            <td class="headerCovTableEntry">228</td>
+            <td class="headerCovTableEntryLo">37.3 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -106,217 +106,229 @@
 <a name="28"><span class="lineNum">      28 </span>                :            : </a>
 <a name="29"><span class="lineNum">      29 </span>                :            : namespace simple_sensor_simulator</a>
 <a name="30"><span class="lineNum">      30 </span>                :            : {</a>
-<a name="31"><span class="lineNum">      31 </span>                :<span class="lineNoCov">          0 : ScenarioSimulator::ScenarioSimulator(const rclcpp::NodeOptions &amp; options)</span></a>
+<a name="31"><span class="lineNum">      31 </span>                :<span class="lineCov">         23 : ScenarioSimulator::ScenarioSimulator(const rclcpp::NodeOptions &amp; options)</span></a>
 <a name="32"><span class="lineNum">      32 </span>                :            : : Node(&quot;simple_sensor_simulator&quot;, options),</a>
 <a name="33"><span class="lineNum">      33 </span>                :            :   sensor_sim_(),</a>
 <a name="34"><span class="lineNum">      34 </span>                :            :   server_(</a>
 <a name="35"><span class="lineNum">      35 </span>                :<span class="lineNoCov">          0 :     simulation_interface::protocol, simulation_interface::HostName::ANY,</span></a>
-<a name="36"><span class="lineNum">      36 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     std::bind(&amp;ScenarioSimulator::initialize, this, std::placeholders::_1, std::placeholders::_2),</span></a>
-<a name="37"><span class="lineNum">      37 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     std::bind(&amp;ScenarioSimulator::updateFrame, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="36"><span class="lineNum">      36 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :     std::bind(&amp;ScenarioSimulator::initialize, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="37"><span class="lineNum">      37 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :     std::bind(&amp;ScenarioSimulator::updateFrame, this, std::placeholders::_1, std::placeholders::_2),</span></a>
 <a name="38"><span class="lineNum">      38 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="39"><span class="lineNum">      39 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::updateSensorFrame, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="39"><span class="lineNum">      39 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::updateSensorFrame, this, std::placeholders::_1, std::placeholders::_2),</span></a>
 <a name="40"><span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="41"><span class="lineNum">      41 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::spawnVehicleEntity, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="41"><span class="lineNum">      41 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::spawnVehicleEntity, this, std::placeholders::_1, std::placeholders::_2),</span></a>
 <a name="42"><span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="43"><span class="lineNum">      43 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::spawnPedestrianEntity, this, std::placeholders::_1,</span></a>
+<a name="43"><span class="lineNum">      43 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::spawnPedestrianEntity, this, std::placeholders::_1,</span></a>
 <a name="44"><span class="lineNum">      44 </span>                :            :       std::placeholders::_2),</a>
 <a name="45"><span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="46"><span class="lineNum">      46 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::spawnMiscObjectEntity, this, std::placeholders::_1,</span></a>
+<a name="46"><span class="lineNum">      46 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::spawnMiscObjectEntity, this, std::placeholders::_1,</span></a>
 <a name="47"><span class="lineNum">      47 </span>                :            :       std::placeholders::_2),</a>
 <a name="48"><span class="lineNum">      48 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="49"><span class="lineNum">      49 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::despawnEntity, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="49"><span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::despawnEntity, this, std::placeholders::_1, std::placeholders::_2),</span></a>
 <a name="50"><span class="lineNum">      50 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="51"><span class="lineNum">      51 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::updateEntityStatus, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="51"><span class="lineNum">      51 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::updateEntityStatus, this, std::placeholders::_1, std::placeholders::_2),</span></a>
 <a name="52"><span class="lineNum">      52 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="53"><span class="lineNum">      53 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::attachLidarSensor, this, std::placeholders::_1, std::placeholders::_2),</span></a>
+<a name="53"><span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::attachLidarSensor, this, std::placeholders::_1, std::placeholders::_2),</span></a>
 <a name="54"><span class="lineNum">      54 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
-<a name="55"><span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 :       &amp;ScenarioSimulator::attachDetectionSensor, this, std::placeholders::_1,</span></a>
-<a name="56"><span class="lineNum">      56 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :       std::placeholders::_2))</span></a>
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span><span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span> 
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 14 was not executed"> # </span><span class="branchNoExec" title="Branch 15 was not executed"> # </span><span class="branchNoExec" title="Branch 16 was not executed"> # </span><span class="branchNoExec" title="Branch 17 was not executed"> # </span><span class="branchNoExec" title="Branch 18 was not executed"> # </span> 
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 19 was not executed"> # </span><span class="branchNoExec" title="Branch 20 was not executed"> # </span><span class="branchNoExec" title="Branch 21 was not executed"> # </span><span class="branchNoExec" title="Branch 22 was not executed"> # </span><span class="branchNoExec" title="Branch 23 was not executed"> # </span> 
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 24 was not executed"> # </span><span class="branchNoExec" title="Branch 25 was not executed"> # </span><span class="branchNoExec" title="Branch 26 was not executed"> # </span><span class="branchNoExec" title="Branch 27 was not executed"> # </span><span class="branchNoExec" title="Branch 28 was not executed"> # </span> 
-<span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 29 was not executed"> # </span>]
-<a name="57"><span class="lineNum">      57 </span>                :            : {</a>
-<a name="58"><span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="59"><span class="lineNum">      59 </span>                :            : </a>
-<a name="60"><span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 : ScenarioSimulator::~ScenarioSimulator() {}</span></a>
+<a name="55"><span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :       &amp;ScenarioSimulator::attachDetectionSensor, this, std::placeholders::_1,</span></a>
+<a name="56"><span class="lineNum">      56 </span>                :            :       std::placeholders::_2),</a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :     std::bind(</span></a>
+<a name="58"><span class="lineNum">      58 </span>  [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        253 :       &amp;ScenarioSimulator::updateTrafficLights, this, std::placeholders::_1, std::placeholders::_2))</span></a>
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchCov" title="Branch 6 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchCov" title="Branch 8 was taken 23 times"> + </span> 
+<span class="lineNum">         </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span><span class="branchCov" title="Branch 10 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 11 was not taken"> - </span><span class="branchCov" title="Branch 12 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 13 was not taken"> - </span> 
+<span class="lineNum">         </span><span class="branchCov" title="Branch 14 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 15 was not taken"> - </span><span class="branchCov" title="Branch 16 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 17 was not taken"> - </span><span class="branchCov" title="Branch 18 was taken 23 times"> + </span> 
+<span class="lineNum">         </span><span class="branchNoCov" title="Branch 19 was not taken"> - </span><span class="branchCov" title="Branch 20 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 21 was not taken"> - </span><span class="branchCov" title="Branch 22 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 23 was not taken"> - </span> 
+<span class="lineNum">         </span><span class="branchCov" title="Branch 24 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 25 was not taken"> - </span><span class="branchCov" title="Branch 26 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 27 was not taken"> - </span><span class="branchCov" title="Branch 28 was taken 23 times"> + </span> 
+<span class="lineNum">         </span>      <span class="branchNoCov" title="Branch 29 was not taken"> - </span><span class="branchCov" title="Branch 30 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 31 was not taken"> - </span>]
+<a name="59"><span class="lineNum">      59 </span>                :            : {</a>
+<a name="60"><span class="lineNum">      60 </span>                :<span class="lineCov">         23 : }</span></a>
 <a name="61"><span class="lineNum">      61 </span>                :            : </a>
-<a name="62"><span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::initialize(</span></a>
-<a name="63"><span class="lineNum">      63 </span>                :            :   const simulation_api_schema::InitializeRequest &amp; req,</a>
-<a name="64"><span class="lineNum">      64 </span>                :            :   simulation_api_schema::InitializeResponse &amp; res)</a>
-<a name="65"><span class="lineNum">      65 </span>                :            : {</a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :   initialized_ = true;</span></a>
-<a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :   realtime_factor_ = req.realtime_factor();</span></a>
-<a name="68"><span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :   step_time_ = req.step_time();</span></a>
-<a name="69"><span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :   res = simulation_api_schema::InitializeResponse();</span></a>
-<a name="70"><span class="lineNum">      70 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;succeed to initialize simulation&quot;);</span></a>
-<a name="72"><span class="lineNum">      72 </span>                :<span class="lineNoCov">          0 :   ego_vehicles_ = {};</span></a>
-<a name="73"><span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :   vehicles_ = {};</span></a>
-<a name="74"><span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :   pedestrians_ = {};</span></a>
-<a name="75"><span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="76"><span class="lineNum">      76 </span>                :            : </a>
-<a name="77"><span class="lineNum">      77 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::updateFrame(</span></a>
-<a name="78"><span class="lineNum">      78 </span>                :            :   const simulation_api_schema::UpdateFrameRequest &amp; req,</a>
-<a name="79"><span class="lineNum">      79 </span>                :            :   simulation_api_schema::UpdateFrameResponse &amp; res)</a>
-<a name="80"><span class="lineNum">      80 </span>                :            : {</a>
-<a name="81"><span class="lineNum">      81 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::UpdateFrameResponse();</span></a>
-<a name="82"><span class="lineNum">      82 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (!initialized_) {</span></a>
-<a name="83"><span class="lineNum">      83 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_description(&quot;simulator have not initialized yet.&quot;);</span></a>
-<a name="84"><span class="lineNum">      84 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_success(false);</span></a>
-<a name="85"><span class="lineNum">      85 </span>                :<span class="lineNoCov">          0 :     return;</span></a>
-<a name="86"><span class="lineNum">      86 </span>                :            :   }</a>
-<a name="87"><span class="lineNum">      87 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   current_time_ = req.current_time();</span></a>
-<a name="88"><span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :   builtin_interfaces::msg::Time t;</span></a>
-<a name="89"><span class="lineNum">      89 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   simulation_interface::toMsg(req.current_ros_time(), t);</span></a>
-<a name="90"><span class="lineNum">      90 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   current_ros_time_ = t;</span></a>
-<a name="91"><span class="lineNum">      91 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="92"><span class="lineNum">      92 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;succeed to update frame&quot;);</span></a>
-<a name="93"><span class="lineNum">      93 </span>                :            : }</a>
-<a name="94"><span class="lineNum">      94 </span>                :            : </a>
-<a name="95"><span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::updateEntityStatus(</span></a>
-<a name="96"><span class="lineNum">      96 </span>                :            :   const simulation_api_schema::UpdateEntityStatusRequest &amp; req,</a>
-<a name="97"><span class="lineNum">      97 </span>                :            :   simulation_api_schema::UpdateEntityStatusResponse &amp; res)</a>
-<a name="98"><span class="lineNum">      98 </span>                :            : {</a>
-<a name="99"><span class="lineNum">      99 </span>                :<span class="lineNoCov">          0 :   entity_status_ = {};</span></a>
-<a name="100"><span class="lineNum">     100 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :   for (const auto proto : req.status()) {</span></a>
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
-<span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
-<a name="101"><span class="lineNum">     101 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     entity_status_.emplace_back(proto);</span></a>
-<a name="102"><span class="lineNum">     102 </span>                :            :   }</a>
-<a name="103"><span class="lineNum">     103 </span>                :<span class="lineNoCov">          0 :   res = simulation_api_schema::UpdateEntityStatusResponse();</span></a>
-<a name="104"><span class="lineNum">     104 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="105"><span class="lineNum">     105 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
-<a name="106"><span class="lineNum">     106 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="107"><span class="lineNum">     107 </span>                :            : </a>
-<a name="108"><span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::spawnVehicleEntity(</span></a>
-<a name="109"><span class="lineNum">     109 </span>                :            :   const simulation_api_schema::SpawnVehicleEntityRequest &amp; req,</a>
-<a name="110"><span class="lineNum">     110 </span>                :            :   simulation_api_schema::SpawnVehicleEntityResponse &amp; res)</a>
-<a name="111"><span class="lineNum">     111 </span>                :            : {</a>
-<a name="112"><span class="lineNum">     112 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :   if (ego_vehicles_.size() != 0 &amp;&amp; req.is_ego()) {</span></a>
+<a name="62"><span class="lineNum">      62 </span>                :<span class="lineCov">         23 : ScenarioSimulator::~ScenarioSimulator() {}</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :            : </a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineCov">         23 : void ScenarioSimulator::initialize(</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :            :   const simulation_api_schema::InitializeRequest &amp; req,</a>
+<a name="66"><span class="lineNum">      66 </span>                :            :   simulation_api_schema::InitializeResponse &amp; res)</a>
+<a name="67"><span class="lineNum">      67 </span>                :            : {</a>
+<a name="68"><span class="lineNum">      68 </span>                :<span class="lineCov">         23 :   initialized_ = true;</span></a>
+<a name="69"><span class="lineNum">      69 </span>                :<span class="lineCov">         23 :   realtime_factor_ = req.realtime_factor();</span></a>
+<a name="70"><span class="lineNum">      70 </span>                :<span class="lineCov">         23 :   step_time_ = req.step_time();</span></a>
+<a name="71"><span class="lineNum">      71 </span>                :<span class="lineCov">         23 :   res = simulation_api_schema::InitializeResponse();</span></a>
+<a name="72"><span class="lineNum">      72 </span>                :<span class="lineCov">         23 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="73"><span class="lineNum">      73 </span>                :<span class="lineCov">         23 :   res.mutable_result()-&gt;set_description(&quot;succeed to initialize simulation&quot;);</span></a>
+<a name="74"><span class="lineNum">      74 </span>                :<span class="lineCov">         23 :   ego_vehicles_ = {};</span></a>
+<a name="75"><span class="lineNum">      75 </span>                :<span class="lineCov">         23 :   vehicles_ = {};</span></a>
+<a name="76"><span class="lineNum">      76 </span>                :<span class="lineCov">         23 :   pedestrians_ = {};</span></a>
+<a name="77"><span class="lineNum">      77 </span>                :<span class="lineCov">         23 : }</span></a>
+<a name="78"><span class="lineNum">      78 </span>                :            : </a>
+<a name="79"><span class="lineNum">      79 </span>                :<span class="lineCov">       2692 : void ScenarioSimulator::updateFrame(</span></a>
+<a name="80"><span class="lineNum">      80 </span>                :            :   const simulation_api_schema::UpdateFrameRequest &amp; req,</a>
+<a name="81"><span class="lineNum">      81 </span>                :            :   simulation_api_schema::UpdateFrameResponse &amp; res)</a>
+<a name="82"><span class="lineNum">      82 </span>                :            : {</a>
+<a name="83"><span class="lineNum">      83 </span>        [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2692 :   res = simulation_api_schema::UpdateFrameResponse();</span></a>
+<a name="84"><span class="lineNum">      84 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2692 times"> + </span>]:<span class="lineCov">       2692 :   if (!initialized_) {</span></a>
+<a name="85"><span class="lineNum">      85 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_description(&quot;simulator have not initialized yet.&quot;);</span></a>
+<a name="86"><span class="lineNum">      86 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_success(false);</span></a>
+<a name="87"><span class="lineNum">      87 </span>                :<span class="lineNoCov">          0 :     return;</span></a>
+<a name="88"><span class="lineNum">      88 </span>                :            :   }</a>
+<a name="89"><span class="lineNum">      89 </span>        [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2692 :   current_time_ = req.current_time();</span></a>
+<a name="90"><span class="lineNum">      90 </span>                :<span class="lineCov">       2692 :   builtin_interfaces::msg::Time t;</span></a>
+<a name="91"><span class="lineNum">      91 </span>  [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2692 :   simulation_interface::toMsg(req.current_ros_time(), t);</span></a>
+<a name="92"><span class="lineNum">      92 </span>        [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2692 :   current_ros_time_ = t;</span></a>
+<a name="93"><span class="lineNum">      93 </span>  [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2692 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="94"><span class="lineNum">      94 </span>  [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2692 :   res.mutable_result()-&gt;set_description(&quot;succeed to update frame&quot;);</span></a>
+<a name="95"><span class="lineNum">      95 </span>                :            : }</a>
+<a name="96"><span class="lineNum">      96 </span>                :            : </a>
+<a name="97"><span class="lineNum">      97 </span>                :<span class="lineCov">       2690 : void ScenarioSimulator::updateEntityStatus(</span></a>
+<a name="98"><span class="lineNum">      98 </span>                :            :   const simulation_api_schema::UpdateEntityStatusRequest &amp; req,</a>
+<a name="99"><span class="lineNum">      99 </span>                :            :   simulation_api_schema::UpdateEntityStatusResponse &amp; res)</a>
+<a name="100"><span class="lineNum">     100 </span>                :            : {</a>
+<a name="101"><span class="lineNum">     101 </span>                :<span class="lineCov">       2690 :   entity_status_ = {};</span></a>
+<a name="102"><span class="lineNum">     102 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">       6758 :   for (const auto proto : req.status()) {</span></a>
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchCov" title="Branch 6 was taken 4068 times"> + </span><span class="branchCov" title="Branch 7 was taken 2690 times"> + </span><span class="branchCov" title="Branch 8 was taken 4068 times"> + </span> 
+<span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
+<a name="103"><span class="lineNum">     103 </span>        [<span class="branchCov" title="Branch 0 was taken 4068 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       4068 :     entity_status_.emplace_back(proto);</span></a>
+<a name="104"><span class="lineNum">     104 </span>                :            :   }</a>
+<a name="105"><span class="lineNum">     105 </span>                :<span class="lineCov">       2690 :   res = simulation_api_schema::UpdateEntityStatusResponse();</span></a>
+<a name="106"><span class="lineNum">     106 </span>                :<span class="lineCov">       2690 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="107"><span class="lineNum">     107 </span>                :<span class="lineCov">       2690 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
+<a name="108"><span class="lineNum">     108 </span>                :<span class="lineCov">       2690 : }</span></a>
+<a name="109"><span class="lineNum">     109 </span>                :            : </a>
+<a name="110"><span class="lineNum">     110 </span>                :<span class="lineCov">         31 : void ScenarioSimulator::spawnVehicleEntity(</span></a>
+<a name="111"><span class="lineNum">     111 </span>                :            :   const simulation_api_schema::SpawnVehicleEntityRequest &amp; req,</a>
+<a name="112"><span class="lineNum">     112 </span>                :            :   simulation_api_schema::SpawnVehicleEntityResponse &amp; res)</a>
+<a name="113"><span class="lineNum">     113 </span>                :            : {</a>
+<a name="114"><span class="lineNum">     114 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         31 :   if (ego_vehicles_.size() != 0 &amp;&amp; req.is_ego()) {</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 31 times"> + </span>]
+<a name="115"><span class="lineNum">     115 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     throw SimulationRuntimeError(&quot;multi ego does not support&quot;);</span></a>
+<a name="116"><span class="lineNum">     116 </span>                :            :   }</a>
+<a name="117"><span class="lineNum">     117 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 31 times"> + </span>]:<span class="lineCov">         31 :   if (req.is_ego()) {</span></a>
+<a name="118"><span class="lineNum">     118 </span>                :<span class="lineNoCov">          0 :     ego_vehicles_.emplace_back(req.parameters());</span></a>
+<a name="119"><span class="lineNum">     119 </span>                :            :   } else {</a>
+<a name="120"><span class="lineNum">     120 </span>                :<span class="lineCov">         31 :     vehicles_.emplace_back(req.parameters());</span></a>
+<a name="121"><span class="lineNum">     121 </span>                :            :   }</a>
+<a name="122"><span class="lineNum">     122 </span>                :<span class="lineCov">         31 :   res = simulation_api_schema::SpawnVehicleEntityResponse();</span></a>
+<a name="123"><span class="lineNum">     123 </span>                :<span class="lineCov">         31 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="124"><span class="lineNum">     124 </span>                :<span class="lineCov">         31 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
+<a name="125"><span class="lineNum">     125 </span>                :<span class="lineCov">         31 : }</span></a>
+<a name="126"><span class="lineNum">     126 </span>                :            : </a>
+<a name="127"><span class="lineNum">     127 </span>                :<span class="lineCov">          3 : void ScenarioSimulator::spawnPedestrianEntity(</span></a>
+<a name="128"><span class="lineNum">     128 </span>                :            :   const simulation_api_schema::SpawnPedestrianEntityRequest &amp; req,</a>
+<a name="129"><span class="lineNum">     129 </span>                :            :   simulation_api_schema::SpawnPedestrianEntityResponse &amp; res)</a>
+<a name="130"><span class="lineNum">     130 </span>                :            : {</a>
+<a name="131"><span class="lineNum">     131 </span>                :<span class="lineCov">          3 :   pedestrians_.emplace_back(req.parameters());</span></a>
+<a name="132"><span class="lineNum">     132 </span>                :<span class="lineCov">          3 :   res = simulation_api_schema::SpawnPedestrianEntityResponse();</span></a>
+<a name="133"><span class="lineNum">     133 </span>                :<span class="lineCov">          3 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">          3 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
+<a name="135"><span class="lineNum">     135 </span>                :<span class="lineCov">          3 : }</span></a>
+<a name="136"><span class="lineNum">     136 </span>                :            : </a>
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::spawnMiscObjectEntity(</span></a>
+<a name="138"><span class="lineNum">     138 </span>                :            :   const simulation_api_schema::SpawnMiscObjectEntityRequest &amp; req,</a>
+<a name="139"><span class="lineNum">     139 </span>                :            :   simulation_api_schema::SpawnMiscObjectEntityResponse &amp; res)</a>
+<a name="140"><span class="lineNum">     140 </span>                :            : {</a>
+<a name="141"><span class="lineNum">     141 </span>                :<span class="lineNoCov">          0 :   misc_objects_.emplace_back(req.parameters());</span></a>
+<a name="142"><span class="lineNum">     142 </span>                :<span class="lineNoCov">          0 :   res = simulation_api_schema::SpawnMiscObjectEntityResponse();</span></a>
+<a name="143"><span class="lineNum">     143 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="144"><span class="lineNum">     144 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
+<a name="145"><span class="lineNum">     145 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="146"><span class="lineNum">     146 </span>                :            : </a>
+<a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">          2 : void ScenarioSimulator::despawnEntity(</span></a>
+<a name="148"><span class="lineNum">     148 </span>                :            :   const simulation_api_schema::DespawnEntityRequest &amp; req,</a>
+<a name="149"><span class="lineNum">     149 </span>                :            :   simulation_api_schema::DespawnEntityResponse &amp; res)</a>
+<a name="150"><span class="lineNum">     150 </span>                :            : {</a>
+<a name="151"><span class="lineNum">     151 </span>                :<span class="lineCov">          2 :   bool found = false;</span></a>
+<a name="152"><span class="lineNum">     152 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   res = simulation_api_schema::DespawnEntityResponse();</span></a>
+<a name="153"><span class="lineNum">     153 </span>                :<span class="lineCov">          4 :   std::vector&lt;openscenario_msgs::VehicleParameters&gt; vehicles;</span></a>
+<a name="154"><span class="lineNum">     154 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          4 :   for (const auto vehicle : vehicles_) {</span></a>
+<a name="155"><span class="lineNum">     155 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          2 :     if (vehicle.name() != req.name()) {</span></a>
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
+<a name="156"><span class="lineNum">     156 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       vehicles.emplace_back(vehicle);</span></a>
+<a name="157"><span class="lineNum">     157 </span>                :            :     } else {</a>
+<a name="158"><span class="lineNum">     158 </span>                :<span class="lineNoCov">          0 :       found = true;</span></a>
+<a name="159"><span class="lineNum">     159 </span>                :            :     }</a>
+<a name="160"><span class="lineNum">     160 </span>                :            :   }</a>
+<a name="161"><span class="lineNum">     161 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   vehicles_ = vehicles;</span></a>
+<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">          4 :   std::vector&lt;openscenario_msgs::PedestrianParameters&gt; pedestrians;</span></a>
+<a name="163"><span class="lineNum">     163 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          4 :   for (const auto pedestrian : pedestrians_) {</span></a>
+<a name="164"><span class="lineNum">     164 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          2 :     if (pedestrian.name() != req.name()) {</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 2 times"> + </span>]
+<a name="165"><span class="lineNum">     165 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       pedestrians.emplace_back(pedestrian);</span></a>
+<a name="166"><span class="lineNum">     166 </span>                :            :     } else {</a>
+<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">          2 :       found = true;</span></a>
+<a name="168"><span class="lineNum">     168 </span>                :            :     }</a>
+<a name="169"><span class="lineNum">     169 </span>                :            :   }</a>
+<a name="170"><span class="lineNum">     170 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   pedestrians_ = pedestrians;</span></a>
+<a name="171"><span class="lineNum">     171 </span>                :<span class="lineCov">          4 :   std::vector&lt;openscenario_msgs::MiscObjectParameters&gt; misc_objects;</span></a>
+<a name="172"><span class="lineNum">     172 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :   for (const auto misc_object : misc_objects_) {</span></a>
+<a name="173"><span class="lineNum">     173 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     if (misc_object.name() != req.name()) {</span></a>
 <span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="113"><span class="lineNum">     113 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     throw SimulationRuntimeError(&quot;multi ego does not support&quot;);</span></a>
-<a name="114"><span class="lineNum">     114 </span>                :            :   }</a>
-<a name="115"><span class="lineNum">     115 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (req.is_ego()) {</span></a>
-<a name="116"><span class="lineNum">     116 </span>                :<span class="lineNoCov">          0 :     ego_vehicles_.emplace_back(req.parameters());</span></a>
-<a name="117"><span class="lineNum">     117 </span>                :            :   } else {</a>
-<a name="118"><span class="lineNum">     118 </span>                :<span class="lineNoCov">          0 :     vehicles_.emplace_back(req.parameters());</span></a>
-<a name="119"><span class="lineNum">     119 </span>                :            :   }</a>
-<a name="120"><span class="lineNum">     120 </span>                :<span class="lineNoCov">          0 :   res = simulation_api_schema::SpawnVehicleEntityResponse();</span></a>
-<a name="121"><span class="lineNum">     121 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="122"><span class="lineNum">     122 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
-<a name="123"><span class="lineNum">     123 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="124"><span class="lineNum">     124 </span>                :            : </a>
-<a name="125"><span class="lineNum">     125 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::spawnPedestrianEntity(</span></a>
-<a name="126"><span class="lineNum">     126 </span>                :            :   const simulation_api_schema::SpawnPedestrianEntityRequest &amp; req,</a>
-<a name="127"><span class="lineNum">     127 </span>                :            :   simulation_api_schema::SpawnPedestrianEntityResponse &amp; res)</a>
-<a name="128"><span class="lineNum">     128 </span>                :            : {</a>
-<a name="129"><span class="lineNum">     129 </span>                :<span class="lineNoCov">          0 :   pedestrians_.emplace_back(req.parameters());</span></a>
-<a name="130"><span class="lineNum">     130 </span>                :<span class="lineNoCov">          0 :   res = simulation_api_schema::SpawnPedestrianEntityResponse();</span></a>
-<a name="131"><span class="lineNum">     131 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="132"><span class="lineNum">     132 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
-<a name="133"><span class="lineNum">     133 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="134"><span class="lineNum">     134 </span>                :            : </a>
-<a name="135"><span class="lineNum">     135 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::spawnMiscObjectEntity(</span></a>
-<a name="136"><span class="lineNum">     136 </span>                :            :   const simulation_api_schema::SpawnMiscObjectEntityRequest &amp; req,</a>
-<a name="137"><span class="lineNum">     137 </span>                :            :   simulation_api_schema::SpawnMiscObjectEntityResponse &amp; res)</a>
-<a name="138"><span class="lineNum">     138 </span>                :            : {</a>
-<a name="139"><span class="lineNum">     139 </span>                :<span class="lineNoCov">          0 :   misc_objects_.emplace_back(req.parameters());</span></a>
-<a name="140"><span class="lineNum">     140 </span>                :<span class="lineNoCov">          0 :   res = simulation_api_schema::SpawnMiscObjectEntityResponse();</span></a>
-<a name="141"><span class="lineNum">     141 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="142"><span class="lineNum">     142 </span>                :<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_description(&quot;&quot;);</span></a>
-<a name="143"><span class="lineNum">     143 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="144"><span class="lineNum">     144 </span>                :            : </a>
-<a name="145"><span class="lineNum">     145 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::despawnEntity(</span></a>
-<a name="146"><span class="lineNum">     146 </span>                :            :   const simulation_api_schema::DespawnEntityRequest &amp; req,</a>
-<a name="147"><span class="lineNum">     147 </span>                :            :   simulation_api_schema::DespawnEntityResponse &amp; res)</a>
-<a name="148"><span class="lineNum">     148 </span>                :            : {</a>
-<a name="149"><span class="lineNum">     149 </span>                :<span class="lineNoCov">          0 :   bool found = false;</span></a>
-<a name="150"><span class="lineNum">     150 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::DespawnEntityResponse();</span></a>
-<a name="151"><span class="lineNum">     151 </span>                :<span class="lineNoCov">          0 :   std::vector&lt;openscenario_msgs::VehicleParameters&gt; vehicles;</span></a>
-<a name="152"><span class="lineNum">     152 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   for (const auto vehicle : vehicles_) {</span></a>
-<a name="153"><span class="lineNum">     153 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     if (vehicle.name() != req.name()) {</span></a>
-<span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="154"><span class="lineNum">     154 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       vehicles.emplace_back(vehicle);</span></a>
-<a name="155"><span class="lineNum">     155 </span>                :            :     } else {</a>
-<a name="156"><span class="lineNum">     156 </span>                :<span class="lineNoCov">          0 :       found = true;</span></a>
-<a name="157"><span class="lineNum">     157 </span>                :            :     }</a>
-<a name="158"><span class="lineNum">     158 </span>                :            :   }</a>
-<a name="159"><span class="lineNum">     159 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   vehicles_ = vehicles;</span></a>
-<a name="160"><span class="lineNum">     160 </span>                :<span class="lineNoCov">          0 :   std::vector&lt;openscenario_msgs::PedestrianParameters&gt; pedestrians;</span></a>
-<a name="161"><span class="lineNum">     161 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   for (const auto pedestrian : pedestrians_) {</span></a>
-<a name="162"><span class="lineNum">     162 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     if (pedestrian.name() != req.name()) {</span></a>
-<span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="163"><span class="lineNum">     163 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       pedestrians.emplace_back(pedestrian);</span></a>
-<a name="164"><span class="lineNum">     164 </span>                :            :     } else {</a>
-<a name="165"><span class="lineNum">     165 </span>                :<span class="lineNoCov">          0 :       found = true;</span></a>
-<a name="166"><span class="lineNum">     166 </span>                :            :     }</a>
-<a name="167"><span class="lineNum">     167 </span>                :            :   }</a>
-<a name="168"><span class="lineNum">     168 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   pedestrians_ = pedestrians;</span></a>
-<a name="169"><span class="lineNum">     169 </span>                :<span class="lineNoCov">          0 :   std::vector&lt;openscenario_msgs::MiscObjectParameters&gt; misc_objects;</span></a>
-<a name="170"><span class="lineNum">     170 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   for (const auto misc_object : misc_objects_) {</span></a>
-<a name="171"><span class="lineNum">     171 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     if (misc_object.name() != req.name()) {</span></a>
-<span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="172"><span class="lineNum">     172 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       misc_objects.emplace_back(misc_object);</span></a>
-<a name="173"><span class="lineNum">     173 </span>                :            :     } else {</a>
-<a name="174"><span class="lineNum">     174 </span>                :<span class="lineNoCov">          0 :       found = true;</span></a>
-<a name="175"><span class="lineNum">     175 </span>                :            :     }</a>
-<a name="176"><span class="lineNum">     176 </span>                :            :   }</a>
-<a name="177"><span class="lineNum">     177 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   misc_objects_ = misc_objects;</span></a>
-<a name="178"><span class="lineNum">     178 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (found) {</span></a>
-<a name="179"><span class="lineNum">     179 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="180"><span class="lineNum">     180 </span>                :            :   } else {</a>
-<a name="181"><span class="lineNum">     181 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_success(false);</span></a>
-<a name="182"><span class="lineNum">     182 </span>                :            :   }</a>
-<a name="183"><span class="lineNum">     183 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="184"><span class="lineNum">     184 </span>                :            : </a>
-<a name="185"><span class="lineNum">     185 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::attachDetectionSensor(</span></a>
-<a name="186"><span class="lineNum">     186 </span>                :            :   const simulation_api_schema::AttachDetectionSensorRequest &amp; req,</a>
-<a name="187"><span class="lineNum">     187 </span>                :            :   simulation_api_schema::AttachDetectionSensorResponse &amp; res)</a>
-<a name="188"><span class="lineNum">     188 </span>                :            : {</a>
-<a name="189"><span class="lineNum">     189 </span>                :            :   const auto pub = this-&gt;create_publisher&lt;autoware_perception_msgs::msg::DynamicObjectArray&gt;(</a>
-<a name="190"><span class="lineNum">     190 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     req.configuration().topic_name(), 1);</span></a>
+<a name="174"><span class="lineNum">     174 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       misc_objects.emplace_back(misc_object);</span></a>
+<a name="175"><span class="lineNum">     175 </span>                :            :     } else {</a>
+<a name="176"><span class="lineNum">     176 </span>                :<span class="lineNoCov">          0 :       found = true;</span></a>
+<a name="177"><span class="lineNum">     177 </span>                :            :     }</a>
+<a name="178"><span class="lineNum">     178 </span>                :            :   }</a>
+<a name="179"><span class="lineNum">     179 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   misc_objects_ = misc_objects;</span></a>
+<a name="180"><span class="lineNum">     180 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   if (found) {</span></a>
+<a name="181"><span class="lineNum">     181 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :     res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="182"><span class="lineNum">     182 </span>                :            :   } else {</a>
+<a name="183"><span class="lineNum">     183 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_success(false);</span></a>
+<a name="184"><span class="lineNum">     184 </span>                :            :   }</a>
+<a name="185"><span class="lineNum">     185 </span>                :<span class="lineCov">          2 : }</span></a>
+<a name="186"><span class="lineNum">     186 </span>                :            : </a>
+<a name="187"><span class="lineNum">     187 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::attachDetectionSensor(</span></a>
+<a name="188"><span class="lineNum">     188 </span>                :            :   const simulation_api_schema::AttachDetectionSensorRequest &amp; req,</a>
+<a name="189"><span class="lineNum">     189 </span>                :            :   simulation_api_schema::AttachDetectionSensorResponse &amp; res)</a>
+<a name="190"><span class="lineNum">     190 </span>                :            : {</a>
+<a name="191"><span class="lineNum">     191 </span>                :            :   const auto pub = this-&gt;create_publisher&lt;autoware_perception_msgs::msg::DynamicObjectArray&gt;(</a>
+<a name="192"><span class="lineNum">     192 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     req.configuration().topic_name(), 1);</span></a>
 <span class="lineNum">         </span>   <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
-<a name="191"><span class="lineNum">     191 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   sensor_sim_.attachDetectionSensor(current_time_, req.configuration(), pub);</span></a>
-<a name="192"><span class="lineNum">     192 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::AttachDetectionSensorResponse();</span></a>
-<a name="193"><span class="lineNum">     193 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="194"><span class="lineNum">     194 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="195"><span class="lineNum">     195 </span>                :            : </a>
-<a name="196"><span class="lineNum">     196 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::attachLidarSensor(</span></a>
-<a name="197"><span class="lineNum">     197 </span>                :            :   const simulation_api_schema::AttachLidarSensorRequest &amp; req,</a>
-<a name="198"><span class="lineNum">     198 </span>                :            :   simulation_api_schema::AttachLidarSensorResponse &amp; res)</a>
-<a name="199"><span class="lineNum">     199 </span>                :            : {</a>
-<a name="200"><span class="lineNum">     200 </span>                :            :   const auto pub =</a>
-<a name="201"><span class="lineNum">     201 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     this-&gt;create_publisher&lt;sensor_msgs::msg::PointCloud2&gt;(req.configuration().topic_name(), 1);</span></a>
+<a name="193"><span class="lineNum">     193 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   sensor_sim_.attachDetectionSensor(current_time_, req.configuration(), pub);</span></a>
+<a name="194"><span class="lineNum">     194 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::AttachDetectionSensorResponse();</span></a>
+<a name="195"><span class="lineNum">     195 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="196"><span class="lineNum">     196 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="197"><span class="lineNum">     197 </span>                :            : </a>
+<a name="198"><span class="lineNum">     198 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::attachLidarSensor(</span></a>
+<a name="199"><span class="lineNum">     199 </span>                :            :   const simulation_api_schema::AttachLidarSensorRequest &amp; req,</a>
+<a name="200"><span class="lineNum">     200 </span>                :            :   simulation_api_schema::AttachLidarSensorResponse &amp; res)</a>
+<a name="201"><span class="lineNum">     201 </span>                :            : {</a>
+<a name="202"><span class="lineNum">     202 </span>                :            :   const auto pub =</a>
+<a name="203"><span class="lineNum">     203 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     this-&gt;create_publisher&lt;sensor_msgs::msg::PointCloud2&gt;(req.configuration().topic_name(), 1);</span></a>
 <span class="lineNum">         </span>   <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]
-<a name="202"><span class="lineNum">     202 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   sensor_sim_.attachLidarSensor(current_time_, req.configuration(), pub);</span></a>
-<a name="203"><span class="lineNum">     203 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::AttachLidarSensorResponse();</span></a>
-<a name="204"><span class="lineNum">     204 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="205"><span class="lineNum">     205 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="206"><span class="lineNum">     206 </span>                :            : </a>
-<a name="207"><span class="lineNum">     207 </span>                :<span class="lineNoCov">          0 : void ScenarioSimulator::updateSensorFrame(</span></a>
-<a name="208"><span class="lineNum">     208 </span>                :            :   const simulation_api_schema::UpdateSensorFrameRequest &amp; req,</a>
-<a name="209"><span class="lineNum">     209 </span>                :            :   simulation_api_schema::UpdateSensorFrameResponse &amp; res)</a>
-<a name="210"><span class="lineNum">     210 </span>                :            : {</a>
-<a name="211"><span class="lineNum">     211 </span>                :<span class="lineNoCov">          0 :   constexpr double e = std::numeric_limits&lt;double&gt;::epsilon();</span></a>
-<a name="212"><span class="lineNum">     212 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (std::abs(req.current_time() - current_time_) &gt; e) {</span></a>
-<a name="213"><span class="lineNum">     213 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_success(false);</span></a>
-<a name="214"><span class="lineNum">     214 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     res.mutable_result()-&gt;set_description(&quot;timestamp does not match&quot;);</span></a>
-<a name="215"><span class="lineNum">     215 </span>                :            :   }</a>
-<a name="216"><span class="lineNum">     216 </span>                :<span class="lineNoCov">          0 :   builtin_interfaces::msg::Time t;</span></a>
-<a name="217"><span class="lineNum">     217 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   simulation_interface::toMsg(req.current_ros_time(), t);</span></a>
-<a name="218"><span class="lineNum">     218 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   current_ros_time_ = t;</span></a>
-<a name="219"><span class="lineNum">     219 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   sensor_sim_.updateSensorFrame(current_time_, current_ros_time_, entity_status_);</span></a>
-<a name="220"><span class="lineNum">     220 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::UpdateSensorFrameResponse();</span></a>
-<a name="221"><span class="lineNum">     221 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
-<a name="222"><span class="lineNum">     222 </span>                :<span class="lineNoCov">          0 : }</span></a>
-<a name="223"><span class="lineNum">     223 </span>                :            : }  // namespace simple_sensor_simulator</a>
-<a name="224"><span class="lineNum">     224 </span>                :            : </a>
-<a name="225"><span class="lineNum">     225 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 : RCLCPP_COMPONENTS_REGISTER_NODE(simple_sensor_simulator::ScenarioSimulator)</span></a>
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
-<span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
+<a name="204"><span class="lineNum">     204 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   sensor_sim_.attachLidarSensor(current_time_, req.configuration(), pub);</span></a>
+<a name="205"><span class="lineNum">     205 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res = simulation_api_schema::AttachLidarSensorResponse();</span></a>
+<a name="206"><span class="lineNum">     206 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="207"><span class="lineNum">     207 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="208"><span class="lineNum">     208 </span>                :            : </a>
+<a name="209"><span class="lineNum">     209 </span>                :<span class="lineCov">       2690 : void ScenarioSimulator::updateSensorFrame(</span></a>
+<a name="210"><span class="lineNum">     210 </span>                :            :   const simulation_api_schema::UpdateSensorFrameRequest &amp; req,</a>
+<a name="211"><span class="lineNum">     211 </span>                :            :   simulation_api_schema::UpdateSensorFrameResponse &amp; res)</a>
+<a name="212"><span class="lineNum">     212 </span>                :            : {</a>
+<a name="213"><span class="lineNum">     213 </span>                :<span class="lineCov">       2690 :   constexpr double e = std::numeric_limits&lt;double&gt;::epsilon();</span></a>
+<a name="214"><span class="lineNum">     214 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2690 :   if (std::abs(req.current_time() - current_time_) &gt; e) {</span></a>
+<a name="215"><span class="lineNum">     215 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2690 :     res.mutable_result()-&gt;set_success(false);</span></a>
+<a name="216"><span class="lineNum">     216 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2690 :     res.mutable_result()-&gt;set_description(&quot;timestamp does not match&quot;);</span></a>
+<a name="217"><span class="lineNum">     217 </span>                :            :   }</a>
+<a name="218"><span class="lineNum">     218 </span>                :<span class="lineCov">       2690 :   builtin_interfaces::msg::Time t;</span></a>
+<a name="219"><span class="lineNum">     219 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2690 :   simulation_interface::toMsg(req.current_ros_time(), t);</span></a>
+<a name="220"><span class="lineNum">     220 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :   current_ros_time_ = t;</span></a>
+<a name="221"><span class="lineNum">     221 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :   sensor_sim_.updateSensorFrame(current_time_, current_ros_time_, entity_status_);</span></a>
+<a name="222"><span class="lineNum">     222 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :   res = simulation_api_schema::UpdateSensorFrameResponse();</span></a>
+<a name="223"><span class="lineNum">     223 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2690 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="224"><span class="lineNum">     224 </span>                :<span class="lineCov">       2690 : }</span></a>
+<a name="225"><span class="lineNum">     225 </span>                :            : </a>
+<a name="226"><span class="lineNum">     226 </span>                :<span class="lineCov">          1 : void ScenarioSimulator::updateTrafficLights(</span></a>
+<a name="227"><span class="lineNum">     227 </span>                :            :   const simulation_api_schema::UpdateTrafficLightsRequest &amp; req,</a>
+<a name="228"><span class="lineNum">     228 </span>                :            :   simulation_api_schema::UpdateTrafficLightsResponse &amp; res)</a>
+<a name="229"><span class="lineNum">     229 </span>                :            : {</a>
+<a name="230"><span class="lineNum">     230 </span>                :            :   // TODO: handle traffic lights in simple simulator</a>
+<a name="231"><span class="lineNum">     231 </span>                :            :   (void)req;</a>
+<a name="232"><span class="lineNum">     232 </span>                :<span class="lineCov">          1 :   res = simulation_api_schema::UpdateTrafficLightsResponse();</span></a>
+<a name="233"><span class="lineNum">     233 </span>                :<span class="lineCov">          1 :   res.mutable_result()-&gt;set_success(true);</span></a>
+<a name="234"><span class="lineNum">     234 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="235"><span class="lineNum">     235 </span>                :            : }  // namespace simple_sensor_simulator</a>
+<a name="236"><span class="lineNum">     236 </span>                :            : </a>
+<a name="237"><span class="lineNum">     237 </span>  [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 23 times"> + </span> :<span class="lineCov">         23 : RCLCPP_COMPONENTS_REGISTER_NODE(simple_sensor_simulator::ScenarioSimulator)</span></a>
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchCov" title="Branch 6 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchCov" title="Branch 8 was taken 23 times"> + </span> 
+<span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
 </pre>
       </td>
     </tr>

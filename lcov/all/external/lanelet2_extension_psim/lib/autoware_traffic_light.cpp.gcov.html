@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:53:53</td>
+            <td class="headerValue">2021-09-28 11:49:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -192,10 +192,10 @@
 <a name="110"><span class="lineNum">     110 </span>                :            : </a>
 <a name="111"><span class="lineNum">     111 </span>                :            : constexpr const char AutowareRoleNameString::LightBulbs[];</a>
 <a name="112"><span class="lineNum">     112 </span>                :            : </a>
-<a name="113"><span class="lineNum">     113 </span>                :<span class="lineCov">          9 : AutowareTrafficLight::AutowareTrafficLight(const RegulatoryElementDataPtr &amp; data)</span></a>
-<a name="114"><span class="lineNum">     114 </span>                :<span class="lineCov">          9 : : TrafficLight(data)</span></a>
+<a name="113"><span class="lineNum">     113 </span>                :<span class="lineCov">         55 : AutowareTrafficLight::AutowareTrafficLight(const RegulatoryElementDataPtr &amp; data)</span></a>
+<a name="114"><span class="lineNum">     114 </span>                :<span class="lineCov">         55 : : TrafficLight(data)</span></a>
 <a name="115"><span class="lineNum">     115 </span>                :            : {</a>
-<a name="116"><span class="lineNum">     116 </span>                :<span class="lineCov">          9 : }</span></a>
+<a name="116"><span class="lineNum">     116 </span>                :<span class="lineCov">         55 : }</span></a>
 <a name="117"><span class="lineNum">     117 </span>                :            : </a>
 <a name="118"><span class="lineNum">     118 </span>                :<span class="lineCov">          5 : AutowareTrafficLight::AutowareTrafficLight(</span></a>
 <a name="119"><span class="lineNum">     119 </span>                :            :   Id id, const AttributeMap &amp; attributes, const LineStringsOrPolygons3d &amp; trafficLights,</a>
@@ -207,9 +207,9 @@
 <a name="125"><span class="lineNum">     125 </span>                :            :   }</a>
 <a name="126"><span class="lineNum">     126 </span>                :<span class="lineCov">          5 : }</span></a>
 <a name="127"><span class="lineNum">     127 </span>                :            : </a>
-<a name="128"><span class="lineNum">     128 </span>                :<span class="lineCov">         41 : ConstLineStrings3d AutowareTrafficLight::lightBulbs() const</span></a>
+<a name="128"><span class="lineNum">     128 </span>                :<span class="lineCov">        773 : ConstLineStrings3d AutowareTrafficLight::lightBulbs() const</span></a>
 <a name="129"><span class="lineNum">     129 </span>                :            : {</a>
-<a name="130"><span class="lineNum">     130 </span>  [<span class="branchCov" title="Branch 0 was taken 41 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 41 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         41 :   return getParameters&lt;ConstLineString3d&gt;(AutowareRoleNameString::LightBulbs);</span></a>
+<a name="130"><span class="lineNum">     130 </span>  [<span class="branchCov" title="Branch 0 was taken 773 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 773 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        773 :   return getParameters&lt;ConstLineString3d&gt;(AutowareRoleNameString::LightBulbs);</span></a>
 <a name="131"><span class="lineNum">     131 </span>                :            : }</a>
 <a name="132"><span class="lineNum">     132 </span>                :            : </a>
 <a name="133"><span class="lineNum">     133 </span>                :<span class="lineCov">          6 : void AutowareTrafficLight::addLightBulbs(const LineStringOrPolygon3d &amp; primitive)</span></a>

@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">78</td>
+            <td class="headerCovTableEntry">91</td>
             <td class="headerCovTableEntry">138</td>
-            <td class="headerCovTableEntryLo">56.5 %</td>
+            <td class="headerCovTableEntryLo">65.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:53:53</td>
+            <td class="headerValue">2021-09-28 11:49:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">14</td>
             <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntryLo">70.6 %</td>
+            <td class="headerCovTableEntryMed">82.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">36</td>
+            <td class="headerCovTableEntry">44</td>
             <td class="headerCovTableEntry">196</td>
-            <td class="headerCovTableEntryLo">18.4 %</td>
+            <td class="headerCovTableEntryLo">22.4 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -77,14 +77,6 @@
     </tr>
     <tr>
               <td class="coverFn"><a href="message_conversion.cpp.gcov.html#122">lanelet::utils::conversion::fromBinMsg(autoware_auto_msgs::msg::HADMapBin_&lt;std::allocator&lt;void&gt; &gt; const&amp;, std::shared_ptr&lt;lanelet::LaneletMap&gt;, std::shared_ptr&lt;lanelet::traffic_rules::TrafficRules&gt;*, std::shared_ptr&lt;lanelet::routing::RoutingGraph&gt;*)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#232">lanelet::utils::conversion::toGeomMsgPoly(lanelet::ConstPolygon3d const&amp;, geometry_msgs::msg::Polygon_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#182">lanelet::utils::conversion::toGeomMsgPt32(Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;, geometry_msgs::msg::Point32_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
               <td class="coverFnLo">0</td>
             </tr>
     <tr>
@@ -120,14 +112,6 @@
               <td class="coverFnHi">1</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#133">lanelet::utils::conversion::toGeomMsgPt(geometry_msgs::msg::Point32_&lt;std::allocator&lt;void&gt; &gt; const&amp;, geometry_msgs::msg::Point_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
-              <td class="coverFnHi">2</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#145">lanelet::utils::conversion::toGeomMsgPt(Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;, geometry_msgs::msg::Point_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
-              <td class="coverFnHi">2</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="message_conversion.cpp.gcov.html#169">lanelet::utils::conversion::toGeomMsgPt(lanelet::ConstPoint2d const&amp;, geometry_msgs::msg::Point_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
               <td class="coverFnHi">2</td>
             </tr>
@@ -137,11 +121,27 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="message_conversion.cpp.gcov.html#100">lanelet::utils::conversion::fromBinMsg(autoware_auto_msgs::msg::HADMapBin_&lt;std::allocator&lt;void&gt; &gt; const&amp;, std::unique_ptr&lt;lanelet::LaneletMap, std::default_delete&lt;lanelet::LaneletMap&gt; &gt; const&amp;)</a></td>
-              <td class="coverFnHi">4</td>
+              <td class="coverFnHi">27</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="message_conversion.cpp.gcov.html#39">lanelet::utils::conversion::toBinMsg(std::unique_ptr&lt;lanelet::LaneletMap, std::default_delete&lt;lanelet::LaneletMap&gt; &gt; const&amp;, autoware_auto_msgs::msg::HADMapBin_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
-              <td class="coverFnHi">4</td>
+              <td class="coverFnHi">27</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#232">lanelet::utils::conversion::toGeomMsgPoly(lanelet::ConstPolygon3d const&amp;, geometry_msgs::msg::Polygon_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
+              <td class="coverFnHi">138</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#145">lanelet::utils::conversion::toGeomMsgPt(Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;, geometry_msgs::msg::Point_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
+              <td class="coverFnHi">278</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#182">lanelet::utils::conversion::toGeomMsgPt32(Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;, geometry_msgs::msg::Point32_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
+              <td class="coverFnHi">22237</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="message_conversion.cpp.gcov.html#133">lanelet::utils::conversion::toGeomMsgPt(geometry_msgs::msg::Point32_&lt;std::allocator&lt;void&gt; &gt; const&amp;, geometry_msgs::msg::Point_&lt;std::allocator&lt;void&gt; &gt;*)</a></td>
+              <td class="coverFnHi">54347</td>
             </tr>
   </table>
   <br>

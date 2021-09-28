@@ -1,10 +1,6 @@
 TN:
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/autoware_system_msgs/include/autoware_system_msgs/msg/detail/autoware_state__struct.hpp
 end_of_record
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator/include/traffic_simulator/color_utils/color_utils.hpp
-end_of_record
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/lanelet2_extension_psim/include/lanelet2_extension_psim/regulatory_elements/autoware_traffic_light.hpp
-end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/openscenario/openscenario_interpreter/test/test_syntax.cpp
 FN:25,_ZN17syntax_dummy_Test8TestBodyEv
 FNDA:1,_ZN17syntax_dummy_Test8TestBodyEv
@@ -27,6 +23,10 @@ DA:25,1
 DA:120,1
 DA:122,1
 DA:124,1
+end_of_record
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator/include/traffic_simulator/color_utils/color_utils.hpp
+end_of_record
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/lanelet2_extension_psim/include/lanelet2_extension_psim/regulatory_elements/autoware_traffic_light.hpp
 end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/lanelet2_extension_psim/include/lanelet2_extension_psim/regulatory_elements/detection_area.hpp
 end_of_record

@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">16</td>
             <td class="headerCovTableEntry">86</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">18.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:54:44</td>
+            <td class="headerValue">2021-09-28 11:50:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">20.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">3</td>
             <td class="headerCovTableEntry">56</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">5.4 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -147,14 +147,14 @@
 <a name="69"><span class="lineNum">      69 </span>                :            :  * @param alpha alpha value of the color</a>
 <a name="70"><span class="lineNum">      70 </span>                :            :  * @return std_msgs::msg::ColorRGBA</a>
 <a name="71"><span class="lineNum">      71 </span>                :            :  */</a>
-<a name="72"><span class="lineNum">      72 </span>                :<span class="lineNoCov">          0 : const std_msgs::msg::ColorRGBA fromRgba(double r, double g, double b, double alpha)</span></a>
+<a name="72"><span class="lineNum">      72 </span>                :<span class="lineCov">        207 : const std_msgs::msg::ColorRGBA fromRgba(double r, double g, double b, double alpha)</span></a>
 <a name="73"><span class="lineNum">      73 </span>                :            : {</a>
-<a name="74"><span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :   std_msgs::msg::ColorRGBA color;</span></a>
-<a name="75"><span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 :   color.r = r;</span></a>
-<a name="76"><span class="lineNum">      76 </span>                :<span class="lineNoCov">          0 :   color.g = g;</span></a>
-<a name="77"><span class="lineNum">      77 </span>                :<span class="lineNoCov">          0 :   color.b = b;</span></a>
-<a name="78"><span class="lineNum">      78 </span>                :<span class="lineNoCov">          0 :   color.a = alpha;</span></a>
-<a name="79"><span class="lineNum">      79 </span>                :<span class="lineNoCov">          0 :   return color;</span></a>
+<a name="74"><span class="lineNum">      74 </span>                :<span class="lineCov">        207 :   std_msgs::msg::ColorRGBA color;</span></a>
+<a name="75"><span class="lineNum">      75 </span>                :<span class="lineCov">        207 :   color.r = r;</span></a>
+<a name="76"><span class="lineNum">      76 </span>                :<span class="lineCov">        207 :   color.g = g;</span></a>
+<a name="77"><span class="lineNum">      77 </span>                :<span class="lineCov">        207 :   color.b = b;</span></a>
+<a name="78"><span class="lineNum">      78 </span>                :<span class="lineCov">        207 :   color.a = alpha;</span></a>
+<a name="79"><span class="lineNum">      79 </span>                :<span class="lineCov">        207 :   return color;</span></a>
 <a name="80"><span class="lineNum">      80 </span>                :            : }</a>
 <a name="81"><span class="lineNum">      81 </span>                :            : </a>
 <a name="82"><span class="lineNum">      82 </span>                :            : /**</a>
@@ -215,22 +215,22 @@
 <a name="136"><span class="lineNum">     136 </span>                :            :  * @param alpha alpha value of the color</a>
 <a name="137"><span class="lineNum">     137 </span>                :            :  * @return std_msgs::msg::ColorRGBA</a>
 <a name="138"><span class="lineNum">     138 </span>                :            :  */</a>
-<a name="139"><span class="lineNum">     139 </span>                :<span class="lineNoCov">          0 : const std_msgs::msg::ColorRGBA makeColorMsg(const std::string &amp; preset_name, const double alpha)</span></a>
+<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">      18540 : const std_msgs::msg::ColorRGBA makeColorMsg(const std::string &amp; preset_name, const double alpha)</span></a>
 <a name="140"><span class="lineNum">     140 </span>                :            : {</a>
-<a name="141"><span class="lineNum">     141 </span>                :<span class="lineNoCov">          0 :   std_msgs::msg::ColorRGBA c_msg;</span></a>
-<a name="142"><span class="lineNum">     142 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   c_msg.a = boost::algorithm::clamp(alpha, 0.0, 1.0);</span></a>
+<a name="141"><span class="lineNum">     141 </span>                :<span class="lineCov">      18540 :   std_msgs::msg::ColorRGBA c_msg;</span></a>
+<a name="142"><span class="lineNum">     142 </span>        [<span class="branchCov" title="Branch 0 was taken 18540 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      18540 :   c_msg.a = boost::algorithm::clamp(alpha, 0.0, 1.0);</span></a>
 <a name="143"><span class="lineNum">     143 </span>                :            : </a>
-<a name="144"><span class="lineNum">     144 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   auto found_itr = COLOR_NAME_DICT.find(preset_name);</span></a>
-<a name="145"><span class="lineNum">     145 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   if (found_itr != COLOR_NAME_DICT.end()) {</span></a>
-<a name="146"><span class="lineNum">     146 </span>                :<span class="lineNoCov">          0 :     c_msg.r = found_itr-&gt;second[0];</span></a>
-<a name="147"><span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :     c_msg.g = found_itr-&gt;second[1];</span></a>
-<a name="148"><span class="lineNum">     148 </span>                :<span class="lineNoCov">          0 :     c_msg.b = found_itr-&gt;second[2];</span></a>
+<a name="144"><span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 18540 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      18540 :   auto found_itr = COLOR_NAME_DICT.find(preset_name);</span></a>
+<a name="145"><span class="lineNum">     145 </span>        [<span class="branchCov" title="Branch 0 was taken 18540 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      18540 :   if (found_itr != COLOR_NAME_DICT.end()) {</span></a>
+<a name="146"><span class="lineNum">     146 </span>                :<span class="lineCov">      18540 :     c_msg.r = found_itr-&gt;second[0];</span></a>
+<a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">      18540 :     c_msg.g = found_itr-&gt;second[1];</span></a>
+<a name="148"><span class="lineNum">     148 </span>                :<span class="lineCov">      18540 :     c_msg.b = found_itr-&gt;second[2];</span></a>
 <a name="149"><span class="lineNum">     149 </span>                :            :   } else {</a>
 <a name="150"><span class="lineNum">     150 </span>                :<span class="lineNoCov">          0 :     c_msg.r = 0;</span></a>
 <a name="151"><span class="lineNum">     151 </span>                :<span class="lineNoCov">          0 :     c_msg.g = 0;</span></a>
 <a name="152"><span class="lineNum">     152 </span>                :<span class="lineNoCov">          0 :     c_msg.b = 0;</span></a>
 <a name="153"><span class="lineNum">     153 </span>                :            :   }</a>
-<a name="154"><span class="lineNum">     154 </span>                :<span class="lineNoCov">          0 :   return c_msg;</span></a>
+<a name="154"><span class="lineNum">     154 </span>                :<span class="lineCov">      18540 :   return c_msg;</span></a>
 <a name="155"><span class="lineNum">     155 </span>                :            : }</a>
 <a name="156"><span class="lineNum">     156 </span>                :            : }  // namespace color_utils</a>
 </pre>

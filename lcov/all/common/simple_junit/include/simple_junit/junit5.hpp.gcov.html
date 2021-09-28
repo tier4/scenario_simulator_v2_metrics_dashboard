@@ -31,17 +31,17 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">64</td>
-            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntry">94</td>
+            <td class="headerCovTableEntry">94</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:53:53</td>
+            <td class="headerValue">2021-09-28 11:49:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">18</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">65</td>
-            <td class="headerCovTableEntry">108</td>
-            <td class="headerCovTableEntryLo">60.2 %</td>
+            <td class="headerCovTableEntry">87</td>
+            <td class="headerCovTableEntry">148</td>
+            <td class="headerCovTableEntryLo">58.8 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -259,183 +259,218 @@
 <a name="181"><span class="lineNum">     181 </span>                :            : {</a>
 <a name="182"><span class="lineNum">     182 </span>                :            :   Skipped skipped;</a>
 <a name="183"><span class="lineNum">     183 </span>                :            : </a>
-<a name="184"><span class="lineNum">     184 </span>                :            :   std::vector&lt;Error&gt; error;</a>
+<a name="184"><span class="lineNum">     184 </span>                :            :   std::vector&lt;Pass&gt; pass;</a>
 <a name="185"><span class="lineNum">     185 </span>                :            : </a>
-<a name="186"><span class="lineNum">     186 </span>                :            :   std::vector&lt;Failure&gt; failure;</a>
+<a name="186"><span class="lineNum">     186 </span>                :            :   std::vector&lt;Error&gt; error;</a>
 <a name="187"><span class="lineNum">     187 </span>                :            : </a>
-<a name="188"><span class="lineNum">     188 </span>                :            :   std::vector&lt;SystemOut&gt; system_out;</a>
+<a name="188"><span class="lineNum">     188 </span>                :            :   std::vector&lt;Failure&gt; failure;</a>
 <a name="189"><span class="lineNum">     189 </span>                :            : </a>
-<a name="190"><span class="lineNum">     190 </span>                :            :   std::vector&lt;SystemErr&gt; system_err;</a>
+<a name="190"><span class="lineNum">     190 </span>                :            :   std::vector&lt;SystemOut&gt; system_out;</a>
 <a name="191"><span class="lineNum">     191 </span>                :            : </a>
-<a name="192"><span class="lineNum">     192 </span>                :            :   const xs::string name;</a>
+<a name="192"><span class="lineNum">     192 </span>                :            :   std::vector&lt;SystemErr&gt; system_err;</a>
 <a name="193"><span class="lineNum">     193 </span>                :            : </a>
-<a name="194"><span class="lineNum">     194 </span>                :            :   xs::string assertions;</a>
+<a name="194"><span class="lineNum">     194 </span>                :            :   const xs::string name;</a>
 <a name="195"><span class="lineNum">     195 </span>                :            : </a>
-<a name="196"><span class="lineNum">     196 </span>                :            :   xs::string time;</a>
+<a name="196"><span class="lineNum">     196 </span>                :            :   xs::string assertions;</a>
 <a name="197"><span class="lineNum">     197 </span>                :            : </a>
-<a name="198"><span class="lineNum">     198 </span>                :            :   xs::string classname;</a>
+<a name="198"><span class="lineNum">     198 </span>                :            :   xs::string time;</a>
 <a name="199"><span class="lineNum">     199 </span>                :            : </a>
-<a name="200"><span class="lineNum">     200 </span>                :            :   xs::string status;</a>
+<a name="200"><span class="lineNum">     200 </span>                :            :   xs::string classname;</a>
 <a name="201"><span class="lineNum">     201 </span>                :            : </a>
-<a name="202"><span class="lineNum">     202 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :   explicit SimpleTestCase(const xs::string &amp; name) : name(name) {}</span></a>
+<a name="202"><span class="lineNum">     202 </span>                :            :   xs::string status;</a>
 <a name="203"><span class="lineNum">     203 </span>                :            : </a>
-<a name="204"><span class="lineNum">     204 </span>                :<span class="lineCov">          5 :   friend auto operator&lt;&lt;(pugi::xml_node node, const SimpleTestCase &amp; testcase) -&gt; pugi::xml_node</span></a>
-<a name="205"><span class="lineNum">     205 </span>                :            :   {</a>
-<a name="206"><span class="lineNum">     206 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :     auto current_node = node.append_child(&quot;testcase&quot;);</span></a>
-<a name="207"><span class="lineNum">     207 </span>                :            : </a>
-<a name="208"><span class="lineNum">     208 </span>  [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :     current_node.append_attribute(&quot;name&quot;) = testcase.name.c_str();</span></a>
+<a name="204"><span class="lineNum">     204 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :   explicit SimpleTestCase(const xs::string &amp; name) : name(name) {}</span></a>
+<a name="205"><span class="lineNum">     205 </span>                :            : </a>
+<a name="206"><span class="lineNum">     206 </span>                :<span class="lineCov">          5 :   friend auto operator&lt;&lt;(pugi::xml_node node, const SimpleTestCase &amp; testcase) -&gt; pugi::xml_node</span></a>
+<a name="207"><span class="lineNum">     207 </span>                :            :   {</a>
+<a name="208"><span class="lineNum">     208 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :     auto current_node = node.append_child(&quot;testcase&quot;);</span></a>
 <a name="209"><span class="lineNum">     209 </span>                :            : </a>
-<a name="210"><span class="lineNum">     210 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.assertions.empty()) {</span></a>
-<a name="211"><span class="lineNum">     211 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;assertions&quot;) = testcase.assertions.c_str();</span></a>
-<a name="212"><span class="lineNum">     212 </span>                :            :     }</a>
-<a name="213"><span class="lineNum">     213 </span>                :            : </a>
-<a name="214"><span class="lineNum">     214 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.time.empty()) {</span></a>
-<a name="215"><span class="lineNum">     215 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;time&quot;) = testcase.time.c_str();</span></a>
-<a name="216"><span class="lineNum">     216 </span>                :            :     }</a>
-<a name="217"><span class="lineNum">     217 </span>                :            : </a>
-<a name="218"><span class="lineNum">     218 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.classname.empty()) {</span></a>
-<a name="219"><span class="lineNum">     219 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;classname&quot;) = testcase.classname.c_str();</span></a>
-<a name="220"><span class="lineNum">     220 </span>                :            :     }</a>
-<a name="221"><span class="lineNum">     221 </span>                :            : </a>
-<a name="222"><span class="lineNum">     222 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.status.empty()) {</span></a>
-<a name="223"><span class="lineNum">     223 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;status&quot;) = testcase.status.c_str();</span></a>
-<a name="224"><span class="lineNum">     224 </span>                :            :     }</a>
-<a name="225"><span class="lineNum">     225 </span>                :            : </a>
-<a name="226"><span class="lineNum">     226 </span>                :            :     // TODO skipped</a>
+<a name="210"><span class="lineNum">     210 </span>  [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :     current_node.append_attribute(&quot;name&quot;) = testcase.name.c_str();</span></a>
+<a name="211"><span class="lineNum">     211 </span>                :            : </a>
+<a name="212"><span class="lineNum">     212 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.assertions.empty()) {</span></a>
+<a name="213"><span class="lineNum">     213 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;assertions&quot;) = testcase.assertions.c_str();</span></a>
+<a name="214"><span class="lineNum">     214 </span>                :            :     }</a>
+<a name="215"><span class="lineNum">     215 </span>                :            : </a>
+<a name="216"><span class="lineNum">     216 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.time.empty()) {</span></a>
+<a name="217"><span class="lineNum">     217 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;time&quot;) = testcase.time.c_str();</span></a>
+<a name="218"><span class="lineNum">     218 </span>                :            :     }</a>
+<a name="219"><span class="lineNum">     219 </span>                :            : </a>
+<a name="220"><span class="lineNum">     220 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.classname.empty()) {</span></a>
+<a name="221"><span class="lineNum">     221 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;classname&quot;) = testcase.classname.c_str();</span></a>
+<a name="222"><span class="lineNum">     222 </span>                :            :     }</a>
+<a name="223"><span class="lineNum">     223 </span>                :            : </a>
+<a name="224"><span class="lineNum">     224 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          5 :     if (not testcase.status.empty()) {</span></a>
+<a name="225"><span class="lineNum">     225 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;status&quot;) = testcase.status.c_str();</span></a>
+<a name="226"><span class="lineNum">     226 </span>                :            :     }</a>
 <a name="227"><span class="lineNum">     227 </span>                :            : </a>
-<a name="228"><span class="lineNum">     228 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          7 :     for (const auto &amp; each : testcase.error) {</span></a>
-<a name="229"><span class="lineNum">     229 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :       current_node.append_child(&quot;error&quot;) &lt;&lt; each;</span></a>
-<a name="230"><span class="lineNum">     230 </span>                :            :     }</a>
-<a name="231"><span class="lineNum">     231 </span>                :            : </a>
-<a name="232"><span class="lineNum">     232 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          8 :     for (const auto &amp; each : testcase.failure) {</span></a>
-<a name="233"><span class="lineNum">     233 </span>  [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          3 :       current_node.append_child(&quot;failure&quot;) &lt;&lt; each;</span></a>
-<a name="234"><span class="lineNum">     234 </span>                :            :     }</a>
-<a name="235"><span class="lineNum">     235 </span>                :            : </a>
-<a name="236"><span class="lineNum">     236 </span>                :            :     // TODO system-out</a>
+<a name="228"><span class="lineNum">     228 </span>                :            :     // TODO skipped</a>
+<a name="229"><span class="lineNum">     229 </span>                :            : </a>
+<a name="230"><span class="lineNum">     230 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          7 :     for (const auto &amp; each : testcase.error) {</span></a>
+<a name="231"><span class="lineNum">     231 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :       current_node.append_child(&quot;error&quot;) &lt;&lt; each;</span></a>
+<a name="232"><span class="lineNum">     232 </span>                :            :     }</a>
+<a name="233"><span class="lineNum">     233 </span>                :            : </a>
+<a name="234"><span class="lineNum">     234 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          8 :     for (const auto &amp; each : testcase.failure) {</span></a>
+<a name="235"><span class="lineNum">     235 </span>  [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          3 :       current_node.append_child(&quot;failure&quot;) &lt;&lt; each;</span></a>
+<a name="236"><span class="lineNum">     236 </span>                :            :     }</a>
 <a name="237"><span class="lineNum">     237 </span>                :            : </a>
-<a name="238"><span class="lineNum">     238 </span>                :            :     // TODO system-err</a>
+<a name="238"><span class="lineNum">     238 </span>                :            :     // TODO system-out</a>
 <a name="239"><span class="lineNum">     239 </span>                :            : </a>
-<a name="240"><span class="lineNum">     240 </span>                :<span class="lineCov">          5 :     return node;</span></a>
-<a name="241"><span class="lineNum">     241 </span>                :            :   }</a>
-<a name="242"><span class="lineNum">     242 </span>                :            : };</a>
-<a name="243"><span class="lineNum">     243 </span>                :            : </a>
-<a name="244"><span class="lineNum">     244 </span>                :            : /*</a>
-<a name="245"><span class="lineNum">     245 </span>                :            :     &lt;xs:element name=&quot;testsuite&quot;&gt;</a>
-<a name="246"><span class="lineNum">     246 </span>                :            :         &lt;xs:complexType&gt;</a>
-<a name="247"><span class="lineNum">     247 </span>                :            :             &lt;xs:sequence&gt;</a>
-<a name="248"><span class="lineNum">     248 </span>                :            :                 &lt;xs:element ref=&quot;properties&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;</a>
-<a name="249"><span class="lineNum">     249 </span>                :            :                 &lt;xs:element ref=&quot;testcase&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;</a>
-<a name="250"><span class="lineNum">     250 </span>                :            :                 &lt;xs:element ref=&quot;system-out&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;</a>
-<a name="251"><span class="lineNum">     251 </span>                :            :                 &lt;xs:element ref=&quot;system-err&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;</a>
-<a name="252"><span class="lineNum">     252 </span>                :            :             &lt;/xs:sequence&gt;</a>
-<a name="253"><span class="lineNum">     253 </span>                :            :             &lt;xs:attribute name=&quot;name&quot; type=&quot;xs:string&quot; use=&quot;required&quot;/&gt;</a>
-<a name="254"><span class="lineNum">     254 </span>                :            :             &lt;xs:attribute name=&quot;tests&quot; type=&quot;xs:string&quot; use=&quot;required&quot;/&gt;</a>
-<a name="255"><span class="lineNum">     255 </span>                :            :             &lt;xs:attribute name=&quot;failures&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="256"><span class="lineNum">     256 </span>                :            :             &lt;xs:attribute name=&quot;errors&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="257"><span class="lineNum">     257 </span>                :            :             &lt;xs:attribute name=&quot;time&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="258"><span class="lineNum">     258 </span>                :            :             &lt;xs:attribute name=&quot;disabled&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="259"><span class="lineNum">     259 </span>                :            :             &lt;xs:attribute name=&quot;skipped&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="260"><span class="lineNum">     260 </span>                :            :             &lt;xs:attribute name=&quot;timestamp&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="261"><span class="lineNum">     261 </span>                :            :             &lt;xs:attribute name=&quot;hostname&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="262"><span class="lineNum">     262 </span>                :            :             &lt;xs:attribute name=&quot;id&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="263"><span class="lineNum">     263 </span>                :            :             &lt;xs:attribute name=&quot;package&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="264"><span class="lineNum">     264 </span>                :            :         &lt;/xs:complexType&gt;</a>
-<a name="265"><span class="lineNum">     265 </span>                :            :     &lt;/xs:element&gt;</a>
-<a name="266"><span class="lineNum">     266 </span>                :            : */</a>
-<a name="267"><span class="lineNum">     267 </span>                :            : </a>
-<a name="268"><span class="lineNum">     268 </span>                :            : struct SimpleTestSuite : private std::unordered_map&lt;xs::string, SimpleTestCase&gt;</a>
-<a name="269"><span class="lineNum">     269 </span>                :            : {</a>
-<a name="270"><span class="lineNum">     270 </span>                :            :   const xs::string name;</a>
-<a name="271"><span class="lineNum">     271 </span>                :            : </a>
-<a name="272"><span class="lineNum">     272 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :   explicit SimpleTestSuite(const xs::string &amp; name) : name(name) {}</span></a>
+<a name="240"><span class="lineNum">     240 </span>                :            :     // TODO system-err</a>
+<a name="241"><span class="lineNum">     241 </span>                :            : </a>
+<a name="242"><span class="lineNum">     242 </span>                :<span class="lineCov">          5 :     return node;</span></a>
+<a name="243"><span class="lineNum">     243 </span>                :            :   }</a>
+<a name="244"><span class="lineNum">     244 </span>                :            : };</a>
+<a name="245"><span class="lineNum">     245 </span>                :            : </a>
+<a name="246"><span class="lineNum">     246 </span>                :            : /*</a>
+<a name="247"><span class="lineNum">     247 </span>                :            :     &lt;xs:element name=&quot;testsuite&quot;&gt;</a>
+<a name="248"><span class="lineNum">     248 </span>                :            :         &lt;xs:complexType&gt;</a>
+<a name="249"><span class="lineNum">     249 </span>                :            :             &lt;xs:sequence&gt;</a>
+<a name="250"><span class="lineNum">     250 </span>                :            :                 &lt;xs:element ref=&quot;properties&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;</a>
+<a name="251"><span class="lineNum">     251 </span>                :            :                 &lt;xs:element ref=&quot;testcase&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;</a>
+<a name="252"><span class="lineNum">     252 </span>                :            :                 &lt;xs:element ref=&quot;system-out&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;</a>
+<a name="253"><span class="lineNum">     253 </span>                :            :                 &lt;xs:element ref=&quot;system-err&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;</a>
+<a name="254"><span class="lineNum">     254 </span>                :            :             &lt;/xs:sequence&gt;</a>
+<a name="255"><span class="lineNum">     255 </span>                :            :             &lt;xs:attribute name=&quot;name&quot; type=&quot;xs:string&quot; use=&quot;required&quot;/&gt;</a>
+<a name="256"><span class="lineNum">     256 </span>                :            :             &lt;xs:attribute name=&quot;tests&quot; type=&quot;xs:string&quot; use=&quot;required&quot;/&gt;</a>
+<a name="257"><span class="lineNum">     257 </span>                :            :             &lt;xs:attribute name=&quot;failures&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="258"><span class="lineNum">     258 </span>                :            :             &lt;xs:attribute name=&quot;errors&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="259"><span class="lineNum">     259 </span>                :            :             &lt;xs:attribute name=&quot;time&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="260"><span class="lineNum">     260 </span>                :            :             &lt;xs:attribute name=&quot;disabled&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="261"><span class="lineNum">     261 </span>                :            :             &lt;xs:attribute name=&quot;skipped&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="262"><span class="lineNum">     262 </span>                :            :             &lt;xs:attribute name=&quot;timestamp&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="263"><span class="lineNum">     263 </span>                :            :             &lt;xs:attribute name=&quot;hostname&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="264"><span class="lineNum">     264 </span>                :            :             &lt;xs:attribute name=&quot;id&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="265"><span class="lineNum">     265 </span>                :            :             &lt;xs:attribute name=&quot;package&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="266"><span class="lineNum">     266 </span>                :            :         &lt;/xs:complexType&gt;</a>
+<a name="267"><span class="lineNum">     267 </span>                :            :     &lt;/xs:element&gt;</a>
+<a name="268"><span class="lineNum">     268 </span>                :            : */</a>
+<a name="269"><span class="lineNum">     269 </span>                :            : </a>
+<a name="270"><span class="lineNum">     270 </span>                :            : struct SimpleTestSuite : private std::unordered_map&lt;xs::string, SimpleTestCase&gt;</a>
+<a name="271"><span class="lineNum">     271 </span>                :            : {</a>
+<a name="272"><span class="lineNum">     272 </span>                :            :   const xs::string name;</a>
 <a name="273"><span class="lineNum">     273 </span>                :            : </a>
-<a name="274"><span class="lineNum">     274 </span>                :<span class="lineCov">         10 :   auto testcase(const xs::string &amp; name) -&gt; auto &amp;</span></a>
-<a name="275"><span class="lineNum">     275 </span>                :            :   {</a>
-<a name="276"><span class="lineNum">     276 </span>                :            :     try {</a>
-<a name="277"><span class="lineNum">     277 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         10 :       return at(name);</span></a>
-<a name="278"><span class="lineNum">     278 </span>                :<span class="lineCov">          5 :     } catch (const std::out_of_range &amp;) {</span></a>
-<a name="279"><span class="lineNum">     279 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       emplace(name, name);</span></a>
-<a name="280"><span class="lineNum">     280 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       return at(name);</span></a>
+<a name="274"><span class="lineNum">     274 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :   explicit SimpleTestSuite(const xs::string &amp; name) : name(name) {}</span></a>
+<a name="275"><span class="lineNum">     275 </span>                :            : </a>
+<a name="276"><span class="lineNum">     276 </span>                :<span class="lineCov">         11 :   auto getTestcaseNames() const -&gt; std::vector&lt;std::string&gt;</span></a>
+<a name="277"><span class="lineNum">     277 </span>                :            :   {</a>
+<a name="278"><span class="lineNum">     278 </span>                :<span class="lineCov">         11 :     std::vector&lt;std::string&gt; names;</span></a>
+<a name="279"><span class="lineNum">     279 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         16 :     for (auto itr = begin(); itr != end(); ++itr) {</span></a>
+<a name="280"><span class="lineNum">     280 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       names.emplace_back(itr-&gt;first);</span></a>
 <a name="281"><span class="lineNum">     281 </span>                :            :     }</a>
-<a name="282"><span class="lineNum">     282 </span>                :            :   }</a>
-<a name="283"><span class="lineNum">     283 </span>                :            : </a>
-<a name="284"><span class="lineNum">     284 </span>                :<span class="lineCov">         11 :   friend auto operator&lt;&lt;(pugi::xml_node node, const SimpleTestSuite &amp; testsuite) -&gt; pugi::xml_node</span></a>
-<a name="285"><span class="lineNum">     285 </span>                :            :   {</a>
-<a name="286"><span class="lineNum">     286 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :     auto current_node = node.append_child(&quot;testsuite&quot;);</span></a>
-<a name="287"><span class="lineNum">     287 </span>                :            : </a>
-<a name="288"><span class="lineNum">     288 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         11 :     current_node.append_attribute(&quot;name&quot;) = testsuite.name.c_str();</span></a>
-<a name="289"><span class="lineNum">     289 </span>                :            : </a>
-<a name="290"><span class="lineNum">     290 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         16 :     for (const auto &amp; testcase : testsuite) {</span></a>
-<a name="291"><span class="lineNum">     291 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       current_node &lt;&lt; std::get&lt;1&gt;(testcase);</span></a>
+<a name="282"><span class="lineNum">     282 </span>                :<span class="lineCov">         11 :     return names;</span></a>
+<a name="283"><span class="lineNum">     283 </span>                :            :   }</a>
+<a name="284"><span class="lineNum">     284 </span>                :            : </a>
+<a name="285"><span class="lineNum">     285 </span>                :<span class="lineCov">         25 :   auto testcase(const xs::string &amp; name) -&gt; auto &amp;</span></a>
+<a name="286"><span class="lineNum">     286 </span>                :            :   {</a>
+<a name="287"><span class="lineNum">     287 </span>                :            :     try {</a>
+<a name="288"><span class="lineNum">     288 </span>        [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         25 :       return at(name);</span></a>
+<a name="289"><span class="lineNum">     289 </span>                :<span class="lineCov">          5 :     } catch (const std::out_of_range &amp;) {</span></a>
+<a name="290"><span class="lineNum">     290 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       emplace(name, name);</span></a>
+<a name="291"><span class="lineNum">     291 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       return at(name);</span></a>
 <a name="292"><span class="lineNum">     292 </span>                :            :     }</a>
-<a name="293"><span class="lineNum">     293 </span>                :            : </a>
-<a name="294"><span class="lineNum">     294 </span>                :<span class="lineCov">         11 :     return node;</span></a>
-<a name="295"><span class="lineNum">     295 </span>                :            :   }</a>
-<a name="296"><span class="lineNum">     296 </span>                :            : };</a>
-<a name="297"><span class="lineNum">     297 </span>                :            : </a>
-<a name="298"><span class="lineNum">     298 </span>                :            : /*</a>
-<a name="299"><span class="lineNum">     299 </span>                :            :     &lt;xs:element name=&quot;testsuites&quot;&gt;</a>
-<a name="300"><span class="lineNum">     300 </span>                :            :         &lt;xs:complexType&gt;</a>
-<a name="301"><span class="lineNum">     301 </span>                :            :             &lt;xs:sequence&gt;</a>
-<a name="302"><span class="lineNum">     302 </span>                :            :                 &lt;xs:element ref=&quot;testsuite&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;</a>
-<a name="303"><span class="lineNum">     303 </span>                :            :             &lt;/xs:sequence&gt;</a>
-<a name="304"><span class="lineNum">     304 </span>                :            :             &lt;xs:attribute name=&quot;name&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="305"><span class="lineNum">     305 </span>                :            :             &lt;xs:attribute name=&quot;time&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="306"><span class="lineNum">     306 </span>                :            :             &lt;xs:attribute name=&quot;tests&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="307"><span class="lineNum">     307 </span>                :            :             &lt;xs:attribute name=&quot;failures&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="308"><span class="lineNum">     308 </span>                :            :             &lt;xs:attribute name=&quot;disabled&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="309"><span class="lineNum">     309 </span>                :            :             &lt;xs:attribute name=&quot;errors&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
-<a name="310"><span class="lineNum">     310 </span>                :            :         &lt;/xs:complexType&gt;</a>
-<a name="311"><span class="lineNum">     311 </span>                :            :     &lt;/xs:element&gt;</a>
-<a name="312"><span class="lineNum">     312 </span>                :            : */</a>
-<a name="313"><span class="lineNum">     313 </span>                :            : </a>
-<a name="314"><span class="lineNum">     314 </span>                :            : struct SimpleTestSuites : private std::unordered_map&lt;std::string, SimpleTestSuite&gt;</a>
-<a name="315"><span class="lineNum">     315 </span>                :            : {</a>
-<a name="316"><span class="lineNum">     316 </span>                :            :   xs::string name;</a>
-<a name="317"><span class="lineNum">     317 </span>                :            : </a>
-<a name="318"><span class="lineNum">     318 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :   explicit SimpleTestSuites(const xs::string &amp; name = &quot;&quot;) : name(name) {}</span></a>
-<a name="319"><span class="lineNum">     319 </span>                :            : </a>
-<a name="320"><span class="lineNum">     320 </span>                :<span class="lineCov">         16 :   auto testsuite(const xs::string &amp; name) -&gt; auto &amp;</span></a>
-<a name="321"><span class="lineNum">     321 </span>                :            :   {</a>
-<a name="322"><span class="lineNum">     322 </span>                :            :     try {</a>
-<a name="323"><span class="lineNum">     323 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         16 :       return at(name);</span></a>
-<a name="324"><span class="lineNum">     324 </span>                :<span class="lineCov">         11 :     } catch (const std::out_of_range &amp;) {</span></a>
-<a name="325"><span class="lineNum">     325 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       emplace(name, name);</span></a>
-<a name="326"><span class="lineNum">     326 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       return at(name);</span></a>
-<a name="327"><span class="lineNum">     327 </span>                :            :     }</a>
-<a name="328"><span class="lineNum">     328 </span>                :            :   }</a>
-<a name="329"><span class="lineNum">     329 </span>                :            : </a>
-<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">          6 :   friend auto operator&lt;&lt;(pugi::xml_node node, const SimpleTestSuites &amp; testsuites) -&gt; pugi::xml_node</span></a>
-<a name="331"><span class="lineNum">     331 </span>                :            :   {</a>
-<a name="332"><span class="lineNum">     332 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     auto current_node = node.append_child(&quot;testsuites&quot;);</span></a>
-<a name="333"><span class="lineNum">     333 </span>                :            : </a>
-<a name="334"><span class="lineNum">     334 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          6 :     if (not testsuites.name.empty()) {</span></a>
-<a name="335"><span class="lineNum">     335 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;name&quot;) = testsuites.name.c_str();</span></a>
-<a name="336"><span class="lineNum">     336 </span>                :            :     }</a>
-<a name="337"><span class="lineNum">     337 </span>                :            : </a>
-<a name="338"><span class="lineNum">     338 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         17 :     for (const auto &amp; testsuite : testsuites) {</span></a>
-<a name="339"><span class="lineNum">     339 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       current_node &lt;&lt; std::get&lt;1&gt;(testsuite);</span></a>
-<a name="340"><span class="lineNum">     340 </span>                :            :     }</a>
-<a name="341"><span class="lineNum">     341 </span>                :            : </a>
-<a name="342"><span class="lineNum">     342 </span>                :<span class="lineCov">          6 :     return node;</span></a>
-<a name="343"><span class="lineNum">     343 </span>                :            :   }</a>
-<a name="344"><span class="lineNum">     344 </span>                :            : </a>
-<a name="345"><span class="lineNum">     345 </span>                :            :   template &lt;typename... Ts&gt;</a>
-<a name="346"><span class="lineNum">     346 </span>                :<span class="lineCov">          6 :   auto write_to(Ts &amp;&amp;... xs) const</span></a>
-<a name="347"><span class="lineNum">     347 </span>                :            :   {</a>
-<a name="348"><span class="lineNum">     348 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         12 :     pugi::xml_document document;</span></a>
-<a name="349"><span class="lineNum">     349 </span>                :            : </a>
-<a name="350"><span class="lineNum">     350 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     document &lt;&lt; *this;</span></a>
-<a name="351"><span class="lineNum">     351 </span>                :            : </a>
-<a name="352"><span class="lineNum">     352 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     document.save_file(std::forward&lt;decltype(xs)&gt;(xs)...);</span></a>
-<a name="353"><span class="lineNum">     353 </span>                :<span class="lineCov">          6 :   }</span></a>
-<a name="354"><span class="lineNum">     354 </span>                :            : };</a>
-<a name="355"><span class="lineNum">     355 </span>                :            : </a>
-<a name="356"><span class="lineNum">     356 </span>                :            : using JUnit5 = SimpleTestSuites;</a>
-<a name="357"><span class="lineNum">     357 </span>                :            : }  // namespace junit</a>
-<a name="358"><span class="lineNum">     358 </span>                :            : }  // namespace common</a>
-<a name="359"><span class="lineNum">     359 </span>                :            : </a>
-<a name="360"><span class="lineNum">     360 </span>                :            : #endif  // SIMPLE_JUNIT__JUNIT5_HPP_</a>
+<a name="293"><span class="lineNum">     293 </span>                :            :   }</a>
+<a name="294"><span class="lineNum">     294 </span>                :            : </a>
+<a name="295"><span class="lineNum">     295 </span>                :<span class="lineCov">         11 :   friend auto operator&lt;&lt;(pugi::xml_node node, const SimpleTestSuite &amp; testsuite) -&gt; pugi::xml_node</span></a>
+<a name="296"><span class="lineNum">     296 </span>                :            :   {</a>
+<a name="297"><span class="lineNum">     297 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :     auto current_node = node.append_child(&quot;testsuite&quot;);</span></a>
+<a name="298"><span class="lineNum">     298 </span>                :            : </a>
+<a name="299"><span class="lineNum">     299 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         11 :     current_node.append_attribute(&quot;name&quot;) = testsuite.name.c_str();</span></a>
+<a name="300"><span class="lineNum">     300 </span>                :            : </a>
+<a name="301"><span class="lineNum">     301 </span>                :<span class="lineCov">         11 :     std::size_t tests = 0;</span></a>
+<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">         11 :     std::size_t failures = 0;</span></a>
+<a name="303"><span class="lineNum">     303 </span>                :<span class="lineCov">         11 :     std::size_t pass = 0;</span></a>
+<a name="304"><span class="lineNum">     304 </span>                :<span class="lineCov">         11 :     std::size_t errors = 0;</span></a>
+<a name="305"><span class="lineNum">     305 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         16 :     for (const auto &amp; testcase : testsuite) {</span></a>
+<a name="306"><span class="lineNum">     306 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :       current_node &lt;&lt; testcase.second;</span></a>
+<a name="307"><span class="lineNum">     307 </span>                :<span class="lineCov">          5 :       pass = pass + testcase.second.pass.size();</span></a>
+<a name="308"><span class="lineNum">     308 </span>                :<span class="lineCov">          5 :       failures = failures + testcase.second.failure.size();</span></a>
+<a name="309"><span class="lineNum">     309 </span>                :<span class="lineCov">          5 :       errors = errors + testcase.second.error.size();</span></a>
+<a name="310"><span class="lineNum">     310 </span>                :            :     }</a>
+<a name="311"><span class="lineNum">     311 </span>                :<span class="lineCov">         11 :     tests = pass + failures + errors;</span></a>
+<a name="312"><span class="lineNum">     312 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         11 :     current_node.append_attribute(&quot;failures&quot;) = failures;</span></a>
+<a name="313"><span class="lineNum">     313 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         11 :     current_node.append_attribute(&quot;errors&quot;) = errors;</span></a>
+<a name="314"><span class="lineNum">     314 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         11 :     current_node.append_attribute(&quot;tests&quot;) = tests;</span></a>
+<a name="315"><span class="lineNum">     315 </span>                :<span class="lineCov">         11 :     return node;</span></a>
+<a name="316"><span class="lineNum">     316 </span>                :            :   }</a>
+<a name="317"><span class="lineNum">     317 </span>                :            : };</a>
+<a name="318"><span class="lineNum">     318 </span>                :            : </a>
+<a name="319"><span class="lineNum">     319 </span>                :            : /*</a>
+<a name="320"><span class="lineNum">     320 </span>                :            :     &lt;xs:element name=&quot;testsuites&quot;&gt;</a>
+<a name="321"><span class="lineNum">     321 </span>                :            :         &lt;xs:complexType&gt;</a>
+<a name="322"><span class="lineNum">     322 </span>                :            :             &lt;xs:sequence&gt;</a>
+<a name="323"><span class="lineNum">     323 </span>                :            :                 &lt;xs:element ref=&quot;testsuite&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;</a>
+<a name="324"><span class="lineNum">     324 </span>                :            :             &lt;/xs:sequence&gt;</a>
+<a name="325"><span class="lineNum">     325 </span>                :            :             &lt;xs:attribute name=&quot;name&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="326"><span class="lineNum">     326 </span>                :            :             &lt;xs:attribute name=&quot;time&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="327"><span class="lineNum">     327 </span>                :            :             &lt;xs:attribute name=&quot;tests&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="328"><span class="lineNum">     328 </span>                :            :             &lt;xs:attribute name=&quot;failures&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="329"><span class="lineNum">     329 </span>                :            :             &lt;xs:attribute name=&quot;disabled&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="330"><span class="lineNum">     330 </span>                :            :             &lt;xs:attribute name=&quot;errors&quot; type=&quot;xs:string&quot; use=&quot;optional&quot;/&gt;</a>
+<a name="331"><span class="lineNum">     331 </span>                :            :         &lt;/xs:complexType&gt;</a>
+<a name="332"><span class="lineNum">     332 </span>                :            :     &lt;/xs:element&gt;</a>
+<a name="333"><span class="lineNum">     333 </span>                :            : */</a>
+<a name="334"><span class="lineNum">     334 </span>                :            : </a>
+<a name="335"><span class="lineNum">     335 </span>                :            : struct SimpleTestSuites : private std::unordered_map&lt;std::string, SimpleTestSuite&gt;</a>
+<a name="336"><span class="lineNum">     336 </span>                :            : {</a>
+<a name="337"><span class="lineNum">     337 </span>                :            :   xs::string name;</a>
+<a name="338"><span class="lineNum">     338 </span>                :            : </a>
+<a name="339"><span class="lineNum">     339 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :   explicit SimpleTestSuites(const xs::string &amp; name = &quot;&quot;) : name(name) {}</span></a>
+<a name="340"><span class="lineNum">     340 </span>                :            : </a>
+<a name="341"><span class="lineNum">     341 </span>                :<span class="lineCov">         16 :   auto testsuite(const xs::string &amp; name) -&gt; auto &amp;</span></a>
+<a name="342"><span class="lineNum">     342 </span>                :            :   {</a>
+<a name="343"><span class="lineNum">     343 </span>                :            :     try {</a>
+<a name="344"><span class="lineNum">     344 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         16 :       return at(name);</span></a>
+<a name="345"><span class="lineNum">     345 </span>                :<span class="lineCov">         11 :     } catch (const std::out_of_range &amp;) {</span></a>
+<a name="346"><span class="lineNum">     346 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       emplace(name, name);</span></a>
+<a name="347"><span class="lineNum">     347 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       return at(name);</span></a>
+<a name="348"><span class="lineNum">     348 </span>                :            :     }</a>
+<a name="349"><span class="lineNum">     349 </span>                :            :   }</a>
+<a name="350"><span class="lineNum">     350 </span>                :            : </a>
+<a name="351"><span class="lineNum">     351 </span>                :<span class="lineCov">          6 :   friend auto operator&lt;&lt;(pugi::xml_node node, const SimpleTestSuites &amp; testsuites) -&gt; pugi::xml_node</span></a>
+<a name="352"><span class="lineNum">     352 </span>                :            :   {</a>
+<a name="353"><span class="lineNum">     353 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     auto current_node = node.append_child(&quot;testsuites&quot;);</span></a>
+<a name="354"><span class="lineNum">     354 </span>                :            : </a>
+<a name="355"><span class="lineNum">     355 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          6 :     if (not testsuites.name.empty()) {</span></a>
+<a name="356"><span class="lineNum">     356 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :       current_node.append_attribute(&quot;name&quot;) = testsuites.name.c_str();</span></a>
+<a name="357"><span class="lineNum">     357 </span>                :            :     }</a>
+<a name="358"><span class="lineNum">     358 </span>                :<span class="lineCov">          6 :     std::size_t tests = 0;</span></a>
+<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">          6 :     std::size_t failures = 0;</span></a>
+<a name="360"><span class="lineNum">     360 </span>                :<span class="lineCov">          6 :     std::size_t pass = 0;</span></a>
+<a name="361"><span class="lineNum">     361 </span>                :<span class="lineCov">          6 :     std::size_t errors = 0;</span></a>
+<a name="362"><span class="lineNum">     362 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         17 :     for (const auto &amp; testsuite : testsuites) {</span></a>
+<a name="363"><span class="lineNum">     363 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         22 :       SimpleTestSuite suite = testsuite.second;</span></a>
+<a name="364"><span class="lineNum">     364 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       current_node &lt;&lt; suite;</span></a>
+<a name="365"><span class="lineNum">     365 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         11 :       const auto testcase_names = suite.getTestcaseNames();</span></a>
+<a name="366"><span class="lineNum">     366 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         16 :       for (const auto &amp; testcase_name : testcase_names) {</span></a>
+<a name="367"><span class="lineNum">     367 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :         failures = failures + suite.testcase(testcase_name).failure.size();</span></a>
+<a name="368"><span class="lineNum">     368 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :         errors = errors + suite.testcase(testcase_name).error.size();</span></a>
+<a name="369"><span class="lineNum">     369 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :         pass = pass + suite.testcase(testcase_name).pass.size();</span></a>
+<a name="370"><span class="lineNum">     370 </span>                :            :       }</a>
+<a name="371"><span class="lineNum">     371 </span>                :<span class="lineCov">         11 :       tests = failures + errors + pass;</span></a>
+<a name="372"><span class="lineNum">     372 </span>                :            :     }</a>
+<a name="373"><span class="lineNum">     373 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          6 :     current_node.append_attribute(&quot;failures&quot;) = failures;</span></a>
+<a name="374"><span class="lineNum">     374 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          6 :     current_node.append_attribute(&quot;errors&quot;) = errors;</span></a>
+<a name="375"><span class="lineNum">     375 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          6 :     current_node.append_attribute(&quot;tests&quot;) = tests;</span></a>
+<a name="376"><span class="lineNum">     376 </span>                :            : </a>
+<a name="377"><span class="lineNum">     377 </span>                :<span class="lineCov">          6 :     return node;</span></a>
+<a name="378"><span class="lineNum">     378 </span>                :            :   }</a>
+<a name="379"><span class="lineNum">     379 </span>                :            : </a>
+<a name="380"><span class="lineNum">     380 </span>                :            :   template &lt;typename... Ts&gt;</a>
+<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">          6 :   auto write_to(Ts &amp;&amp;... xs) const</span></a>
+<a name="382"><span class="lineNum">     382 </span>                :            :   {</a>
+<a name="383"><span class="lineNum">     383 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         12 :     pugi::xml_document document;</span></a>
+<a name="384"><span class="lineNum">     384 </span>                :            : </a>
+<a name="385"><span class="lineNum">     385 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     document &lt;&lt; *this;</span></a>
+<a name="386"><span class="lineNum">     386 </span>                :            : </a>
+<a name="387"><span class="lineNum">     387 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     document.save_file(std::forward&lt;decltype(xs)&gt;(xs)...);</span></a>
+<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">          6 :   }</span></a>
+<a name="389"><span class="lineNum">     389 </span>                :            : };</a>
+<a name="390"><span class="lineNum">     390 </span>                :            : </a>
+<a name="391"><span class="lineNum">     391 </span>                :            : using JUnit5 = SimpleTestSuites;</a>
+<a name="392"><span class="lineNum">     392 </span>                :            : }  // namespace junit</a>
+<a name="393"><span class="lineNum">     393 </span>                :            : }  // namespace common</a>
+<a name="394"><span class="lineNum">     394 </span>                :            : </a>
+<a name="395"><span class="lineNum">     395 </span>                :            : #endif  // SIMPLE_JUNIT__JUNIT5_HPP_</a>
 </pre>
       </td>
     </tr>

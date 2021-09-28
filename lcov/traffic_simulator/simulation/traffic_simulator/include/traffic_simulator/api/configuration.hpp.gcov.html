@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">6</td>
             <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryMed">75.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:54:44</td>
+            <td class="headerValue">2021-09-28 11:50:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntry">2</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">25.0 %</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -195,19 +195,19 @@
 <a name="117"><span class="lineNum">     117 </span>                :            :     return result;</a>
 <a name="118"><span class="lineNum">     118 </span>                :            :   }</a>
 <a name="119"><span class="lineNum">     119 </span>                :            : </a>
-<a name="120"><span class="lineNum">     120 </span>                :<span class="lineNoCov">          0 :   auto getLanelet2MapFile() const -&gt; const auto &amp;</span></a>
+<a name="120"><span class="lineNum">     120 </span>                :<span class="lineCov">         23 :   auto getLanelet2MapFile() const -&gt; const auto &amp;</span></a>
 <a name="121"><span class="lineNum">     121 </span>                :            :   {</a>
-<a name="122"><span class="lineNum">     122 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (not lanelet2_map_file.empty()) {</span></a>
-<a name="123"><span class="lineNum">     123 </span>                :<span class="lineNoCov">          0 :       return lanelet2_map_file;</span></a>
+<a name="122"><span class="lineNum">     122 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :     if (not lanelet2_map_file.empty()) {</span></a>
+<a name="123"><span class="lineNum">     123 </span>                :<span class="lineCov">         23 :       return lanelet2_map_file;</span></a>
 <a name="124"><span class="lineNum">     124 </span>                :            :     } else {</a>
 <a name="125"><span class="lineNum">     125 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       throw common::SimulationError(&quot;The map_path must contain at least one *.osm file&quot;);</span></a>
 <a name="126"><span class="lineNum">     126 </span>                :            :     }</a>
 <a name="127"><span class="lineNum">     127 </span>                :            :   }</a>
 <a name="128"><span class="lineNum">     128 </span>                :            : </a>
-<a name="129"><span class="lineNum">     129 </span>                :<span class="lineNoCov">          0 :   auto getPointCloudMapFile() const -&gt; const auto &amp;</span></a>
+<a name="129"><span class="lineNum">     129 </span>                :<span class="lineCov">         23 :   auto getPointCloudMapFile() const -&gt; const auto &amp;</span></a>
 <a name="130"><span class="lineNum">     130 </span>                :            :   {</a>
-<a name="131"><span class="lineNum">     131 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (not pointcloud_map_file.empty()) {</span></a>
-<a name="132"><span class="lineNum">     132 </span>                :<span class="lineNoCov">          0 :       return pointcloud_map_file;</span></a>
+<a name="131"><span class="lineNum">     131 </span>        [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         23 :     if (not pointcloud_map_file.empty()) {</span></a>
+<a name="132"><span class="lineNum">     132 </span>                :<span class="lineCov">         23 :       return pointcloud_map_file;</span></a>
 <a name="133"><span class="lineNum">     133 </span>                :            :     } else {</a>
 <a name="134"><span class="lineNum">     134 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       throw common::SimulationError(&quot;The map_path must contain at least one *.pcd file&quot;);</span></a>
 <a name="135"><span class="lineNum">     135 </span>                :            :     }</a>

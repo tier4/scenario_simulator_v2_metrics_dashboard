@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntry">39</td>
             <td class="headerCovTableEntry">47</td>
-            <td class="headerCovTableEntryLo">36.2 %</td>
+            <td class="headerCovTableEntryMed">83.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:54:44</td>
+            <td class="headerValue">2021-09-28 11:50:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">9</td>
             <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryLo">50.0 %</td>
+            <td class="headerCovTableEntryHi">90.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">23</td>
             <td class="headerCovTableEntry">44</td>
-            <td class="headerCovTableEntryLo">13.6 %</td>
+            <td class="headerCovTableEntryLo">52.3 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -76,23 +76,7 @@
       <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
     </tr>
     <tr>
-              <td class="coverFn"><a href="entity_base.cpp.gcov.html#65">traffic_simulator::entity::EntityBase::setOtherStatus(std::unordered_map&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, openscenario_msgs::msg::EntityStatus_&lt;std::allocator&lt;void&gt; &gt;, std::hash&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::equal_to&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::allocator&lt;std::pair&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const, openscenario_msgs::msg::EntityStatus_&lt;std::allocator&lt;void&gt; &gt; &gt; &gt; &gt; const&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="entity_base.cpp.gcov.html#100">traffic_simulator::entity::EntityBase::stopAtEndOfRoad()</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="entity_base.cpp.gcov.html#41">traffic_simulator::entity::EntityBase::updateStandStillDuration(double)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="entity_base.cpp.gcov.html#32">traffic_simulator::entity::EntityBase::onUpdate(double, double)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="entity_base.cpp.gcov.html#34">traffic_simulator::entity::EntityBase::getStandStillDuration() const</a></td>
               <td class="coverFnLo">0</td>
             </tr>
     <tr>
@@ -104,16 +88,32 @@
               <td class="coverFnHi">2</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="entity_base.cpp.gcov.html#26">traffic_simulator::entity::EntityBase::EntityBase(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)</a></td>
+              <td class="coverFnHi">37</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="entity_base.cpp.gcov.html#34">traffic_simulator::entity::EntityBase::getStandStillDuration() const</a></td>
+              <td class="coverFnHi">133</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="entity_base.cpp.gcov.html#65">traffic_simulator::entity::EntityBase::setOtherStatus(std::unordered_map&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, openscenario_msgs::msg::EntityStatus_&lt;std::allocator&lt;void&gt; &gt;, std::hash&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::equal_to&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::allocator&lt;std::pair&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const, openscenario_msgs::msg::EntityStatus_&lt;std::allocator&lt;void&gt; &gt; &gt; &gt; &gt; const&amp;)</a></td>
+              <td class="coverFnHi">4073</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="entity_base.cpp.gcov.html#41">traffic_simulator::entity::EntityBase::updateStandStillDuration(double)</a></td>
+              <td class="coverFnHi">4073</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="entity_base.cpp.gcov.html#32">traffic_simulator::entity::EntityBase::onUpdate(double, double)</a></td>
+              <td class="coverFnHi">4073</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="entity_base.cpp.gcov.html#93">traffic_simulator::entity::EntityBase::setStatus(openscenario_msgs::msg::EntityStatus_&lt;std::allocator&lt;void&gt; &gt; const&amp;)</a></td>
-              <td class="coverFnHi">2</td>
+              <td class="coverFnHi">4109</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="entity_base.cpp.gcov.html#84">traffic_simulator::entity::EntityBase::getStatus() const</a></td>
-              <td class="coverFnHi">2</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="entity_base.cpp.gcov.html#26">traffic_simulator::entity::EntityBase::EntityBase(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)</a></td>
-              <td class="coverFnHi">3</td>
+              <td class="coverFnHi">44456</td>
             </tr>
   </table>
   <br>

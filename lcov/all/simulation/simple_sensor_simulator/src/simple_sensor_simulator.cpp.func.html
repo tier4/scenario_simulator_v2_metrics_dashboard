@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">126</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">92</td>
+            <td class="headerCovTableEntry">131</td>
+            <td class="headerCovTableEntryLo">70.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:53:53</td>
+            <td class="headerValue">2021-09-28 11:49:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryLo">73.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">224</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">85</td>
+            <td class="headerCovTableEntry">228</td>
+            <td class="headerCovTableEntryLo">37.3 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -76,60 +76,64 @@
       <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="simple_sensor_simulator.cpp.func-sort-c.html"><img src="../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
     </tr>
     <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#223">(anonymous namespace)::ProxyExec0::ProxyExec0()</a></td>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#235">(anonymous namespace)::ProxyExec0::ProxyExec0()</a></td>
+              <td class="coverFnHi">23</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#62">simple_sensor_simulator::ScenarioSimulator::initialize(simulation_api_schema::InitializeRequest const&amp;, simulation_api_schema::InitializeResponse&amp;)</a></td>
+              <td class="coverFnHi">23</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#77">simple_sensor_simulator::ScenarioSimulator::updateFrame(simulation_api_schema::UpdateFrameRequest const&amp;, simulation_api_schema::UpdateFrameResponse&amp;)</a></td>
+              <td class="coverFnHi">2692</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#145">simple_sensor_simulator::ScenarioSimulator::despawnEntity(simulation_api_schema::DespawnEntityRequest const&amp;, simulation_api_schema::DespawnEntityResponse&amp;)</a></td>
+              <td class="coverFnHi">2</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#196">simple_sensor_simulator::ScenarioSimulator::attachLidarSensor(simulation_api_schema::AttachLidarSensorRequest const&amp;, simulation_api_schema::AttachLidarSensorResponse&amp;)</a></td>
               <td class="coverFnLo">0</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#60">simple_sensor_simulator::ScenarioSimulator::initialize(simulation_api_schema::InitializeRequest const&amp;, simulation_api_schema::InitializeResponse&amp;)</a></td>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#207">simple_sensor_simulator::ScenarioSimulator::updateSensorFrame(simulation_api_schema::UpdateSensorFrameRequest const&amp;, simulation_api_schema::UpdateSensorFrameResponse&amp;)</a></td>
+              <td class="coverFnHi">2690</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#108">simple_sensor_simulator::ScenarioSimulator::spawnVehicleEntity(simulation_api_schema::SpawnVehicleEntityRequest const&amp;, simulation_api_schema::SpawnVehicleEntityResponse&amp;)</a></td>
+              <td class="coverFnHi">31</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#95">simple_sensor_simulator::ScenarioSimulator::updateEntityStatus(simulation_api_schema::UpdateEntityStatusRequest const&amp;, simulation_api_schema::UpdateEntityStatusResponse&amp;)</a></td>
+              <td class="coverFnHi">2690</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#224">simple_sensor_simulator::ScenarioSimulator::updateTrafficLights(simulation_api_schema::UpdateTrafficLightsRequest const&amp;, simulation_api_schema::UpdateTrafficLightsResponse&amp;)</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#185">simple_sensor_simulator::ScenarioSimulator::attachDetectionSensor(simulation_api_schema::AttachDetectionSensorRequest const&amp;, simulation_api_schema::AttachDetectionSensorResponse&amp;)</a></td>
               <td class="coverFnLo">0</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#75">simple_sensor_simulator::ScenarioSimulator::updateFrame(simulation_api_schema::UpdateFrameRequest const&amp;, simulation_api_schema::UpdateFrameResponse&amp;)</a></td>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#135">simple_sensor_simulator::ScenarioSimulator::spawnMiscObjectEntity(simulation_api_schema::SpawnMiscObjectEntityRequest const&amp;, simulation_api_schema::SpawnMiscObjectEntityResponse&amp;)</a></td>
               <td class="coverFnLo">0</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#143">simple_sensor_simulator::ScenarioSimulator::despawnEntity(simulation_api_schema::DespawnEntityRequest const&amp;, simulation_api_schema::DespawnEntityResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#194">simple_sensor_simulator::ScenarioSimulator::attachLidarSensor(simulation_api_schema::AttachLidarSensorRequest const&amp;, simulation_api_schema::AttachLidarSensorResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#205">simple_sensor_simulator::ScenarioSimulator::updateSensorFrame(simulation_api_schema::UpdateSensorFrameRequest const&amp;, simulation_api_schema::UpdateSensorFrameResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#106">simple_sensor_simulator::ScenarioSimulator::spawnVehicleEntity(simulation_api_schema::SpawnVehicleEntityRequest const&amp;, simulation_api_schema::SpawnVehicleEntityResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#93">simple_sensor_simulator::ScenarioSimulator::updateEntityStatus(simulation_api_schema::UpdateEntityStatusRequest const&amp;, simulation_api_schema::UpdateEntityStatusResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#183">simple_sensor_simulator::ScenarioSimulator::attachDetectionSensor(simulation_api_schema::AttachDetectionSensorRequest const&amp;, simulation_api_schema::AttachDetectionSensorResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#133">simple_sensor_simulator::ScenarioSimulator::spawnMiscObjectEntity(simulation_api_schema::SpawnMiscObjectEntityRequest const&amp;, simulation_api_schema::SpawnMiscObjectEntityResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#123">simple_sensor_simulator::ScenarioSimulator::spawnPedestrianEntity(simulation_api_schema::SpawnPedestrianEntityRequest const&amp;, simulation_api_schema::SpawnPedestrianEntityResponse&amp;)</a></td>
-              <td class="coverFnLo">0</td>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#125">simple_sensor_simulator::ScenarioSimulator::spawnPedestrianEntity(simulation_api_schema::SpawnPedestrianEntityRequest const&amp;, simulation_api_schema::SpawnPedestrianEntityResponse&amp;)</a></td>
+              <td class="coverFnHi">3</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#29">simple_sensor_simulator::ScenarioSimulator::ScenarioSimulator(rclcpp::NodeOptions const&amp;)</a></td>
+              <td class="coverFnHi">23</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#60">simple_sensor_simulator::ScenarioSimulator::~ScenarioSimulator()</a></td>
               <td class="coverFnLo">0</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#58">simple_sensor_simulator::ScenarioSimulator::~ScenarioSimulator()</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#58">simple_sensor_simulator::ScenarioSimulator::~ScenarioSimulator().2</a></td>
-              <td class="coverFnLo">0</td>
+              <td class="coverFn"><a href="simple_sensor_simulator.cpp.gcov.html#60">simple_sensor_simulator::ScenarioSimulator::~ScenarioSimulator().2</a></td>
+              <td class="coverFnHi">23</td>
             </tr>
   </table>
   <br>

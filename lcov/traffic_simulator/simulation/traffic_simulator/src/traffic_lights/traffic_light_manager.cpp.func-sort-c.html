@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">21</td>
-            <td class="headerCovTableEntry">61</td>
-            <td class="headerCovTableEntryLo">34.4 %</td>
+            <td class="headerCovTableEntry">66</td>
+            <td class="headerCovTableEntry">66</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-26 19:54:44</td>
+            <td class="headerValue">2021-09-28 11:50:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">42.9 %</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">21</td>
-            <td class="headerCovTableEntry">78</td>
-            <td class="headerCovTableEntryLo">26.9 %</td>
+            <td class="headerCovTableEntry">47</td>
+            <td class="headerCovTableEntry">82</td>
+            <td class="headerCovTableEntryLo">57.3 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -76,32 +76,40 @@
       <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
     </tr>
     <tr>
-              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#114">traffic_simulator::TrafficLightManager::update(double)</a></td>
-              <td class="coverFnLo">0</td>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#77">traffic_simulator::TrafficLightManager::deleteAllMarkers() const</a></td>
+              <td class="coverFnHi">1</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#84">traffic_simulator::TrafficLightManager::drawMarkers() const</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#72">traffic_simulator::TrafficLightManager::deleteAllMarkers() const</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#124">auto traffic_simulator::TrafficLightManager::update(double)::{lambda(auto:1 const&amp;)#1}::operator()&lt;std::pair&lt;long const, traffic_simulator::TrafficLight&gt; &gt;(std::pair&lt;long const, traffic_simulator::TrafficLight&gt; const&amp;) const</a></td>
-              <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#23">traffic_simulator::TrafficLightManager::TrafficLightManager(std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; const&amp;, std::shared_ptr&lt;rclcpp::Publisher&lt;visualization_msgs::msg::MarkerArray_&lt;std::allocator&lt;void&gt; &gt;, std::allocator&lt;void&gt; &gt; &gt; const&amp;, std::shared_ptr&lt;rclcpp::Publisher&lt;autoware_perception_msgs::msg::TrafficLightStateArray_&lt;std::allocator&lt;void&gt; &gt;, std::allocator&lt;void&gt; &gt; &gt; const&amp;, std::shared_ptr&lt;rclcpp::Clock&gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)</a></td>
-              <td class="coverFnHi">3</td>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#72">traffic_simulator::TrafficLightManager::getInstance(long)</a></td>
+              <td class="coverFnHi">2</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#61">traffic_simulator::TrafficLightManager::getIds() const</a></td>
-              <td class="coverFnHi">3</td>
+              <td class="coverFnHi">4</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#67">auto traffic_simulator::TrafficLightManager::getIds() const::{lambda(auto:1 const&amp;)#1}::operator()&lt;std::pair&lt;long const, traffic_simulator::TrafficLight&gt; &gt;(std::pair&lt;long const, traffic_simulator::TrafficLight&gt; const&amp;) const</a></td>
-              <td class="coverFnHi">6</td>
+              <td class="coverFnHi">8</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#23">traffic_simulator::TrafficLightManager::TrafficLightManager(std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; const&amp;, std::shared_ptr&lt;rclcpp::Publisher&lt;visualization_msgs::msg::MarkerArray_&lt;std::allocator&lt;void&gt; &gt;, std::allocator&lt;void&gt; &gt; &gt; const&amp;, std::shared_ptr&lt;rclcpp::Publisher&lt;autoware_perception_msgs::msg::TrafficLightStateArray_&lt;std::allocator&lt;void&gt; &gt;, std::allocator&lt;void&gt; &gt; &gt; const&amp;, std::shared_ptr&lt;rclcpp::Clock&gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)</a></td>
+              <td class="coverFnHi">26</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#129">traffic_simulator::TrafficLightManager::update(double)</a></td>
+              <td class="coverFnHi">2692</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#89">traffic_simulator::TrafficLightManager::drawMarkers() const</a></td>
+              <td class="coverFnHi">2692</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#119">traffic_simulator::TrafficLightManager::hasAnyLightChanged()</a></td>
+              <td class="coverFnHi">5382</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="traffic_light_manager.cpp.gcov.html#122">auto traffic_simulator::TrafficLightManager::hasAnyLightChanged()::{lambda(auto:1 const&amp;)#1}::operator()&lt;std::pair&lt;long const, traffic_simulator::TrafficLight&gt; &gt;(std::pair&lt;long const, traffic_simulator::TrafficLight&gt; const&amp;) const</a></td>
+              <td class="coverFnHi">10762</td>
             </tr>
   </table>
   <br>
