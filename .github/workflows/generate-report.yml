@@ -50,6 +50,7 @@ jobs:
         base-url: ${{ env.BASE_URL }}
         title: ${{ env.TARGET_REPO }}
         ros-distro: ${{ env.ROS_DISTRO }}
+        extra-cmake-args: -DWITH_INTEGRATION_TEST=ON
         CCN: "20"
         CCN-recommendation: "10"
         nloc: "200"
