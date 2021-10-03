@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-28 11:49:52</td>
+            <td class="headerValue">2021-10-03 19:58:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -127,28 +127,32 @@
 <a name="49"><span class="lineNum">      49 </span>                :            :  * -------------------------------------------------------------------------- */</a>
 <a name="50"><span class="lineNum">      50 </span>                :            : struct RelativeDistanceType</a>
 <a name="51"><span class="lineNum">      51 </span>                :            : {</a>
-<a name="52"><span class="lineNum">      52 </span>                :            :   enum value_type {</a>
-<a name="53"><span class="lineNum">      53 </span>                :            :     longitudinal,</a>
-<a name="54"><span class="lineNum">      54 </span>                :            :     lateral,</a>
-<a name="55"><span class="lineNum">      55 </span>                :            :     euclidianDistance,</a>
-<a name="56"><span class="lineNum">      56 </span>                :            :   } value;</a>
-<a name="57"><span class="lineNum">      57 </span>                :            : </a>
-<a name="58"><span class="lineNum">      58 </span>                :            :   explicit RelativeDistanceType() = default;</a>
+<a name="52"><span class="lineNum">      52 </span>                :            :   // NOTE: I understand that &quot;euclidian&quot; is an incorrect spelling, but the XML</a>
+<a name="53"><span class="lineNum">      53 </span>                :            :   //       Schema of the OpenSCENARIO 1.1 standard specifies this spelling.</a>
+<a name="54"><span class="lineNum">      54 </span>                :            :   enum value_type {</a>
+<a name="55"><span class="lineNum">      55 </span>                :            :     longitudinal,</a>
+<a name="56"><span class="lineNum">      56 </span>                :            :     lateral,</a>
+<a name="57"><span class="lineNum">      57 </span>                :            :     euclidianDistance,</a>
+<a name="58"><span class="lineNum">      58 </span>                :            :   } value;</a>
 <a name="59"><span class="lineNum">      59 </span>                :            : </a>
-<a name="60"><span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
-<a name="61"><span class="lineNum">      61 </span>                :            : };</a>
-<a name="62"><span class="lineNum">      62 </span>                :            : </a>
-<a name="63"><span class="lineNum">      63 </span>                :            : static_assert(std::is_standard_layout&lt;RelativeDistanceType&gt;::value, &quot;&quot;);</a>
-<a name="64"><span class="lineNum">      64 </span>                :            : </a>
-<a name="65"><span class="lineNum">      65 </span>                :            : static_assert(std::is_trivial&lt;RelativeDistanceType&gt;::value, &quot;&quot;);</a>
+<a name="60"><span class="lineNum">      60 </span>                :            :   explicit RelativeDistanceType() = default;</a>
+<a name="61"><span class="lineNum">      61 </span>                :            : </a>
+<a name="62"><span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 :   constexpr RelativeDistanceType(value_type value) : value(value) {}</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :            : </a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :            : };</a>
 <a name="66"><span class="lineNum">      66 </span>                :            : </a>
-<a name="67"><span class="lineNum">      67 </span>                :            : std::istream &amp; operator&gt;&gt;(std::istream &amp;, RelativeDistanceType &amp;);</a>
+<a name="67"><span class="lineNum">      67 </span>                :            : static_assert(std::is_standard_layout&lt;RelativeDistanceType&gt;::value, &quot;&quot;);</a>
 <a name="68"><span class="lineNum">      68 </span>                :            : </a>
-<a name="69"><span class="lineNum">      69 </span>                :            : std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, const RelativeDistanceType &amp;);</a>
-<a name="70"><span class="lineNum">      70 </span>                :            : }  // namespace syntax</a>
-<a name="71"><span class="lineNum">      71 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="69"><span class="lineNum">      69 </span>                :            : static_assert(std::is_trivial&lt;RelativeDistanceType&gt;::value, &quot;&quot;);</a>
+<a name="70"><span class="lineNum">      70 </span>                :            : </a>
+<a name="71"><span class="lineNum">      71 </span>                :            : std::istream &amp; operator&gt;&gt;(std::istream &amp;, RelativeDistanceType &amp;);</a>
 <a name="72"><span class="lineNum">      72 </span>                :            : </a>
-<a name="73"><span class="lineNum">      73 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__RELATIVE_DISTANCE_TYPE_HPP_</a>
+<a name="73"><span class="lineNum">      73 </span>                :            : std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, const RelativeDistanceType &amp;);</a>
+<a name="74"><span class="lineNum">      74 </span>                :            : }  // namespace syntax</a>
+<a name="75"><span class="lineNum">      75 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="76"><span class="lineNum">      76 </span>                :            : </a>
+<a name="77"><span class="lineNum">      77 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__RELATIVE_DISTANCE_TYPE_HPP_</a>
 </pre>
       </td>
     </tr>
