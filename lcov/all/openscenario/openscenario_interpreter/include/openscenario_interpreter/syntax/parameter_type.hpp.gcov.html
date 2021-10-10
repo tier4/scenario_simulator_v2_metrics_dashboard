@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -144,17 +144,13 @@
 <a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
 <a name="67"><span class="lineNum">      67 </span>                :            : };</a>
 <a name="68"><span class="lineNum">      68 </span>                :            : </a>
-<a name="69"><span class="lineNum">      69 </span>                :            : static_assert(std::is_standard_layout&lt;ParameterType&gt;::value, &quot;&quot;);</a>
+<a name="69"><span class="lineNum">      69 </span>                :            : auto operator&gt;&gt;(std::istream &amp;, ParameterType &amp;) -&gt; std::istream &amp;;</a>
 <a name="70"><span class="lineNum">      70 </span>                :            : </a>
-<a name="71"><span class="lineNum">      71 </span>                :            : static_assert(std::is_trivial&lt;ParameterType&gt;::value, &quot;&quot;);</a>
-<a name="72"><span class="lineNum">      72 </span>                :            : </a>
-<a name="73"><span class="lineNum">      73 </span>                :            : std::istream &amp; operator&gt;&gt;(std::istream &amp;, ParameterType &amp;);</a>
+<a name="71"><span class="lineNum">      71 </span>                :            : auto operator&lt;&lt;(std::ostream &amp;, const ParameterType &amp;) -&gt; std::ostream &amp;;</a>
+<a name="72"><span class="lineNum">      72 </span>                :            : }  // namespace syntax</a>
+<a name="73"><span class="lineNum">      73 </span>                :            : }  // namespace openscenario_interpreter</a>
 <a name="74"><span class="lineNum">      74 </span>                :            : </a>
-<a name="75"><span class="lineNum">      75 </span>                :            : std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, const ParameterType &amp;);</a>
-<a name="76"><span class="lineNum">      76 </span>                :            : }  // namespace syntax</a>
-<a name="77"><span class="lineNum">      77 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="78"><span class="lineNum">      78 </span>                :            : </a>
-<a name="79"><span class="lineNum">      79 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__PARAMETER_TYPE_HPP_</a>
+<a name="75"><span class="lineNum">      75 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__PARAMETER_TYPE_HPP_</a>
 </pre>
       </td>
     </tr>

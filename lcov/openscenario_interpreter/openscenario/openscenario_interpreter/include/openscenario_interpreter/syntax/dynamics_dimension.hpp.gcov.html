@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:59:01</td>
+            <td class="headerValue">2021-10-10 20:02:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -120,27 +120,28 @@
 <a name="42"><span class="lineNum">      42 </span>                :            : struct DynamicsDimension</a>
 <a name="43"><span class="lineNum">      43 </span>                :            : {</a>
 <a name="44"><span class="lineNum">      44 </span>                :            :   enum value_type {</a>
-<a name="45"><span class="lineNum">      45 </span>                :            :     rate,      // A predefined constant rate is used to acquire the target value.</a>
-<a name="46"><span class="lineNum">      46 </span>                :            :     time,      // A predefined time (duration) is used to acquire the target value.</a>
-<a name="47"><span class="lineNum">      47 </span>                :            :     distance,  // A predefined distance used to acquire the target value.</a>
-<a name="48"><span class="lineNum">      48 </span>                :            :   } value;</a>
-<a name="49"><span class="lineNum">      49 </span>                :            : </a>
-<a name="50"><span class="lineNum">      50 </span>                :            :   explicit DynamicsDimension() = default;</a>
-<a name="51"><span class="lineNum">      51 </span>                :            : </a>
-<a name="52"><span class="lineNum">      52 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
-<a name="53"><span class="lineNum">      53 </span>                :            : };</a>
+<a name="45"><span class="lineNum">      45 </span>                :            :     // A predefined constant rate is used to acquire the target value.</a>
+<a name="46"><span class="lineNum">      46 </span>                :            :     rate,</a>
+<a name="47"><span class="lineNum">      47 </span>                :            : </a>
+<a name="48"><span class="lineNum">      48 </span>                :            :     // A predefined time (duration) is used to acquire the target value.</a>
+<a name="49"><span class="lineNum">      49 </span>                :            :     time,</a>
+<a name="50"><span class="lineNum">      50 </span>                :            : </a>
+<a name="51"><span class="lineNum">      51 </span>                :            :     // A predefined distance used to acquire the target value.</a>
+<a name="52"><span class="lineNum">      52 </span>                :            :     distance,</a>
+<a name="53"><span class="lineNum">      53 </span>                :            :   } value;</a>
 <a name="54"><span class="lineNum">      54 </span>                :            : </a>
-<a name="55"><span class="lineNum">      55 </span>                :            : static_assert(std::is_standard_layout&lt;DynamicsDimension&gt;::value, &quot;&quot;);</a>
+<a name="55"><span class="lineNum">      55 </span>                :            :   explicit DynamicsDimension() = default;</a>
 <a name="56"><span class="lineNum">      56 </span>                :            : </a>
-<a name="57"><span class="lineNum">      57 </span>                :            : static_assert(std::is_trivial&lt;DynamicsDimension&gt;::value, &quot;&quot;);</a>
-<a name="58"><span class="lineNum">      58 </span>                :            : </a>
-<a name="59"><span class="lineNum">      59 </span>                :            : std::istream &amp; operator&gt;&gt;(std::istream &amp;, DynamicsDimension &amp;);</a>
-<a name="60"><span class="lineNum">      60 </span>                :            : </a>
-<a name="61"><span class="lineNum">      61 </span>                :            : std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, const DynamicsDimension &amp;);</a>
-<a name="62"><span class="lineNum">      62 </span>                :            : }  // namespace syntax</a>
-<a name="63"><span class="lineNum">      63 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="64"><span class="lineNum">      64 </span>                :            : </a>
-<a name="65"><span class="lineNum">      65 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__DYNAMICS_DIMENSION_HPP_</a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :            : };</a>
+<a name="59"><span class="lineNum">      59 </span>                :            : </a>
+<a name="60"><span class="lineNum">      60 </span>                :            : auto operator&gt;&gt;(std::istream &amp;, DynamicsDimension &amp;) -&gt; std::istream &amp;;</a>
+<a name="61"><span class="lineNum">      61 </span>                :            : </a>
+<a name="62"><span class="lineNum">      62 </span>                :            : auto operator&lt;&lt;(std::ostream &amp;, const DynamicsDimension &amp;) -&gt; std::ostream &amp;;</a>
+<a name="63"><span class="lineNum">      63 </span>                :            : }  // namespace syntax</a>
+<a name="64"><span class="lineNum">      64 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="65"><span class="lineNum">      65 </span>                :            : </a>
+<a name="66"><span class="lineNum">      66 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__DYNAMICS_DIMENSION_HPP_</a>
 </pre>
       </td>
     </tr>

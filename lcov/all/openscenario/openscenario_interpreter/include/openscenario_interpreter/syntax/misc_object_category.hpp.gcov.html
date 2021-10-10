@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -163,17 +163,13 @@
 <a name="85"><span class="lineNum">      85 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
 <a name="86"><span class="lineNum">      86 </span>                :            : };</a>
 <a name="87"><span class="lineNum">      87 </span>                :            : </a>
-<a name="88"><span class="lineNum">      88 </span>                :            : static_assert(std::is_standard_layout&lt;MiscObjectCategory&gt;::value, &quot;&quot;);</a>
+<a name="88"><span class="lineNum">      88 </span>                :            : auto operator&gt;&gt;(std::istream &amp;, MiscObjectCategory &amp;) -&gt; std::istream &amp;;</a>
 <a name="89"><span class="lineNum">      89 </span>                :            : </a>
-<a name="90"><span class="lineNum">      90 </span>                :            : static_assert(std::is_trivial&lt;MiscObjectCategory&gt;::value, &quot;&quot;);</a>
-<a name="91"><span class="lineNum">      91 </span>                :            : </a>
-<a name="92"><span class="lineNum">      92 </span>                :            : auto operator&gt;&gt;(std::istream &amp;, MiscObjectCategory &amp;) -&gt; std::istream &amp;;</a>
+<a name="90"><span class="lineNum">      90 </span>                :            : auto operator&lt;&lt;(std::ostream &amp;, const MiscObjectCategory &amp;) -&gt; std::ostream &amp;;</a>
+<a name="91"><span class="lineNum">      91 </span>                :            : }  // namespace syntax</a>
+<a name="92"><span class="lineNum">      92 </span>                :            : }  // namespace openscenario_interpreter</a>
 <a name="93"><span class="lineNum">      93 </span>                :            : </a>
-<a name="94"><span class="lineNum">      94 </span>                :            : auto operator&lt;&lt;(std::ostream &amp;, const MiscObjectCategory &amp;) -&gt; std::ostream &amp;;</a>
-<a name="95"><span class="lineNum">      95 </span>                :            : }  // namespace syntax</a>
-<a name="96"><span class="lineNum">      96 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="97"><span class="lineNum">      97 </span>                :            : </a>
-<a name="98"><span class="lineNum">      98 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__MISC_OBJECT_CATEGORY_HPP_</a>
+<a name="94"><span class="lineNum">      94 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__MISC_OBJECT_CATEGORY_HPP_</a>
 </pre>
       </td>
     </tr>

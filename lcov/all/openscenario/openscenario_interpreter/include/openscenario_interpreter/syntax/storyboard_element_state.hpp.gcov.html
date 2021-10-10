@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -258,27 +258,23 @@
 <a name="180"><span class="lineNum">     180 </span>                :<span class="lineNoCov">          0 :   constexpr operator value_type() const noexcept { return value; }</span></a>
 <a name="181"><span class="lineNum">     181 </span>                :            : };</a>
 <a name="182"><span class="lineNum">     182 </span>                :            : </a>
-<a name="183"><span class="lineNum">     183 </span>                :            : static_assert(std::is_standard_layout&lt;StoryboardElementState&gt;::value, &quot;&quot;);</a>
+<a name="183"><span class="lineNum">     183 </span>                :            : auto operator&gt;&gt;(std::istream &amp;, StoryboardElementState &amp;) -&gt; std::istream &amp;;</a>
 <a name="184"><span class="lineNum">     184 </span>                :            : </a>
-<a name="185"><span class="lineNum">     185 </span>                :            : static_assert(std::is_trivial&lt;StoryboardElementState&gt;::value, &quot;&quot;);</a>
+<a name="185"><span class="lineNum">     185 </span>                :            : auto operator&lt;&lt;(std::ostream &amp;, const StoryboardElementState &amp;) -&gt; std::ostream &amp;;</a>
 <a name="186"><span class="lineNum">     186 </span>                :            : </a>
-<a name="187"><span class="lineNum">     187 </span>                :            : std::istream &amp; operator&gt;&gt;(std::istream &amp;, StoryboardElementState &amp;);</a>
-<a name="188"><span class="lineNum">     188 </span>                :            : </a>
-<a name="189"><span class="lineNum">     189 </span>                :            : std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, const StoryboardElementState &amp;);</a>
-<a name="190"><span class="lineNum">     190 </span>                :            : </a>
-<a name="191"><span class="lineNum">     191 </span>                :            : // clang-format off</a>
-<a name="192"><span class="lineNum">     192 </span>                :            : extern const Element start_transition;</a>
-<a name="193"><span class="lineNum">     193 </span>                :            : extern const Element   end_transition;</a>
-<a name="194"><span class="lineNum">     194 </span>                :            : extern const Element  stop_transition;</a>
-<a name="195"><span class="lineNum">     195 </span>                :            : extern const Element  skip_transition;</a>
-<a name="196"><span class="lineNum">     196 </span>                :            : extern const Element   complete_state;</a>
-<a name="197"><span class="lineNum">     197 </span>                :            : extern const Element    running_state;</a>
-<a name="198"><span class="lineNum">     198 </span>                :            : extern const Element    standby_state;</a>
-<a name="199"><span class="lineNum">     199 </span>                :            : // clang-format on</a>
-<a name="200"><span class="lineNum">     200 </span>                :            : }  // namespace syntax</a>
-<a name="201"><span class="lineNum">     201 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="202"><span class="lineNum">     202 </span>                :            : </a>
-<a name="203"><span class="lineNum">     203 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__STORYBOARD_ELEMENT_STATE_HPP_</a>
+<a name="187"><span class="lineNum">     187 </span>                :            : // clang-format off</a>
+<a name="188"><span class="lineNum">     188 </span>                :            : extern const Element start_transition;</a>
+<a name="189"><span class="lineNum">     189 </span>                :            : extern const Element   end_transition;</a>
+<a name="190"><span class="lineNum">     190 </span>                :            : extern const Element  stop_transition;</a>
+<a name="191"><span class="lineNum">     191 </span>                :            : extern const Element  skip_transition;</a>
+<a name="192"><span class="lineNum">     192 </span>                :            : extern const Element   complete_state;</a>
+<a name="193"><span class="lineNum">     193 </span>                :            : extern const Element    running_state;</a>
+<a name="194"><span class="lineNum">     194 </span>                :            : extern const Element    standby_state;</a>
+<a name="195"><span class="lineNum">     195 </span>                :            : // clang-format on</a>
+<a name="196"><span class="lineNum">     196 </span>                :            : }  // namespace syntax</a>
+<a name="197"><span class="lineNum">     197 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="198"><span class="lineNum">     198 </span>                :            : </a>
+<a name="199"><span class="lineNum">     199 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__STORYBOARD_ELEMENT_STATE_HPP_</a>
 </pre>
       </td>
     </tr>

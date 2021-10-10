@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -57,8 +57,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -95,8 +95,8 @@
 <a name="17"><span class="lineNum">      17 </span>                :            : </a>
 <a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;openscenario_interpreter/syntax/parameter_declarations.hpp&gt;</a>
 <a name="19"><span class="lineNum">      19 </span>                :            : #include &lt;openscenario_interpreter/syntax/properties.hpp&gt;</a>
-<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;openscenario_interpreter/syntax/string.hpp&gt;</a>
-<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;openscenario_msgs/msg/driver_model.hpp&gt;</a>
+<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;openscenario_msgs/msg/driver_model.hpp&gt;</a>
+<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;pugixml.hpp&gt;</a>
 <a name="22"><span class="lineNum">      22 </span>                :            : #include &lt;utility&gt;</a>
 <a name="23"><span class="lineNum">      23 </span>                :            : </a>
 <a name="24"><span class="lineNum">      24 </span>                :            : namespace openscenario_interpreter</a>
@@ -124,54 +124,26 @@
 <a name="46"><span class="lineNum">      46 </span>                :            :  * -------------------------------------------------------------------------- */</a>
 <a name="47"><span class="lineNum">      47 </span>                :            : struct Controller : public Scope</a>
 <a name="48"><span class="lineNum">      48 </span>                :            : {</a>
-<a name="49"><span class="lineNum">      49 </span>                :            :   /* ---- ParameterDeclarations ------------------------------------------------</a>
-<a name="50"><span class="lineNum">      50 </span>                :            :    *</a>
-<a name="51"><span class="lineNum">      51 </span>                :            :    *  Definition of additional parameters.</a>
-<a name="52"><span class="lineNum">      52 </span>                :            :    *</a>
-<a name="53"><span class="lineNum">      53 </span>                :            :    * ------------------------------------------------------------------------ */</a>
-<a name="54"><span class="lineNum">      54 </span>                :            :   const ParameterDeclarations parameter_declarations;</a>
-<a name="55"><span class="lineNum">      55 </span>                :            : </a>
-<a name="56"><span class="lineNum">      56 </span>                :            :   /* ---- Properties -----------------------------------------------------------</a>
-<a name="57"><span class="lineNum">      57 </span>                :            :    *</a>
-<a name="58"><span class="lineNum">      58 </span>                :            :    *  Describing properties for the controller.</a>
-<a name="59"><span class="lineNum">      59 </span>                :            :    *</a>
-<a name="60"><span class="lineNum">      60 </span>                :            :    * ------------------------------------------------------------------------ */</a>
-<a name="61"><span class="lineNum">      61 </span>                :            :   Properties properties;</a>
-<a name="62"><span class="lineNum">      62 </span>                :            : </a>
-<a name="63"><span class="lineNum">      63 </span>                :            :   template &lt;typename Node&gt;</a>
-<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :   explicit Controller(const Node &amp; node, Scope &amp; outer_scope)</span></a>
-<a name="65"><span class="lineNum">      65 </span>                :            :   : Scope(outer_scope.makeChildScope(readAttribute&lt;String&gt;(&quot;name&quot;, node, outer_scope))),</a>
-<a name="66"><span class="lineNum">      66 </span>                :            :     parameter_declarations(</a>
-<a name="67"><span class="lineNum">      67 </span>                :            :       readElement&lt;ParameterDeclarations&gt;(&quot;ParameterDeclarations&quot;, node, localScope())),</a>
-<a name="68"><span class="lineNum">      68 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :     properties(readElement&lt;Properties&gt;(&quot;Properties&quot;, node, localScope()))</span></a>
-<span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
-<span class="lineNum">         </span>   <span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span><span class="branchNoExec" title="Branch 12 was not executed"> # </span> 
-<span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 13 was not executed"> # </span>]
-<a name="69"><span class="lineNum">      69 </span>                :            :   {</a>
-<a name="70"><span class="lineNum">      70 </span>                :<span class="lineNoCov">          0 :   }</span></a>
-<a name="71"><span class="lineNum">      71 </span>                :            : </a>
-<a name="72"><span class="lineNum">      72 </span>                :            :   template &lt;typename... Ts&gt;</a>
-<a name="73"><span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :   decltype(auto) operator[](Ts &amp;&amp;... xs)</span></a>
-<a name="74"><span class="lineNum">      74 </span>                :            :   {</a>
-<a name="75"><span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 :     return properties.operator[](std::forward&lt;decltype(xs)&gt;(xs)...);</span></a>
-<a name="76"><span class="lineNum">      76 </span>                :            :   }</a>
-<a name="77"><span class="lineNum">      77 </span>                :            : </a>
-<a name="78"><span class="lineNum">      78 </span>                :<span class="lineNoCov">          0 :   operator openscenario_msgs::msg::DriverModel()</span></a>
-<a name="79"><span class="lineNum">      79 </span>                :            :   {</a>
-<a name="80"><span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 :     openscenario_msgs::msg::DriverModel controller;</span></a>
-<a name="81"><span class="lineNum">      81 </span>                :            :     {</a>
-<a name="82"><span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 :       controller.see_around = not(*this)[&quot;isBlind&quot;];</span></a>
-<a name="83"><span class="lineNum">      83 </span>                :            :     }</a>
-<a name="84"><span class="lineNum">      84 </span>                :            : </a>
-<a name="85"><span class="lineNum">      85 </span>                :<span class="lineNoCov">          0 :     return controller;</span></a>
-<a name="86"><span class="lineNum">      86 </span>                :            :   }</a>
-<a name="87"><span class="lineNum">      87 </span>                :            : };</a>
-<a name="88"><span class="lineNum">      88 </span>                :            : </a>
-<a name="89"><span class="lineNum">      89 </span>                :            : using DefaultController = Properties;</a>
-<a name="90"><span class="lineNum">      90 </span>                :            : }  // namespace syntax</a>
-<a name="91"><span class="lineNum">      91 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="92"><span class="lineNum">      92 </span>                :            : </a>
-<a name="93"><span class="lineNum">      93 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__CONTROLLER_HPP_</a>
+<a name="49"><span class="lineNum">      49 </span>                :            :   const ParameterDeclarations parameter_declarations;  // Definition of additional parameters.</a>
+<a name="50"><span class="lineNum">      50 </span>                :            : </a>
+<a name="51"><span class="lineNum">      51 </span>                :            :   Properties properties;  // Describing properties for the controller.</a>
+<a name="52"><span class="lineNum">      52 </span>                :            : </a>
+<a name="53"><span class="lineNum">      53 </span>                :            :   explicit Controller(const pugi::xml_node &amp;, Scope &amp;);</a>
+<a name="54"><span class="lineNum">      54 </span>                :            : </a>
+<a name="55"><span class="lineNum">      55 </span>                :            :   template &lt;typename... Ts&gt;</a>
+<a name="56"><span class="lineNum">      56 </span>                :<span class="lineNoCov">          0 :   auto operator[](Ts &amp;&amp;... xs) -&gt; decltype(auto)</span></a>
+<a name="57"><span class="lineNum">      57 </span>                :            :   {</a>
+<a name="58"><span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 :     return properties.operator[](std::forward&lt;decltype(xs)&gt;(xs)...);</span></a>
+<a name="59"><span class="lineNum">      59 </span>                :            :   }</a>
+<a name="60"><span class="lineNum">      60 </span>                :            : </a>
+<a name="61"><span class="lineNum">      61 </span>                :            :   operator openscenario_msgs::msg::DriverModel();</a>
+<a name="62"><span class="lineNum">      62 </span>                :            : };</a>
+<a name="63"><span class="lineNum">      63 </span>                :            : </a>
+<a name="64"><span class="lineNum">      64 </span>                :            : using DefaultController = Properties;</a>
+<a name="65"><span class="lineNum">      65 </span>                :            : }  // namespace syntax</a>
+<a name="66"><span class="lineNum">      66 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="67"><span class="lineNum">      67 </span>                :            : </a>
+<a name="68"><span class="lineNum">      68 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__CONTROLLER_HPP_</a>
 </pre>
       </td>
     </tr>

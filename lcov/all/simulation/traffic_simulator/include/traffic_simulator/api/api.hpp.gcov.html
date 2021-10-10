@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -185,187 +185,270 @@
 <a name="107"><span class="lineNum">     107 </span>                :            : </a>
 <a name="108"><span class="lineNum">     108 </span>                :            :   void setVerbose(const bool verbose);</a>
 <a name="109"><span class="lineNum">     109 </span>                :            : </a>
-<a name="110"><span class="lineNum">     110 </span>                :            :   bool spawn(</a>
-<a name="111"><span class="lineNum">     111 </span>                :            :     const bool is_ego, const std::string &amp; name,</a>
-<a name="112"><span class="lineNum">     112 </span>                :            :     const openscenario_msgs::msg::VehicleParameters &amp; params);</a>
-<a name="113"><span class="lineNum">     113 </span>                :            : </a>
-<a name="114"><span class="lineNum">     114 </span>                :            :   bool spawn(</a>
-<a name="115"><span class="lineNum">     115 </span>                :            :     const bool is_ego, const std::string &amp; name,</a>
-<a name="116"><span class="lineNum">     116 </span>                :            :     const openscenario_msgs::msg::PedestrianParameters &amp; params);</a>
-<a name="117"><span class="lineNum">     117 </span>                :            : </a>
-<a name="118"><span class="lineNum">     118 </span>                :            :   bool spawn(</a>
-<a name="119"><span class="lineNum">     119 </span>                :            :     const bool is_ego, const std::string &amp; name,</a>
-<a name="120"><span class="lineNum">     120 </span>                :            :     const openscenario_msgs::msg::MiscObjectParameters &amp; params);</a>
-<a name="121"><span class="lineNum">     121 </span>                :            : </a>
-<a name="122"><span class="lineNum">     122 </span>                :            :   template &lt;typename Parameters, typename... Ts&gt;</a>
-<a name="123"><span class="lineNum">     123 </span>                :            :   auto spawn(const bool is_ego, const std::string &amp; name, const Parameters &amp; params, Ts &amp;&amp;... xs)</a>
-<a name="124"><span class="lineNum">     124 </span>                :            :   {</a>
-<a name="125"><span class="lineNum">     125 </span>                :            :     return spawn(is_ego, name, params) &amp;&amp; setEntityStatus(name, std::forward&lt;decltype(xs)&gt;(xs)...);</a>
-<a name="126"><span class="lineNum">     126 </span>                :            :   }</a>
-<a name="127"><span class="lineNum">     127 </span>                :            : </a>
-<a name="128"><span class="lineNum">     128 </span>                :            :   bool despawn(const std::string &amp; name);</a>
-<a name="129"><span class="lineNum">     129 </span>                :            : </a>
-<a name="130"><span class="lineNum">     130 </span>                :            :   openscenario_msgs::msg::EntityStatus getEntityStatus(const std::string &amp; name);</a>
-<a name="131"><span class="lineNum">     131 </span>                :            : </a>
-<a name="132"><span class="lineNum">     132 </span>                :            :   geometry_msgs::msg::Pose getEntityPose(const std::string &amp; name);</a>
-<a name="133"><span class="lineNum">     133 </span>                :            : </a>
-<a name="134"><span class="lineNum">     134 </span>                :            :   bool setEntityStatus(</a>
-<a name="135"><span class="lineNum">     135 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::EntityStatus &amp; status);</a>
-<a name="136"><span class="lineNum">     136 </span>                :            :   bool setEntityStatus(</a>
-<a name="137"><span class="lineNum">     137 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; map_pose,</a>
-<a name="138"><span class="lineNum">     138 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
-<a name="139"><span class="lineNum">     139 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
-<a name="140"><span class="lineNum">     140 </span>                :            :   bool setEntityStatus(</a>
-<a name="141"><span class="lineNum">     141 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::LaneletPose &amp; lanelet_pose,</a>
-<a name="142"><span class="lineNum">     142 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
-<a name="143"><span class="lineNum">     143 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
-<a name="144"><span class="lineNum">     144 </span>                :            :   bool setEntityStatus(</a>
-<a name="145"><span class="lineNum">     145 </span>                :            :     const std::string &amp; name, const std::string &amp; reference_entity_name,</a>
-<a name="146"><span class="lineNum">     146 </span>                :            :     const geometry_msgs::msg::Pose &amp; relative_pose,</a>
-<a name="147"><span class="lineNum">     147 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
-<a name="148"><span class="lineNum">     148 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
-<a name="149"><span class="lineNum">     149 </span>                :            :   bool setEntityStatus(</a>
-<a name="150"><span class="lineNum">     150 </span>                :            :     const std::string &amp; name, const std::string &amp; reference_entity_name,</a>
-<a name="151"><span class="lineNum">     151 </span>                :            :     const geometry_msgs::msg::Point &amp; relative_position,</a>
-<a name="152"><span class="lineNum">     152 </span>                :            :     const geometry_msgs::msg::Vector3 &amp; relative_rpy,</a>
-<a name="153"><span class="lineNum">     153 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
-<a name="154"><span class="lineNum">     154 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
-<a name="155"><span class="lineNum">     155 </span>                :            : </a>
-<a name="156"><span class="lineNum">     156 </span>                :            :   boost::optional&lt;double&gt; getTimeHeadway(const std::string &amp; from, const std::string &amp; to);</a>
-<a name="157"><span class="lineNum">     157 </span>                :            : </a>
-<a name="158"><span class="lineNum">     158 </span>                :            :   bool reachPosition(</a>
-<a name="159"><span class="lineNum">     159 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; target_pose, const double tolerance);</a>
-<a name="160"><span class="lineNum">     160 </span>                :            :   bool reachPosition(</a>
-<a name="161"><span class="lineNum">     161 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::LaneletPose &amp; target_pose,</a>
-<a name="162"><span class="lineNum">     162 </span>                :            :     const double tolerance);</a>
-<a name="163"><span class="lineNum">     163 </span>                :            :   bool reachPosition(</a>
-<a name="164"><span class="lineNum">     164 </span>                :            :     const std::string &amp; name, const std::string &amp; target_name, const double tolerance) const;</a>
-<a name="165"><span class="lineNum">     165 </span>                :            : </a>
-<a name="166"><span class="lineNum">     166 </span>                :            :   bool attachLidarSensor(simulation_api_schema::LidarConfiguration configuration);</a>
-<a name="167"><span class="lineNum">     167 </span>                :            : </a>
-<a name="168"><span class="lineNum">     168 </span>                :            :   bool attachDetectionSensor(simulation_api_schema::DetectionSensorConfiguration configuration);</a>
-<a name="169"><span class="lineNum">     169 </span>                :            : </a>
-<a name="170"><span class="lineNum">     170 </span>                :            :   bool initialize(double realtime_factor, double step_time);</a>
-<a name="171"><span class="lineNum">     171 </span>                :            : </a>
-<a name="172"><span class="lineNum">     172 </span>                :            :   bool updateFrame();</a>
-<a name="173"><span class="lineNum">     173 </span>                :            : </a>
-<a name="174"><span class="lineNum">     174 </span>                :<span class="lineCov">        653 :   double getCurrentTime() const noexcept { return clock_.getCurrentSimulationTime(); }</span></a>
-<a name="175"><span class="lineNum">     175 </span>                :            : </a>
-<a name="176"><span class="lineNum">     176 </span>                :            :   void requestLaneChange(const std::string &amp; name, const std::int64_t &amp; lanelet_id);</a>
-<a name="177"><span class="lineNum">     177 </span>                :            : </a>
-<a name="178"><span class="lineNum">     178 </span>                :            :   void requestLaneChange(</a>
-<a name="179"><span class="lineNum">     179 </span>                :            :     const std::string &amp; name, const traffic_simulator::entity::Direction &amp; direction);</a>
-<a name="180"><span class="lineNum">     180 </span>                :            : </a>
-<a name="181"><span class="lineNum">     181 </span>                :            : #define FORWARD_TO_ENTITY_MANAGER(NAME)                                    \</a>
-<a name="182"><span class="lineNum">     182 </span>                :            :   template &lt;typename... Ts&gt;                                                \</a>
-<a name="183"><span class="lineNum">     183 </span>                :            :   decltype(auto) NAME(Ts &amp;&amp;... xs)                                         \</a>
-<a name="184"><span class="lineNum">     184 </span>                :            :   {                                                                        \</a>
-<a name="185"><span class="lineNum">     185 </span>                :            :     assert(entity_manager_ptr_);                                           \</a>
-<a name="186"><span class="lineNum">     186 </span>                :            :     return (*entity_manager_ptr_).NAME(std::forward&lt;decltype(xs)&gt;(xs)...); \</a>
-<a name="187"><span class="lineNum">     187 </span>                :            :   }                                                                        \</a>
-<a name="188"><span class="lineNum">     188 </span>                :            :   static_assert(true, &quot;&quot;)</a>
-<a name="189"><span class="lineNum">     189 </span>                :            : </a>
-<a name="190"><span class="lineNum">     190 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(cancelRequest);</a>
-<a name="191"><span class="lineNum">     191 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(checkCollision);</a>
-<a name="192"><span class="lineNum">     192 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(engage);</a>
-<a name="193"><span class="lineNum">     193 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(entityExists);</a>
-<a name="194"><span class="lineNum">     194 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getBoundingBoxDistance);</a>
-<a name="195"><span class="lineNum">     195 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getCurrentAction);</a>
-<a name="196"><span class="lineNum">     196 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEgoName);</a>
-<a name="197"><span class="lineNum">     197 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEntityNames);</a>
-<a name="198"><span class="lineNum">     198 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLinearJerk);</a>
-<a name="199"><span class="lineNum">     199 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLongitudinalDistance);</a>
-<a name="200"><span class="lineNum">     200 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   FORWARD_TO_ENTITY_MANAGER(getRelativePose);</span></a>
-<a name="201"><span class="lineNum">     201 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getStandStillDuration);</a>
-<a name="202"><span class="lineNum">     202 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightArrow);</a>
-<a name="203"><span class="lineNum">     203 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightColor);</a>
-<a name="204"><span class="lineNum">     204 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getVehicleCommand);</a>
-<a name="205"><span class="lineNum">     205 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(isInLanelet);</a>
-<a name="206"><span class="lineNum">     206 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(ready);</a>
-<a name="207"><span class="lineNum">     207 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAcquirePosition);</a>
-<a name="208"><span class="lineNum">     208 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAssignRoute);</a>
-<a name="209"><span class="lineNum">     209 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestWalkStraight);</a>
-<a name="210"><span class="lineNum">     210 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setDriverModel);</a>
-<a name="211"><span class="lineNum">     211 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTargetSpeed);</a>
-<a name="212"><span class="lineNum">     212 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrow);</a>
-<a name="213"><span class="lineNum">     213 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrowPhase);</a>
-<a name="214"><span class="lineNum">     214 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColor);</a>
-<a name="215"><span class="lineNum">     215 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColorPhase);</a>
-<a name="216"><span class="lineNum">     216 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toLaneletPose);</a>
-<a name="217"><span class="lineNum">     217 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toMapPose);</a>
-<a name="218"><span class="lineNum">     218 </span>                :            : </a>
-<a name="219"><span class="lineNum">     219 </span>                :            : #undef FORWARD_TO_ENTITY_MANAGER</a>
-<a name="220"><span class="lineNum">     220 </span>                :            : </a>
-<a name="221"><span class="lineNum">     221 </span>                :            : private:</a>
-<a name="222"><span class="lineNum">     222 </span>                :            :   bool updateSensorFrame();</a>
-<a name="223"><span class="lineNum">     223 </span>                :            :   bool updateEntityStatusInSim();</a>
-<a name="224"><span class="lineNum">     224 </span>                :            :   bool updateTrafficLightsInSim();</a>
-<a name="225"><span class="lineNum">     225 </span>                :            : </a>
-<a name="226"><span class="lineNum">     226 </span>                :            :   template &lt;typename Parameters&gt;</a>
-<a name="227"><span class="lineNum">     227 </span>                :            :   bool spawn(</a>
-<a name="228"><span class="lineNum">     228 </span>                :            :     const bool is_ego, const Parameters &amp; parameters,</a>
-<a name="229"><span class="lineNum">     229 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; status)</a>
-<a name="230"><span class="lineNum">     230 </span>                :            :   {</a>
-<a name="231"><span class="lineNum">     231 </span>                :            :     return spawn(is_ego, parameters.toXml(), status);</a>
-<a name="232"><span class="lineNum">     232 </span>                :            :   }</a>
-<a name="233"><span class="lineNum">     233 </span>                :            : </a>
-<a name="234"><span class="lineNum">     234 </span>                :            :   const Configuration configuration;</a>
-<a name="235"><span class="lineNum">     235 </span>                :            : </a>
-<a name="236"><span class="lineNum">     236 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::entity::EntityManager&gt; entity_manager_ptr_;</a>
-<a name="237"><span class="lineNum">     237 </span>                :            : </a>
-<a name="238"><span class="lineNum">     238 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::traffic::TrafficController&gt; traffic_controller_ptr_;</a>
-<a name="239"><span class="lineNum">     239 </span>                :            : </a>
-<a name="240"><span class="lineNum">     240 </span>                :            :   metrics::MetricsManager metrics_manager_;</a>
-<a name="241"><span class="lineNum">     241 </span>                :            : </a>
-<a name="242"><span class="lineNum">     242 </span>                :            :   const rclcpp::Publisher&lt;rosgraph_msgs::msg::Clock&gt;::SharedPtr clock_pub_;</a>
-<a name="243"><span class="lineNum">     243 </span>                :            : </a>
-<a name="244"><span class="lineNum">     244 </span>                :            :   traffic_simulator::SimulationClock clock_;</a>
-<a name="245"><span class="lineNum">     245 </span>                :            : </a>
-<a name="246"><span class="lineNum">     246 </span>                :            :   zeromq::Client&lt;</a>
-<a name="247"><span class="lineNum">     247 </span>                :            :     simulation_api_schema::InitializeRequest, simulation_api_schema::InitializeResponse&gt;</a>
-<a name="248"><span class="lineNum">     248 </span>                :            :     initialize_client_;</a>
-<a name="249"><span class="lineNum">     249 </span>                :            :   zeromq::Client&lt;</a>
-<a name="250"><span class="lineNum">     250 </span>                :            :     simulation_api_schema::UpdateFrameRequest, simulation_api_schema::UpdateFrameResponse&gt;</a>
-<a name="251"><span class="lineNum">     251 </span>                :            :     update_frame_client_;</a>
-<a name="252"><span class="lineNum">     252 </span>                :            :   zeromq::Client&lt;</a>
-<a name="253"><span class="lineNum">     253 </span>                :            :     simulation_api_schema::UpdateSensorFrameRequest,</a>
-<a name="254"><span class="lineNum">     254 </span>                :            :     simulation_api_schema::UpdateSensorFrameResponse&gt;</a>
-<a name="255"><span class="lineNum">     255 </span>                :            :     update_sensor_frame_client_;</a>
-<a name="256"><span class="lineNum">     256 </span>                :            :   zeromq::Client&lt;</a>
-<a name="257"><span class="lineNum">     257 </span>                :            :     simulation_api_schema::SpawnVehicleEntityRequest,</a>
-<a name="258"><span class="lineNum">     258 </span>                :            :     simulation_api_schema::SpawnVehicleEntityResponse&gt;</a>
-<a name="259"><span class="lineNum">     259 </span>                :            :     spawn_vehicle_entity_client_;</a>
-<a name="260"><span class="lineNum">     260 </span>                :            :   zeromq::Client&lt;</a>
-<a name="261"><span class="lineNum">     261 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityRequest,</a>
-<a name="262"><span class="lineNum">     262 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityResponse&gt;</a>
-<a name="263"><span class="lineNum">     263 </span>                :            :     spawn_pedestrian_entity_client_;</a>
-<a name="264"><span class="lineNum">     264 </span>                :            :   zeromq::Client&lt;</a>
-<a name="265"><span class="lineNum">     265 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityRequest,</a>
-<a name="266"><span class="lineNum">     266 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityResponse&gt;</a>
-<a name="267"><span class="lineNum">     267 </span>                :            :     spawn_misc_object_entity_client_;</a>
-<a name="268"><span class="lineNum">     268 </span>                :            :   zeromq::Client&lt;</a>
-<a name="269"><span class="lineNum">     269 </span>                :            :     simulation_api_schema::DespawnEntityRequest, simulation_api_schema::DespawnEntityResponse&gt;</a>
-<a name="270"><span class="lineNum">     270 </span>                :            :     despawn_entity_client_;</a>
-<a name="271"><span class="lineNum">     271 </span>                :            :   zeromq::Client&lt;</a>
-<a name="272"><span class="lineNum">     272 </span>                :            :     simulation_api_schema::UpdateEntityStatusRequest,</a>
-<a name="273"><span class="lineNum">     273 </span>                :            :     simulation_api_schema::UpdateEntityStatusResponse&gt;</a>
-<a name="274"><span class="lineNum">     274 </span>                :            :     update_entity_status_client_;</a>
-<a name="275"><span class="lineNum">     275 </span>                :            :   zeromq::Client&lt;</a>
-<a name="276"><span class="lineNum">     276 </span>                :            :     simulation_api_schema::AttachLidarSensorRequest,</a>
-<a name="277"><span class="lineNum">     277 </span>                :            :     simulation_api_schema::AttachLidarSensorResponse&gt;</a>
-<a name="278"><span class="lineNum">     278 </span>                :            :     attach_lidar_sensor_client_;</a>
-<a name="279"><span class="lineNum">     279 </span>                :            :   zeromq::Client&lt;</a>
-<a name="280"><span class="lineNum">     280 </span>                :            :     simulation_api_schema::AttachDetectionSensorRequest,</a>
-<a name="281"><span class="lineNum">     281 </span>                :            :     simulation_api_schema::AttachDetectionSensorResponse&gt;</a>
-<a name="282"><span class="lineNum">     282 </span>                :            :     attach_detection_sensor_client_;</a>
-<a name="283"><span class="lineNum">     283 </span>                :            :   zeromq::Client&lt;</a>
-<a name="284"><span class="lineNum">     284 </span>                :            :     simulation_api_schema::UpdateTrafficLightsRequest,</a>
-<a name="285"><span class="lineNum">     285 </span>                :            :     simulation_api_schema::UpdateTrafficLightsResponse&gt;</a>
-<a name="286"><span class="lineNum">     286 </span>                :            :     update_traffic_lights_client_;</a>
-<a name="287"><span class="lineNum">     287 </span>                :            : };</a>
-<a name="288"><span class="lineNum">     288 </span>                :            : }  // namespace traffic_simulator</a>
-<a name="289"><span class="lineNum">     289 </span>                :            : </a>
-<a name="290"><span class="lineNum">     290 </span>                :            : #endif  // TRAFFIC_SIMULATOR__API__API_HPP_</a>
+<a name="110"><span class="lineNum">     110 </span>                :            :   template &lt;typename Parameters, typename... Ts&gt;</a>
+<a name="111"><span class="lineNum">     111 </span>                :            :   bool spawn(const bool is_ego, const std::string &amp; name, const Parameters &amp; params, Ts &amp;&amp;... xs)</a>
+<a name="112"><span class="lineNum">     112 </span>                :            :   {</a>
+<a name="113"><span class="lineNum">     113 </span>                :            :     return spawnEntity(</a>
+<a name="114"><span class="lineNum">     114 </span>                :            :       is_ego, name, params, getEntityStatus(name, std::forward&lt;decltype(xs)&gt;(xs)...));</a>
+<a name="115"><span class="lineNum">     115 </span>                :            :   }</a>
+<a name="116"><span class="lineNum">     116 </span>                :            : </a>
+<a name="117"><span class="lineNum">     117 </span>                :            :   bool despawn(const std::string &amp; name);</a>
+<a name="118"><span class="lineNum">     118 </span>                :            : </a>
+<a name="119"><span class="lineNum">     119 </span>                :            :   openscenario_msgs::msg::EntityStatus getEntityStatus(const std::string &amp; name);</a>
+<a name="120"><span class="lineNum">     120 </span>                :            : </a>
+<a name="121"><span class="lineNum">     121 </span>                :            :   geometry_msgs::msg::Pose getEntityPose(const std::string &amp; name);</a>
+<a name="122"><span class="lineNum">     122 </span>                :            : </a>
+<a name="123"><span class="lineNum">     123 </span>                :            :   void setEntityStatus(</a>
+<a name="124"><span class="lineNum">     124 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::EntityStatus &amp; status);</a>
+<a name="125"><span class="lineNum">     125 </span>                :            : </a>
+<a name="126"><span class="lineNum">     126 </span>                :            :   /**</a>
+<a name="127"><span class="lineNum">     127 </span>                :            :    * @brief Set the Entity Status object from map pose</a>
+<a name="128"><span class="lineNum">     128 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="129"><span class="lineNum">     129 </span>                :            :    * @param map_pose map pose of the entity status you want to set</a>
+<a name="130"><span class="lineNum">     130 </span>                :            :    * @param action_status action status of the entity status you want to set</a>
+<a name="131"><span class="lineNum">     131 </span>                :            :    */</a>
+<a name="132"><span class="lineNum">     132 </span>                :            :   void setEntityStatus(</a>
+<a name="133"><span class="lineNum">     133 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; map_pose,</a>
+<a name="134"><span class="lineNum">     134 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="135"><span class="lineNum">     135 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
+<a name="136"><span class="lineNum">     136 </span>                :            :   /**</a>
+<a name="137"><span class="lineNum">     137 </span>                :            :    * @brief Get the Entity Status object from map pose</a>
+<a name="138"><span class="lineNum">     138 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="139"><span class="lineNum">     139 </span>                :            :    * @param map_pose map pose of the entity status you want to set</a>
+<a name="140"><span class="lineNum">     140 </span>                :            :    * @param action_status action status of the entity status you want to set</a>
+<a name="141"><span class="lineNum">     141 </span>                :            :    */</a>
+<a name="142"><span class="lineNum">     142 </span>                :            :   auto getEntityStatus(</a>
+<a name="143"><span class="lineNum">     143 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; map_pose,</a>
+<a name="144"><span class="lineNum">     144 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="145"><span class="lineNum">     145 </span>                :            :       traffic_simulator::helper::constructActionStatus())</a>
+<a name="146"><span class="lineNum">     146 </span>                :            :     -&gt; const openscenario_msgs::msg::EntityStatus;</a>
+<a name="147"><span class="lineNum">     147 </span>                :            :   /**</a>
+<a name="148"><span class="lineNum">     148 </span>                :            :    * @brief Set the Entity Status object</a>
+<a name="149"><span class="lineNum">     149 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="150"><span class="lineNum">     150 </span>                :            :    * @param lanelet_pose lanelet pose of the entity status you want to set</a>
+<a name="151"><span class="lineNum">     151 </span>                :            :    * @param action_status action status of the entity status you want to set</a>
+<a name="152"><span class="lineNum">     152 </span>                :            :    * @return const openscenario_msgs::msg::EntityStatus </a>
+<a name="153"><span class="lineNum">     153 </span>                :            :    */</a>
+<a name="154"><span class="lineNum">     154 </span>                :            :   void setEntityStatus(</a>
+<a name="155"><span class="lineNum">     155 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::LaneletPose &amp; lanelet_pose,</a>
+<a name="156"><span class="lineNum">     156 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="157"><span class="lineNum">     157 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
+<a name="158"><span class="lineNum">     158 </span>                :            :   /**</a>
+<a name="159"><span class="lineNum">     159 </span>                :            :    * @brief Get the Entity Status object</a>
+<a name="160"><span class="lineNum">     160 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="161"><span class="lineNum">     161 </span>                :            :    * @param lanelet_pose lanelet pose of the entity status you want to set</a>
+<a name="162"><span class="lineNum">     162 </span>                :            :    * @param action_status action status of the entity status you want to set</a>
+<a name="163"><span class="lineNum">     163 </span>                :            :    * @return const openscenario_msgs::msg::EntityStatus </a>
+<a name="164"><span class="lineNum">     164 </span>                :            :    */</a>
+<a name="165"><span class="lineNum">     165 </span>                :            :   auto getEntityStatus(</a>
+<a name="166"><span class="lineNum">     166 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::LaneletPose &amp; lanelet_pose,</a>
+<a name="167"><span class="lineNum">     167 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="168"><span class="lineNum">     168 </span>                :            :       traffic_simulator::helper::constructActionStatus())</a>
+<a name="169"><span class="lineNum">     169 </span>                :            :     -&gt; const openscenario_msgs::msg::EntityStatus;</a>
+<a name="170"><span class="lineNum">     170 </span>                :            :   /**</a>
+<a name="171"><span class="lineNum">     171 </span>                :            :    * @brief Set the Entity Status object</a>
+<a name="172"><span class="lineNum">     172 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="173"><span class="lineNum">     173 </span>                :            :    * @param reference_entity_name name of the entity you want to use as reference</a>
+<a name="174"><span class="lineNum">     174 </span>                :            :    * @param relative_pose relative pose from the reference entity</a>
+<a name="175"><span class="lineNum">     175 </span>                :            :    * @param action_status action status of the target entity</a>
+<a name="176"><span class="lineNum">     176 </span>                :            :    * @return const openscenario_msgs::msg::EntityStatus </a>
+<a name="177"><span class="lineNum">     177 </span>                :            :    */</a>
+<a name="178"><span class="lineNum">     178 </span>                :            :   void setEntityStatus(</a>
+<a name="179"><span class="lineNum">     179 </span>                :            :     const std::string &amp; name, const std::string &amp; reference_entity_name,</a>
+<a name="180"><span class="lineNum">     180 </span>                :            :     const geometry_msgs::msg::Pose &amp; relative_pose,</a>
+<a name="181"><span class="lineNum">     181 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="182"><span class="lineNum">     182 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
+<a name="183"><span class="lineNum">     183 </span>                :            :   /**</a>
+<a name="184"><span class="lineNum">     184 </span>                :            :    * @brief Get the Entity Status object</a>
+<a name="185"><span class="lineNum">     185 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="186"><span class="lineNum">     186 </span>                :            :    * @param reference_entity_name name of the entity you want to use as reference</a>
+<a name="187"><span class="lineNum">     187 </span>                :            :    * @param relative_pose relative pose from the reference entity</a>
+<a name="188"><span class="lineNum">     188 </span>                :            :    * @param action_status action status of the target entity</a>
+<a name="189"><span class="lineNum">     189 </span>                :            :    * @return const openscenario_msgs::msg::EntityStatus </a>
+<a name="190"><span class="lineNum">     190 </span>                :            :    */</a>
+<a name="191"><span class="lineNum">     191 </span>                :            :   auto getEntityStatus(</a>
+<a name="192"><span class="lineNum">     192 </span>                :            :     const std::string &amp; name, const std::string &amp; reference_entity_name,</a>
+<a name="193"><span class="lineNum">     193 </span>                :            :     const geometry_msgs::msg::Pose &amp; relative_pose,</a>
+<a name="194"><span class="lineNum">     194 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="195"><span class="lineNum">     195 </span>                :            :       traffic_simulator::helper::constructActionStatus())</a>
+<a name="196"><span class="lineNum">     196 </span>                :            :     -&gt; const openscenario_msgs::msg::EntityStatus;</a>
+<a name="197"><span class="lineNum">     197 </span>                :            :   /**</a>
+<a name="198"><span class="lineNum">     198 </span>                :            :    * @brief Set the Entity Status object</a>
+<a name="199"><span class="lineNum">     199 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="200"><span class="lineNum">     200 </span>                :            :    * @param reference_entity_name name of the entity you want to use as reference</a>
+<a name="201"><span class="lineNum">     201 </span>                :            :    * @param relative_position relative position from the reference entity</a>
+<a name="202"><span class="lineNum">     202 </span>                :            :    * @param relative_rpy relative RPY orientation from the reference entity</a>
+<a name="203"><span class="lineNum">     203 </span>                :            :    * @param action_status action status of the target entity</a>
+<a name="204"><span class="lineNum">     204 </span>                :            :    * @return const openscenario_msgs::msg::EntityStatus </a>
+<a name="205"><span class="lineNum">     205 </span>                :            :    */</a>
+<a name="206"><span class="lineNum">     206 </span>                :            :   void setEntityStatus(</a>
+<a name="207"><span class="lineNum">     207 </span>                :            :     const std::string &amp; name, const std::string &amp; reference_entity_name,</a>
+<a name="208"><span class="lineNum">     208 </span>                :            :     const geometry_msgs::msg::Point &amp; relative_position,</a>
+<a name="209"><span class="lineNum">     209 </span>                :            :     const geometry_msgs::msg::Vector3 &amp; relative_rpy,</a>
+<a name="210"><span class="lineNum">     210 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="211"><span class="lineNum">     211 </span>                :            :       traffic_simulator::helper::constructActionStatus());</a>
+<a name="212"><span class="lineNum">     212 </span>                :            :   /**</a>
+<a name="213"><span class="lineNum">     213 </span>                :            :    * @brief Get the Entity Status object</a>
+<a name="214"><span class="lineNum">     214 </span>                :            :    * @param name name of the target entity, this argument used for calculating boundingbox etc...</a>
+<a name="215"><span class="lineNum">     215 </span>                :            :    * @param reference_entity_name name of the entity you want to use as reference</a>
+<a name="216"><span class="lineNum">     216 </span>                :            :    * @param relative_position relative position from the reference entity</a>
+<a name="217"><span class="lineNum">     217 </span>                :            :    * @param relative_rpy relative RPY orientation from the reference entity</a>
+<a name="218"><span class="lineNum">     218 </span>                :            :    * @param action_status action status of the target entity</a>
+<a name="219"><span class="lineNum">     219 </span>                :            :    * @return const openscenario_msgs::msg::EntityStatus </a>
+<a name="220"><span class="lineNum">     220 </span>                :            :    */</a>
+<a name="221"><span class="lineNum">     221 </span>                :            :   auto getEntityStatus(</a>
+<a name="222"><span class="lineNum">     222 </span>                :            :     const std::string &amp; name, const std::string &amp; reference_entity_name,</a>
+<a name="223"><span class="lineNum">     223 </span>                :            :     const geometry_msgs::msg::Point &amp; relative_position,</a>
+<a name="224"><span class="lineNum">     224 </span>                :            :     const geometry_msgs::msg::Vector3 &amp; relative_rpy,</a>
+<a name="225"><span class="lineNum">     225 </span>                :            :     const openscenario_msgs::msg::ActionStatus &amp; action_status =</a>
+<a name="226"><span class="lineNum">     226 </span>                :            :       traffic_simulator::helper::constructActionStatus())</a>
+<a name="227"><span class="lineNum">     227 </span>                :            :     -&gt; const openscenario_msgs::msg::EntityStatus;</a>
+<a name="228"><span class="lineNum">     228 </span>                :            : </a>
+<a name="229"><span class="lineNum">     229 </span>                :            :   boost::optional&lt;double&gt; getTimeHeadway(const std::string &amp; from, const std::string &amp; to);</a>
+<a name="230"><span class="lineNum">     230 </span>                :            : </a>
+<a name="231"><span class="lineNum">     231 </span>                :            :   bool reachPosition(</a>
+<a name="232"><span class="lineNum">     232 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; target_pose, const double tolerance);</a>
+<a name="233"><span class="lineNum">     233 </span>                :            :   bool reachPosition(</a>
+<a name="234"><span class="lineNum">     234 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::LaneletPose &amp; target_pose,</a>
+<a name="235"><span class="lineNum">     235 </span>                :            :     const double tolerance);</a>
+<a name="236"><span class="lineNum">     236 </span>                :            :   bool reachPosition(</a>
+<a name="237"><span class="lineNum">     237 </span>                :            :     const std::string &amp; name, const std::string &amp; target_name, const double tolerance) const;</a>
+<a name="238"><span class="lineNum">     238 </span>                :            : </a>
+<a name="239"><span class="lineNum">     239 </span>                :            :   bool attachLidarSensor(simulation_api_schema::LidarConfiguration configuration);</a>
+<a name="240"><span class="lineNum">     240 </span>                :            : </a>
+<a name="241"><span class="lineNum">     241 </span>                :            :   bool attachDetectionSensor(simulation_api_schema::DetectionSensorConfiguration configuration);</a>
+<a name="242"><span class="lineNum">     242 </span>                :            : </a>
+<a name="243"><span class="lineNum">     243 </span>                :            :   bool initialize(double realtime_factor, double step_time);</a>
+<a name="244"><span class="lineNum">     244 </span>                :            : </a>
+<a name="245"><span class="lineNum">     245 </span>                :            :   bool updateFrame();</a>
+<a name="246"><span class="lineNum">     246 </span>                :            : </a>
+<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">        653 :   double getCurrentTime() const noexcept { return clock_.getCurrentSimulationTime(); }</span></a>
+<a name="248"><span class="lineNum">     248 </span>                :            : </a>
+<a name="249"><span class="lineNum">     249 </span>                :            :   void requestLaneChange(const std::string &amp; name, const std::int64_t &amp; lanelet_id);</a>
+<a name="250"><span class="lineNum">     250 </span>                :            : </a>
+<a name="251"><span class="lineNum">     251 </span>                :            :   void requestLaneChange(</a>
+<a name="252"><span class="lineNum">     252 </span>                :            :     const std::string &amp; name, const traffic_simulator::entity::Direction &amp; direction);</a>
+<a name="253"><span class="lineNum">     253 </span>                :            : </a>
+<a name="254"><span class="lineNum">     254 </span>                :            : #define FORWARD_TO_ENTITY_MANAGER(NAME)                                    \</a>
+<a name="255"><span class="lineNum">     255 </span>                :            :   template &lt;typename... Ts&gt;                                                \</a>
+<a name="256"><span class="lineNum">     256 </span>                :            :   decltype(auto) NAME(Ts &amp;&amp;... xs)                                         \</a>
+<a name="257"><span class="lineNum">     257 </span>                :            :   {                                                                        \</a>
+<a name="258"><span class="lineNum">     258 </span>                :            :     assert(entity_manager_ptr_);                                           \</a>
+<a name="259"><span class="lineNum">     259 </span>                :            :     return (*entity_manager_ptr_).NAME(std::forward&lt;decltype(xs)&gt;(xs)...); \</a>
+<a name="260"><span class="lineNum">     260 </span>                :            :   }                                                                        \</a>
+<a name="261"><span class="lineNum">     261 </span>                :            :   static_assert(true, &quot;&quot;)</a>
+<a name="262"><span class="lineNum">     262 </span>                :            : </a>
+<a name="263"><span class="lineNum">     263 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(cancelRequest);</a>
+<a name="264"><span class="lineNum">     264 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(checkCollision);</a>
+<a name="265"><span class="lineNum">     265 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(engage);</a>
+<a name="266"><span class="lineNum">     266 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(entityExists);</a>
+<a name="267"><span class="lineNum">     267 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getBoundingBoxDistance);</a>
+<a name="268"><span class="lineNum">     268 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getCurrentAction);</a>
+<a name="269"><span class="lineNum">     269 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEgoName);</a>
+<a name="270"><span class="lineNum">     270 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getEntityNames);</a>
+<a name="271"><span class="lineNum">     271 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLinearJerk);</a>
+<a name="272"><span class="lineNum">     272 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getLongitudinalDistance);</a>
+<a name="273"><span class="lineNum">     273 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   FORWARD_TO_ENTITY_MANAGER(getRelativePose);</span></a>
+<a name="274"><span class="lineNum">     274 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getStandStillDuration);</a>
+<a name="275"><span class="lineNum">     275 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightArrow);</a>
+<a name="276"><span class="lineNum">     276 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getTrafficLightColor);</a>
+<a name="277"><span class="lineNum">     277 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(getVehicleCommand);</a>
+<a name="278"><span class="lineNum">     278 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(isInLanelet);</a>
+<a name="279"><span class="lineNum">     279 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(ready);</a>
+<a name="280"><span class="lineNum">     280 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAcquirePosition);</a>
+<a name="281"><span class="lineNum">     281 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestAssignRoute);</a>
+<a name="282"><span class="lineNum">     282 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(requestWalkStraight);</a>
+<a name="283"><span class="lineNum">     283 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setDriverModel);</a>
+<a name="284"><span class="lineNum">     284 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTargetSpeed);</a>
+<a name="285"><span class="lineNum">     285 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrow);</a>
+<a name="286"><span class="lineNum">     286 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightArrowPhase);</a>
+<a name="287"><span class="lineNum">     287 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColor);</a>
+<a name="288"><span class="lineNum">     288 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(setTrafficLightColorPhase);</a>
+<a name="289"><span class="lineNum">     289 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toLaneletPose);</a>
+<a name="290"><span class="lineNum">     290 </span>                :            :   FORWARD_TO_ENTITY_MANAGER(toMapPose);</a>
+<a name="291"><span class="lineNum">     291 </span>                :            : </a>
+<a name="292"><span class="lineNum">     292 </span>                :            : #undef FORWARD_TO_ENTITY_MANAGER</a>
+<a name="293"><span class="lineNum">     293 </span>                :            : </a>
+<a name="294"><span class="lineNum">     294 </span>                :            : private:</a>
+<a name="295"><span class="lineNum">     295 </span>                :            :   bool spawnEntity(</a>
+<a name="296"><span class="lineNum">     296 </span>                :            :     const bool is_ego, const std::string &amp; name,</a>
+<a name="297"><span class="lineNum">     297 </span>                :            :     const openscenario_msgs::msg::VehicleParameters &amp; params,</a>
+<a name="298"><span class="lineNum">     298 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; stats);</a>
+<a name="299"><span class="lineNum">     299 </span>                :            : </a>
+<a name="300"><span class="lineNum">     300 </span>                :            :   bool spawnEntity(</a>
+<a name="301"><span class="lineNum">     301 </span>                :            :     const bool is_ego, const std::string &amp; name,</a>
+<a name="302"><span class="lineNum">     302 </span>                :            :     const openscenario_msgs::msg::PedestrianParameters &amp; params,</a>
+<a name="303"><span class="lineNum">     303 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; stats);</a>
+<a name="304"><span class="lineNum">     304 </span>                :            : </a>
+<a name="305"><span class="lineNum">     305 </span>                :            :   bool spawnEntity(</a>
+<a name="306"><span class="lineNum">     306 </span>                :            :     const bool is_ego, const std::string &amp; name,</a>
+<a name="307"><span class="lineNum">     307 </span>                :            :     const openscenario_msgs::msg::MiscObjectParameters &amp; params,</a>
+<a name="308"><span class="lineNum">     308 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; stats);</a>
+<a name="309"><span class="lineNum">     309 </span>                :            : </a>
+<a name="310"><span class="lineNum">     310 </span>                :            :   bool updateSensorFrame();</a>
+<a name="311"><span class="lineNum">     311 </span>                :            :   bool updateEntityStatusInSim();</a>
+<a name="312"><span class="lineNum">     312 </span>                :            :   bool updateTrafficLightsInSim();</a>
+<a name="313"><span class="lineNum">     313 </span>                :            : </a>
+<a name="314"><span class="lineNum">     314 </span>                :            :   openscenario_msgs::msg::EntityStatus getEntityStatus(</a>
+<a name="315"><span class="lineNum">     315 </span>                :            :     const std::string &amp; name, const openscenario_msgs::msg::EntityStatus &amp; status);</a>
+<a name="316"><span class="lineNum">     316 </span>                :            : </a>
+<a name="317"><span class="lineNum">     317 </span>                :            :   const Configuration configuration;</a>
+<a name="318"><span class="lineNum">     318 </span>                :            : </a>
+<a name="319"><span class="lineNum">     319 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::entity::EntityManager&gt; entity_manager_ptr_;</a>
+<a name="320"><span class="lineNum">     320 </span>                :            : </a>
+<a name="321"><span class="lineNum">     321 </span>                :            :   const std::shared_ptr&lt;traffic_simulator::traffic::TrafficController&gt; traffic_controller_ptr_;</a>
+<a name="322"><span class="lineNum">     322 </span>                :            : </a>
+<a name="323"><span class="lineNum">     323 </span>                :            :   metrics::MetricsManager metrics_manager_;</a>
+<a name="324"><span class="lineNum">     324 </span>                :            : </a>
+<a name="325"><span class="lineNum">     325 </span>                :            :   const rclcpp::Publisher&lt;rosgraph_msgs::msg::Clock&gt;::SharedPtr clock_pub_;</a>
+<a name="326"><span class="lineNum">     326 </span>                :            : </a>
+<a name="327"><span class="lineNum">     327 </span>                :            :   traffic_simulator::SimulationClock clock_;</a>
+<a name="328"><span class="lineNum">     328 </span>                :            : </a>
+<a name="329"><span class="lineNum">     329 </span>                :            :   zeromq::Client&lt;</a>
+<a name="330"><span class="lineNum">     330 </span>                :            :     simulation_api_schema::InitializeRequest, simulation_api_schema::InitializeResponse&gt;</a>
+<a name="331"><span class="lineNum">     331 </span>                :            :     initialize_client_;</a>
+<a name="332"><span class="lineNum">     332 </span>                :            :   zeromq::Client&lt;</a>
+<a name="333"><span class="lineNum">     333 </span>                :            :     simulation_api_schema::UpdateFrameRequest, simulation_api_schema::UpdateFrameResponse&gt;</a>
+<a name="334"><span class="lineNum">     334 </span>                :            :     update_frame_client_;</a>
+<a name="335"><span class="lineNum">     335 </span>                :            :   zeromq::Client&lt;</a>
+<a name="336"><span class="lineNum">     336 </span>                :            :     simulation_api_schema::UpdateSensorFrameRequest,</a>
+<a name="337"><span class="lineNum">     337 </span>                :            :     simulation_api_schema::UpdateSensorFrameResponse&gt;</a>
+<a name="338"><span class="lineNum">     338 </span>                :            :     update_sensor_frame_client_;</a>
+<a name="339"><span class="lineNum">     339 </span>                :            :   zeromq::Client&lt;</a>
+<a name="340"><span class="lineNum">     340 </span>                :            :     simulation_api_schema::SpawnVehicleEntityRequest,</a>
+<a name="341"><span class="lineNum">     341 </span>                :            :     simulation_api_schema::SpawnVehicleEntityResponse&gt;</a>
+<a name="342"><span class="lineNum">     342 </span>                :            :     spawn_vehicle_entity_client_;</a>
+<a name="343"><span class="lineNum">     343 </span>                :            :   zeromq::Client&lt;</a>
+<a name="344"><span class="lineNum">     344 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityRequest,</a>
+<a name="345"><span class="lineNum">     345 </span>                :            :     simulation_api_schema::SpawnPedestrianEntityResponse&gt;</a>
+<a name="346"><span class="lineNum">     346 </span>                :            :     spawn_pedestrian_entity_client_;</a>
+<a name="347"><span class="lineNum">     347 </span>                :            :   zeromq::Client&lt;</a>
+<a name="348"><span class="lineNum">     348 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityRequest,</a>
+<a name="349"><span class="lineNum">     349 </span>                :            :     simulation_api_schema::SpawnMiscObjectEntityResponse&gt;</a>
+<a name="350"><span class="lineNum">     350 </span>                :            :     spawn_misc_object_entity_client_;</a>
+<a name="351"><span class="lineNum">     351 </span>                :            :   zeromq::Client&lt;</a>
+<a name="352"><span class="lineNum">     352 </span>                :            :     simulation_api_schema::DespawnEntityRequest, simulation_api_schema::DespawnEntityResponse&gt;</a>
+<a name="353"><span class="lineNum">     353 </span>                :            :     despawn_entity_client_;</a>
+<a name="354"><span class="lineNum">     354 </span>                :            :   zeromq::Client&lt;</a>
+<a name="355"><span class="lineNum">     355 </span>                :            :     simulation_api_schema::UpdateEntityStatusRequest,</a>
+<a name="356"><span class="lineNum">     356 </span>                :            :     simulation_api_schema::UpdateEntityStatusResponse&gt;</a>
+<a name="357"><span class="lineNum">     357 </span>                :            :     update_entity_status_client_;</a>
+<a name="358"><span class="lineNum">     358 </span>                :            :   zeromq::Client&lt;</a>
+<a name="359"><span class="lineNum">     359 </span>                :            :     simulation_api_schema::AttachLidarSensorRequest,</a>
+<a name="360"><span class="lineNum">     360 </span>                :            :     simulation_api_schema::AttachLidarSensorResponse&gt;</a>
+<a name="361"><span class="lineNum">     361 </span>                :            :     attach_lidar_sensor_client_;</a>
+<a name="362"><span class="lineNum">     362 </span>                :            :   zeromq::Client&lt;</a>
+<a name="363"><span class="lineNum">     363 </span>                :            :     simulation_api_schema::AttachDetectionSensorRequest,</a>
+<a name="364"><span class="lineNum">     364 </span>                :            :     simulation_api_schema::AttachDetectionSensorResponse&gt;</a>
+<a name="365"><span class="lineNum">     365 </span>                :            :     attach_detection_sensor_client_;</a>
+<a name="366"><span class="lineNum">     366 </span>                :            :   zeromq::Client&lt;</a>
+<a name="367"><span class="lineNum">     367 </span>                :            :     simulation_api_schema::UpdateTrafficLightsRequest,</a>
+<a name="368"><span class="lineNum">     368 </span>                :            :     simulation_api_schema::UpdateTrafficLightsResponse&gt;</a>
+<a name="369"><span class="lineNum">     369 </span>                :            :     update_traffic_lights_client_;</a>
+<a name="370"><span class="lineNum">     370 </span>                :            : };</a>
+<a name="371"><span class="lineNum">     371 </span>                :            : }  // namespace traffic_simulator</a>
+<a name="372"><span class="lineNum">     372 </span>                :            : </a>
+<a name="373"><span class="lineNum">     373 </span>                :            : #endif  // TRAFFIC_SIMULATOR__API__API_HPP_</a>
 </pre>
       </td>
     </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -97,7 +97,7 @@
 <a name="19"><span class="lineNum">      19 </span>                :            : {</a>
 <a name="20"><span class="lineNum">      20 </span>                :            : inline namespace syntax</a>
 <a name="21"><span class="lineNum">      21 </span>                :            : {</a>
-<a name="22"><span class="lineNum">      22 </span>                :<span class="lineNoCov">          0 : std::istream &amp; operator&gt;&gt;(std::istream &amp; is, StoryboardElementType &amp; datum)</span></a>
+<a name="22"><span class="lineNum">      22 </span>                :<span class="lineNoCov">          0 : auto operator&gt;&gt;(std::istream &amp; is, StoryboardElementType &amp; datum) -&gt; std::istream &amp;</span></a>
 <a name="23"><span class="lineNum">      23 </span>                :            : {</a>
 <a name="24"><span class="lineNum">      24 </span>                :<span class="lineNoCov">          0 :   std::string buffer;</span></a>
 <a name="25"><span class="lineNum">      25 </span>                :            : </a>
@@ -122,7 +122,7 @@
 <a name="44"><span class="lineNum">      44 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   throw UNEXPECTED_ENUMERATION_VALUE_SPECIFIED(StoryboardElementType, buffer);</span></a>
 <a name="45"><span class="lineNum">      45 </span>                :            : }</a>
 <a name="46"><span class="lineNum">      46 </span>                :            : </a>
-<a name="47"><span class="lineNum">      47 </span>                :<span class="lineNoCov">          0 : std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const StoryboardElementType &amp; datum)</span></a>
+<a name="47"><span class="lineNum">      47 </span>                :<span class="lineNoCov">          0 : auto operator&lt;&lt;(std::ostream &amp; os, const StoryboardElementType &amp; datum) -&gt; std::ostream &amp;</span></a>
 <a name="48"><span class="lineNum">      48 </span>                :            : {</a>
 <a name="49"><span class="lineNum">      49 </span>                :            : #define BOILERPLATE(ID)           \</a>
 <a name="50"><span class="lineNum">      50 </span>                :            :   case StoryboardElementType::ID: \</a>

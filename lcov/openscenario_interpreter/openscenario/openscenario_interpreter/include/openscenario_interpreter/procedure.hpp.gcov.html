@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:59:01</td>
+            <td class="headerValue">2021-10-10 20:02:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -57,7 +57,7 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntry">40</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -157,25 +157,24 @@
 <span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
 <a name="79"><span class="lineNum">      79 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 : STRIP_OPTIONAL(getLongitudinalDistance, std::numeric_limits&lt;value_type&gt;::quiet_NaN());</span></a>
 <span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="80"><span class="lineNum">      80 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 : STRIP_OPTIONAL(getStandStillDuration, static_cast&lt;value_type&gt;(0));</span></a>
+<a name="80"><span class="lineNum">      80 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 : STRIP_OPTIONAL(getTimeHeadway, std::numeric_limits&lt;value_type&gt;::quiet_NaN());</span></a>
 <span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="81"><span class="lineNum">      81 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 : STRIP_OPTIONAL(getTimeHeadway, std::numeric_limits&lt;value_type&gt;::quiet_NaN());</span></a>
-<span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
-<a name="82"><span class="lineNum">      82 </span>                :            : </a>
-<a name="83"><span class="lineNum">      83 </span>                :            : #undef STRIP_OPTIONAL</a>
-<a name="84"><span class="lineNum">      84 </span>                :            : </a>
-<a name="85"><span class="lineNum">      85 </span>                :            : #define FORWARD_TO_SIMULATION_API(IDENTIFIER)                        \</a>
-<a name="86"><span class="lineNum">      86 </span>                :            :   template &lt;typename... Ts&gt;                                          \</a>
-<a name="87"><span class="lineNum">      87 </span>                :            :   decltype(auto) IDENTIFIER(Ts &amp;&amp;... xs)                             \</a>
-<a name="88"><span class="lineNum">      88 </span>                :            :   {                                                                  \</a>
-<a name="89"><span class="lineNum">      89 </span>                :            :     return connection.IDENTIFIER(std::forward&lt;decltype(xs)&gt;(xs)...); \</a>
-<a name="90"><span class="lineNum">      90 </span>                :            :   }                                                                  \</a>
-<a name="91"><span class="lineNum">      91 </span>                :            :   static_assert(true, &quot;&quot;)</a>
-<a name="92"><span class="lineNum">      92 </span>                :            : </a>
-<a name="93"><span class="lineNum">      93 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(attachDetectionSensor);</span></a>
-<a name="94"><span class="lineNum">      94 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(attachLidarSensor);</span></a>
-<a name="95"><span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(engage);</span></a>
-<a name="96"><span class="lineNum">      96 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(getCurrentTime);</span></a>
+<a name="81"><span class="lineNum">      81 </span>                :            : </a>
+<a name="82"><span class="lineNum">      82 </span>                :            : #undef STRIP_OPTIONAL</a>
+<a name="83"><span class="lineNum">      83 </span>                :            : </a>
+<a name="84"><span class="lineNum">      84 </span>                :            : #define FORWARD_TO_SIMULATION_API(IDENTIFIER)                        \</a>
+<a name="85"><span class="lineNum">      85 </span>                :            :   template &lt;typename... Ts&gt;                                          \</a>
+<a name="86"><span class="lineNum">      86 </span>                :            :   decltype(auto) IDENTIFIER(Ts &amp;&amp;... xs)                             \</a>
+<a name="87"><span class="lineNum">      87 </span>                :            :   {                                                                  \</a>
+<a name="88"><span class="lineNum">      88 </span>                :            :     return connection.IDENTIFIER(std::forward&lt;decltype(xs)&gt;(xs)...); \</a>
+<a name="89"><span class="lineNum">      89 </span>                :            :   }                                                                  \</a>
+<a name="90"><span class="lineNum">      90 </span>                :            :   static_assert(true, &quot;&quot;)</a>
+<a name="91"><span class="lineNum">      91 </span>                :            : </a>
+<a name="92"><span class="lineNum">      92 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(attachDetectionSensor);</span></a>
+<a name="93"><span class="lineNum">      93 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(attachLidarSensor);</span></a>
+<a name="94"><span class="lineNum">      94 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(engage);</span></a>
+<a name="95"><span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(getCurrentTime);</span></a>
+<a name="96"><span class="lineNum">      96 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(getStandStillDuration);</span></a>
 <a name="97"><span class="lineNum">      97 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(initialize);</span></a>
 <a name="98"><span class="lineNum">      98 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(isInLanelet);</span></a>
 <a name="99"><span class="lineNum">      99 </span>                :<span class="lineNoCov">          0 : FORWARD_TO_SIMULATION_API(ready);</span></a>

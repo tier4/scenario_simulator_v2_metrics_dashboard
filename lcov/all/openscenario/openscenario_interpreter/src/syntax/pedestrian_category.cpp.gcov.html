@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -99,7 +99,7 @@
 <a name="21"><span class="lineNum">      21 </span>                :            : {</a>
 <a name="22"><span class="lineNum">      22 </span>                :            : inline namespace syntax</a>
 <a name="23"><span class="lineNum">      23 </span>                :            : {</a>
-<a name="24"><span class="lineNum">      24 </span>                :<span class="lineNoCov">          0 : std::istream &amp; operator&gt;&gt;(std::istream &amp; is, PedestrianCategory &amp; datum)</span></a>
+<a name="24"><span class="lineNum">      24 </span>                :<span class="lineNoCov">          0 : auto operator&gt;&gt;(std::istream &amp; is, PedestrianCategory &amp; datum) -&gt; std::istream &amp;</span></a>
 <a name="25"><span class="lineNum">      25 </span>                :            : {</a>
 <a name="26"><span class="lineNum">      26 </span>                :<span class="lineNoCov">          0 :   std::string buffer;</span></a>
 <a name="27"><span class="lineNum">      27 </span>                :            : </a>
@@ -132,7 +132,7 @@
 <a name="52"><span class="lineNum">      52 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   throw UNEXPECTED_ENUMERATION_VALUE_SPECIFIED(PedestrianCategory, buffer);</span></a>
 <a name="53"><span class="lineNum">      53 </span>                :            : }</a>
 <a name="54"><span class="lineNum">      54 </span>                :            : </a>
-<a name="55"><span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 : std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const PedestrianCategory &amp; datum)</span></a>
+<a name="55"><span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 : auto operator&lt;&lt;(std::ostream &amp; os, const PedestrianCategory &amp; datum) -&gt; std::ostream &amp;</span></a>
 <a name="56"><span class="lineNum">      56 </span>                :            : {</a>
 <a name="57"><span class="lineNum">      57 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :   switch (datum) {</span></a>
 <a name="58"><span class="lineNum">      58 </span>                :            : #define BOILERPLATE(NAME)        \</a>

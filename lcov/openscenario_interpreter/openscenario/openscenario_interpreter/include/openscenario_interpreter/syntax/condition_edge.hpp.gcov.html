@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:59:01</td>
+            <td class="headerValue">2021-10-10 20:02:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -93,7 +93,7 @@
 <a name="15"><span class="lineNum">      15 </span>                :            : #ifndef OPENSCENARIO_INTERPRETER__SYNTAX__CONDITION_EDGE_HPP_</a>
 <a name="16"><span class="lineNum">      16 </span>                :            : #define OPENSCENARIO_INTERPRETER__SYNTAX__CONDITION_EDGE_HPP_</a>
 <a name="17"><span class="lineNum">      17 </span>                :            : </a>
-<a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;openscenario_interpreter/reader/attribute.hpp&gt;</a>
+<a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;iostream&gt;</a>
 <a name="19"><span class="lineNum">      19 </span>                :            : </a>
 <a name="20"><span class="lineNum">      20 </span>                :            : namespace openscenario_interpreter</a>
 <a name="21"><span class="lineNum">      21 </span>                :            : {</a>
@@ -124,78 +124,73 @@
 <a name="46"><span class="lineNum">      46 </span>                :            : struct ConditionEdge</a>
 <a name="47"><span class="lineNum">      47 </span>                :            : {</a>
 <a name="48"><span class="lineNum">      48 </span>                :            :   enum value_type {</a>
-<a name="49"><span class="lineNum">      49 </span>                :            : </a>
-<a name="50"><span class="lineNum">      50 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
-<a name="51"><span class="lineNum">      51 </span>                :            :      *</a>
-<a name="52"><span class="lineNum">      52 </span>                :            :      *  A condition defined with a 'none' edge shall return true at discrete</a>
-<a name="53"><span class="lineNum">      53 </span>                :            :      *  time t if its logical expression is true at discrete time t.</a>
-<a name="54"><span class="lineNum">      54 </span>                :            :      *</a>
-<a name="55"><span class="lineNum">      55 </span>                :            :      *  Default constructor select this.</a>
-<a name="56"><span class="lineNum">      56 </span>                :            :      *</a>
-<a name="57"><span class="lineNum">      57 </span>                :            :      * ---------------------------------------------------------------------- */</a>
-<a name="58"><span class="lineNum">      58 </span>                :            :     none,</a>
-<a name="59"><span class="lineNum">      59 </span>                :            : </a>
-<a name="60"><span class="lineNum">      60 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
-<a name="61"><span class="lineNum">      61 </span>                :            :      *</a>
-<a name="62"><span class="lineNum">      62 </span>                :            :      *  A condition defined with a rising edge shall return true at discrete</a>
-<a name="63"><span class="lineNum">      63 </span>                :            :      *  time t if its logical expression is true at discrete time t and its</a>
-<a name="64"><span class="lineNum">      64 </span>                :            :      *  logical expression was false at discrete time t-ts, where ts is the</a>
-<a name="65"><span class="lineNum">      65 </span>                :            :      *  simulation sampling time.</a>
-<a name="66"><span class="lineNum">      66 </span>                :            :      *</a>
-<a name="67"><span class="lineNum">      67 </span>                :            :      * ---------------------------------------------------------------------- */</a>
-<a name="68"><span class="lineNum">      68 </span>                :            :     rising,</a>
-<a name="69"><span class="lineNum">      69 </span>                :            : </a>
-<a name="70"><span class="lineNum">      70 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
-<a name="71"><span class="lineNum">      71 </span>                :            :      *</a>
-<a name="72"><span class="lineNum">      72 </span>                :            :      *  A condition defined with a falling edge shall return true at discrete</a>
-<a name="73"><span class="lineNum">      73 </span>                :            :      *  time t if its logical expression is false at discrete time t and its</a>
-<a name="74"><span class="lineNum">      74 </span>                :            :      *  logical expression was true at discrete time t-ts, where ts is the</a>
-<a name="75"><span class="lineNum">      75 </span>                :            :      *  simulation sampling time.</a>
-<a name="76"><span class="lineNum">      76 </span>                :            :      *</a>
-<a name="77"><span class="lineNum">      77 </span>                :            :      * ---------------------------------------------------------------------- */</a>
-<a name="78"><span class="lineNum">      78 </span>                :            :     falling,</a>
-<a name="79"><span class="lineNum">      79 </span>                :            : </a>
-<a name="80"><span class="lineNum">      80 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
-<a name="81"><span class="lineNum">      81 </span>                :            :      *</a>
-<a name="82"><span class="lineNum">      82 </span>                :            :      *  A condition defined with a 'risingOrFalling' edge shall return true at</a>
-<a name="83"><span class="lineNum">      83 </span>                :            :      *  discrete time t if its logical expression is true at discrete time t</a>
-<a name="84"><span class="lineNum">      84 </span>                :            :      *  and its logical expression was false at discrete time t-ts OR if its</a>
-<a name="85"><span class="lineNum">      85 </span>                :            :      *  logical expression is false at discrete time t and its logical</a>
-<a name="86"><span class="lineNum">      86 </span>                :            :      *  expression was true at discrete time t-ts. ts is the simulation</a>
-<a name="87"><span class="lineNum">      87 </span>                :            :      *  sampling time.</a>
-<a name="88"><span class="lineNum">      88 </span>                :            :      *</a>
-<a name="89"><span class="lineNum">      89 </span>                :            :      * ---------------------------------------------------------------------- */</a>
-<a name="90"><span class="lineNum">      90 </span>                :            :     risingOrFalling,</a>
-<a name="91"><span class="lineNum">      91 </span>                :            : </a>
-<a name="92"><span class="lineNum">      92 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
-<a name="93"><span class="lineNum">      93 </span>                :            :      *</a>
-<a name="94"><span class="lineNum">      94 </span>                :            :      *  A condition defined by a 'sticky' edge returns true at discrete time</a>
-<a name="95"><span class="lineNum">      95 </span>                :            :      *  t + k (0 &lt; k) if its logical expression evaluates to true at discrete</a>
-<a name="96"><span class="lineNum">      96 </span>                :            :      *  time t. This edge is provided for simply defining assertions such as</a>
-<a name="97"><span class="lineNum">      97 </span>                :            :      *  &quot;Did the Ego car pass over checkpoint X?</a>
-<a name="98"><span class="lineNum">      98 </span>                :            :      *</a>
-<a name="99"><span class="lineNum">      99 </span>                :            :      *  This is NOT an OpenSCENARIO 1.0.0 standard feature (Tier IV extension).</a>
-<a name="100"><span class="lineNum">     100 </span>                :            :      *</a>
-<a name="101"><span class="lineNum">     101 </span>                :            :      * ---------------------------------------------------------------------- */</a>
-<a name="102"><span class="lineNum">     102 </span>                :            :     sticky,</a>
-<a name="103"><span class="lineNum">     103 </span>                :            :   } value;</a>
-<a name="104"><span class="lineNum">     104 </span>                :            : </a>
-<a name="105"><span class="lineNum">     105 </span>                :            :   explicit ConditionEdge() = default;</a>
-<a name="106"><span class="lineNum">     106 </span>                :            : </a>
-<a name="107"><span class="lineNum">     107 </span>                :<span class="lineNoCov">          0 :   operator value_type() const noexcept { return value; }</span></a>
-<a name="108"><span class="lineNum">     108 </span>                :            : };</a>
-<a name="109"><span class="lineNum">     109 </span>                :            : </a>
-<a name="110"><span class="lineNum">     110 </span>                :            : static_assert(std::is_standard_layout&lt;ConditionEdge&gt;::value, &quot;&quot;);</a>
-<a name="111"><span class="lineNum">     111 </span>                :            : </a>
-<a name="112"><span class="lineNum">     112 </span>                :            : static_assert(std::is_trivial&lt;ConditionEdge&gt;::value, &quot;&quot;);</a>
-<a name="113"><span class="lineNum">     113 </span>                :            : </a>
-<a name="114"><span class="lineNum">     114 </span>                :            : std::istream &amp; operator&gt;&gt;(std::istream &amp; is, ConditionEdge &amp;);</a>
-<a name="115"><span class="lineNum">     115 </span>                :            : </a>
-<a name="116"><span class="lineNum">     116 </span>                :            : std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const ConditionEdge &amp;);</a>
-<a name="117"><span class="lineNum">     117 </span>                :            : }  // namespace syntax</a>
-<a name="118"><span class="lineNum">     118 </span>                :            : }  // namespace openscenario_interpreter</a>
-<a name="119"><span class="lineNum">     119 </span>                :            : </a>
-<a name="120"><span class="lineNum">     120 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__CONDITION_EDGE_HPP_</a>
+<a name="49"><span class="lineNum">      49 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
+<a name="50"><span class="lineNum">      50 </span>                :            :      *</a>
+<a name="51"><span class="lineNum">      51 </span>                :            :      *  A condition defined with a 'none' edge shall return true at discrete</a>
+<a name="52"><span class="lineNum">      52 </span>                :            :      *  time t if its logical expression is true at discrete time t.</a>
+<a name="53"><span class="lineNum">      53 </span>                :            :      *</a>
+<a name="54"><span class="lineNum">      54 </span>                :            :      *  Default constructor select this.</a>
+<a name="55"><span class="lineNum">      55 </span>                :            :      *</a>
+<a name="56"><span class="lineNum">      56 </span>                :            :      * ---------------------------------------------------------------------- */</a>
+<a name="57"><span class="lineNum">      57 </span>                :            :     none,</a>
+<a name="58"><span class="lineNum">      58 </span>                :            : </a>
+<a name="59"><span class="lineNum">      59 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
+<a name="60"><span class="lineNum">      60 </span>                :            :      *</a>
+<a name="61"><span class="lineNum">      61 </span>                :            :      *  A condition defined with a rising edge shall return true at discrete</a>
+<a name="62"><span class="lineNum">      62 </span>                :            :      *  time t if its logical expression is true at discrete time t and its</a>
+<a name="63"><span class="lineNum">      63 </span>                :            :      *  logical expression was false at discrete time t-ts, where ts is the</a>
+<a name="64"><span class="lineNum">      64 </span>                :            :      *  simulation sampling time.</a>
+<a name="65"><span class="lineNum">      65 </span>                :            :      *</a>
+<a name="66"><span class="lineNum">      66 </span>                :            :      * ---------------------------------------------------------------------- */</a>
+<a name="67"><span class="lineNum">      67 </span>                :            :     rising,</a>
+<a name="68"><span class="lineNum">      68 </span>                :            : </a>
+<a name="69"><span class="lineNum">      69 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
+<a name="70"><span class="lineNum">      70 </span>                :            :      *</a>
+<a name="71"><span class="lineNum">      71 </span>                :            :      *  A condition defined with a falling edge shall return true at discrete</a>
+<a name="72"><span class="lineNum">      72 </span>                :            :      *  time t if its logical expression is false at discrete time t and its</a>
+<a name="73"><span class="lineNum">      73 </span>                :            :      *  logical expression was true at discrete time t-ts, where ts is the</a>
+<a name="74"><span class="lineNum">      74 </span>                :            :      *  simulation sampling time.</a>
+<a name="75"><span class="lineNum">      75 </span>                :            :      *</a>
+<a name="76"><span class="lineNum">      76 </span>                :            :      * ---------------------------------------------------------------------- */</a>
+<a name="77"><span class="lineNum">      77 </span>                :            :     falling,</a>
+<a name="78"><span class="lineNum">      78 </span>                :            : </a>
+<a name="79"><span class="lineNum">      79 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
+<a name="80"><span class="lineNum">      80 </span>                :            :      *</a>
+<a name="81"><span class="lineNum">      81 </span>                :            :      *  A condition defined with a 'risingOrFalling' edge shall return true at</a>
+<a name="82"><span class="lineNum">      82 </span>                :            :      *  discrete time t if its logical expression is true at discrete time t</a>
+<a name="83"><span class="lineNum">      83 </span>                :            :      *  and its logical expression was false at discrete time t-ts OR if its</a>
+<a name="84"><span class="lineNum">      84 </span>                :            :      *  logical expression is false at discrete time t and its logical</a>
+<a name="85"><span class="lineNum">      85 </span>                :            :      *  expression was true at discrete time t-ts. ts is the simulation</a>
+<a name="86"><span class="lineNum">      86 </span>                :            :      *  sampling time.</a>
+<a name="87"><span class="lineNum">      87 </span>                :            :      *</a>
+<a name="88"><span class="lineNum">      88 </span>                :            :      * ---------------------------------------------------------------------- */</a>
+<a name="89"><span class="lineNum">      89 </span>                :            :     risingOrFalling,</a>
+<a name="90"><span class="lineNum">      90 </span>                :            : </a>
+<a name="91"><span class="lineNum">      91 </span>                :            :     /* ---- NOTE ---------------------------------------------------------------</a>
+<a name="92"><span class="lineNum">      92 </span>                :            :      *</a>
+<a name="93"><span class="lineNum">      93 </span>                :            :      *  A condition defined by a 'sticky' edge returns true at discrete time</a>
+<a name="94"><span class="lineNum">      94 </span>                :            :      *  t + k (0 &lt; k) if its logical expression evaluates to true at discrete</a>
+<a name="95"><span class="lineNum">      95 </span>                :            :      *  time t. This edge is provided for simply defining assertions such as</a>
+<a name="96"><span class="lineNum">      96 </span>                :            :      *  &quot;Did the Ego car pass over checkpoint X?</a>
+<a name="97"><span class="lineNum">      97 </span>                :            :      *</a>
+<a name="98"><span class="lineNum">      98 </span>                :            :      *  This is NOT an OpenSCENARIO 1.0.0 standard feature (Tier IV extension).</a>
+<a name="99"><span class="lineNum">      99 </span>                :            :      *</a>
+<a name="100"><span class="lineNum">     100 </span>                :            :      * ---------------------------------------------------------------------- */</a>
+<a name="101"><span class="lineNum">     101 </span>                :            :     sticky,</a>
+<a name="102"><span class="lineNum">     102 </span>                :            :   } value;</a>
+<a name="103"><span class="lineNum">     103 </span>                :            : </a>
+<a name="104"><span class="lineNum">     104 </span>                :            :   explicit ConditionEdge() = default;</a>
+<a name="105"><span class="lineNum">     105 </span>                :            : </a>
+<a name="106"><span class="lineNum">     106 </span>                :<span class="lineNoCov">          0 :   operator value_type() const noexcept { return value; }</span></a>
+<a name="107"><span class="lineNum">     107 </span>                :            : };</a>
+<a name="108"><span class="lineNum">     108 </span>                :            : </a>
+<a name="109"><span class="lineNum">     109 </span>                :            : auto operator&gt;&gt;(std::istream &amp; is, ConditionEdge &amp;) -&gt; std::istream &amp;;</a>
+<a name="110"><span class="lineNum">     110 </span>                :            : </a>
+<a name="111"><span class="lineNum">     111 </span>                :            : auto operator&lt;&lt;(std::ostream &amp; os, const ConditionEdge &amp;) -&gt; std::ostream &amp;;</a>
+<a name="112"><span class="lineNum">     112 </span>                :            : }  // namespace syntax</a>
+<a name="113"><span class="lineNum">     113 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="114"><span class="lineNum">     114 </span>                :            : </a>
+<a name="115"><span class="lineNum">     115 </span>                :            : #endif  // OPENSCENARIO_INTERPRETER__SYNTAX__CONDITION_EDGE_HPP_</a>
 </pre>
       </td>
     </tr>

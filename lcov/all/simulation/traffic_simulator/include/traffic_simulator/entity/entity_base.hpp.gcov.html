@@ -31,18 +31,18 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntry">24</td>
-            <td class="headerCovTableEntryLo">58.3 %</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntryLo">56.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-03 19:58:35</td>
+            <td class="headerValue">2021-10-10 20:02:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">16</td>
-            <td class="headerCovTableEntryLo">50.0 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryLo">46.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -124,140 +124,139 @@
 <a name="46"><span class="lineNum">      46 </span>                :            : </a>
 <a name="47"><span class="lineNum">      47 </span>                :            :   const std::string name;</a>
 <a name="48"><span class="lineNum">      48 </span>                :            : </a>
-<a name="49"><span class="lineNum">      49 </span>                :            :   EntityBase(const std::string &amp; type, const std::string &amp; name);</a>
-<a name="50"><span class="lineNum">      50 </span>                :            : </a>
-<a name="51"><span class="lineNum">      51 </span>                :<span class="lineCov">          5 :   virtual ~EntityBase() = default;</span></a>
+<a name="49"><span class="lineNum">      49 </span>                :            :   EntityBase(</a>
+<a name="50"><span class="lineNum">      50 </span>                :            :     const std::string &amp; type, const std::string &amp; name,</a>
+<a name="51"><span class="lineNum">      51 </span>                :            :     const openscenario_msgs::msg::EntityStatus &amp; status);</a>
 <a name="52"><span class="lineNum">      52 </span>                :            : </a>
-<a name="53"><span class="lineNum">      53 </span>                :            : public:</a>
-<a name="54"><span class="lineNum">      54 </span>                :<span class="lineNoCov">          0 :   virtual void engage() {}</span></a>
-<a name="55"><span class="lineNum">      55 </span>                :            : </a>
-<a name="56"><span class="lineNum">      56 </span>                :            :   virtual auto getBoundingBox() const -&gt; const openscenario_msgs::msg::BoundingBox = 0;</a>
+<a name="53"><span class="lineNum">      53 </span>                :<span class="lineCov">          2 :   virtual ~EntityBase() = default;</span></a>
+<a name="54"><span class="lineNum">      54 </span>                :            : </a>
+<a name="55"><span class="lineNum">      55 </span>                :            : public:</a>
+<a name="56"><span class="lineNum">      56 </span>                :<span class="lineNoCov">          0 :   virtual void engage() {}</span></a>
 <a name="57"><span class="lineNum">      57 </span>                :            : </a>
-<a name="58"><span class="lineNum">      58 </span>                :            :   virtual auto getCurrentAction() const -&gt; const std::string = 0;</a>
+<a name="58"><span class="lineNum">      58 </span>                :            :   virtual auto getBoundingBox() const -&gt; const openscenario_msgs::msg::BoundingBox = 0;</a>
 <a name="59"><span class="lineNum">      59 </span>                :            : </a>
-<a name="60"><span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :   /*   */ auto getEntityStatusBeforeUpdate() const</span></a>
-<a name="61"><span class="lineNum">      61 </span>                :            :     -&gt; const boost::optional&lt;openscenario_msgs::msg::EntityStatus&gt;</a>
-<a name="62"><span class="lineNum">      62 </span>                :            :   {</a>
-<a name="63"><span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :     return status_before_update_;</span></a>
-<a name="64"><span class="lineNum">      64 </span>                :            :   }</a>
-<a name="65"><span class="lineNum">      65 </span>                :            : </a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">      62004 :   /*   */ auto getEntityType() const -&gt; const auto &amp; { return entity_type_; }</span></a>
-<a name="67"><span class="lineNum">      67 </span>                :            : </a>
-<a name="68"><span class="lineNum">      68 </span>                :            :   virtual auto getEntityTypename() const -&gt; const std::string &amp; = 0;</a>
-<a name="69"><span class="lineNum">      69 </span>                :            : </a>
-<a name="70"><span class="lineNum">      70 </span>                :<span class="lineCov">        102 :   /*   */ auto getLinearJerk() const { return linear_jerk_; }</span></a>
-<a name="71"><span class="lineNum">      71 </span>                :            : </a>
-<a name="72"><span class="lineNum">      72 </span>                :            :   virtual auto getObstacle() -&gt; boost::optional&lt;openscenario_msgs::msg::Obstacle&gt; = 0;</a>
-<a name="73"><span class="lineNum">      73 </span>                :            : </a>
-<a name="74"><span class="lineNum">      74 </span>                :            :   virtual auto getRouteLanelets(const double horizon = 100) -&gt; std::vector&lt;std::int64_t&gt; = 0;</a>
-<a name="75"><span class="lineNum">      75 </span>                :            : </a>
-<a name="76"><span class="lineNum">      76 </span>                :            :   /*   */ auto getStatus() const -&gt; const openscenario_msgs::msg::EntityStatus;</a>
-<a name="77"><span class="lineNum">      77 </span>                :            : </a>
-<a name="78"><span class="lineNum">      78 </span>                :            :   /*   */ auto getStandStillDuration() const -&gt; boost::optional&lt;double&gt;;</a>
-<a name="79"><span class="lineNum">      79 </span>                :            : </a>
-<a name="80"><span class="lineNum">      80 </span>                :            :   /*   */ auto getVisibility() { return visibility_; }</a>
-<a name="81"><span class="lineNum">      81 </span>                :            : </a>
-<a name="82"><span class="lineNum">      82 </span>                :            :   virtual auto getVehicleCommand() -&gt; const autoware_vehicle_msgs::msg::VehicleCommand;</a>
-<a name="83"><span class="lineNum">      83 </span>                :            : </a>
-<a name="84"><span class="lineNum">      84 </span>                :            :   /*   */ auto getVehicleParameters() const</a>
-<a name="85"><span class="lineNum">      85 </span>                :            :     -&gt; const boost::optional&lt;openscenario_msgs::msg::VehicleParameters&gt;</a>
-<a name="86"><span class="lineNum">      86 </span>                :            :   {</a>
-<a name="87"><span class="lineNum">      87 </span>                :            :     return boost::none;</a>
-<a name="88"><span class="lineNum">      88 </span>                :            :   }</a>
-<a name="89"><span class="lineNum">      89 </span>                :            : </a>
-<a name="90"><span class="lineNum">      90 </span>                :            :   virtual auto getWaypoints() -&gt; const openscenario_msgs::msg::WaypointsArray = 0;</a>
-<a name="91"><span class="lineNum">      91 </span>                :            : </a>
-<a name="92"><span class="lineNum">      92 </span>                :            :   virtual auto getGoalPoses() -&gt; std::vector&lt;openscenario_msgs::msg::LaneletPose&gt; = 0;</a>
-<a name="93"><span class="lineNum">      93 </span>                :            : </a>
-<a name="94"><span class="lineNum">      94 </span>                :<span class="lineNoCov">          0 :   virtual void setDriverModel(const openscenario_msgs::msg::DriverModel &amp;) {}</span></a>
-<a name="95"><span class="lineNum">      95 </span>                :            : </a>
-<a name="96"><span class="lineNum">      96 </span>                :<span class="lineCov">       4073 :   /*   */ void setEntityTypeList(</span></a>
-<a name="97"><span class="lineNum">      97 </span>                :            :     const std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityType&gt; &amp; entity_type_list)</a>
-<a name="98"><span class="lineNum">      98 </span>                :            :   {</a>
-<a name="99"><span class="lineNum">      99 </span>                :<span class="lineCov">       4073 :     entity_type_list_ = entity_type_list;</span></a>
-<a name="100"><span class="lineNum">     100 </span>                :<span class="lineCov">       4073 :   }</span></a>
-<a name="101"><span class="lineNum">     101 </span>                :            : </a>
-<a name="102"><span class="lineNum">     102 </span>                :<span class="lineCov">         34 :   virtual void setHdMapUtils(const std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; &amp; ptr)</span></a>
-<a name="103"><span class="lineNum">     103 </span>                :            :   {</a>
-<a name="104"><span class="lineNum">     104 </span>                :<span class="lineCov">         34 :     hdmap_utils_ptr_ = ptr;</span></a>
-<a name="105"><span class="lineNum">     105 </span>                :<span class="lineCov">         34 :   }</span></a>
-<a name="106"><span class="lineNum">     106 </span>                :            : </a>
-<a name="107"><span class="lineNum">     107 </span>                :            :   /*   */ void setOtherStatus(</a>
-<a name="108"><span class="lineNum">     108 </span>                :            :     const std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityStatus&gt; &amp; status);</a>
-<a name="109"><span class="lineNum">     109 </span>                :            : </a>
-<a name="110"><span class="lineNum">     110 </span>                :            :   virtual auto setStatus(const openscenario_msgs::msg::EntityStatus &amp; status) -&gt; bool;</a>
-<a name="111"><span class="lineNum">     111 </span>                :            : </a>
-<a name="112"><span class="lineNum">     112 </span>                :            :   virtual void setTargetSpeed(double target_speed, bool continuous) = 0;</a>
-<a name="113"><span class="lineNum">     113 </span>                :            : </a>
-<a name="114"><span class="lineNum">     114 </span>                :<span class="lineCov">         34 :   virtual void setTrafficLightManager(</span></a>
-<a name="115"><span class="lineNum">     115 </span>                :            :     const std::shared_ptr&lt;traffic_simulator::TrafficLightManager&gt; &amp; ptr)</a>
-<a name="116"><span class="lineNum">     116 </span>                :            :   {</a>
-<a name="117"><span class="lineNum">     117 </span>                :<span class="lineCov">         34 :     traffic_light_manager_ = ptr;</span></a>
-<a name="118"><span class="lineNum">     118 </span>                :<span class="lineCov">         34 :   }</span></a>
-<a name="119"><span class="lineNum">     119 </span>                :            : </a>
-<a name="120"><span class="lineNum">     120 </span>                :<span class="lineCov">       4073 :   /*   */ void setVerbose(bool verbose) { verbose_ = verbose; }</span></a>
-<a name="121"><span class="lineNum">     121 </span>                :            : </a>
-<a name="122"><span class="lineNum">     122 </span>                :            :   /*   */ auto setVisibility(const bool visibility) { return visibility_ = visibility; }</a>
-<a name="123"><span class="lineNum">     123 </span>                :            : </a>
-<a name="124"><span class="lineNum">     124 </span>                :            :   virtual void onUpdate(double current_time, double step_time);</a>
-<a name="125"><span class="lineNum">     125 </span>                :            : </a>
-<a name="126"><span class="lineNum">     126 </span>                :<span class="lineNoCov">          0 :   virtual auto ready() const -&gt; bool { return static_cast&lt;bool&gt;(status_); }</span></a>
-<a name="127"><span class="lineNum">     127 </span>                :            : </a>
-<a name="128"><span class="lineNum">     128 </span>                :            :   virtual void requestAcquirePosition(const openscenario_msgs::msg::LaneletPose &amp; lanelet_pose) = 0;</a>
-<a name="129"><span class="lineNum">     129 </span>                :            : </a>
-<a name="130"><span class="lineNum">     130 </span>                :            :   virtual void requestAcquirePosition(const geometry_msgs::msg::Pose &amp; map_pose) = 0;</a>
-<a name="131"><span class="lineNum">     131 </span>                :            : </a>
-<a name="132"><span class="lineNum">     132 </span>                :            :   virtual void requestAssignRoute(</a>
-<a name="133"><span class="lineNum">     133 </span>                :            :     const std::vector&lt;openscenario_msgs::msg::LaneletPose&gt; &amp; waypoints) = 0;</a>
-<a name="134"><span class="lineNum">     134 </span>                :            : </a>
-<a name="135"><span class="lineNum">     135 </span>                :            :   virtual void requestAssignRoute(const std::vector&lt;geometry_msgs::msg::Pose&gt; &amp; waypoints) = 0;</a>
-<a name="136"><span class="lineNum">     136 </span>                :            : </a>
-<a name="137"><span class="lineNum">     137 </span>                :<span class="lineNoCov">          0 :   virtual void requestLaneChange(const std::int64_t){};</span></a>
-<a name="138"><span class="lineNum">     138 </span>                :            : </a>
-<a name="139"><span class="lineNum">     139 </span>                :<span class="lineNoCov">          0 :   virtual void requestWalkStraight()</span></a>
-<a name="140"><span class="lineNum">     140 </span>                :            :   {</a>
-<a name="141"><span class="lineNum">     141 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     THROW_SEMANTIC_ERROR(getEntityTypename(), &quot; type entities do not support WalkStraightAction&quot;);</span></a>
-<a name="142"><span class="lineNum">     142 </span>                :            :   }</a>
-<a name="143"><span class="lineNum">     143 </span>                :            : </a>
-<a name="144"><span class="lineNum">     144 </span>                :<span class="lineCov">      31770 :   /*   */ auto statusSet() const noexcept { return static_cast&lt;bool&gt;(status_); }</span></a>
-<a name="145"><span class="lineNum">     145 </span>                :            : </a>
-<a name="146"><span class="lineNum">     146 </span>                :            :   /*   */ void stopAtEndOfRoad();</a>
-<a name="147"><span class="lineNum">     147 </span>                :            : </a>
-<a name="148"><span class="lineNum">     148 </span>                :            :   /*   */ void updateEntityStatusTimestamp(const double current_time);</a>
-<a name="149"><span class="lineNum">     149 </span>                :            : </a>
-<a name="150"><span class="lineNum">     150 </span>                :            :   /*   */ void updateStandStillDuration(const double step_time);</a>
-<a name="151"><span class="lineNum">     151 </span>                :            : </a>
-<a name="152"><span class="lineNum">     152 </span>                :<span class="lineNoCov">          0 :   virtual void cancelRequest()</span></a>
-<a name="153"><span class="lineNum">     153 </span>                :            :   {</a>
-<a name="154"><span class="lineNum">     154 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     THROW_SEMANTIC_ERROR(getEntityTypename(), &quot; type entities do not support cancel request&quot;);</span></a>
-<a name="155"><span class="lineNum">     155 </span>                :            :   }</a>
-<a name="156"><span class="lineNum">     156 </span>                :            : </a>
-<a name="157"><span class="lineNum">     157 </span>                :            : protected:</a>
-<a name="158"><span class="lineNum">     158 </span>                :            :   boost::optional&lt;openscenario_msgs::msg::LaneletPose&gt; next_waypoint_;</a>
-<a name="159"><span class="lineNum">     159 </span>                :            :   boost::optional&lt;openscenario_msgs::msg::EntityStatus&gt; status_;</a>
-<a name="160"><span class="lineNum">     160 </span>                :            :   boost::optional&lt;openscenario_msgs::msg::EntityStatus&gt; status_before_update_;</a>
-<a name="161"><span class="lineNum">     161 </span>                :            : </a>
-<a name="162"><span class="lineNum">     162 </span>                :            :   std::queue&lt;openscenario_msgs::msg::LaneletPose&gt; waypoints_;</a>
-<a name="163"><span class="lineNum">     163 </span>                :            : </a>
-<a name="164"><span class="lineNum">     164 </span>                :            :   std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; hdmap_utils_ptr_;</a>
-<a name="165"><span class="lineNum">     165 </span>                :            :   std::shared_ptr&lt;traffic_simulator::TrafficLightManager&gt; traffic_light_manager_;</a>
-<a name="166"><span class="lineNum">     166 </span>                :            : </a>
-<a name="167"><span class="lineNum">     167 </span>                :            :   bool verbose_;</a>
-<a name="168"><span class="lineNum">     168 </span>                :            :   bool visibility_;</a>
-<a name="169"><span class="lineNum">     169 </span>                :            : </a>
-<a name="170"><span class="lineNum">     170 </span>                :            :   std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityStatus&gt; other_status_;</a>
-<a name="171"><span class="lineNum">     171 </span>                :            :   std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityType&gt; entity_type_list_;</a>
-<a name="172"><span class="lineNum">     172 </span>                :            : </a>
-<a name="173"><span class="lineNum">     173 </span>                :            :   boost::optional&lt;double&gt; linear_jerk_;</a>
-<a name="174"><span class="lineNum">     174 </span>                :            :   boost::optional&lt;double&gt; stand_still_duration_;</a>
-<a name="175"><span class="lineNum">     175 </span>                :            : </a>
-<a name="176"><span class="lineNum">     176 </span>                :            :   visualization_msgs::msg::MarkerArray current_marker_;</a>
-<a name="177"><span class="lineNum">     177 </span>                :            :   openscenario_msgs::msg::EntityType entity_type_;</a>
-<a name="178"><span class="lineNum">     178 </span>                :            : };</a>
-<a name="179"><span class="lineNum">     179 </span>                :            : }  // namespace entity</a>
-<a name="180"><span class="lineNum">     180 </span>                :            : }  // namespace traffic_simulator</a>
-<a name="181"><span class="lineNum">     181 </span>                :            : </a>
-<a name="182"><span class="lineNum">     182 </span>                :            : #endif  // TRAFFIC_SIMULATOR__ENTITY__ENTITY_BASE_HPP_</a>
+<a name="60"><span class="lineNum">      60 </span>                :            :   virtual auto getCurrentAction() const -&gt; const std::string = 0;</a>
+<a name="61"><span class="lineNum">      61 </span>                :            : </a>
+<a name="62"><span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 :   /*   */ auto getEntityStatusBeforeUpdate() const -&gt; const openscenario_msgs::msg::EntityStatus &amp;</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :            :   {</a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :     return status_before_update_;</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :            :   }</a>
+<a name="66"><span class="lineNum">      66 </span>                :            : </a>
+<a name="67"><span class="lineNum">      67 </span>                :<span class="lineCov">      61966 :   /*   */ auto getEntityType() const -&gt; const auto &amp; { return entity_type_; }</span></a>
+<a name="68"><span class="lineNum">      68 </span>                :            : </a>
+<a name="69"><span class="lineNum">      69 </span>                :            :   virtual auto getEntityTypename() const -&gt; const std::string &amp; = 0;</a>
+<a name="70"><span class="lineNum">      70 </span>                :            : </a>
+<a name="71"><span class="lineNum">      71 </span>                :<span class="lineCov">        102 :   /*   */ auto getLinearJerk() const { return linear_jerk_; }</span></a>
+<a name="72"><span class="lineNum">      72 </span>                :            : </a>
+<a name="73"><span class="lineNum">      73 </span>                :            :   virtual auto getObstacle() -&gt; boost::optional&lt;openscenario_msgs::msg::Obstacle&gt; = 0;</a>
+<a name="74"><span class="lineNum">      74 </span>                :            : </a>
+<a name="75"><span class="lineNum">      75 </span>                :            :   virtual auto getRouteLanelets(const double horizon = 100) -&gt; std::vector&lt;std::int64_t&gt; = 0;</a>
+<a name="76"><span class="lineNum">      76 </span>                :            : </a>
+<a name="77"><span class="lineNum">      77 </span>                :            :   /*   */ auto getStatus() const -&gt; const openscenario_msgs::msg::EntityStatus;</a>
+<a name="78"><span class="lineNum">      78 </span>                :            : </a>
+<a name="79"><span class="lineNum">      79 </span>                :            :   /*   */ auto getStandStillDuration() const -&gt; double;</a>
+<a name="80"><span class="lineNum">      80 </span>                :            : </a>
+<a name="81"><span class="lineNum">      81 </span>                :            :   /*   */ auto getVisibility() { return visibility_; }</a>
+<a name="82"><span class="lineNum">      82 </span>                :            : </a>
+<a name="83"><span class="lineNum">      83 </span>                :            :   virtual auto getVehicleCommand() -&gt; const autoware_vehicle_msgs::msg::VehicleCommand;</a>
+<a name="84"><span class="lineNum">      84 </span>                :            : </a>
+<a name="85"><span class="lineNum">      85 </span>                :            :   /*   */ auto getVehicleParameters() const</a>
+<a name="86"><span class="lineNum">      86 </span>                :            :     -&gt; const boost::optional&lt;openscenario_msgs::msg::VehicleParameters&gt;</a>
+<a name="87"><span class="lineNum">      87 </span>                :            :   {</a>
+<a name="88"><span class="lineNum">      88 </span>                :            :     return boost::none;</a>
+<a name="89"><span class="lineNum">      89 </span>                :            :   }</a>
+<a name="90"><span class="lineNum">      90 </span>                :            : </a>
+<a name="91"><span class="lineNum">      91 </span>                :            :   virtual auto getWaypoints() -&gt; const openscenario_msgs::msg::WaypointsArray = 0;</a>
+<a name="92"><span class="lineNum">      92 </span>                :            : </a>
+<a name="93"><span class="lineNum">      93 </span>                :            :   virtual auto getGoalPoses() -&gt; std::vector&lt;openscenario_msgs::msg::LaneletPose&gt; = 0;</a>
+<a name="94"><span class="lineNum">      94 </span>                :            : </a>
+<a name="95"><span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 :   virtual void setDriverModel(const openscenario_msgs::msg::DriverModel &amp;) {}</span></a>
+<a name="96"><span class="lineNum">      96 </span>                :            : </a>
+<a name="97"><span class="lineNum">      97 </span>                :<span class="lineCov">       4073 :   /*   */ void setEntityTypeList(</span></a>
+<a name="98"><span class="lineNum">      98 </span>                :            :     const std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityType&gt; &amp; entity_type_list)</a>
+<a name="99"><span class="lineNum">      99 </span>                :            :   {</a>
+<a name="100"><span class="lineNum">     100 </span>                :<span class="lineCov">       4073 :     entity_type_list_ = entity_type_list;</span></a>
+<a name="101"><span class="lineNum">     101 </span>                :<span class="lineCov">       4073 :   }</span></a>
+<a name="102"><span class="lineNum">     102 </span>                :            : </a>
+<a name="103"><span class="lineNum">     103 </span>                :<span class="lineCov">         34 :   virtual void setHdMapUtils(const std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; &amp; ptr)</span></a>
+<a name="104"><span class="lineNum">     104 </span>                :            :   {</a>
+<a name="105"><span class="lineNum">     105 </span>                :<span class="lineCov">         34 :     hdmap_utils_ptr_ = ptr;</span></a>
+<a name="106"><span class="lineNum">     106 </span>                :<span class="lineCov">         34 :   }</span></a>
+<a name="107"><span class="lineNum">     107 </span>                :            : </a>
+<a name="108"><span class="lineNum">     108 </span>                :            :   /*   */ void setOtherStatus(</a>
+<a name="109"><span class="lineNum">     109 </span>                :            :     const std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityStatus&gt; &amp; status);</a>
+<a name="110"><span class="lineNum">     110 </span>                :            : </a>
+<a name="111"><span class="lineNum">     111 </span>                :            :   virtual void setStatus(const openscenario_msgs::msg::EntityStatus &amp; status);</a>
+<a name="112"><span class="lineNum">     112 </span>                :            : </a>
+<a name="113"><span class="lineNum">     113 </span>                :            :   virtual void setTargetSpeed(double target_speed, bool continuous) = 0;</a>
+<a name="114"><span class="lineNum">     114 </span>                :            : </a>
+<a name="115"><span class="lineNum">     115 </span>                :<span class="lineCov">         34 :   virtual void setTrafficLightManager(</span></a>
+<a name="116"><span class="lineNum">     116 </span>                :            :     const std::shared_ptr&lt;traffic_simulator::TrafficLightManager&gt; &amp; ptr)</a>
+<a name="117"><span class="lineNum">     117 </span>                :            :   {</a>
+<a name="118"><span class="lineNum">     118 </span>                :<span class="lineCov">         34 :     traffic_light_manager_ = ptr;</span></a>
+<a name="119"><span class="lineNum">     119 </span>                :<span class="lineCov">         34 :   }</span></a>
+<a name="120"><span class="lineNum">     120 </span>                :            : </a>
+<a name="121"><span class="lineNum">     121 </span>                :<span class="lineCov">       4073 :   /*   */ void setVerbose(bool verbose) { verbose_ = verbose; }</span></a>
+<a name="122"><span class="lineNum">     122 </span>                :            : </a>
+<a name="123"><span class="lineNum">     123 </span>                :            :   /*   */ auto setVisibility(const bool visibility) { return visibility_ = visibility; }</a>
+<a name="124"><span class="lineNum">     124 </span>                :            : </a>
+<a name="125"><span class="lineNum">     125 </span>                :            :   virtual void onUpdate(double current_time, double step_time);</a>
+<a name="126"><span class="lineNum">     126 </span>                :            : </a>
+<a name="127"><span class="lineNum">     127 </span>                :<span class="lineNoCov">          0 :   virtual auto ready() const -&gt; bool { return true; }</span></a>
+<a name="128"><span class="lineNum">     128 </span>                :            : </a>
+<a name="129"><span class="lineNum">     129 </span>                :            :   virtual void requestAcquirePosition(const openscenario_msgs::msg::LaneletPose &amp; lanelet_pose) = 0;</a>
+<a name="130"><span class="lineNum">     130 </span>                :            : </a>
+<a name="131"><span class="lineNum">     131 </span>                :            :   virtual void requestAcquirePosition(const geometry_msgs::msg::Pose &amp; map_pose) = 0;</a>
+<a name="132"><span class="lineNum">     132 </span>                :            : </a>
+<a name="133"><span class="lineNum">     133 </span>                :            :   virtual void requestAssignRoute(</a>
+<a name="134"><span class="lineNum">     134 </span>                :            :     const std::vector&lt;openscenario_msgs::msg::LaneletPose&gt; &amp; waypoints) = 0;</a>
+<a name="135"><span class="lineNum">     135 </span>                :            : </a>
+<a name="136"><span class="lineNum">     136 </span>                :            :   virtual void requestAssignRoute(const std::vector&lt;geometry_msgs::msg::Pose&gt; &amp; waypoints) = 0;</a>
+<a name="137"><span class="lineNum">     137 </span>                :            : </a>
+<a name="138"><span class="lineNum">     138 </span>                :<span class="lineNoCov">          0 :   virtual void requestLaneChange(const std::int64_t){};</span></a>
+<a name="139"><span class="lineNum">     139 </span>                :            : </a>
+<a name="140"><span class="lineNum">     140 </span>                :<span class="lineNoCov">          0 :   virtual void requestWalkStraight()</span></a>
+<a name="141"><span class="lineNum">     141 </span>                :            :   {</a>
+<a name="142"><span class="lineNum">     142 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     THROW_SEMANTIC_ERROR(getEntityTypename(), &quot; type entities do not support WalkStraightAction&quot;);</span></a>
+<a name="143"><span class="lineNum">     143 </span>                :            :   }</a>
+<a name="144"><span class="lineNum">     144 </span>                :            : </a>
+<a name="145"><span class="lineNum">     145 </span>                :            :   /*   */ void stopAtEndOfRoad();</a>
+<a name="146"><span class="lineNum">     146 </span>                :            : </a>
+<a name="147"><span class="lineNum">     147 </span>                :            :   /*   */ void updateEntityStatusTimestamp(const double current_time);</a>
+<a name="148"><span class="lineNum">     148 </span>                :            : </a>
+<a name="149"><span class="lineNum">     149 </span>                :            :   /*   */ void updateStandStillDuration(const double step_time);</a>
+<a name="150"><span class="lineNum">     150 </span>                :            : </a>
+<a name="151"><span class="lineNum">     151 </span>                :<span class="lineNoCov">          0 :   virtual void cancelRequest()</span></a>
+<a name="152"><span class="lineNum">     152 </span>                :            :   {</a>
+<a name="153"><span class="lineNum">     153 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     THROW_SEMANTIC_ERROR(getEntityTypename(), &quot; type entities do not support cancel request&quot;);</span></a>
+<a name="154"><span class="lineNum">     154 </span>                :            :   }</a>
+<a name="155"><span class="lineNum">     155 </span>                :            : </a>
+<a name="156"><span class="lineNum">     156 </span>                :            : protected:</a>
+<a name="157"><span class="lineNum">     157 </span>                :            :   boost::optional&lt;openscenario_msgs::msg::LaneletPose&gt; next_waypoint_;</a>
+<a name="158"><span class="lineNum">     158 </span>                :            :   openscenario_msgs::msg::EntityStatus status_;</a>
+<a name="159"><span class="lineNum">     159 </span>                :            :   openscenario_msgs::msg::EntityStatus status_before_update_;</a>
+<a name="160"><span class="lineNum">     160 </span>                :            : </a>
+<a name="161"><span class="lineNum">     161 </span>                :            :   std::queue&lt;openscenario_msgs::msg::LaneletPose&gt; waypoints_;</a>
+<a name="162"><span class="lineNum">     162 </span>                :            : </a>
+<a name="163"><span class="lineNum">     163 </span>                :            :   std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; hdmap_utils_ptr_;</a>
+<a name="164"><span class="lineNum">     164 </span>                :            :   std::shared_ptr&lt;traffic_simulator::TrafficLightManager&gt; traffic_light_manager_;</a>
+<a name="165"><span class="lineNum">     165 </span>                :            : </a>
+<a name="166"><span class="lineNum">     166 </span>                :            :   bool verbose_;</a>
+<a name="167"><span class="lineNum">     167 </span>                :            :   bool visibility_;</a>
+<a name="168"><span class="lineNum">     168 </span>                :            : </a>
+<a name="169"><span class="lineNum">     169 </span>                :            :   std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityStatus&gt; other_status_;</a>
+<a name="170"><span class="lineNum">     170 </span>                :            :   std::unordered_map&lt;std::string, openscenario_msgs::msg::EntityType&gt; entity_type_list_;</a>
+<a name="171"><span class="lineNum">     171 </span>                :            : </a>
+<a name="172"><span class="lineNum">     172 </span>                :            :   boost::optional&lt;double&gt; linear_jerk_;</a>
+<a name="173"><span class="lineNum">     173 </span>                :            :   double stand_still_duration_;</a>
+<a name="174"><span class="lineNum">     174 </span>                :            : </a>
+<a name="175"><span class="lineNum">     175 </span>                :            :   visualization_msgs::msg::MarkerArray current_marker_;</a>
+<a name="176"><span class="lineNum">     176 </span>                :            :   openscenario_msgs::msg::EntityType entity_type_;</a>
+<a name="177"><span class="lineNum">     177 </span>                :            : };</a>
+<a name="178"><span class="lineNum">     178 </span>                :            : }  // namespace entity</a>
+<a name="179"><span class="lineNum">     179 </span>                :            : }  // namespace traffic_simulator</a>
+<a name="180"><span class="lineNum">     180 </span>                :            : </a>
+<a name="181"><span class="lineNum">     181 </span>                :            : #endif  // TRAFFIC_SIMULATOR__ENTITY__ENTITY_BASE_HPP_</a>
 </pre>
       </td>
     </tr>
