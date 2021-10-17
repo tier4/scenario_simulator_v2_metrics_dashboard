@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">47</td>
+            <td class="headerCovTableEntry">53</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:10</td>
+            <td class="headerValue">2021-10-17 20:17:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">8</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -248,7 +248,21 @@
 <a name="103"><span class="lineNum">     103 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   updater = create_wall_timer(std::chrono::milliseconds(5), [this]() { this-&gt;update(); });</span></a>
 <a name="104"><span class="lineNum">     104 </span>                :<span class="lineNoCov">          0 : }</span></a>
 <a name="105"><span class="lineNum">     105 </span>                :            : </a>
-<a name="106"><span class="lineNum">     106 </span>                :            : }  // namespace concealer</a>
+<a name="106"><span class="lineNum">     106 </span>                :<span class="lineNoCov">          0 : auto Autoware::set(const geometry_msgs::msg::Pose &amp; pose) -&gt; const geometry_msgs::msg::Pose &amp;</span></a>
+<a name="107"><span class="lineNum">     107 </span>                :            : {</a>
+<a name="108"><span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 :   return current_pose = pose;</span></a>
+<a name="109"><span class="lineNum">     109 </span>                :            : }</a>
+<a name="110"><span class="lineNum">     110 </span>                :            : </a>
+<a name="111"><span class="lineNum">     111 </span>                :<span class="lineNoCov">          0 : auto Autoware::set(const geometry_msgs::msg::Twist &amp; twist) -&gt; const geometry_msgs::msg::Twist &amp;</span></a>
+<a name="112"><span class="lineNum">     112 </span>                :            : {</a>
+<a name="113"><span class="lineNum">     113 </span>                :<span class="lineNoCov">          0 :   return current_twist = twist;</span></a>
+<a name="114"><span class="lineNum">     114 </span>                :            : }</a>
+<a name="115"><span class="lineNum">     115 </span>                :            : </a>
+<a name="116"><span class="lineNum">     116 </span>                :<span class="lineNoCov">          0 : auto Autoware::setUpperBoundSpeed(double value) -&gt; double  //</span></a>
+<a name="117"><span class="lineNum">     117 </span>                :            : {</a>
+<a name="118"><span class="lineNum">     118 </span>                :<span class="lineNoCov">          0 :   return current_upper_bound_speed = std::max(0.0, value);</span></a>
+<a name="119"><span class="lineNum">     119 </span>                :            : }</a>
+<a name="120"><span class="lineNum">     120 </span>                :            : }  // namespace concealer</a>
 </pre>
       </td>
     </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:35</td>
+            <td class="headerValue">2021-10-17 20:17:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -110,12 +110,12 @@
 <a name="31"><span class="lineNum">      31 </span>                :            :   });</a>
 <a name="32"><span class="lineNum">      32 </span>                :<span class="lineNoCov">          0 : }</span></a>
 <a name="33"><span class="lineNum">      33 </span>                :            : </a>
-<a name="34"><span class="lineNum">      34 </span>                :<span class="lineNoCov">          0 : Route::operator std::vector&lt;openscenario_msgs::msg::LaneletPose&gt;() const</span></a>
+<a name="34"><span class="lineNum">      34 </span>                :<span class="lineNoCov">          0 : Route::operator std::vector&lt;traffic_simulator_msgs::msg::LaneletPose&gt;() const</span></a>
 <a name="35"><span class="lineNum">      35 </span>                :            : {</a>
-<a name="36"><span class="lineNum">      36 </span>                :<span class="lineNoCov">          0 :   std::vector&lt;openscenario_msgs::msg::LaneletPose&gt; lanelet_poses{};</span></a>
+<a name="36"><span class="lineNum">      36 </span>                :<span class="lineNoCov">          0 :   std::vector&lt;traffic_simulator_msgs::msg::LaneletPose&gt; lanelet_poses{};</span></a>
 <a name="37"><span class="lineNum">      37 </span>                :            : </a>
 <a name="38"><span class="lineNum">      38 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   for (const auto &amp; waypoint : waypoints) {</span></a>
-<a name="39"><span class="lineNum">      39 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     lanelet_poses.emplace_back(static_cast&lt;openscenario_msgs::msg::LaneletPose&gt;(waypoint));</span></a>
+<a name="39"><span class="lineNum">      39 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     lanelet_poses.emplace_back(static_cast&lt;traffic_simulator_msgs::msg::LaneletPose&gt;(waypoint));</span></a>
 <a name="40"><span class="lineNum">      40 </span>                :            :   }</a>
 <a name="41"><span class="lineNum">      41 </span>                :            : </a>
 <a name="42"><span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :   return lanelet_poses;</span></a>

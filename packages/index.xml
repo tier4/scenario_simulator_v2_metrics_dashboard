@@ -10,6 +10,16 @@
     
     
     <item>
+      <title>behavior_tree_plugin</title>
+      <link>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/behavior_tree_plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/behavior_tree_plugin/</guid>
+      <description>behavior_tree_plugin
+ Test result Code coverage     json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/behavior_tree_plugin/coverage.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.plot(&#39;plotly\/behavior_tree_plugin\/coverage.json&#39;, fig.data, fig.layout, {responsive: true}); });   You can access more detailed data on code coverage here.  Code metrics    json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/behavior_tree_plugin/ccn.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.plot(&#39;plotly\/behavior_tree_plugin\/ccn.json&#39;, fig.data, fig.layout, {responsive: true}); });     json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/behavior_tree_plugin/loc.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.</description>
+    </item>
+    
+    <item>
       <title>cargo_delivery</title>
       <link>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/cargo_delivery/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

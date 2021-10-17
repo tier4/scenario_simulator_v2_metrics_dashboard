@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:16</td>
+            <td class="headerValue">2021-10-17 20:17:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -93,14 +93,14 @@
 <a name="15"><span class="lineNum">      15 </span>                :            : #ifndef CPP_MOCK_SCENARIOS__CATALOGS_HPP_</a>
 <a name="16"><span class="lineNum">      16 </span>                :            : #define CPP_MOCK_SCENARIOS__CATALOGS_HPP_</a>
 <a name="17"><span class="lineNum">      17 </span>                :            : </a>
-<a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;openscenario_msgs/msg/misc_object_parameters.hpp&gt;</a>
-<a name="19"><span class="lineNum">      19 </span>                :            : #include &lt;openscenario_msgs/msg/pedestrian_parameters.hpp&gt;</a>
-<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;openscenario_msgs/msg/vehicle_parameters.hpp&gt;</a>
-<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;string&gt;</a>
+<a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;string&gt;</a>
+<a name="19"><span class="lineNum">      19 </span>                :            : #include &lt;traffic_simulator_msgs/msg/misc_object_parameters.hpp&gt;</a>
+<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;traffic_simulator_msgs/msg/pedestrian_parameters.hpp&gt;</a>
+<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;traffic_simulator_msgs/msg/vehicle_parameters.hpp&gt;</a>
 <a name="22"><span class="lineNum">      22 </span>                :            : </a>
-<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">         31 : auto getVehicleParameters() -&gt; openscenario_msgs::msg::VehicleParameters</span></a>
+<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">         31 : auto getVehicleParameters() -&gt; traffic_simulator_msgs::msg::VehicleParameters</span></a>
 <a name="24"><span class="lineNum">      24 </span>                :            : {</a>
-<a name="25"><span class="lineNum">      25 </span>                :<span class="lineCov">         31 :   openscenario_msgs::msg::VehicleParameters parameters;</span></a>
+<a name="25"><span class="lineNum">      25 </span>                :<span class="lineCov">         31 :   traffic_simulator_msgs::msg::VehicleParameters parameters;</span></a>
 <a name="26"><span class="lineNum">      26 </span>        [<span class="branchCov" title="Branch 0 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         31 :   parameters.name = &quot;vehicle.volkswagen.t&quot;;</span></a>
 <a name="27"><span class="lineNum">      27 </span>        [<span class="branchCov" title="Branch 0 was taken 31 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         31 :   parameters.vehicle_category = &quot;car&quot;;</span></a>
 <a name="28"><span class="lineNum">      28 </span>                :<span class="lineCov">         31 :   parameters.performance.max_speed = 69.444;</span></a>
@@ -125,9 +125,9 @@
 <a name="47"><span class="lineNum">      47 </span>                :<span class="lineCov">         31 :   return parameters;</span></a>
 <a name="48"><span class="lineNum">      48 </span>                :            : }</a>
 <a name="49"><span class="lineNum">      49 </span>                :            : </a>
-<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">          3 : auto getPedestrianParameters() -&gt; openscenario_msgs::msg::PedestrianParameters</span></a>
+<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">          3 : auto getPedestrianParameters() -&gt; traffic_simulator_msgs::msg::PedestrianParameters</span></a>
 <a name="51"><span class="lineNum">      51 </span>                :            : {</a>
-<a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">          3 :   openscenario_msgs::msg::PedestrianParameters parameters;</span></a>
+<a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">          3 :   traffic_simulator_msgs::msg::PedestrianParameters parameters;</span></a>
 <a name="53"><span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   parameters.name = &quot;pedestrian&quot;;</span></a>
 <a name="54"><span class="lineNum">      54 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :   parameters.pedestrian_category = &quot;pedestrian&quot;;</span></a>
 <a name="55"><span class="lineNum">      55 </span>                :<span class="lineCov">          3 :   parameters.bounding_box.center.x = 0.0;</span></a>
@@ -139,9 +139,9 @@
 <a name="61"><span class="lineNum">      61 </span>                :<span class="lineCov">          3 :   return parameters;</span></a>
 <a name="62"><span class="lineNum">      62 </span>                :            : }</a>
 <a name="63"><span class="lineNum">      63 </span>                :            : </a>
-<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 : auto getMiscObjectParameters() -&gt; openscenario_msgs::msg::MiscObjectParameters</span></a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 : auto getMiscObjectParameters() -&gt; traffic_simulator_msgs::msg::MiscObjectParameters</span></a>
 <a name="65"><span class="lineNum">      65 </span>                :            : {</a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :   openscenario_msgs::msg::MiscObjectParameters misc_object_param;</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :   traffic_simulator_msgs::msg::MiscObjectParameters misc_object_param;</span></a>
 <a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :   misc_object_param.bounding_box.dimensions.x = 1.0;</span></a>
 <a name="68"><span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :   misc_object_param.bounding_box.dimensions.y = 1.0;</span></a>
 <a name="69"><span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :   misc_object_param.bounding_box.dimensions.z = 1.0;</span></a>

@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/behavior_tree_plugin/</loc>
+  </url>
+  
+  <url>
     <loc>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/cargo_delivery/</loc>
   </url>
   

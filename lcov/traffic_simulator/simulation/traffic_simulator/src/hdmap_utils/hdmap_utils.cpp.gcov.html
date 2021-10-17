@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:03:00</td>
+            <td class="headerValue">2021-10-17 20:18:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">53</td>
@@ -192,7 +192,7 @@
 <a name="107"><span class="lineNum">     107 </span>                :<span class="lineCov">        388 :   return points;</span></a>
 <a name="108"><span class="lineNum">     108 </span>                :            : }</a>
 <a name="109"><span class="lineNum">     109 </span>                :            : </a>
-<a name="110"><span class="lineNum">     110 </span>                :<span class="lineNoCov">          0 : double HdMapUtils::getHeight(const openscenario_msgs::msg::LaneletPose &amp; lanelet_pose)</span></a>
+<a name="110"><span class="lineNum">     110 </span>                :<span class="lineNoCov">          0 : double HdMapUtils::getHeight(const traffic_simulator_msgs::msg::LaneletPose &amp; lanelet_pose)</span></a>
 <a name="111"><span class="lineNum">     111 </span>                :            : {</a>
 <a name="112"><span class="lineNum">     112 </span>                :<span class="lineNoCov">          0 :   return toMapPose(lanelet_pose).pose.position.z;</span></a>
 <a name="113"><span class="lineNum">     113 </span>                :            : }</a>
@@ -344,7 +344,7 @@
 <a name="256"><span class="lineNum">     256 </span>                :<span class="lineCov">        167 :   return exclude_subtype_lanelets;</span></a>
 <a name="257"><span class="lineNum">     257 </span>                :            : }</a>
 <a name="258"><span class="lineNum">     258 </span>                :            : </a>
-<a name="259"><span class="lineNum">     259 </span>                :<span class="lineCov">        167 : boost::optional&lt;openscenario_msgs::msg::LaneletPose&gt; HdMapUtils::toLaneletPose(</span></a>
+<a name="259"><span class="lineNum">     259 </span>                :<span class="lineCov">        167 : boost::optional&lt;traffic_simulator_msgs::msg::LaneletPose&gt; HdMapUtils::toLaneletPose(</span></a>
 <a name="260"><span class="lineNum">     260 </span>                :            :   geometry_msgs::msg::Pose pose, bool include_crosswalk)</a>
 <a name="261"><span class="lineNum">     261 </span>                :            : {</a>
 <a name="262"><span class="lineNum">     262 </span>        [<span class="branchCov" title="Branch 0 was taken 167 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        167 :   const auto lanelet_id = getClosetLaneletId(pose, include_crosswalk);</span></a>
@@ -354,7 +354,7 @@
 <a name="266"><span class="lineNum">     266 </span>  [<span class="branchCov" title="Branch 0 was taken 167 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 167 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        167 :   return toLaneletPose(pose, lanelet_id.get());</span></a>
 <a name="267"><span class="lineNum">     267 </span>                :            : }</a>
 <a name="268"><span class="lineNum">     268 </span>                :            : </a>
-<a name="269"><span class="lineNum">     269 </span>                :<span class="lineCov">        290 : boost::optional&lt;openscenario_msgs::msg::LaneletPose&gt; HdMapUtils::toLaneletPose(</span></a>
+<a name="269"><span class="lineNum">     269 </span>                :<span class="lineCov">        290 : boost::optional&lt;traffic_simulator_msgs::msg::LaneletPose&gt; HdMapUtils::toLaneletPose(</span></a>
 <a name="270"><span class="lineNum">     270 </span>                :            :   geometry_msgs::msg::Pose pose, std::int64_t lanelet_id)</a>
 <a name="271"><span class="lineNum">     271 </span>                :            : {</a>
 <a name="272"><span class="lineNum">     272 </span>        [<span class="branchCov" title="Branch 0 was taken 290 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        580 :   const auto spline = getCenterPointsSpline(lanelet_id);</span></a>
@@ -366,7 +366,7 @@
 <a name="278"><span class="lineNum">     278 </span>                :            :   auto rpy = quaternion_operation::convertQuaternionToEulerAngle(</a>
 <a name="279"><span class="lineNum">     279 </span>  [<span class="branchCov" title="Branch 0 was taken 290 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 290 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        290 :     quaternion_operation::getRotation(pose_on_centerline.orientation, pose.orientation));</span></a>
 <a name="280"><span class="lineNum">     280 </span>  [<span class="branchCov" title="Branch 0 was taken 290 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 290 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        290 :   double offset = spline-&gt;getSquaredDistanceIn2D(pose.position, s.get());</span></a>
-<a name="281"><span class="lineNum">     281 </span>                :<span class="lineCov">        290 :   openscenario_msgs::msg::LaneletPose lanelet_pose;</span></a>
+<a name="281"><span class="lineNum">     281 </span>                :<span class="lineCov">        290 :   traffic_simulator_msgs::msg::LaneletPose lanelet_pose;</span></a>
 <a name="282"><span class="lineNum">     282 </span>                :<span class="lineCov">        290 :   lanelet_pose.lanelet_id = lanelet_id;</span></a>
 <a name="283"><span class="lineNum">     283 </span>        [<span class="branchCov" title="Branch 0 was taken 290 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        290 :   lanelet_pose.s = s.get();</span></a>
 <a name="284"><span class="lineNum">     284 </span>                :<span class="lineCov">        290 :   lanelet_pose.offset = offset;</span></a>
@@ -874,7 +874,7 @@
 <a name="780"><span class="lineNum">     780 </span>                :            : }</a>
 <a name="781"><span class="lineNum">     781 </span>                :            : </a>
 <a name="782"><span class="lineNum">     782 </span>                :<span class="lineCov">       5564 : geometry_msgs::msg::PoseStamped HdMapUtils::toMapPose(</span></a>
-<a name="783"><span class="lineNum">     783 </span>                :            :   openscenario_msgs::msg::LaneletPose lanelet_pose)</a>
+<a name="783"><span class="lineNum">     783 </span>                :            :   traffic_simulator_msgs::msg::LaneletPose lanelet_pose)</a>
 <a name="784"><span class="lineNum">     784 </span>                :            : {</a>
 <a name="785"><span class="lineNum">     785 </span>                :            :   return toMapPose(</a>
 <a name="786"><span class="lineNum">     786 </span>                :            :     lanelet_pose.lanelet_id, lanelet_pose.s, lanelet_pose.offset,</a>
@@ -884,7 +884,7 @@
 <a name="790"><span class="lineNum">     790 </span>                :<span class="lineCov">        408 : geometry_msgs::msg::PoseStamped HdMapUtils::toMapPose(</span></a>
 <a name="791"><span class="lineNum">     791 </span>                :            :   std::int64_t lanelet_id, double s, double offset)</a>
 <a name="792"><span class="lineNum">     792 </span>                :            : {</a>
-<a name="793"><span class="lineNum">     793 </span>                :<span class="lineCov">        408 :   openscenario_msgs::msg::LaneletPose lanelet_pose;</span></a>
+<a name="793"><span class="lineNum">     793 </span>                :<span class="lineCov">        408 :   traffic_simulator_msgs::msg::LaneletPose lanelet_pose;</span></a>
 <a name="794"><span class="lineNum">     794 </span>                :<span class="lineCov">        408 :   lanelet_pose.lanelet_id = lanelet_id;</span></a>
 <a name="795"><span class="lineNum">     795 </span>                :<span class="lineCov">        408 :   lanelet_pose.s = s;</span></a>
 <a name="796"><span class="lineNum">     796 </span>                :<span class="lineCov">        408 :   lanelet_pose.offset = offset;</span></a>
@@ -905,7 +905,7 @@
 <a name="811"><span class="lineNum">     811 </span>                :            : }</a>
 <a name="812"><span class="lineNum">     812 </span>                :            : </a>
 <a name="813"><span class="lineNum">     813 </span>                :<span class="lineNoCov">          0 : boost::optional&lt;double&gt; HdMapUtils::getLongitudinalDistance(</span></a>
-<a name="814"><span class="lineNum">     814 </span>                :            :   openscenario_msgs::msg::LaneletPose from, openscenario_msgs::msg::LaneletPose to)</a>
+<a name="814"><span class="lineNum">     814 </span>                :            :   traffic_simulator_msgs::msg::LaneletPose from, traffic_simulator_msgs::msg::LaneletPose to)</a>
 <a name="815"><span class="lineNum">     815 </span>                :            : {</a>
 <a name="816"><span class="lineNum">     816 </span>                :<span class="lineNoCov">          0 :   return getLongitudinalDistance(from.lanelet_id, from.s, to.lanelet_id, to.s);</span></a>
 <a name="817"><span class="lineNum">     817 </span>                :            : }</a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:03:00</td>
+            <td class="headerValue">2021-10-17 20:18:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -133,7 +133,7 @@
 <a name="54"><span class="lineNum">      54 </span>                :            : {</a>
 <a name="55"><span class="lineNum">      55 </span>  [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1923 times"> + </span><span class="branchCov" title="Branch 3 was taken 23 times"> + </span>]:<span class="lineCov">       1946 :   for (const auto &amp; lanelet_id : hdmap_utils_-&gt;getLaneletIds()) {</span></a>
 <a name="56"><span class="lineNum">      56 </span>  [<span class="branchCov" title="Branch 0 was taken 1923 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 148 times"> + </span><span class="branchCov" title="Branch 3 was taken 1775 times"> + </span>]:<span class="lineCov">       1923 :     if (hdmap_utils_-&gt;getNextLaneletIds(lanelet_id).empty()) {</span></a>
-<a name="57"><span class="lineNum">      57 </span>                :<span class="lineCov">        148 :       openscenario_msgs::msg::LaneletPose lanelet_pose;</span></a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineCov">        148 :       traffic_simulator_msgs::msg::LaneletPose lanelet_pose;</span></a>
 <a name="58"><span class="lineNum">      58 </span>                :<span class="lineCov">        148 :       lanelet_pose.lanelet_id = lanelet_id;</span></a>
 <a name="59"><span class="lineNum">      59 </span>        [<span class="branchCov" title="Branch 0 was taken 148 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        148 :       lanelet_pose.s = hdmap_utils_-&gt;getLaneletLength(lanelet_id);</span></a>
 <a name="60"><span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 148 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        148 :       const auto pose = hdmap_utils_-&gt;toMapPose(lanelet_pose);</span></a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:04</td>
+            <td class="headerValue">2021-10-17 20:17:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">30</td>
-            <td class="headerCovTableEntry">66</td>
-            <td class="headerCovTableEntryLo">45.5 %</td>
+            <td class="headerCovTableEntry">34</td>
+            <td class="headerCovTableEntry">74</td>
+            <td class="headerCovTableEntryLo">45.9 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -95,9 +95,9 @@
 <a name="17"><span class="lineNum">      17 </span>                :            : #include &lt;ament_index_cpp/get_package_share_directory.hpp&gt;</a>
 <a name="18"><span class="lineNum">      18 </span>                :            : #include &lt;cpp_mock_scenarios/catalogs.hpp&gt;</a>
 <a name="19"><span class="lineNum">      19 </span>                :            : #include &lt;cpp_mock_scenarios/cpp_scenario_node.hpp&gt;</a>
-<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;openscenario_msgs/msg/driver_model.hpp&gt;</a>
-<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;rclcpp/rclcpp.hpp&gt;</a>
-<a name="22"><span class="lineNum">      22 </span>                :            : #include &lt;traffic_simulator/api/api.hpp&gt;</a>
+<a name="20"><span class="lineNum">      20 </span>                :            : #include &lt;rclcpp/rclcpp.hpp&gt;</a>
+<a name="21"><span class="lineNum">      21 </span>                :            : #include &lt;traffic_simulator/api/api.hpp&gt;</a>
+<a name="22"><span class="lineNum">      22 </span>                :            : #include &lt;traffic_simulator_msgs/msg/driver_model.hpp&gt;</a>
 <a name="23"><span class="lineNum">      23 </span>                :            : </a>
 <a name="24"><span class="lineNum">      24 </span>                :            : // headers in STL</a>
 <a name="25"><span class="lineNum">      25 </span>                :            : #include &lt;memory&gt;</a>
@@ -133,17 +133,19 @@
 <a name="53"><span class="lineNum">      53 </span>                :<span class="lineCov">         72 :   }</span></a>
 <a name="54"><span class="lineNum">      54 </span>                :<span class="lineCov">          1 :   void onInitialize() override</span></a>
 <a name="55"><span class="lineNum">      55 </span>                :            :   {</a>
-<a name="56"><span class="lineNum">      56 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.spawn(</span></a>
-<a name="57"><span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       false, &quot;ego&quot;, getVehicleParameters(),</span></a>
-<a name="58"><span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :       traffic_simulator::helper::constructLaneletPose(34741, 0, 0),</span></a>
+<a name="56"><span class="lineNum">      56 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :     api_.spawn(false, &quot;ego&quot;, getVehicleParameters());</span></a>
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
+<a name="57"><span class="lineNum">      57 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.setEntityStatus(</span></a>
+<a name="58"><span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :       &quot;ego&quot;, traffic_simulator::helper::constructLaneletPose(34741, 0, 0),</span></a>
 <a name="59"><span class="lineNum">      59 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       traffic_simulator::helper::constructActionStatus(0));</span></a>
 <a name="60"><span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.setTargetSpeed(&quot;ego&quot;, 15, true);</span></a>
-<a name="61"><span class="lineNum">      61 </span>                :<span class="lineCov">          1 :     openscenario_msgs::msg::DriverModel driver_model;</span></a>
+<a name="61"><span class="lineNum">      61 </span>                :<span class="lineCov">          1 :     traffic_simulator_msgs::msg::DriverModel driver_model;</span></a>
 <a name="62"><span class="lineNum">      62 </span>                :<span class="lineCov">          1 :     driver_model.see_around = false;</span></a>
 <a name="63"><span class="lineNum">      63 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.setDriverModel(&quot;ego&quot;, driver_model);</span></a>
-<a name="64"><span class="lineNum">      64 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.spawn(</span></a>
-<a name="65"><span class="lineNum">      65 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       false, &quot;npc&quot;, getVehicleParameters(),</span></a>
-<a name="66"><span class="lineNum">      66 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :       traffic_simulator::helper::constructLaneletPose(34741, 10, 0),</span></a>
+<a name="64"><span class="lineNum">      64 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :     api_.spawn(false, &quot;npc&quot;, getVehicleParameters());</span></a>
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
+<a name="65"><span class="lineNum">      65 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.setEntityStatus(</span></a>
+<a name="66"><span class="lineNum">      66 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :       &quot;npc&quot;, traffic_simulator::helper::constructLaneletPose(34741, 10, 0),</span></a>
 <a name="67"><span class="lineNum">      67 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       traffic_simulator::helper::constructActionStatus(0));</span></a>
 <a name="68"><span class="lineNum">      68 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     api_.setTargetSpeed(&quot;npc&quot;, 5, true);</span></a>
 <a name="69"><span class="lineNum">      69 </span>                :<span class="lineCov">          1 :   }</span></a>

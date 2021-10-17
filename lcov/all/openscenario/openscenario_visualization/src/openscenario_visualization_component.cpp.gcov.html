@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:04</td>
+            <td class="headerValue">2021-10-17 20:17:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -113,7 +113,7 @@
 <a name="35"><span class="lineNum">      35 </span>                :            :     &lt;/tr&gt;</a>
 <a name="36"><span class="lineNum">      36 </span>                :            :     &lt;tr&gt;</a>
 <a name="37"><span class="lineNum">      37 </span>                :            :       &lt;td&gt;/entity/status&lt;/td&gt;</a>
-<a name="38"><span class="lineNum">      38 </span>                :            :       &lt;td&gt;openscenario_msgs/msg/EntityStatusWithTrajectoryArray&lt;/td&gt;</a>
+<a name="38"><span class="lineNum">      38 </span>                :            :       &lt;td&gt;traffic_simulator_msgs/msg/EntityStatusWithTrajectoryArray&lt;/td&gt;</a>
 <a name="39"><span class="lineNum">      39 </span>                :            :       &lt;td&gt;Subscribe&lt;/td&gt;</a>
 <a name="40"><span class="lineNum">      40 </span>                :            :       &lt;td&gt;Topics for publishing entity status in simulation.&lt;/td&gt;</a>
 <a name="41"><span class="lineNum">      41 </span>                :            :     &lt;/tr&gt;</a>
@@ -139,7 +139,7 @@
 <a name="61"><span class="lineNum">      61 </span>  [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         23 :   marker_pub_ = create_publisher&lt;visualization_msgs::msg::MarkerArray&gt;(&quot;entity/marker&quot;, 1);</span></a>
 <span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
 <a name="62"><span class="lineNum">      62 </span>                :            :   entity_status_sub_ =</a>
-<a name="63"><span class="lineNum">      63 </span>  [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         92 :     this-&gt;create_subscription&lt;openscenario_msgs::msg::EntityStatusWithTrajectoryArray&gt;(</span></a>
+<a name="63"><span class="lineNum">      63 </span>  [<span class="branchCov" title="Branch 0 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         92 :     this-&gt;create_subscription&lt;traffic_simulator_msgs::msg::EntityStatusWithTrajectoryArray&gt;(</span></a>
 <span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchCov" title="Branch 6 was taken 23 times"> + </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchCov" title="Branch 8 was taken 23 times"> + </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
 <a name="64"><span class="lineNum">      64 </span>                :            :       &quot;entity/status&quot;, 1,</a>
@@ -148,7 +148,7 @@
 <a name="67"><span class="lineNum">      67 </span>                :<span class="lineCov">         23 : }</span></a>
 <a name="68"><span class="lineNum">      68 </span>                :            : </a>
 <a name="69"><span class="lineNum">      69 </span>                :<span class="lineCov">       2692 : void OpenscenarioVisualizationComponent::entityStatusCallback(</span></a>
-<a name="70"><span class="lineNum">      70 </span>                :            :   const openscenario_msgs::msg::EntityStatusWithTrajectoryArray::SharedPtr msg)</a>
+<a name="70"><span class="lineNum">      70 </span>                :            :   const traffic_simulator_msgs::msg::EntityStatusWithTrajectoryArray::SharedPtr msg)</a>
 <a name="71"><span class="lineNum">      71 </span>                :            : {</a>
 <a name="72"><span class="lineNum">      72 </span>                :<span class="lineCov">       5384 :   visualization_msgs::msg::MarkerArray current_marker;</span></a>
 <a name="73"><span class="lineNum">      73 </span>                :<span class="lineCov">       5384 :   std::vector&lt;std::string&gt; entity_name_lists;</span></a>
@@ -198,10 +198,10 @@
 <a name="117"><span class="lineNum">     117 </span>                :            : }</a>
 <a name="118"><span class="lineNum">     118 </span>                :            : </a>
 <a name="119"><span class="lineNum">     119 </span>                :<span class="lineCov">       4073 : const visualization_msgs::msg::MarkerArray OpenscenarioVisualizationComponent::generateMarker(</span></a>
-<a name="120"><span class="lineNum">     120 </span>                :            :   const openscenario_msgs::msg::EntityStatus &amp; status,</a>
+<a name="120"><span class="lineNum">     120 </span>                :            :   const traffic_simulator_msgs::msg::EntityStatus &amp; status,</a>
 <a name="121"><span class="lineNum">     121 </span>                :            :   const std::vector&lt;geometry_msgs::msg::Pose&gt; &amp; goal_pose,</a>
-<a name="122"><span class="lineNum">     122 </span>                :            :   const openscenario_msgs::msg::WaypointsArray &amp; waypoints,</a>
-<a name="123"><span class="lineNum">     123 </span>                :            :   const openscenario_msgs::msg::Obstacle &amp; obstacle, bool obstacle_find)</a>
+<a name="122"><span class="lineNum">     122 </span>                :            :   const traffic_simulator_msgs::msg::WaypointsArray &amp; waypoints,</a>
+<a name="123"><span class="lineNum">     123 </span>                :            :   const traffic_simulator_msgs::msg::Obstacle &amp; obstacle, bool obstacle_find)</a>
 <a name="124"><span class="lineNum">     124 </span>                :            : {</a>
 <a name="125"><span class="lineNum">     125 </span>                :<span class="lineCov">       4073 :   auto ret = visualization_msgs::msg::MarkerArray();</span></a>
 <a name="126"><span class="lineNum">     126 </span>  [<span class="branchCov" title="Branch 0 was taken 4073 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 4073 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       8146 :   auto stamp = get_clock()-&gt;now();</span></a>

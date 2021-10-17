@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">37</td>
+            <td class="headerCovTableEntry">27</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:04</td>
+            <td class="headerValue">2021-10-17 20:17:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">7</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -57,7 +57,7 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">62</td>
+            <td class="headerCovTableEntry">54</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -117,7 +117,7 @@
 <a name="38"><span class="lineNum">      38 </span>                :            : {</a>
 <a name="39"><span class="lineNum">      39 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   std::stringstream description;</span></a>
 <a name="40"><span class="lineNum">      40 </span>                :            : </a>
-<a name="41"><span class="lineNum">      41 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :   description &lt;&lt; triggering_entities.description() &lt;&lt; &quot;'s distance to given position = &quot;;</span></a>
+<a name="41"><span class="lineNum">      41 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :   description &lt;&lt; triggering_entities.description() &lt;&lt; &quot;s distance to given position = &quot;;</span></a>
 <span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
 <a name="42"><span class="lineNum">      42 </span>                :            : </a>
 <a name="43"><span class="lineNum">      43 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   print_to(description, results);</span></a>
@@ -131,47 +131,33 @@
 <a name="49"><span class="lineNum">      49 </span>                :            : </a>
 <a name="50"><span class="lineNum">      50 </span>                :<span class="lineNoCov">          0 : auto ReachPositionCondition::evaluate() -&gt; Element</span></a>
 <a name="51"><span class="lineNum">      51 </span>                :            : {</a>
-<a name="52"><span class="lineNum">      52 </span>                :            :   const auto reach_position = overload(</a>
-<a name="53"><span class="lineNum">      53 </span>                :<span class="lineNoCov">          0 :     [](const WorldPosition &amp; position, auto &amp;&amp; triggering_entity, auto &amp;&amp; tolerance) {</span></a>
-<a name="54"><span class="lineNum">      54 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return evaluateReachPositionCondition(</span></a>
-<a name="55"><span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 :         triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position), tolerance);</span></a>
-<a name="56"><span class="lineNum">      56 </span>                :            :     },</a>
-<a name="57"><span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :     [](const RelativeWorldPosition &amp; position, auto &amp;&amp; triggering_entity, auto &amp;&amp; tolerance) {</span></a>
-<a name="58"><span class="lineNum">      58 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return evaluateReachPositionCondition(</span></a>
-<a name="59"><span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :         triggering_entity, static_cast&lt;openscenario_msgs::msg::LaneletPose&gt;(position), tolerance);</span></a>
-<a name="60"><span class="lineNum">      60 </span>                :            :     },</a>
-<a name="61"><span class="lineNum">      61 </span>                :<span class="lineNoCov">          0 :     [](const LanePosition &amp; position, auto &amp;&amp; triggering_entity, auto &amp;&amp; tolerance) {</span></a>
-<a name="62"><span class="lineNum">      62 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       return evaluateReachPositionCondition(</span></a>
-<a name="63"><span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :         triggering_entity, static_cast&lt;openscenario_msgs::msg::LaneletPose&gt;(position), tolerance);</span></a>
-<a name="64"><span class="lineNum">      64 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     });</span></a>
-<a name="65"><span class="lineNum">      65 </span>                :            : </a>
-<a name="66"><span class="lineNum">      66 </span>                :            :   // TODO USE DistanceCondition::distance</a>
-<a name="67"><span class="lineNum">      67 </span>                :            :   const auto distance = overload(</a>
-<a name="68"><span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :     [&amp;](const WorldPosition &amp; position, auto &amp;&amp; triggering_entity) {</span></a>
-<a name="69"><span class="lineNum">      69 </span>                :            :       const auto pose =</a>
-<a name="70"><span class="lineNum">      70 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         getRelativePose(triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position));</span></a>
-<a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :       return std::hypot(pose.position.x, pose.position.y);</span></a>
-<a name="72"><span class="lineNum">      72 </span>                :            :     },</a>
-<a name="73"><span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :     [&amp;](const RelativeWorldPosition &amp; position, auto &amp;&amp; triggering_entity) {</span></a>
-<a name="74"><span class="lineNum">      74 </span>                :            :       const auto pose =</a>
-<a name="75"><span class="lineNum">      75 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         getRelativePose(triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position));</span></a>
-<a name="76"><span class="lineNum">      76 </span>                :<span class="lineNoCov">          0 :       return std::hypot(pose.position.x, pose.position.y);</span></a>
-<a name="77"><span class="lineNum">      77 </span>                :            :     },</a>
-<a name="78"><span class="lineNum">      78 </span>                :<span class="lineNoCov">          0 :     [&amp;](const LanePosition &amp; position, auto &amp;&amp; triggering_entity) {</span></a>
-<a name="79"><span class="lineNum">      79 </span>                :            :       const auto pose =</a>
-<a name="80"><span class="lineNum">      80 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         getRelativePose(triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position));</span></a>
-<a name="81"><span class="lineNum">      81 </span>                :<span class="lineNoCov">          0 :       return std::hypot(pose.position.x, pose.position.y);</span></a>
-<a name="82"><span class="lineNum">      82 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     });</span></a>
-<a name="83"><span class="lineNum">      83 </span>                :            : </a>
-<a name="84"><span class="lineNum">      84 </span>                :<span class="lineNoCov">          0 :   results.clear();</span></a>
-<a name="85"><span class="lineNum">      85 </span>                :            : </a>
-<a name="86"><span class="lineNum">      86 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   return asBoolean(triggering_entities.apply([&amp;](const auto &amp; triggering_entity) {</span></a>
-<a name="87"><span class="lineNum">      87 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     results.push_back(apply&lt;Double&gt;(distance, position, triggering_entity));</span></a>
-<a name="88"><span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :     return apply&lt;bool&gt;(reach_position, position, triggering_entity, tolerance);</span></a>
-<a name="89"><span class="lineNum">      89 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   }));</span></a>
-<a name="90"><span class="lineNum">      90 </span>                :            : }</a>
-<a name="91"><span class="lineNum">      91 </span>                :            : }  // namespace syntax</a>
-<a name="92"><span class="lineNum">      92 </span>                :            : }  // namespace openscenario_interpreter</a>
+<a name="52"><span class="lineNum">      52 </span>                :            :   // TODO USE DistanceCondition::distance</a>
+<a name="53"><span class="lineNum">      53 </span>                :            :   const auto distance = overload(</a>
+<a name="54"><span class="lineNum">      54 </span>                :<span class="lineNoCov">          0 :     [&amp;](const WorldPosition &amp; position, auto &amp;&amp; triggering_entity) {</span></a>
+<a name="55"><span class="lineNum">      55 </span>                :            :       const auto pose =</a>
+<a name="56"><span class="lineNum">      56 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         getRelativePose(triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position));</span></a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :       return std::hypot(pose.position.x, pose.position.y);</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :            :     },</a>
+<a name="59"><span class="lineNum">      59 </span>                :<span class="lineNoCov">          0 :     [&amp;](const RelativeWorldPosition &amp; position, auto &amp;&amp; triggering_entity) {</span></a>
+<a name="60"><span class="lineNum">      60 </span>                :            :       const auto pose =</a>
+<a name="61"><span class="lineNum">      61 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         getRelativePose(triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position));</span></a>
+<a name="62"><span class="lineNum">      62 </span>                :<span class="lineNoCov">          0 :       return std::hypot(pose.position.x, pose.position.y);</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :            :     },</a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :     [&amp;](const LanePosition &amp; position, auto &amp;&amp; triggering_entity) {</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :            :       const auto pose =</a>
+<a name="66"><span class="lineNum">      66 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         getRelativePose(triggering_entity, static_cast&lt;geometry_msgs::msg::Pose&gt;(position));</span></a>
+<a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :       return std::hypot(pose.position.x, pose.position.y);</span></a>
+<a name="68"><span class="lineNum">      68 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     });</span></a>
+<a name="69"><span class="lineNum">      69 </span>                :            : </a>
+<a name="70"><span class="lineNum">      70 </span>                :<span class="lineNoCov">          0 :   results.clear();</span></a>
+<a name="71"><span class="lineNum">      71 </span>                :            : </a>
+<a name="72"><span class="lineNum">      72 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   return asBoolean(triggering_entities.apply([&amp;](const auto &amp; triggering_entity) {</span></a>
+<a name="73"><span class="lineNum">      73 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     results.push_back(apply&lt;Double&gt;(distance, position, triggering_entity));</span></a>
+<a name="74"><span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :     return compare(results.back(), tolerance);</span></a>
+<a name="75"><span class="lineNum">      75 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   }));</span></a>
+<a name="76"><span class="lineNum">      76 </span>                :            : }</a>
+<a name="77"><span class="lineNum">      77 </span>                :            : }  // namespace syntax</a>
+<a name="78"><span class="lineNum">      78 </span>                :            : }  // namespace openscenario_interpreter</a>
 </pre>
       </td>
     </tr>

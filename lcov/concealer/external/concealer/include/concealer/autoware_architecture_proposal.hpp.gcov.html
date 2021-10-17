@@ -32,16 +32,16 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">74</td>
+            <td class="headerCovTableEntry">80</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-10 20:02:10</td>
+            <td class="headerValue">2021-10-17 20:17:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntry">34</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
@@ -57,7 +57,7 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">132</td>
+            <td class="headerCovTableEntry">144</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -498,21 +498,22 @@
 <a name="413"><span class="lineNum">     413 </span>                :            :    *  Topic: /awapi/vehicle/put/velocity</a>
 <a name="414"><span class="lineNum">     414 </span>                :            :    *</a>
 <a name="415"><span class="lineNum">     415 </span>                :            :    * ------------------------------------------------------------------------ */</a>
-<a name="416"><span class="lineNum">     416 </span>                :            :   // using VehicleVelocity = autoware_api_msgs::msg::VelocityLimit;</a>
-<a name="417"><span class="lineNum">     417 </span>                :            :   //</a>
-<a name="418"><span class="lineNum">     418 </span>                :            :   // DEFINE_PUBLISHER(VehicleVelocity);</a>
-<a name="419"><span class="lineNum">     419 </span>                :            :   //</a>
-<a name="420"><span class="lineNum">     420 </span>                :            :   // template &lt;typename T, REQUIRES(std::is_convertible&lt;T, decltype(VehicleVelocity::max_velocity)&gt;)&gt;</a>
-<a name="421"><span class="lineNum">     421 </span>                :            :   // decltype(auto) setVehicleVelocity(const T value)</a>
-<a name="422"><span class="lineNum">     422 </span>                :            :   // {</a>
-<a name="423"><span class="lineNum">     423 </span>                :            :   //   VehicleVelocity vehicle_velocity;</a>
-<a name="424"><span class="lineNum">     424 </span>                :            :   //   {</a>
-<a name="425"><span class="lineNum">     425 </span>                :            :   //     vehicle_velocity.stamp = get_clock()-&gt;now();</a>
-<a name="426"><span class="lineNum">     426 </span>                :            :   //     vehicle_velocity.max_velocity = value;</a>
-<a name="427"><span class="lineNum">     427 </span>                :            :   //   }</a>
-<a name="428"><span class="lineNum">     428 </span>                :            :   //</a>
-<a name="429"><span class="lineNum">     429 </span>                :            :   //   return setVehicleVelocity(vehicle_velocity);</a>
-<a name="430"><span class="lineNum">     430 </span>                :            :   // }</a>
+<a name="416"><span class="lineNum">     416 </span>                :            :   using VehicleVelocity = autoware_api_msgs::msg::VelocityLimit;</a>
+<a name="417"><span class="lineNum">     417 </span>                :            : </a>
+<a name="418"><span class="lineNum">     418 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :   DEFINE_PUBLISHER(VehicleVelocity);</span></a>
+<a name="419"><span class="lineNum">     419 </span>                :            : </a>
+<a name="420"><span class="lineNum">     420 </span>                :            :   template &lt;typename T, REQUIRES(std::is_convertible&lt;T, decltype(VehicleVelocity::max_velocity)&gt;)&gt;</a>
+<a name="421"><span class="lineNum">     421 </span>                :<span class="lineNoCov">          0 :   auto setVehicleVelocity(const T &amp; value) -&gt; decltype(auto)</span></a>
+<a name="422"><span class="lineNum">     422 </span>                :            :   {</a>
+<a name="423"><span class="lineNum">     423 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     VehicleVelocity vehicle_velocity;</span></a>
+<a name="424"><span class="lineNum">     424 </span>                :            :     {</a>
+<a name="425"><span class="lineNum">     425 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :       vehicle_velocity.stamp = get_clock()-&gt;now();</span></a>
+<span class="lineNum">         </span>         <span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<a name="426"><span class="lineNum">     426 </span>                :<span class="lineNoCov">          0 :       vehicle_velocity.max_velocity = value;</span></a>
+<a name="427"><span class="lineNum">     427 </span>                :            :     }</a>
+<a name="428"><span class="lineNum">     428 </span>                :            : </a>
+<a name="429"><span class="lineNum">     429 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     return setVehicleVelocity(vehicle_velocity);</span></a>
+<a name="430"><span class="lineNum">     430 </span>                :            :   }</a>
 <a name="431"><span class="lineNum">     431 </span>                :            : </a>
 <a name="432"><span class="lineNum">     432 </span>                :            :   /* ---- AutowareStatus -------------------------------------------------------</a>
 <a name="433"><span class="lineNum">     433 </span>                :            :    *</a>
@@ -587,7 +588,7 @@
 <a name="502"><span class="lineNum">     502 </span>                :            :     INIT_PUBLISHER(LaneChangeApproval, &quot;/awapi/lane_change/put/approval&quot;),</a>
 <a name="503"><span class="lineNum">     503 </span>                :            :     INIT_PUBLISHER(LaneChangeForce, &quot;/awapi/lane_change/put/force&quot;),</a>
 <a name="504"><span class="lineNum">     504 </span>                :            :     INIT_PUBLISHER(TrafficLightStateArray, &quot;/awapi/traffic_light/put/traffic_light_status&quot;),</a>
-<a name="505"><span class="lineNum">     505 </span>                :            :     // INIT_PUBLISHER(VehicleVelocity, &quot;/awapi/vehicle/put/velocity&quot;),</a>
+<a name="505"><span class="lineNum">     505 </span>                :            :     INIT_PUBLISHER(VehicleVelocity, &quot;/awapi/vehicle/put/velocity&quot;),</a>
 <a name="506"><span class="lineNum">     506 </span>                :            :     INIT_SUBSCRIPTION(AutowareStatus, &quot;/awapi/autoware/get/status&quot;, checkAutowareState),</a>
 <a name="507"><span class="lineNum">     507 </span>                :            :     // INIT_SUBSCRIPTION(TrafficLightStatus, &quot;/awapi/traffic_light/get/status&quot;, []() {}),</a>
 <a name="508"><span class="lineNum">     508 </span>                :            :     INIT_SUBSCRIPTION(VehicleStatus, &quot;/awapi/vehicle/get/status&quot;, []() {})</a>
@@ -600,27 +601,27 @@
 <a name="515"><span class="lineNum">     515 </span>                :            : </a>
 <a name="516"><span class="lineNum">     516 </span>                :            :   virtual ~AutowareArchitectureProposal();</a>
 <a name="517"><span class="lineNum">     517 </span>                :            : </a>
-<a name="518"><span class="lineNum">     518 </span>                :            :   void initialize(const geometry_msgs::msg::Pose &amp;) override;</a>
+<a name="518"><span class="lineNum">     518 </span>                :            :   auto engage() -&gt; void override;</a>
 <a name="519"><span class="lineNum">     519 </span>                :            : </a>
-<a name="520"><span class="lineNum">     520 </span>                :            :   void plan(const std::vector&lt;geometry_msgs::msg::PoseStamped&gt; &amp;) override;</a>
+<a name="520"><span class="lineNum">     520 </span>                :            :   auto getAcceleration() const -&gt; double override;</a>
 <a name="521"><span class="lineNum">     521 </span>                :            : </a>
-<a name="522"><span class="lineNum">     522 </span>                :            :   void engage() override;</a>
+<a name="522"><span class="lineNum">     522 </span>                :            :   auto getAutowareStateMessage() const -&gt; std::string override;</a>
 <a name="523"><span class="lineNum">     523 </span>                :            : </a>
-<a name="524"><span class="lineNum">     524 </span>                :            :   void update() override;</a>
+<a name="524"><span class="lineNum">     524 </span>                :            :   auto getGearSign() const -&gt; double override;</a>
 <a name="525"><span class="lineNum">     525 </span>                :            : </a>
-<a name="526"><span class="lineNum">     526 </span>                :            :   double getAcceleration() const override;</a>
+<a name="526"><span class="lineNum">     526 </span>                :            :   auto getSteeringAngle() const -&gt; double override;</a>
 <a name="527"><span class="lineNum">     527 </span>                :            : </a>
-<a name="528"><span class="lineNum">     528 </span>                :            :   double getVelocity() const override;</a>
+<a name="528"><span class="lineNum">     528 </span>                :            :   auto getVelocity() const -&gt; double override;</a>
 <a name="529"><span class="lineNum">     529 </span>                :            : </a>
-<a name="530"><span class="lineNum">     530 </span>                :            :   double getSteeringAngle() const override;</a>
+<a name="530"><span class="lineNum">     530 </span>                :            :   auto getWaypoints() const -&gt; traffic_simulator_msgs::msg::WaypointsArray override;</a>
 <a name="531"><span class="lineNum">     531 </span>                :            : </a>
-<a name="532"><span class="lineNum">     532 </span>                :            :   double getGearSign() const override;</a>
+<a name="532"><span class="lineNum">     532 </span>                :            :   auto initialize(const geometry_msgs::msg::Pose &amp;) -&gt; void override;</a>
 <a name="533"><span class="lineNum">     533 </span>                :            : </a>
-<a name="534"><span class="lineNum">     534 </span>                :            :   openscenario_msgs::msg::WaypointsArray getWaypoints() const override;</a>
+<a name="534"><span class="lineNum">     534 </span>                :            :   auto plan(const std::vector&lt;geometry_msgs::msg::PoseStamped&gt; &amp;) -&gt; void override;</a>
 <a name="535"><span class="lineNum">     535 </span>                :            : </a>
-<a name="536"><span class="lineNum">     536 </span>                :            :   double restrictTargetSpeed(double) const override;</a>
+<a name="536"><span class="lineNum">     536 </span>                :            :   auto restrictTargetSpeed(double) const -&gt; double override;</a>
 <a name="537"><span class="lineNum">     537 </span>                :            : </a>
-<a name="538"><span class="lineNum">     538 </span>                :            :   std::string getAutowareStateMessage() const override;</a>
+<a name="538"><span class="lineNum">     538 </span>                :            :   auto update() -&gt; void override;</a>
 <a name="539"><span class="lineNum">     539 </span>                :            : };</a>
 <a name="540"><span class="lineNum">     540 </span>                :            : }  // namespace concealer</a>
 <a name="541"><span class="lineNum">     541 </span>                :            : </a>
