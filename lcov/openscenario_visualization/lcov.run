@@ -1,10 +1,4 @@
 TN:
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/entity_status__struct.hpp
-end_of_record
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/waypoints_array__struct.hpp
-end_of_record
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/openscenario/openscenario_visualization/include/openscenario_visualization/openscenario_visualization_component.hpp
-end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator/include/traffic_simulator/color_utils/color_utils.hpp
 end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/openscenario/openscenario_visualization/src/openscenario_visualization_component.cpp
@@ -747,7 +741,7 @@ BRDA:471,0,7,0
 BRDA:471,0,8,23
 BRDA:471,0,9,0
 end_of_record
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/entity_status_with_trajectory__struct.hpp
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/entity_status__struct.hpp
 end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/action_status__struct.hpp
 end_of_record
@@ -758,11 +752,15 @@ DA:39,2692
 DA:40,2692
 DA:42,2692
 end_of_record
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/waypoints_array__struct.hpp
+end_of_record
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/openscenario/openscenario_visualization/include/openscenario_visualization/openscenario_visualization_component.hpp
+end_of_record
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator_msgs/include/traffic_simulator_msgs/msg/detail/entity_status_with_trajectory__struct.hpp
+end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator/include/traffic_simulator/math/catmull_rom_spline.hpp
 end_of_record
 TN:
-SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator/include/traffic_simulator/color_utils/color_utils.hpp
-end_of_record
 SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/openscenario/openscenario_visualization/src/openscenario_visualization_node.cpp
 FN:48,main
 FNDA:23,main
@@ -793,4 +791,6 @@ BRDA:55,0,1,0
 BRDA:55,0,2,23
 BRDA:55,0,3,0
 DA:56,23
+end_of_record
+SF:/__w/scenario_simulator_v2_metrics_dashboard/scenario_simulator_v2_metrics_dashboard/install/traffic_simulator/include/traffic_simulator/color_utils/color_utils.hpp
 end_of_record

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-17 20:18:21</td>
+            <td class="headerValue">2021-10-24 20:16:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -305,148 +305,150 @@
 <a name="221"><span class="lineNum">     221 </span>                :            : </a>
 <a name="222"><span class="lineNum">     222 </span>                :            : #undef FORWARD_TO_SPECIFIED_ENTITY</a>
 <a name="223"><span class="lineNum">     223 </span>                :            : </a>
-<a name="224"><span class="lineNum">     224 </span>                :            :   bool trafficLightsChanged();</a>
+<a name="224"><span class="lineNum">     224 </span>                :            :   visualization_msgs::msg::MarkerArray makeDebugMarker() const;</a>
 <a name="225"><span class="lineNum">     225 </span>                :            : </a>
-<a name="226"><span class="lineNum">     226 </span>                :            :   void setTargetSpeed(const std::string &amp; name, double target_speed, bool continuous);</a>
+<a name="226"><span class="lineNum">     226 </span>                :            :   bool trafficLightsChanged();</a>
 <a name="227"><span class="lineNum">     227 </span>                :            : </a>
-<a name="228"><span class="lineNum">     228 </span>                :            :   traffic_simulator_msgs::msg::EntityStatus updateNpcLogic(</a>
-<a name="229"><span class="lineNum">     229 </span>                :            :     const std::string &amp; name,</a>
-<a name="230"><span class="lineNum">     230 </span>                :            :     const std::unordered_map&lt;std::string, traffic_simulator_msgs::msg::EntityType&gt; &amp; type_list);</a>
-<a name="231"><span class="lineNum">     231 </span>                :            : </a>
-<a name="232"><span class="lineNum">     232 </span>                :            :   void broadcastEntityTransform();</a>
+<a name="228"><span class="lineNum">     228 </span>                :            :   void setTargetSpeed(const std::string &amp; name, double target_speed, bool continuous);</a>
+<a name="229"><span class="lineNum">     229 </span>                :            : </a>
+<a name="230"><span class="lineNum">     230 </span>                :            :   traffic_simulator_msgs::msg::EntityStatus updateNpcLogic(</a>
+<a name="231"><span class="lineNum">     231 </span>                :            :     const std::string &amp; name,</a>
+<a name="232"><span class="lineNum">     232 </span>                :            :     const std::unordered_map&lt;std::string, traffic_simulator_msgs::msg::EntityType&gt; &amp; type_list);</a>
 <a name="233"><span class="lineNum">     233 </span>                :            : </a>
-<a name="234"><span class="lineNum">     234 </span>                :            :   void broadcastTransform(</a>
-<a name="235"><span class="lineNum">     235 </span>                :            :     const geometry_msgs::msg::PoseStamped &amp; pose, const bool static_transform = true);</a>
-<a name="236"><span class="lineNum">     236 </span>                :            : </a>
-<a name="237"><span class="lineNum">     237 </span>                :            :   bool checkCollision(const std::string &amp; name0, const std::string &amp; name1);</a>
+<a name="234"><span class="lineNum">     234 </span>                :            :   void broadcastEntityTransform();</a>
+<a name="235"><span class="lineNum">     235 </span>                :            : </a>
+<a name="236"><span class="lineNum">     236 </span>                :            :   void broadcastTransform(</a>
+<a name="237"><span class="lineNum">     237 </span>                :            :     const geometry_msgs::msg::PoseStamped &amp; pose, const bool static_transform = true);</a>
 <a name="238"><span class="lineNum">     238 </span>                :            : </a>
-<a name="239"><span class="lineNum">     239 </span>                :            :   bool despawnEntity(const std::string &amp; name);</a>
+<a name="239"><span class="lineNum">     239 </span>                :            :   bool checkCollision(const std::string &amp; name0, const std::string &amp; name1);</a>
 <a name="240"><span class="lineNum">     240 </span>                :            : </a>
-<a name="241"><span class="lineNum">     241 </span>                :            :   bool entityExists(const std::string &amp; name);</a>
+<a name="241"><span class="lineNum">     241 </span>                :            :   bool despawnEntity(const std::string &amp; name);</a>
 <a name="242"><span class="lineNum">     242 </span>                :            : </a>
-<a name="243"><span class="lineNum">     243 </span>                :            :   bool laneMatchingSucceed(const std::string &amp; name);</a>
+<a name="243"><span class="lineNum">     243 </span>                :            :   bool entityExists(const std::string &amp; name);</a>
 <a name="244"><span class="lineNum">     244 </span>                :            : </a>
-<a name="245"><span class="lineNum">     245 </span>                :            :   // TODO (yamacir-kit) Rename to 'hasEntityStatus'</a>
-<a name="246"><span class="lineNum">     246 </span>                :            :   bool entityStatusSet(const std::string &amp; name) const;</a>
-<a name="247"><span class="lineNum">     247 </span>                :            : </a>
-<a name="248"><span class="lineNum">     248 </span>                :            :   auto getBoundingBoxDistance(const std::string &amp; from, const std::string &amp; to)</a>
-<a name="249"><span class="lineNum">     249 </span>                :            :     -&gt; boost::optional&lt;double&gt;;</a>
-<a name="250"><span class="lineNum">     250 </span>                :            : </a>
-<a name="251"><span class="lineNum">     251 </span>                :            :   auto getCurrentTime() const noexcept -&gt; double;</a>
+<a name="245"><span class="lineNum">     245 </span>                :            :   bool laneMatchingSucceed(const std::string &amp; name);</a>
+<a name="246"><span class="lineNum">     246 </span>                :            : </a>
+<a name="247"><span class="lineNum">     247 </span>                :            :   // TODO (yamacir-kit) Rename to 'hasEntityStatus'</a>
+<a name="248"><span class="lineNum">     248 </span>                :            :   bool entityStatusSet(const std::string &amp; name) const;</a>
+<a name="249"><span class="lineNum">     249 </span>                :            : </a>
+<a name="250"><span class="lineNum">     250 </span>                :            :   auto getBoundingBoxDistance(const std::string &amp; from, const std::string &amp; to)</a>
+<a name="251"><span class="lineNum">     251 </span>                :            :     -&gt; boost::optional&lt;double&gt;;</a>
 <a name="252"><span class="lineNum">     252 </span>                :            : </a>
-<a name="253"><span class="lineNum">     253 </span>                :            :   auto getDistanceToCrosswalk(const std::string &amp; name, const std::int64_t target_crosswalk_id)</a>
-<a name="254"><span class="lineNum">     254 </span>                :            :     -&gt; boost::optional&lt;double&gt;;</a>
-<a name="255"><span class="lineNum">     255 </span>                :            : </a>
-<a name="256"><span class="lineNum">     256 </span>                :            :   auto getDistanceToStopLine(const std::string &amp; name, const std::int64_t target_stop_line_id)</a>
-<a name="257"><span class="lineNum">     257 </span>                :            :     -&gt; boost::optional&lt;double&gt;;</a>
-<a name="258"><span class="lineNum">     258 </span>                :            : </a>
-<a name="259"><span class="lineNum">     259 </span>                :            :   auto getEntityNames() const -&gt; const std::vector&lt;std::string&gt;;</a>
+<a name="253"><span class="lineNum">     253 </span>                :            :   auto getCurrentTime() const noexcept -&gt; double;</a>
+<a name="254"><span class="lineNum">     254 </span>                :            : </a>
+<a name="255"><span class="lineNum">     255 </span>                :            :   auto getDistanceToCrosswalk(const std::string &amp; name, const std::int64_t target_crosswalk_id)</a>
+<a name="256"><span class="lineNum">     256 </span>                :            :     -&gt; boost::optional&lt;double&gt;;</a>
+<a name="257"><span class="lineNum">     257 </span>                :            : </a>
+<a name="258"><span class="lineNum">     258 </span>                :            :   auto getDistanceToStopLine(const std::string &amp; name, const std::int64_t target_stop_line_id)</a>
+<a name="259"><span class="lineNum">     259 </span>                :            :     -&gt; boost::optional&lt;double&gt;;</a>
 <a name="260"><span class="lineNum">     260 </span>                :            : </a>
-<a name="261"><span class="lineNum">     261 </span>                :            :   auto getEntityStatus(const std::string &amp; name) const</a>
-<a name="262"><span class="lineNum">     262 </span>                :            :     -&gt; const boost::optional&lt;traffic_simulator_msgs::msg::EntityStatus&gt;;</a>
-<a name="263"><span class="lineNum">     263 </span>                :            : </a>
-<a name="264"><span class="lineNum">     264 </span>                :            :   auto getEntityTypeList() const</a>
-<a name="265"><span class="lineNum">     265 </span>                :            :     -&gt; const std::unordered_map&lt;std::string, traffic_simulator_msgs::msg::EntityType&gt;;</a>
-<a name="266"><span class="lineNum">     266 </span>                :            : </a>
-<a name="267"><span class="lineNum">     267 </span>                :            :   auto getHdmapUtils() -&gt; const std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; &amp;;</a>
+<a name="261"><span class="lineNum">     261 </span>                :            :   auto getEntityNames() const -&gt; const std::vector&lt;std::string&gt;;</a>
+<a name="262"><span class="lineNum">     262 </span>                :            : </a>
+<a name="263"><span class="lineNum">     263 </span>                :            :   auto getEntityStatus(const std::string &amp; name) const</a>
+<a name="264"><span class="lineNum">     264 </span>                :            :     -&gt; const boost::optional&lt;traffic_simulator_msgs::msg::EntityStatus&gt;;</a>
+<a name="265"><span class="lineNum">     265 </span>                :            : </a>
+<a name="266"><span class="lineNum">     266 </span>                :            :   auto getEntityTypeList() const</a>
+<a name="267"><span class="lineNum">     267 </span>                :            :     -&gt; const std::unordered_map&lt;std::string, traffic_simulator_msgs::msg::EntityType&gt;;</a>
 <a name="268"><span class="lineNum">     268 </span>                :            : </a>
-<a name="269"><span class="lineNum">     269 </span>                :            :   auto getLaneletPose(const std::string &amp; name)</a>
-<a name="270"><span class="lineNum">     270 </span>                :            :     -&gt; boost::optional&lt;traffic_simulator_msgs::msg::LaneletPose&gt;;</a>
-<a name="271"><span class="lineNum">     271 </span>                :            : </a>
-<a name="272"><span class="lineNum">     272 </span>                :            :   // clang-format off</a>
-<a name="273"><span class="lineNum">     273 </span>                :            :   auto getLongitudinalDistance(const LaneletPose &amp;, const LaneletPose &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
-<a name="274"><span class="lineNum">     274 </span>                :            :   auto getLongitudinalDistance(const LaneletPose &amp;, const std::string &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
-<a name="275"><span class="lineNum">     275 </span>                :            :   auto getLongitudinalDistance(const std::string &amp;, const LaneletPose &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
-<a name="276"><span class="lineNum">     276 </span>                :            :   auto getLongitudinalDistance(const std::string &amp;, const std::string &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
-<a name="277"><span class="lineNum">     277 </span>                :            :   // clang-format on</a>
-<a name="278"><span class="lineNum">     278 </span>                :            : </a>
-<a name="279"><span class="lineNum">     279 </span>                :            :   auto getMapPose(const std::string &amp; entity_name) -&gt; geometry_msgs::msg::Pose;</a>
-<a name="280"><span class="lineNum">     280 </span>                :            :   auto getMapPose(</a>
-<a name="281"><span class="lineNum">     281 </span>                :            :     const std::string &amp; reference_entity_name, const geometry_msgs::msg::Pose &amp; relative_pose)</a>
-<a name="282"><span class="lineNum">     282 </span>                :            :     -&gt; geometry_msgs::msg::Pose;</a>
-<a name="283"><span class="lineNum">     283 </span>                :            : </a>
-<a name="284"><span class="lineNum">     284 </span>                :            :   auto getNumberOfEgo() const -&gt; std::size_t;</a>
+<a name="269"><span class="lineNum">     269 </span>                :            :   auto getHdmapUtils() -&gt; const std::shared_ptr&lt;hdmap_utils::HdMapUtils&gt; &amp;;</a>
+<a name="270"><span class="lineNum">     270 </span>                :            : </a>
+<a name="271"><span class="lineNum">     271 </span>                :            :   auto getLaneletPose(const std::string &amp; name)</a>
+<a name="272"><span class="lineNum">     272 </span>                :            :     -&gt; boost::optional&lt;traffic_simulator_msgs::msg::LaneletPose&gt;;</a>
+<a name="273"><span class="lineNum">     273 </span>                :            : </a>
+<a name="274"><span class="lineNum">     274 </span>                :            :   // clang-format off</a>
+<a name="275"><span class="lineNum">     275 </span>                :            :   auto getLongitudinalDistance(const LaneletPose &amp;, const LaneletPose &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
+<a name="276"><span class="lineNum">     276 </span>                :            :   auto getLongitudinalDistance(const LaneletPose &amp;, const std::string &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
+<a name="277"><span class="lineNum">     277 </span>                :            :   auto getLongitudinalDistance(const std::string &amp;, const LaneletPose &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
+<a name="278"><span class="lineNum">     278 </span>                :            :   auto getLongitudinalDistance(const std::string &amp;, const std::string &amp;, const double = 100) -&gt; boost::optional&lt;double&gt;;</a>
+<a name="279"><span class="lineNum">     279 </span>                :            :   // clang-format on</a>
+<a name="280"><span class="lineNum">     280 </span>                :            : </a>
+<a name="281"><span class="lineNum">     281 </span>                :            :   auto getMapPose(const std::string &amp; entity_name) -&gt; geometry_msgs::msg::Pose;</a>
+<a name="282"><span class="lineNum">     282 </span>                :            :   auto getMapPose(</a>
+<a name="283"><span class="lineNum">     283 </span>                :            :     const std::string &amp; reference_entity_name, const geometry_msgs::msg::Pose &amp; relative_pose)</a>
+<a name="284"><span class="lineNum">     284 </span>                :            :     -&gt; geometry_msgs::msg::Pose;</a>
 <a name="285"><span class="lineNum">     285 </span>                :            : </a>
-<a name="286"><span class="lineNum">     286 </span>                :            :   auto getObstacle(const std::string &amp; name)</a>
-<a name="287"><span class="lineNum">     287 </span>                :            :     -&gt; boost::optional&lt;traffic_simulator_msgs::msg::Obstacle&gt;;</a>
-<a name="288"><span class="lineNum">     288 </span>                :            : </a>
-<a name="289"><span class="lineNum">     289 </span>                :            :   // clang-format off</a>
-<a name="290"><span class="lineNum">     290 </span>                :            :   auto getRelativePose(const geometry_msgs::msg::Pose &amp; from, const geometry_msgs::msg::Pose &amp; to) const -&gt; geometry_msgs::msg::Pose;</a>
-<a name="291"><span class="lineNum">     291 </span>                :            :   auto getRelativePose(const geometry_msgs::msg::Pose &amp; from, const std::string              &amp; to)       -&gt; geometry_msgs::msg::Pose;</a>
-<a name="292"><span class="lineNum">     292 </span>                :            :   auto getRelativePose(const std::string              &amp; from, const geometry_msgs::msg::Pose &amp; to)       -&gt; geometry_msgs::msg::Pose;</a>
-<a name="293"><span class="lineNum">     293 </span>                :            :   auto getRelativePose(const std::string              &amp; from, const std::string              &amp; to)       -&gt; geometry_msgs::msg::Pose;</a>
-<a name="294"><span class="lineNum">     294 </span>                :            :   // clang-format on</a>
-<a name="295"><span class="lineNum">     295 </span>                :            : </a>
-<a name="296"><span class="lineNum">     296 </span>                :            :   auto getStepTime() const noexcept -&gt; double;</a>
+<a name="286"><span class="lineNum">     286 </span>                :            :   auto getNumberOfEgo() const -&gt; std::size_t;</a>
+<a name="287"><span class="lineNum">     287 </span>                :            : </a>
+<a name="288"><span class="lineNum">     288 </span>                :            :   auto getObstacle(const std::string &amp; name)</a>
+<a name="289"><span class="lineNum">     289 </span>                :            :     -&gt; boost::optional&lt;traffic_simulator_msgs::msg::Obstacle&gt;;</a>
+<a name="290"><span class="lineNum">     290 </span>                :            : </a>
+<a name="291"><span class="lineNum">     291 </span>                :            :   // clang-format off</a>
+<a name="292"><span class="lineNum">     292 </span>                :            :   auto getRelativePose(const geometry_msgs::msg::Pose &amp; from, const geometry_msgs::msg::Pose &amp; to) const -&gt; geometry_msgs::msg::Pose;</a>
+<a name="293"><span class="lineNum">     293 </span>                :            :   auto getRelativePose(const geometry_msgs::msg::Pose &amp; from, const std::string              &amp; to)       -&gt; geometry_msgs::msg::Pose;</a>
+<a name="294"><span class="lineNum">     294 </span>                :            :   auto getRelativePose(const std::string              &amp; from, const geometry_msgs::msg::Pose &amp; to)       -&gt; geometry_msgs::msg::Pose;</a>
+<a name="295"><span class="lineNum">     295 </span>                :            :   auto getRelativePose(const std::string              &amp; from, const std::string              &amp; to)       -&gt; geometry_msgs::msg::Pose;</a>
+<a name="296"><span class="lineNum">     296 </span>                :            :   // clang-format on</a>
 <a name="297"><span class="lineNum">     297 </span>                :            : </a>
-<a name="298"><span class="lineNum">     298 </span>                :            :   auto getWaypoints(const std::string &amp; name) -&gt; traffic_simulator_msgs::msg::WaypointsArray;</a>
+<a name="298"><span class="lineNum">     298 </span>                :            :   auto getStepTime() const noexcept -&gt; double;</a>
 <a name="299"><span class="lineNum">     299 </span>                :            : </a>
-<a name="300"><span class="lineNum">     300 </span>                :            :   void getGoalPoses(</a>
-<a name="301"><span class="lineNum">     301 </span>                :            :     const std::string &amp; name, std::vector&lt;traffic_simulator_msgs::msg::LaneletPose&gt; &amp; goals);</a>
-<a name="302"><span class="lineNum">     302 </span>                :            : </a>
-<a name="303"><span class="lineNum">     303 </span>                :            :   void getGoalPoses(const std::string &amp; name, std::vector&lt;geometry_msgs::msg::Pose&gt; &amp; goals);</a>
+<a name="300"><span class="lineNum">     300 </span>                :            :   auto getWaypoints(const std::string &amp; name) -&gt; traffic_simulator_msgs::msg::WaypointsArray;</a>
+<a name="301"><span class="lineNum">     301 </span>                :            : </a>
+<a name="302"><span class="lineNum">     302 </span>                :            :   void getGoalPoses(</a>
+<a name="303"><span class="lineNum">     303 </span>                :            :     const std::string &amp; name, std::vector&lt;traffic_simulator_msgs::msg::LaneletPose&gt; &amp; goals);</a>
 <a name="304"><span class="lineNum">     304 </span>                :            : </a>
-<a name="305"><span class="lineNum">     305 </span>                :            :   bool isEgo(const std::string &amp; name) const;</a>
+<a name="305"><span class="lineNum">     305 </span>                :            :   void getGoalPoses(const std::string &amp; name, std::vector&lt;geometry_msgs::msg::Pose&gt; &amp; goals);</a>
 <a name="306"><span class="lineNum">     306 </span>                :            : </a>
-<a name="307"><span class="lineNum">     307 </span>                :            :   const std::string getEgoName() const;</a>
+<a name="307"><span class="lineNum">     307 </span>                :            :   bool isEgo(const std::string &amp; name) const;</a>
 <a name="308"><span class="lineNum">     308 </span>                :            : </a>
-<a name="309"><span class="lineNum">     309 </span>                :            :   bool isInLanelet(const std::string &amp; name, const std::int64_t lanelet_id, const double tolerance);</a>
+<a name="309"><span class="lineNum">     309 </span>                :            :   const std::string getEgoName() const;</a>
 <a name="310"><span class="lineNum">     310 </span>                :            : </a>
-<a name="311"><span class="lineNum">     311 </span>                :            :   bool isStopping(const std::string &amp; name) const;</a>
+<a name="311"><span class="lineNum">     311 </span>                :            :   bool isInLanelet(const std::string &amp; name, const std::int64_t lanelet_id, const double tolerance);</a>
 <a name="312"><span class="lineNum">     312 </span>                :            : </a>
-<a name="313"><span class="lineNum">     313 </span>                :            :   bool reachPosition(</a>
-<a name="314"><span class="lineNum">     314 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; target_pose,</a>
-<a name="315"><span class="lineNum">     315 </span>                :            :     const double tolerance) const;</a>
-<a name="316"><span class="lineNum">     316 </span>                :            :   bool reachPosition(</a>
-<a name="317"><span class="lineNum">     317 </span>                :            :     const std::string &amp; name, const std::int64_t lanelet_id, const double s, const double offset,</a>
-<a name="318"><span class="lineNum">     318 </span>                :            :     const double tolerance) const;</a>
-<a name="319"><span class="lineNum">     319 </span>                :            :   bool reachPosition(</a>
-<a name="320"><span class="lineNum">     320 </span>                :            :     const std::string &amp; name, const std::string &amp; target_name, const double tolerance) const;</a>
-<a name="321"><span class="lineNum">     321 </span>                :            : </a>
-<a name="322"><span class="lineNum">     322 </span>                :            :   void requestLaneChange(const std::string &amp; name, const Direction &amp; direction);</a>
+<a name="313"><span class="lineNum">     313 </span>                :            :   bool isStopping(const std::string &amp; name) const;</a>
+<a name="314"><span class="lineNum">     314 </span>                :            : </a>
+<a name="315"><span class="lineNum">     315 </span>                :            :   bool reachPosition(</a>
+<a name="316"><span class="lineNum">     316 </span>                :            :     const std::string &amp; name, const geometry_msgs::msg::Pose &amp; target_pose,</a>
+<a name="317"><span class="lineNum">     317 </span>                :            :     const double tolerance) const;</a>
+<a name="318"><span class="lineNum">     318 </span>                :            :   bool reachPosition(</a>
+<a name="319"><span class="lineNum">     319 </span>                :            :     const std::string &amp; name, const std::int64_t lanelet_id, const double s, const double offset,</a>
+<a name="320"><span class="lineNum">     320 </span>                :            :     const double tolerance) const;</a>
+<a name="321"><span class="lineNum">     321 </span>                :            :   bool reachPosition(</a>
+<a name="322"><span class="lineNum">     322 </span>                :            :     const std::string &amp; name, const std::string &amp; target_name, const double tolerance) const;</a>
 <a name="323"><span class="lineNum">     323 </span>                :            : </a>
-<a name="324"><span class="lineNum">     324 </span>                :            :   bool setEntityStatus(const std::string &amp; name, traffic_simulator_msgs::msg::EntityStatus status);</a>
+<a name="324"><span class="lineNum">     324 </span>                :            :   void requestLaneChange(const std::string &amp; name, const Direction &amp; direction);</a>
 <a name="325"><span class="lineNum">     325 </span>                :            : </a>
-<a name="326"><span class="lineNum">     326 </span>                :            :   void setVerbose(const bool verbose);</a>
+<a name="326"><span class="lineNum">     326 </span>                :            :   bool setEntityStatus(const std::string &amp; name, traffic_simulator_msgs::msg::EntityStatus status);</a>
 <a name="327"><span class="lineNum">     327 </span>                :            : </a>
-<a name="328"><span class="lineNum">     328 </span>                :            :   template &lt;typename Entity, typename... Ts&gt;</a>
-<a name="329"><span class="lineNum">     329 </span>                :<span class="lineCov">         34 :   auto spawnEntity(const std::string &amp; name, Ts &amp;&amp;... xs)</span></a>
-<a name="330"><span class="lineNum">     330 </span>                :            :   {</a>
-<a name="331"><span class="lineNum">     331 </span>  [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         34 :     const auto result =</span></a>
-<a name="332"><span class="lineNum">     332 </span>                :            :       entities_.emplace(name, std::make_unique&lt;Entity&gt;(name, std::forward&lt;decltype(xs)&gt;(xs)...));</a>
-<a name="333"><span class="lineNum">     333 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         34 :     if (result.second) {</span></a>
-<a name="334"><span class="lineNum">     334 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         34 :       result.first-&gt;second-&gt;setHdMapUtils(hdmap_utils_ptr_);</span></a>
-<a name="335"><span class="lineNum">     335 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         34 :       result.first-&gt;second-&gt;setTrafficLightManager(traffic_light_manager_ptr_);</span></a>
-<a name="336"><span class="lineNum">     336 </span>                :<span class="lineCov">         34 :       return result.second;</span></a>
-<a name="337"><span class="lineNum">     337 </span>                :            :     } else {</a>
-<a name="338"><span class="lineNum">     338 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       THROW_SEMANTIC_ERROR(&quot;entity : &quot;, name, &quot; is already exists.&quot;);</span></a>
-<a name="339"><span class="lineNum">     339 </span>                :            :     }</a>
-<a name="340"><span class="lineNum">     340 </span>                :            :   }</a>
-<a name="341"><span class="lineNum">     341 </span>                :            : </a>
-<a name="342"><span class="lineNum">     342 </span>                :            :   auto toMapPose(const traffic_simulator_msgs::msg::LaneletPose &amp;) const</a>
-<a name="343"><span class="lineNum">     343 </span>                :            :     -&gt; const geometry_msgs::msg::Pose;</a>
-<a name="344"><span class="lineNum">     344 </span>                :            : </a>
-<a name="345"><span class="lineNum">     345 </span>                :            :   template &lt;typename MessageT, typename... Args&gt;</a>
-<a name="346"><span class="lineNum">     346 </span>                :            :   auto createPublisher(Args &amp;&amp;... args)</a>
-<a name="347"><span class="lineNum">     347 </span>                :            :   {</a>
-<a name="348"><span class="lineNum">     348 </span>                :            :     return rclcpp::create_publisher&lt;MessageT&gt;(node_topics_interface, std::forward&lt;Args&gt;(args)...);</a>
-<a name="349"><span class="lineNum">     349 </span>                :            :   }</a>
-<a name="350"><span class="lineNum">     350 </span>                :            : </a>
-<a name="351"><span class="lineNum">     351 </span>                :            :   template &lt;typename MessageT, typename... Args&gt;</a>
-<a name="352"><span class="lineNum">     352 </span>                :<span class="lineNoCov">          0 :   auto createSubscription(Args &amp;&amp;... args)</span></a>
-<a name="353"><span class="lineNum">     353 </span>                :            :   {</a>
-<a name="354"><span class="lineNum">     354 </span>                :            :     return rclcpp::create_subscription&lt;MessageT&gt;(</a>
-<a name="355"><span class="lineNum">     355 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       node_topics_interface, std::forward&lt;Args&gt;(args)...);</span></a>
-<a name="356"><span class="lineNum">     356 </span>                :            :   }</a>
-<a name="357"><span class="lineNum">     357 </span>                :            : </a>
-<a name="358"><span class="lineNum">     358 </span>                :            :   void update(const double current_time, const double step_time);</a>
+<a name="328"><span class="lineNum">     328 </span>                :            :   void setVerbose(const bool verbose);</a>
+<a name="329"><span class="lineNum">     329 </span>                :            : </a>
+<a name="330"><span class="lineNum">     330 </span>                :            :   template &lt;typename Entity, typename... Ts&gt;</a>
+<a name="331"><span class="lineNum">     331 </span>                :<span class="lineCov">         34 :   auto spawnEntity(const std::string &amp; name, Ts &amp;&amp;... xs)</span></a>
+<a name="332"><span class="lineNum">     332 </span>                :            :   {</a>
+<a name="333"><span class="lineNum">     333 </span>  [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         34 :     const auto result =</span></a>
+<a name="334"><span class="lineNum">     334 </span>                :            :       entities_.emplace(name, std::make_unique&lt;Entity&gt;(name, std::forward&lt;decltype(xs)&gt;(xs)...));</a>
+<a name="335"><span class="lineNum">     335 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         34 :     if (result.second) {</span></a>
+<a name="336"><span class="lineNum">     336 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         34 :       result.first-&gt;second-&gt;setHdMapUtils(hdmap_utils_ptr_);</span></a>
+<a name="337"><span class="lineNum">     337 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         34 :       result.first-&gt;second-&gt;setTrafficLightManager(traffic_light_manager_ptr_);</span></a>
+<a name="338"><span class="lineNum">     338 </span>                :<span class="lineCov">         34 :       return result.second;</span></a>
+<a name="339"><span class="lineNum">     339 </span>                :            :     } else {</a>
+<a name="340"><span class="lineNum">     340 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :       THROW_SEMANTIC_ERROR(&quot;entity : &quot;, name, &quot; is already exists.&quot;);</span></a>
+<a name="341"><span class="lineNum">     341 </span>                :            :     }</a>
+<a name="342"><span class="lineNum">     342 </span>                :            :   }</a>
+<a name="343"><span class="lineNum">     343 </span>                :            : </a>
+<a name="344"><span class="lineNum">     344 </span>                :            :   auto toMapPose(const traffic_simulator_msgs::msg::LaneletPose &amp;) const</a>
+<a name="345"><span class="lineNum">     345 </span>                :            :     -&gt; const geometry_msgs::msg::Pose;</a>
+<a name="346"><span class="lineNum">     346 </span>                :            : </a>
+<a name="347"><span class="lineNum">     347 </span>                :            :   template &lt;typename MessageT, typename... Args&gt;</a>
+<a name="348"><span class="lineNum">     348 </span>                :            :   auto createPublisher(Args &amp;&amp;... args)</a>
+<a name="349"><span class="lineNum">     349 </span>                :            :   {</a>
+<a name="350"><span class="lineNum">     350 </span>                :            :     return rclcpp::create_publisher&lt;MessageT&gt;(node_topics_interface, std::forward&lt;Args&gt;(args)...);</a>
+<a name="351"><span class="lineNum">     351 </span>                :            :   }</a>
+<a name="352"><span class="lineNum">     352 </span>                :            : </a>
+<a name="353"><span class="lineNum">     353 </span>                :            :   template &lt;typename MessageT, typename... Args&gt;</a>
+<a name="354"><span class="lineNum">     354 </span>                :<span class="lineNoCov">          0 :   auto createSubscription(Args &amp;&amp;... args)</span></a>
+<a name="355"><span class="lineNum">     355 </span>                :            :   {</a>
+<a name="356"><span class="lineNum">     356 </span>                :            :     return rclcpp::create_subscription&lt;MessageT&gt;(</a>
+<a name="357"><span class="lineNum">     357 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :       node_topics_interface, std::forward&lt;Args&gt;(args)...);</span></a>
+<a name="358"><span class="lineNum">     358 </span>                :            :   }</a>
 <a name="359"><span class="lineNum">     359 </span>                :            : </a>
-<a name="360"><span class="lineNum">     360 </span>                :            :   void updateHdmapMarker();</a>
-<a name="361"><span class="lineNum">     361 </span>                :            : };</a>
-<a name="362"><span class="lineNum">     362 </span>                :            : }  // namespace entity</a>
-<a name="363"><span class="lineNum">     363 </span>                :            : }  // namespace traffic_simulator</a>
-<a name="364"><span class="lineNum">     364 </span>                :            : </a>
-<a name="365"><span class="lineNum">     365 </span>                :            : #endif  // TRAFFIC_SIMULATOR__ENTITY__ENTITY_MANAGER_HPP_</a>
+<a name="360"><span class="lineNum">     360 </span>                :            :   void update(const double current_time, const double step_time);</a>
+<a name="361"><span class="lineNum">     361 </span>                :            : </a>
+<a name="362"><span class="lineNum">     362 </span>                :            :   void updateHdmapMarker();</a>
+<a name="363"><span class="lineNum">     363 </span>                :            : };</a>
+<a name="364"><span class="lineNum">     364 </span>                :            : }  // namespace entity</a>
+<a name="365"><span class="lineNum">     365 </span>                :            : }  // namespace traffic_simulator</a>
+<a name="366"><span class="lineNum">     366 </span>                :            : </a>
+<a name="367"><span class="lineNum">     367 </span>                :            : #endif  // TRAFFIC_SIMULATOR__ENTITY__ENTITY_MANAGER_HPP_</a>
 </pre>
       </td>
     </tr>

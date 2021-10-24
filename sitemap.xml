@@ -98,4 +98,8 @@
     <loc>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/traffic_simulator/</loc>
   </url>
   
+  <url>
+    <loc>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/user_defined_value_condition_example/</loc>
+  </url>
+  
 </urlset>

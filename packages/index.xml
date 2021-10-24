@@ -209,5 +209,15 @@
  Test result Code coverage     json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/traffic_simulator/coverage.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.plot(&#39;plotly\/traffic_simulator\/coverage.json&#39;, fig.data, fig.layout, {responsive: true}); });   You can access more detailed data on code coverage here.  Code metrics    json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/traffic_simulator/ccn.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.plot(&#39;plotly\/traffic_simulator\/ccn.json&#39;, fig.data, fig.layout, {responsive: true}); });     json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/traffic_simulator/loc.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.</description>
     </item>
     
+    <item>
+      <title>user_defined_value_condition_example</title>
+      <link>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/user_defined_value_condition_example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/packages/user_defined_value_condition_example/</guid>
+      <description>user_defined_value_condition_example
+ Test result Code coverage     json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/user_defined_value_condition_example/coverage.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.plot(&#39;plotly\/user_defined_value_condition_example\/coverage.json&#39;, fig.data, fig.layout, {responsive: true}); });   You can access more detailed data on code coverage here.  Code metrics    json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/user_defined_value_condition_example/ccn.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.plot(&#39;plotly\/user_defined_value_condition_example\/ccn.json&#39;, fig.data, fig.layout, {responsive: true}); });     json_url = &#34;https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/&#34; + &#34;plotly/user_defined_value_condition_example/loc.json&#34; Plotly.d3.json(json_url, function(err, fig) { Plotly.</description>
+    </item>
+    
   </channel>
 </rss>

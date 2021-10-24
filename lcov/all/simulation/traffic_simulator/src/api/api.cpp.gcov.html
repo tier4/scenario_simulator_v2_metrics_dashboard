@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.total.filtered</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">135</td>
-            <td class="headerCovTableEntry">256</td>
+            <td class="headerCovTableEntry">136</td>
+            <td class="headerCovTableEntry">258</td>
             <td class="headerCovTableEntryLo">52.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-10-17 20:17:25</td>
+            <td class="headerValue">2021-10-24 20:15:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -56,8 +56,8 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">135</td>
-            <td class="headerCovTableEntry">480</td>
+            <td class="headerCovTableEntry">137</td>
+            <td class="headerCovTableEntry">488</td>
             <td class="headerCovTableEntryLo">28.1 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -491,33 +491,35 @@
 <a name="403"><span class="lineNum">     403 </span>        [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2692 :     entity_manager_ptr_-&gt;broadcastEntityTransform();</span></a>
 <a name="404"><span class="lineNum">     404 </span>        [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2692 :     clock_.update();</span></a>
 <a name="405"><span class="lineNum">     405 </span>  [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2692 :     clock_pub_-&gt;publish(clock_.getCurrentRosTimeAsMsg());</span></a>
-<a name="406"><span class="lineNum">     406 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">       2692 :     metrics_manager_.calculate();</span></a>
-<a name="407"><span class="lineNum">     407 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 2690 times"> + </span>]:<span class="lineCov">       2690 :     if (!updateEntityStatusInSim()) {</span></a>
-<a name="408"><span class="lineNum">     408 </span>                :<span class="lineNoCov">          0 :       return false;</span></a>
-<a name="409"><span class="lineNum">     409 </span>                :            :     }</a>
-<a name="410"><span class="lineNum">     410 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :     updateTrafficLightsInSim();</span></a>
-<a name="411"><span class="lineNum">     411 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :     return updateSensorFrame();</span></a>
-<a name="412"><span class="lineNum">     412 </span>                :            :   } else {</a>
-<a name="413"><span class="lineNum">     413 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     entity_manager_ptr_-&gt;broadcastEntityTransform();</span></a>
-<a name="414"><span class="lineNum">     414 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     clock_.update();</span></a>
-<a name="415"><span class="lineNum">     415 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     clock_pub_-&gt;publish(clock_.getCurrentRosTimeAsMsg());</span></a>
-<a name="416"><span class="lineNum">     416 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     metrics_manager_.calculate();</span></a>
-<a name="417"><span class="lineNum">     417 </span>                :<span class="lineNoCov">          0 :     return true;</span></a>
-<a name="418"><span class="lineNum">     418 </span>                :            :   }</a>
-<a name="419"><span class="lineNum">     419 </span>                :            : }</a>
-<a name="420"><span class="lineNum">     420 </span>                :            : </a>
-<a name="421"><span class="lineNum">     421 </span>                :<span class="lineCov">          3 : void API::requestLaneChange(const std::string &amp; name, const std::int64_t &amp; lanelet_id)</span></a>
-<a name="422"><span class="lineNum">     422 </span>                :            : {</a>
-<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">          3 :   entity_manager_ptr_-&gt;requestLaneChange(name, lanelet_id);</span></a>
-<a name="424"><span class="lineNum">     424 </span>                :<span class="lineCov">          3 : }</span></a>
-<a name="425"><span class="lineNum">     425 </span>                :            : </a>
-<a name="426"><span class="lineNum">     426 </span>                :<span class="lineCov">          2 : void API::requestLaneChange(</span></a>
-<a name="427"><span class="lineNum">     427 </span>                :            :   const std::string &amp; name, const traffic_simulator::entity::Direction &amp; direction)</a>
-<a name="428"><span class="lineNum">     428 </span>                :            : {</a>
-<a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">          2 :   entity_manager_ptr_-&gt;requestLaneChange(name, direction);</span></a>
-<a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">          2 : }</span></a>
-<a name="431"><span class="lineNum">     431 </span>                :            : </a>
-<a name="432"><span class="lineNum">     432 </span>                :            : }  // namespace traffic_simulator</a>
+<a name="406"><span class="lineNum">     406 </span>  [<span class="branchCov" title="Branch 0 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 2692 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">       2692 :     debug_marker_pub_-&gt;publish(entity_manager_ptr_-&gt;makeDebugMarker());</span></a>
+<a name="407"><span class="lineNum">     407 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">       2692 :     metrics_manager_.calculate();</span></a>
+<a name="408"><span class="lineNum">     408 </span>  [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 2690 times"> + </span>]:<span class="lineCov">       2690 :     if (!updateEntityStatusInSim()) {</span></a>
+<a name="409"><span class="lineNum">     409 </span>                :<span class="lineNoCov">          0 :       return false;</span></a>
+<a name="410"><span class="lineNum">     410 </span>                :            :     }</a>
+<a name="411"><span class="lineNum">     411 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :     updateTrafficLightsInSim();</span></a>
+<a name="412"><span class="lineNum">     412 </span>        [<span class="branchCov" title="Branch 0 was taken 2690 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2690 :     return updateSensorFrame();</span></a>
+<a name="413"><span class="lineNum">     413 </span>                :            :   } else {</a>
+<a name="414"><span class="lineNum">     414 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     entity_manager_ptr_-&gt;broadcastEntityTransform();</span></a>
+<a name="415"><span class="lineNum">     415 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     clock_.update();</span></a>
+<a name="416"><span class="lineNum">     416 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     clock_pub_-&gt;publish(clock_.getCurrentRosTimeAsMsg());</span></a>
+<a name="417"><span class="lineNum">     417 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     debug_marker_pub_-&gt;publish(entity_manager_ptr_-&gt;makeDebugMarker());</span></a>
+<a name="418"><span class="lineNum">     418 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     metrics_manager_.calculate();</span></a>
+<a name="419"><span class="lineNum">     419 </span>                :<span class="lineNoCov">          0 :     return true;</span></a>
+<a name="420"><span class="lineNum">     420 </span>                :            :   }</a>
+<a name="421"><span class="lineNum">     421 </span>                :            : }</a>
+<a name="422"><span class="lineNum">     422 </span>                :            : </a>
+<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">          3 : void API::requestLaneChange(const std::string &amp; name, const std::int64_t &amp; lanelet_id)</span></a>
+<a name="424"><span class="lineNum">     424 </span>                :            : {</a>
+<a name="425"><span class="lineNum">     425 </span>                :<span class="lineCov">          3 :   entity_manager_ptr_-&gt;requestLaneChange(name, lanelet_id);</span></a>
+<a name="426"><span class="lineNum">     426 </span>                :<span class="lineCov">          3 : }</span></a>
+<a name="427"><span class="lineNum">     427 </span>                :            : </a>
+<a name="428"><span class="lineNum">     428 </span>                :<span class="lineCov">          2 : void API::requestLaneChange(</span></a>
+<a name="429"><span class="lineNum">     429 </span>                :            :   const std::string &amp; name, const traffic_simulator::entity::Direction &amp; direction)</a>
+<a name="430"><span class="lineNum">     430 </span>                :            : {</a>
+<a name="431"><span class="lineNum">     431 </span>                :<span class="lineCov">          2 :   entity_manager_ptr_-&gt;requestLaneChange(name, direction);</span></a>
+<a name="432"><span class="lineNum">     432 </span>                :<span class="lineCov">          2 : }</span></a>
+<a name="433"><span class="lineNum">     433 </span>                :            : </a>
+<a name="434"><span class="lineNum">     434 </span>                :            : }  // namespace traffic_simulator</a>
 </pre>
       </td>
     </tr>
