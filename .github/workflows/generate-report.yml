@@ -11,26 +11,18 @@ on:
 jobs:
   generate-report:
     runs-on: ubuntu-latest
-    container: osrf/ros:galactic-desktop
     env:
       TARGET_REPO: "tier4/scenario_simulator_v2"
       ARTIFACTS_DIR: data
       BASE_URL: "https://tier4.github.io/scenario_simulator_v2_metrics_dashboard/"
       ROS_DISTRO: "galactic"
+      REPOS_FILE: "dependency_galactic.repos"
 
     steps:
     - name: Clone target repo
       uses: actions/checkout@v2
       with:
         repository: ${{ env.TARGET_REPO }}
-
-    - name: Clone dependency packages
-      run: |
-        vcs import . < dependency_${{ env.ROS_DISTRO }}.repos
-        apt-get -y update
-        apt-get install -y python3-pip
-        rosdep update
-        rosdep install -y --from-paths . --ignore-src --rosdistro ${{ env.ROS_DISTRO }}
 
     - name: Clone this repo
       uses: actions/checkout@v2
@@ -43,14 +35,40 @@ jobs:
         ref: data
         path: ${{ env.ARTIFACTS_DIR }}
 
+    - uses: ros-tooling/setup-ros@v0.2
+      with:
+        required-ros-distributions: ${{ env.ROS_DISTRO }}
+
+    - name: List packages
+      id: list_packages
+      run: |
+        package_list=$(colcon list --names-only)
+        echo "::set-output name=package_list::$package_list"
+
+    - name: Build and test
+      uses: ros-tooling/action-ros-ci@v0.2
+      id: build_and_test
+      with:
+        package-name: ${{ steps.list_packages.outputs.package_list }}
+        target-ros2-distro: ${{ env.ROS_DISTRO }}
+        vcs-repo-file-url: ${{ env.REPOS_FILE }}
+        extra-cmake-args: -DWITH_INTEGRATION_TEST=ON
+        colcon-defaults: |
+          {
+            "build": {
+              "mixin": ["coverage-gcc"]
+            }
+          }
+        colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml
+
     - id: metrics-reporter
       uses: tier4/ros-metrics-reporter@main
       with:
         artifacts-dir: ${{ env.ARTIFACTS_DIR }}
+        target-dir: ${{ steps.build_and_test.outputs.ros-workspace-directory-name }}
         base-url: ${{ env.BASE_URL }}
         title: ${{ env.TARGET_REPO }}
         ros-distro: ${{ env.ROS_DISTRO }}
-        extra-cmake-args: -DWITH_INTEGRATION_TEST=ON
         CCN: "20"
         CCN-recommendation: "10"
         nloc: "200"
